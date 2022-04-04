@@ -2,21 +2,25 @@ import React from 'react';
 import './MainStyle';
 import {
   MyContainer,
-  MainPage,
+  Home,
   MainHeader,
   MainNav,
   LogoWrapper,
   InputWrapper,
   FirstPage,
   MainBottom,
+  MainBody,
+  MyCol6,
 } from './MainStyle';
 import { Navbar } from '../components/navbar';
 import Logo from '../assets/logo.png';
+import uniPhoto from '../assets/uniPhoto.png';
 import { FiSearch } from 'react-icons/fi';
 import { AiOutlineDown } from 'react-icons/ai';
 import { BiUser } from 'react-icons/bi';
 import { BsCalendarWeek } from 'react-icons/bs';
 import { FiMail } from 'react-icons/fi';
+import { BsPlayFill } from 'react-icons/bs';
 import {
   AiFillEye,
   AiOutlineArrowRight,
@@ -26,7 +30,7 @@ import {
 function Main() {
   return (
     <>
-      <MainPage>
+      <Home>
         <MainHeader>
           <MyContainer>
             <LogoWrapper>
@@ -39,11 +43,7 @@ function Main() {
             <InputWrapper>
               <p className="phone-number">+71 631 42 21</p>
               <div className="input-search-wrapper">
-                <input
-                  className="input-search"
-                  type="search"
-                  placeholder="Search.."
-                />
+                <input className="input-search" type="search" />
                 <FiSearch />
               </div>
               <select className="select-lang">
@@ -179,7 +179,34 @@ function Main() {
             </ul>
           </MyContainer>
         </MainBottom>
-      </MainPage>
+      </Home>
+      <MainBody>
+        <MyContainer>
+          <MyCol6>
+            <div className="rectangle">
+              <img src={uniPhoto} alt="University Pic" />
+            </div>
+          </MyCol6>
+          <MyCol6>
+            <h2>Ташкентский государственный аграрный университет</h2>
+            <p>
+              Этот центр был создан на территории знаменитого комплекса
+              Хастимом, где великие исламские ученые, ученые и мыслители,
+              выросшие в нашей стране, внесли свой вклад в развитие мировой
+              культуры.
+            </p>
+            <div className="buttons-wrapper">
+              <button className="more-button">Подробнее</button>
+              <a href="youtube.com">
+                <button className="play-button">
+                  <BsPlayFill />
+                </button>
+                Видео о нас
+              </a>
+            </div>
+          </MyCol6>
+        </MyContainer>
+      </MainBody>
     </>
   );
 }
