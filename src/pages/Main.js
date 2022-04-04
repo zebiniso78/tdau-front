@@ -11,6 +11,8 @@ import {
   MainBottom,
   MainBody,
   MyCol6,
+  AboutSection,
+  TitleSection,
 } from './MainStyle';
 import { Navbar } from '../components/navbar';
 import Logo from '../assets/logo.png';
@@ -181,31 +183,37 @@ function Main() {
         </MainBottom>
       </Home>
       <MainBody>
-        <MyContainer>
-          <MyCol6>
-            <div className="rectangle">
-              <img src={uniPhoto} alt="University Pic" />
-            </div>
-          </MyCol6>
-          <MyCol6>
-            <h2>Ташкентский государственный аграрный университет</h2>
-            <p>
-              Этот центр был создан на территории знаменитого комплекса
-              Хастимом, где великие исламские ученые, ученые и мыслители,
-              выросшие в нашей стране, внесли свой вклад в развитие мировой
-              культуры.
-            </p>
-            <div className="buttons-wrapper">
-              <button className="more-button">Подробнее</button>
-              <a href="youtube.com">
-                <button className="play-button">
-                  <BsPlayFill />
-                </button>
-                Видео о нас
-              </a>
-            </div>
-          </MyCol6>
-        </MyContainer>
+        <AboutSection>
+          <MyContainer>
+            <MyCol6>
+              <div className="rectangle">
+                <img src={uniPhoto} alt="University Pic" />
+              </div>
+            </MyCol6>
+            <MyCol6>
+              <h2>Ташкентский государственный аграрный университет</h2>
+              <p>
+                Этот центр был создан на территории знаменитого комплекса
+                Хастимом, где великие исламские ученые, ученые и мыслители,
+                выросшие в нашей стране, внесли свой вклад в развитие мировой
+                культуры.
+              </p>
+              <div className="buttons-wrapper">
+                <button className="more-button">Подробнее</button>
+                <a href="youtube.com">
+                  <button className="play-button">
+                    <BsPlayFill />
+                  </button>
+                  Видео о нас
+                </a>
+              </div>
+            </MyCol6>
+          </MyContainer>
+        </AboutSection>
+        <TitleSection>
+          <h2>Ташкентский государственный аграрный университет</h2>
+          <h2>Ташкентский государственный аграрный университет</h2>
+        </TitleSection>
       </MainBody>
     </>
   );

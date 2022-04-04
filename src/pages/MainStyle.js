@@ -10,7 +10,7 @@ export const Home = styled.header`
 `;
 
 export const MainHeader = styled.section`
-  padding-top: 24px;
+  padding-top: 12px;
 `;
 
 export const MyContainer = styled(Container)`
@@ -34,6 +34,7 @@ export const LogoWrapper = styled.div`
     font-size: 20px;
     font-weight: bold;
     text-align: left;
+    text-transform: uppercase;
   }
 `;
 
@@ -295,10 +296,12 @@ export const MainBottom = styled.section`
   }
 `;
 
-export const MainBody = styled.section`
+export const MainBody = styled.main`
   background-color: #edece8;
   padding: 120px 0;
 `;
+
+export const AboutSection = styled.section``;
 
 export const MyCol6 = styled(Col6)`
   padding-left: auto;
@@ -392,5 +395,25 @@ export const MyCol6 = styled(Col6)`
         }
       }
     }
+  }
+`;
+
+export const TitleSection = styled.section`
+  padding: 52px 0;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  h2 {
+    text-align: left;
+    width: 200%;
+    text-transform: uppercase;
+    font-family: 'Cormorant Garamond';
+    font-style: normal;
+    font-weight: 400;
+    outline: hidden;
+    font-size: 60px;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 8px;
+    color: #b5a682;
   }
 `;
