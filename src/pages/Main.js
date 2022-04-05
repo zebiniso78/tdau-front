@@ -25,6 +25,7 @@ import { BiUser } from 'react-icons/bi';
 import { BsCalendarWeek } from 'react-icons/bs';
 import { FiMail } from 'react-icons/fi';
 import { BsPlayFill } from 'react-icons/bs';
+import newsCard from '../components/newsCard';
 import {
   AiFillEye,
   AiOutlineArrowRight,
@@ -225,7 +226,12 @@ function Main() {
                   Все новости <AiOutlineArrowRight />
                 </a>
               </div>
-              <Col4></Col4>
+              <Col4>
+                <newsCard
+                  title="A seminar-training on publishing articles was held at our university"
+                  text='A seminar-training for professors and teachers of Tashkent State Agrarian University on the publication of articles in specialized scientific publications on the list of international scientific and technical databases "ScienceDirect" and "Web o f science" was held. A seminar-training for professors and teachers of Tashkent State Agrarian University on the publication of articles in specialized scientific publications on the list of international scientific and technical databases "ScienceDirect" and "Web o f science" was held.'
+                />
+              </Col4>
             </Col12>
           </MyContainer>
         </NewSection>
