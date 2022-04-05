@@ -1,12 +1,18 @@
 import React from 'react';
-import styled from 'styled-components';
+import ServiceCard from '../../ServiceCard';
+import { Container } from '../../../common/grid';
+import './ServiceStyle';
 
-const Service = (props) => {
+function Service() {
   return (
     <>
-   
+      <Container>
+        <h2>Наши сервисы</h2>
+
+        <ServiceCard />
+      </Container>
     </>
   );
-};
+}
 
 export default Service;

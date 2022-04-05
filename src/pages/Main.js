@@ -17,14 +17,13 @@ import {
   MyCol12,
   MyCol4,
 } from './MainStyle';
-import { Navbar } from '../components/Navbar';
 import Logo from '../assets/logo.png';
 import uniPhoto from '../assets/uniPhoto.png';
-import cardImage1 from '../assets/cardImage1.png';
-import cardImage2 from '../assets/cardImage2.png';
-import cardImage3 from '../assets/cardImage3.png';
-import cardImage4 from '../assets/cardImage4.png';
-import cardImage5 from '../assets/cardImage5.png';
+import CardImage1 from '../assets/cardImage1.png';
+import CardImage2 from '../assets/cardImage2.png';
+import CardImage3 from '../assets/cardImage3.png';
+import CardImage4 from '../assets/cardImage4.png';
+import CardImage5 from '../assets/cardImage5.png';
 import { FiSearch } from 'react-icons/fi';
 import { AiOutlineDown, AiOutlineRight } from 'react-icons/ai';
 import { BiUser } from 'react-icons/bi';
@@ -38,6 +37,7 @@ import {
   AiOutlineArrowLeft,
 } from 'react-icons/ai';
 import NewsPost from '../components/NewsPost';
+import Service from '../components/MainPage/Service/Service';
 
 function Main() {
   return (
@@ -235,7 +235,7 @@ function Main() {
             <div className="news-card__wrapper">
               <div className="one-card__wrapper">
                 <NewsCard
-                  image={cardImage1}
+                  image={CardImage1}
                   date="10 января 2021"
                   seen="268 743"
                   title="Сложности с получением водительских прав за границей: падают необразованные, нет возможности..."
@@ -247,7 +247,7 @@ function Main() {
               <div className="several-cards__wrapper">
                 <NewsCard
                   className="small-cards"
-                  image={cardImage2}
+                  image={CardImage2}
                   date="10 января 2021"
                   seen="268 743"
                   title="Цена, продолжительность и качество обслуживания - по вопросам, которые волнуют насел..."
@@ -256,7 +256,7 @@ function Main() {
                 />
                 <NewsCard
                   className="small-cards"
-                  image={cardImage3}
+                  image={CardImage3}
                   date="10 января 2021"
                   seen="268 743"
                   title="Реджеп Тайип Эрдоган и первая леди Турции Эмине Эрдоган прибыли в Узбекистан"
@@ -265,7 +265,7 @@ function Main() {
                 />
                 <NewsCard
                   className="small-cards"
-                  image={cardImage4}
+                  image={CardImage4}
                   date="10 января 2021"
                   seen="268 743"
                   title="Со следующего месяца в Узбекистане повысят один из видов пенсий и введут новое пособие"
@@ -274,7 +274,7 @@ function Main() {
                 />
                 <NewsCard
                   className="small-cards"
-                  image={cardImage5}
+                  image={CardImage5}
                   date="10 января 2021"
                   seen="268 743"
                   title="Обнародован список правонарушений, за сообщения о которых можно заработать"
@@ -316,6 +316,7 @@ function Main() {
             </div>
           </MyContainer>
         </NewSection>
+        <Service />
       </MainBody>
     </>
   );
