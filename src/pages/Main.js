@@ -1,20 +1,11 @@
 import React from 'react';
 import './MainStyle';
 import {
-  MyContainer,
   Header,
-  FirstPage,
-  MainBottom,
   MainBody,
   TitleSection,
 } from './MainStyle';
-import { BsCalendarWeek } from 'react-icons/bs';
-import { FiMail } from 'react-icons/fi';
-import {
-  AiFillEye,
-  AiOutlineArrowRight,
-  AiOutlineArrowLeft,
-} from 'react-icons/ai';
+
 import Navbar from '../components/MainPage/Navbar/Navbar';
 import About from '../components/MainPage/AboutSection/About';
 import News from '../components/MainPage/News/News';
