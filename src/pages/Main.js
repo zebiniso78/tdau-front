@@ -14,23 +14,30 @@ import {
   AboutSection,
   TitleSection,
   NewSection,
+  MyCol12,
+  MyCol4,
 } from './MainStyle';
-import { Col4, Col12 } from '../common/grid';
-import { Navbar } from '../components/navbar';
+import { Navbar } from '../components/Navbar';
 import Logo from '../assets/logo.png';
 import uniPhoto from '../assets/uniPhoto.png';
+import cardImage1 from '../assets/cardImage1.png';
+import cardImage2 from '../assets/cardImage2.png';
+import cardImage3 from '../assets/cardImage3.png';
+import cardImage4 from '../assets/cardImage4.png';
+import cardImage5 from '../assets/cardImage5.png';
 import { FiSearch } from 'react-icons/fi';
 import { AiOutlineDown, AiOutlineRight } from 'react-icons/ai';
 import { BiUser } from 'react-icons/bi';
 import { BsCalendarWeek } from 'react-icons/bs';
 import { FiMail } from 'react-icons/fi';
 import { BsPlayFill } from 'react-icons/bs';
-import newsCard from '../components/newsCard';
+import NewsCard from '../components/NewsCard';
 import {
   AiFillEye,
   AiOutlineArrowRight,
   AiOutlineArrowLeft,
 } from 'react-icons/ai';
+import NewsPost from '../components/NewsPost';
 
 function Main() {
   return (
@@ -218,21 +225,95 @@ function Main() {
           <h2>Ташкентский государственный аграрный университет</h2>
         </TitleSection>
         <NewSection>
-          <MyContainer>
-            <Col12>
-              <div className="news-title-wrapper">
-                <h2>Новости</h2>
-                <a href="wikipedia.com">
-                  Все новости <AiOutlineArrowRight />
-                </a>
-              </div>
-              <Col4>
-                <newsCard
-                  title="A seminar-training on publishing articles was held at our university"
-                  text='A seminar-training for professors and teachers of Tashkent State Agrarian University on the publication of articles in specialized scientific publications on the list of international scientific and technical databases "ScienceDirect" and "Web o f science" was held. A seminar-training for professors and teachers of Tashkent State Agrarian University on the publication of articles in specialized scientific publications on the list of international scientific and technical databases "ScienceDirect" and "Web o f science" was held.'
+          <MyContainer className="news-container">
+            <div className="news-title__wrapper">
+              <h2>Новости</h2>
+              <a href="wikipedia.com">
+                Все новости <AiOutlineRight />
+              </a>
+            </div>
+            <div className="news-card__wrapper">
+              <div className="one-card__wrapper">
+                <NewsCard
+                  image={cardImage1}
+                  date="10 января 2021"
+                  seen="268 743"
+                  title="Сложности с получением водительских прав за границей: падают необразованные, нет возможности..."
+                  text="В развитых странах водительское удостоверение выдается только тем, кто досконально освоил правила вождения. Своим опытом поделились люди, непосредственно знакомые с процессом получения водительских прав, как в Узбекистане, так и за рубежом."
+                  hash="узбекистане"
+                  hash2="новости"
                 />
-              </Col4>
-            </Col12>
+              </div>
+              <div className="several-cards__wrapper">
+                <NewsCard
+                  className="small-cards"
+                  image={cardImage2}
+                  date="10 января 2021"
+                  seen="268 743"
+                  title="Цена, продолжительность и качество обслуживания - по вопросам, которые волнуют насел..."
+                  hash="узбекистане"
+                  hash2="семинары"
+                />
+                <NewsCard
+                  className="small-cards"
+                  image={cardImage3}
+                  date="10 января 2021"
+                  seen="268 743"
+                  title="Реджеп Тайип Эрдоган и первая леди Турции Эмине Эрдоган прибыли в Узбекистан"
+                  hash="узбекистане"
+                  hash2="конференции"
+                />
+                <NewsCard
+                  className="small-cards"
+                  image={cardImage4}
+                  date="10 января 2021"
+                  seen="268 743"
+                  title="Со следующего месяца в Узбекистане повысят один из видов пенсий и введут новое пособие"
+                  hash="узбекистане"
+                  hash2="тендер"
+                />
+                <NewsCard
+                  className="small-cards"
+                  image={cardImage5}
+                  date="10 января 2021"
+                  seen="268 743"
+                  title="Обнародован список правонарушений, за сообщения о которых можно заработать"
+                  hash="узбекистане"
+                  hash2="эълон"
+                />
+              </div>
+              <div className="news-posts__wrapper">
+                <NewsPost
+                  date="10 января 2021"
+                  seen="268 473"
+                  title="Члены конгресса Международной федерации футбола (ФИФА) почтили мину..."
+                />
+
+                <NewsPost
+                  date="10 января 2021"
+                  seen="268 473"
+                  title="Президент прокомментировал рост цен на сахар"
+                />
+
+                <NewsPost
+                  date="10 января 2021"
+                  seen="268 473"
+                  title="ЦБ опубликовал курс валют на 1 апреля"
+                />
+
+                <NewsPost
+                  date="10 января 2021"
+                  seen="268 473"
+                  title="В ГНК уточнили, как осуществляется налоговое администрирование на региона..."
+                />
+
+                <NewsPost
+                  date="10 января 2021"
+                  seen="268 473"
+                  title="Путин заявил, что условия для прекращения огня в Украине еще не созрели"
+                />
+              </div>
+            </div>
           </MyContainer>
         </NewSection>
       </MainBody>
