@@ -417,3 +417,5 @@ export const TitleSection = styled.section`
     color: #b5a682;
   }
 `;
+
+export const NewSection = styled.section``;

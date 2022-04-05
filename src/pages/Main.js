@@ -13,12 +13,14 @@ import {
   MyCol6,
   AboutSection,
   TitleSection,
+  NewSection,
 } from './MainStyle';
+import { Col4, Col12 } from '../common/grid';
 import { Navbar } from '../components/navbar';
 import Logo from '../assets/logo.png';
 import uniPhoto from '../assets/uniPhoto.png';
 import { FiSearch } from 'react-icons/fi';
-import { AiOutlineDown } from 'react-icons/ai';
+import { AiOutlineDown, AiOutlineRight } from 'react-icons/ai';
 import { BiUser } from 'react-icons/bi';
 import { BsCalendarWeek } from 'react-icons/bs';
 import { FiMail } from 'react-icons/fi';
@@ -214,6 +216,19 @@ function Main() {
           <h2>Ташкентский государственный аграрный университет</h2>
           <h2>Ташкентский государственный аграрный университет</h2>
         </TitleSection>
+        <NewSection>
+          <MyContainer>
+            <Col12>
+              <div className="news-title-wrapper">
+                <h2>Новости</h2>
+                <a href="wikipedia.com">
+                  Все новости <AiOutlineArrowRight />
+                </a>
+              </div>
+              <Col4></Col4>
+            </Col12>
+          </MyContainer>
+        </NewSection>
       </MainBody>
     </>
   );
