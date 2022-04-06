@@ -48,6 +48,19 @@ const Input = (props) => {
             maxLength={props.length}
           ></InputText>
         </Label>
+      ) : props.type === 'tel' ? (
+        <Label>
+          <TitleWrapper>
+            {props.title}
+            {props.required === true ? <sup>*</sup> : null}
+          </TitleWrapper>
+          <InputText
+            type={`tel`}
+            required
+            onChange={props.onChange}
+            maxLength={props.length}
+          ></InputText>
+        </Label>
       ) : (
         <Label>
           <TitleWrapper>
@@ -70,11 +83,13 @@ const Input = (props) => {
 
 export const Label = styled.label`
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 12px;
+  align-items: left;
   sup {
     padding: 0;
     margin: 0;
@@ -98,11 +113,16 @@ export const Label = styled.label`
 `;
 
 export const TitleWrapper = styled.div`
-  width: 40%;
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   margin-right: 28px;
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #313131;
   @media (max-width: 768px) {
     width: 50%;
   }
@@ -115,24 +135,29 @@ export const TitleWrapper = styled.div`
 `;
 
 const InputText = styled.input`
-  width: 60%;
-  background: #fcfcfd;
-  border: 1px solid #cfd0d7;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #bcc6d4;
   box-sizing: border-box;
   border-radius: 4px;
   outline: none;
   margin: 0;
   padding: 0;
-  padding: 12px;
+  padding: 8px 12px;
+  margin-bottom: 6px;
 
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 14px;
-  color: var(--black);
+  color: ;
 
   &:focus {
-    border: 1px solid var(--green);
+    border: 1px solid #2e7df6;
+  }
+
+  &:invalid {
+    border: 1px solid #eb5757;
   }
 
   &:disabled {

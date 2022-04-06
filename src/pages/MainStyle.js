@@ -10,11 +10,11 @@ export const Header = styled.header`
 
 export const MainBody = styled.main`
   background-color: #edece8;
-  padding: 120px 0;
+  padding: 72px 0;
 `;
 
 export const TitleSection = styled.section`
-  padding: 52px 0;
+  padding: 60px 0;
   overflow-y: hidden;
   overflow-x: hidden;
   h2 {

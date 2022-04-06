@@ -1,10 +1,6 @@
 import React from 'react';
 import './MainStyle';
-import {
-  Header,
-  MainBody,
-  TitleSection,
-} from './MainStyle';
+import { Header, MainBody, TitleSection } from './MainStyle';
 
 import Navbar from '../components/MainPage/Navbar/Navbar';
 import About from '../components/MainPage/AboutSection/About';
@@ -14,6 +10,7 @@ import MediaGallery from '../components/MainPage/MediaGallery/MediaGallery';
 import LinksSection from '../components/MainPage/LinksSection/LinksSection';
 import IntroSection from '../components/MainPage/IntroSection/IntroSection';
 import BottomNews from '../components/MainPage/BottomNews/BottomNews';
+import Footer from '../components/MainPage/Footer/Footer';
 
 function Main() {
   return (
@@ -34,6 +31,7 @@ function Main() {
         <MediaGallery />
         <LinksSection />
       </MainBody>
+      <Footer />
     </>
   );
 }
