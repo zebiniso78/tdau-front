@@ -108,6 +108,24 @@ export const Label = styled.label`
     margin-left: 4px;
   }
 
+  select {
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #bcc6d4;
+    box-sizing: border-box;
+    border-radius: 4px;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    padding: 8px 12px;
+    margin-bottom: 6px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 14px;
+    color: #313131;
+  }
+
   @media (max-width: 768px) {
     width: 90%;
   }
@@ -160,7 +178,7 @@ const InputText = styled.input`
   font-weight: normal;
   font-size: 14px;
   line-height: 14px;
-  color: ;
+  color: #313131;
 
   &:focus {
     border: 1px solid #2e7df6;

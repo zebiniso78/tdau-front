@@ -56,7 +56,7 @@ const Card = styled.div`
   .personal-card__heading {
     margin: 0;
     padding: 0;
-    padding: 24px;
+    padding: 16px;
     padding-bottom: 12px;
     display: flex;
     align-items: center;
