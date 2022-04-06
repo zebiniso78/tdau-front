@@ -249,7 +249,6 @@ function Navbar() {
           </p>
         </PureModal>
       </MyHeader>
-      ;
     </>
   );
 }

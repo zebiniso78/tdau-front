@@ -61,6 +61,16 @@ const Input = (props) => {
             maxLength={props.length}
           ></InputText>
         </Label>
+      ) : props.type === 'select' ? (
+        <Label>
+          <TitleWrapper>
+            {props.title}
+            {props.required === true ? <sup>*</sup> : null}
+          </TitleWrapper>
+          <select required>
+            <option value={props.value}>{props.option}</option>
+          </select>
+        </Label>
       ) : (
         <Label>
           <TitleWrapper>
