@@ -15,7 +15,7 @@ min-height: 95vh;
 background: #FFFFFF;
 border-radius: 12px;
 border-radius: 12px;
-padding: 24px;
+padding: 15px;
 &.right-side {
    padding: 5px;
 }

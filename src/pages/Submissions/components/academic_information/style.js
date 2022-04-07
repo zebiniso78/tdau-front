@@ -9,6 +9,7 @@ export const AcademicInfoTitle = styled.h4`
 font-weight: 700;
 font-size: 24px;
 color: #010E31;
+margin-bottom: 15px;
 `
 export const AcademicInfo = styled.div`
 & p {

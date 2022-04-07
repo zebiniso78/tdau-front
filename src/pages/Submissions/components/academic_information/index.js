@@ -71,7 +71,7 @@ export function AcademicInformation() {
                />
             </div>
             <ButtonsProvider>
-               <CancelBtnComponent name='Назад' className='prev-btn' />
+               <CancelBtnComponent name='Назад' className='prev-btn' onClick={() => history.push("/personal-info")} />
                <NextBtnComponent
                   name='Продолжить' className='next-btn' onClick={() => history.push("/passport-info")} />
             </ButtonsProvider>
