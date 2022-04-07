@@ -11,15 +11,24 @@ export const LayoutProvider = styled.div`
 export const DocumentCard = styled.div`
 width: 100%;
 height: auto;
-min-height: 93vh;
-left: 180px;
-top: 225px;
+min-height: 95vh;
 background: #FFFFFF;
 border-radius: 12px;
 border-radius: 12px;
 padding: 24px;
 &.right-side {
    padding: 5px;
+}
+
+& .timeline-link {
+   text-decoration:none;
+   color: #B2B1AE;
+   font-weight: 500;
+   font-family: 'Open Sans', sans-serif;
+}
+& .timeline-nav-link {
+   color: #11711A;
+   font-weight: 700;
 }
 `
 export const TimeLineHeader = styled.h5`

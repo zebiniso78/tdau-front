@@ -4,7 +4,7 @@ import { Input } from './style'
 export function InputComponent({ Controller, nameProps, plProps, control, required, disabled, label }){
    return (
       <>
-      <p style={{marginBottom: '0'}}>{label}</p>
+      <p style={{marginBottom: '0', fontSize:'14px'}}>{label}</p>
       <Controller
          control={control}
          name={nameProps}

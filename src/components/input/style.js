@@ -10,6 +10,9 @@ border-radius: 4px;
 outline: none;
 margin: 8px 0px;
 text-indent: 12px;
+&::placeholder {
+   font-size: 14px;
+}
 `
 export const FormGroupProvider = styled.div`
 `

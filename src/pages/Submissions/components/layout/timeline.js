@@ -9,9 +9,9 @@ export default function TimeLine() {
       <DocumentCard>
          <TimeLineHeader>Последовательность подачи документов</TimeLineHeader>
          <Timeline>
-            <Timeline.Item><NavLink to='/personal-info' style={{textDecoration:'none', color: '#B2B1AE'}}>Персональные данные</NavLink></Timeline.Item>
-            <Timeline.Item><NavLink to='/academic-info' style={{textDecoration:'none', color: '#B2B1AE'}}>Академическая информация</NavLink></Timeline.Item>
-            <Timeline.Item>Паспортная информация</Timeline.Item>
+            <Timeline.Item><NavLink to='/personal-info' className='timeline-link' activeClassName='timeline-nav-link'>Персональные данные</NavLink></Timeline.Item>
+            <Timeline.Item><NavLink to='/academic-info' className='timeline-link' activeClassName='timeline-nav-link'>Академическая информация</NavLink></Timeline.Item>
+            <Timeline.Item><NavLink to='/passport-info' className='timeline-link' activeClassName='timeline-nav-link'>Паспортная информация</NavLink></Timeline.Item>
             <Timeline.Item>Адресаная информация</Timeline.Item>
             <Timeline.Item>Образование и квалификации</Timeline.Item>
             <Timeline.Item>Английский язык</Timeline.Item>
