@@ -1,6 +1,5 @@
 import styled from "styled-components";
 export const StyleSelectAll = styled.div`
-  margin-top: 4px;
   border-radius: 4px;
    
   & > div > div {
@@ -70,3 +69,14 @@ export const StyleSelectAll = styled.div`
     }
   }
 `;
+
+export const Title = styled.h4`
+font-family: 'Open Sans', sans-serif;
+font-weight: 700;
+font-size: 20px;
+color: #010E31;
+&.form-title {
+  font-weight: 600;
+  font-size: 18px;
+}
+`

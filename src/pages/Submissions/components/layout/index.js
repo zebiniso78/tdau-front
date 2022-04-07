@@ -14,10 +14,10 @@ export function Layout() {
       <LayoutProvider>
          <div className='container'>
             <div className='row'>
-               <div className='col-lg-3 col-md-6 col-sm-6 col-12'>
+               <div className='col-lg-3 col-md-12 col-sm-12 col-12'>
                   <TimeLine />
                </div>
-               <div className='col-lg-9 col-md-6 col-sm-6 col-12'>
+               <div className='col-lg-9 col-md-12 col-sm-12 col-12'>
                   <DocumentCard className='right-side'>
                      <Route path='/personal-info' component={PersonalInfo} />
                      <Route path='/academic-info' component={AcademicInformation} />

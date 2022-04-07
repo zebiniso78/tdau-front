@@ -4,6 +4,13 @@ export const customStyles = {
      transition: 'all 0.3s',
      transform: state.selectProps.menuIsOpen && 'rotate(180deg)',
    }),
+   placeholder: defaultStyles => {
+    return {
+      ...defaultStyles,
+      color: "#A8A8A8",
+      fontSize: '12px'
+    };
+  },
    control: (provided, { isDisabled, isFocused }) => ({
      ...provided,
      cursor: isDisabled ? 'text' : 'pointer',

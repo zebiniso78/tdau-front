@@ -11,7 +11,8 @@ outline: none;
 margin: 8px 0px;
 text-indent: 12px;
 &::placeholder {
-   font-size: 14px;
+   font-size: 12px;
+   color: #A8A8A8;
 }
 `
 export const FormGroupProvider = styled.div`
