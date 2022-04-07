@@ -11,8 +11,9 @@ import { AiOutlineDown } from 'react-icons/ai';
 import { BiUser } from 'react-icons/bi';
 import { FiSearch } from 'react-icons/fi';
 import PureModal from 'react-pure-modal';
-import Input from '../../Input';
-import Button from '../../Button';
+// import Input from '../../Input';
+import Input from '../../input'
+import Button from '../../button';
 
 function Navbar() {
   const [modal, setModal] = useState(false);

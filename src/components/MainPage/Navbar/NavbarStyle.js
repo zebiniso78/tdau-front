@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import { Container } from '../../../common/grid';
 
 export const MyHeader = styled.header`
-  background-color: rgba(0, 0, 0, 0.4);
+  /* background-color: rgba(0, 0, 0, 0.4); */
+  background-color: #1a3426;
 
   .pure-modal-backdrop {
     position: fixed;
