@@ -5,7 +5,7 @@ import { Controller, useForm } from 'react-hook-form';
 import Calendar from '../../../../components/calendar';
 import DragDrop from '../../../../components/dragDrop';
 import { useState } from 'react';
-import { Col4, Col8, Row, Col12 } from '../../../../common/grid';
+import { Col4, Col8, Row, Col12, Col10 } from '../../../../common/grid';
 import { ButtonsProvider } from '../../../../components/buttons/style';
 import { CancelBtnComponent } from '../../../../components/buttons/prev-btn';
 import { NextBtnComponent } from '../../../../components/buttons/next-btn';
@@ -43,7 +43,7 @@ export function PassportInformation() {
         </Col4>
       </Row>
       <Row>
-        <Col8 className='mt-3'>
+        <Col10 className='mt-3'>
           <p style={{padding: '0'}}>Пожалуйста, загрузите копию вашего действующего паспорта*</p>
           <DragDrop
             name="transcript"
@@ -52,8 +52,9 @@ export function PassportInformation() {
             setFile={setTranscript}
             required
             className='p-0' />
-        </Col8>
+        </Col10>
       </Row>
+      <div className='col-10'></div>
       <ButtonsProvider>
         <CancelBtnComponent name='Назад' className='prev-btn' />
         <NextBtnComponent name='Продолжить' className='next-btn' />

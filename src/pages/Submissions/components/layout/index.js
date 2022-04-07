@@ -6,6 +6,7 @@ import { Route } from 'react-router-dom';
 import { PersonalInfo } from '../personal_information';
 import { AcademicInformation } from '../academic_information';
 import { PassportInformation } from '../passport_information';
+import { AddressInformation } from '../address_information';
 
 
 export function Layout() {
@@ -21,6 +22,7 @@ export function Layout() {
                      <Route path='/personal-info' component={PersonalInfo} />
                      <Route path='/academic-info' component={AcademicInformation} />
                      <Route path='/passport-info' component={PassportInformation} />
+                     <Route path='/address-info' component={AddressInformation} />
                   </DocumentCard>
                </div>
             </div>
