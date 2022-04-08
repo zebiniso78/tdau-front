@@ -14,9 +14,14 @@ import { EntityForm } from './entityForm'
 import { PhoneMask } from 'components/mask'
 import { InputComponent } from 'components/input/controllerInput'
 import { Link } from 'react-router-dom'
+import { ButtonsProvider } from 'components/buttons/style'
+import { CancelBtnComponent } from 'components/buttons/prev-btn'
+import { NextBtnComponent } from 'components/buttons/next-btn'
+import { useHistory } from 'react-router-dom'
 
 
 export function AddressInformation() {
+  const history = useHistory()
   const {
     control,
     formState: { errors },
@@ -126,6 +131,18 @@ export function AddressInformation() {
             </div>
           </div>
         </AddressFooter>
+        <ButtonsProvider>
+          <CancelBtnComponent
+            name='Назад'
+            className='prev-btn'
+            onClick={() => history.push("/passport-info")}
+            type='button' />
+          <NextBtnComponent
+            name='Продолжить'
+            className='next-btn'
+            onClick={() => history.push("/education-qualifications")}
+            type='submit' />
+        </ButtonsProvider>
       </AddressForm>
     </AddressInfoProvider>
   )

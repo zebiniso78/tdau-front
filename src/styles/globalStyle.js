@@ -80,3 +80,13 @@ color: #010E31;
   font-size: 18px;
 }
 `
+export const Paragraph = styled.p`
+font-weight: 500;
+font-size: 14px;
+line-height: 19px;
+color: #313131;
+&.footer-paragraph {
+   color: #777674;
+   margin-top: 10px;
+}
+`
