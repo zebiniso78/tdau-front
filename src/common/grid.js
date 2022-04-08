@@ -54,6 +54,10 @@ export const Col6 = styled(Col12)`
     max-width: 50%;
   }
 `;
+export const Col10 = styled.div`
+    flex: 0 0 auto;
+    width: 83.33333333%;
+`
 export const Col8 = styled(Col12)`
   flex: 0 0 100%;
   max-width: 100%;
