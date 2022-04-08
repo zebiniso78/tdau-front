@@ -24,7 +24,7 @@ export default function TimeLine() {
             <Timeline.Item>
                <NavLink to='/education-qualifications' className='timeline-link' activeClassName='timeline-nav-link'>Образование и квалификации</NavLink>
             </Timeline.Item>
-            <Timeline.Item>Английский язык</Timeline.Item>
+            <Timeline.Item><NavLink to='/english-language' className='timeline-link' activeClassName='timeline-nav-link'>Английский язык</NavLink></Timeline.Item>
             <Timeline.Item>Вспомогательная информация</Timeline.Item>
             <Timeline.Item>Использованная литература</Timeline.Item>
             <Timeline.Item>Дополнительная информация</Timeline.Item>
