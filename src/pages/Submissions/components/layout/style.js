@@ -6,6 +6,11 @@ export const LayoutProvider = styled.div`
  background-color: #E5E5E5;
  padding: 40px;
  font-family: 'Inter', sans-serif;
+ @media (max-width: 992px) {
+    & .col-lg-9 {
+       margin-top: 20px;
+    }
+ }
 `
 
 export const DocumentCard = styled.div`
