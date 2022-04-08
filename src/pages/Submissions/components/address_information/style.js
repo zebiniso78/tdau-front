@@ -11,3 +11,4 @@ color: #313131;
 `
 export const AddressForm = styled.form``
 export const CheckboxWrapper = styled.div``
+export const MaskInputWrapper = styled.div``
