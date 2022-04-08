@@ -7,6 +7,8 @@ import { PersonalInfo } from '../personal_information';
 import { AcademicInformation } from '../academic_information';
 import { PassportInformation } from '../passport_information';
 import { AddressInformation } from '../address_information';
+import { AdditionalInformation } from '../additional_information';
+import { References } from '../references';
 import { Education } from '../education';
 
 
@@ -24,7 +26,10 @@ export function Layout() {
                      <Route path='/academic-info' component={AcademicInformation} />
                      <Route path='/passport-info' component={PassportInformation} />
                      <Route path='/address-info' component={AddressInformation} />
-                     <Route path='/education-qualifications' component={Education} />
+                     <Route path='/education-qualifications' component={Education} /> 
+                                              
+                     <Route path='/references' component={References} />               
+                     <Route path='/additional-info' component={AdditionalInformation} />
                   </DocumentCard>
                </div>
             </div>

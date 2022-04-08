@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { CheckboxComponent } from 'components/checkbox';
 import {
   AdditionalInfoProvider,
   CheckboxWrapper,
   Paragraph,
   ButtonWrapper,
-  Model,
 } from './style';
 import { Controller, useForm } from 'react-hook-form';
 import { CancelBtnComponent } from 'components/buttons/prev-btn';
@@ -13,6 +13,7 @@ import { NextBtnComponent } from 'components/buttons/next-btn';
 import Modal from '../../../../components/modal';
 
 export function AdditionalInformation() {
+  const history = useHistory();
   const [modal, setModal] = useState(false);
   const {
     control,
@@ -66,7 +67,12 @@ export function AdditionalInformation() {
           </CheckboxWrapper>
         </div>
         <ButtonWrapper>
-          <CancelBtnComponent name="Назад" className="prev-btn" />
+          <CancelBtnComponent
+            name="Назад"
+            className="prev-btn"
+            onClick={() => history.push('/references')}
+            type="button"
+          />
           <NextBtnComponent
             name="Отправлять"
             className="next-btn"
