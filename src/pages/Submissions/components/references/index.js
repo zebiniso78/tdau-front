@@ -9,6 +9,7 @@ import { NextBtnComponent } from 'components/buttons/next-btn';
 export function References() {
   const history = useHistory();
   const [recomendationDoc, setRecomendationDoc] = useState([]);
+  const [recomendationDoc2, setRecomendationDoc2] = useState([]);
   return (
     <>
       <ReferencesProvider className="container">
@@ -41,8 +42,8 @@ export function References() {
           <DragDrop
             name="recomendationDoc"
             inputId="recomendationDoc"
-            files={recomendationDoc}
-            setFile={setRecomendationDoc}
+            files={recomendationDoc2}
+            setFile={setRecomendationDoc2}
             required
             className="p-0"
           />

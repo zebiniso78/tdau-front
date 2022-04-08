@@ -54,7 +54,15 @@ export default function TimeLine() {
           </NavLink>
         </Timeline.Item>
         <Timeline.Item>Английский язык</Timeline.Item>
-        <Timeline.Item>Вспомогательная информация</Timeline.Item>
+        <Timeline.Item>
+          <NavLink
+            to="/supporting-info"
+            className="timeline-link"
+            activeClassName="timeline-nav-link"
+          >
+            Вспомогательная информация
+          </NavLink>
+        </Timeline.Item>
         <Timeline.Item>
           <NavLink
             to="/references"
