@@ -1,7 +1,23 @@
-import React from 'react';
-import { AdditionalInfoProvider } from './style';
+import React, { useState } from 'react';
+import { CheckboxComponent } from 'components/checkbox';
+import {
+  AdditionalInfoProvider,
+  CheckboxWrapper,
+  Paragraph,
+  ButtonWrapper,
+  Model,
+} from './style';
+import { Controller, useForm } from 'react-hook-form';
+import { CancelBtnComponent } from 'components/buttons/prev-btn';
+import { NextBtnComponent } from 'components/buttons/next-btn';
+import Modal from '../../../../components/modal';
 
 export function AdditionalInformation() {
+  const [modal, setModal] = useState(false);
+  const {
+    control,
+    formState: { errors },
+  } = useForm();
   return (
     <>
       <AdditionalInfoProvider className="container">
@@ -29,7 +45,45 @@ export function AdditionalInformation() {
             скорее по адресу (ссылка для службы поддержки)
           </p>
         </div>
+        <div className="checkbox col-lg-4 col-md-6 col-sm-6 col-12">
+          <Paragraph>
+            Я подтверждаю, что прочитал и принимаю Условия использования TDAU{' '}
+            <sup>*</sup>
+          </Paragraph>
+          <CheckboxWrapper>
+            <CheckboxComponent
+              Controller={Controller}
+              control={control}
+              name="yes"
+              label="Да"
+            />
+            <CheckboxComponent
+              Controller={Controller}
+              control={control}
+              name="no"
+              label="Нет"
+            />
+          </CheckboxWrapper>
+        </div>
+        <ButtonWrapper>
+          <CancelBtnComponent name="Назад" className="prev-btn" />
+          <NextBtnComponent
+            name="Отправлять"
+            className="next-btn"
+            onClick={() => {
+              setModal(true);
+            }}
+          />
+        </ButtonWrapper>
       </AdditionalInfoProvider>
+
+      <Modal
+        isOpen={modal}
+        onClose={() => {
+          setModal(false);
+          return true;
+        }}
+      />
     </>
   );
 }
