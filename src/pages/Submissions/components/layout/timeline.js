@@ -17,7 +17,7 @@ export default function TimeLine() {
             <Timeline.Item>Английский язык</Timeline.Item>
             <Timeline.Item>Вспомогательная информация</Timeline.Item>
             <Timeline.Item>Использованная литература</Timeline.Item>
-            <Timeline.Item>Дополнительная информация</Timeline.Item>
+            <Timeline.Item><NavLink to='/additional-info' className='timeline-link' activeClassName='timeline-nav-link'>Дополнительная информация</NavLink></Timeline.Item>
          </Timeline>
       </DocumentCard>
    )
