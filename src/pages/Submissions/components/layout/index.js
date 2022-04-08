@@ -7,30 +7,28 @@ import { PersonalInfo } from '../personal_information';
 import { AcademicInformation } from '../academic_information';
 import { PassportInformation } from '../passport_information';
 import { AddressInformation } from '../address_information';
-import { AdditionalInformation } from '../additional_information';
+import { Education } from '../education';
+
 
 export function Layout() {
-  return (
-    <LayoutProvider>
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-3 col-md-12 col-sm-12 col-12">
-            <TimeLine />
-          </div>
-          <div className="col-lg-9 col-md-12 col-sm-12 col-12">
-            <DocumentCard className="right-side">
-              <Route path="/personal-info" component={PersonalInfo} />
-              <Route path="/academic-info" component={AcademicInformation} />
-              <Route path="/passport-info" component={PassportInformation} />
-              <Route path="/address-info" component={AddressInformation} />
-              <Route
-                path="/additional-info"
-                component={AdditionalInformation}
-              />
-            </DocumentCard>
-          </div>
-        </div>
-      </div>
-    </LayoutProvider>
-  );
+   return (
+      <LayoutProvider>
+         <div className='container'>
+            <div className='row'>
+               <div className='col-lg-3 col-md-12 col-sm-12 col-12'>
+                  <TimeLine />
+               </div>
+               <div className='col-lg-9 col-md-12 col-sm-12 col-12'>
+                  <DocumentCard className='right-side'>
+                     <Route path='/personal-info' component={PersonalInfo} />
+                     <Route path='/academic-info' component={AcademicInformation} />
+                     <Route path='/passport-info' component={PassportInformation} />
+                     <Route path='/address-info' component={AddressInformation} />
+                     <Route path='/education-qualifications' component={Education} />
+                  </DocumentCard>
+               </div>
+            </div>
+         </div>
+      </LayoutProvider>
+   )
 }

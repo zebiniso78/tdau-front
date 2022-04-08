@@ -15,7 +15,7 @@ export default function Calendar({
 }) {
    return (
       <Form>
-         <p style={{ marginLeft: '0', marginBottom: '-10px' }}>{label}</p>
+         <p style={{ marginLeft: '0', marginBottom: '-10px', fontSize:'14px' }}>{label}</p>
          <Controller
             control={control}
             name={nameProps}

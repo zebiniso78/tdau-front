@@ -1,7 +1,7 @@
 import React from 'react'
 import { Input } from './style'
 
-export function InputComponent({ Controller, nameProps, plProps, control, required, disabled, label }) {
+export function InputComponent({ Controller, nameProps, plProps, control, required, disabled, label, className }) {
    return (
       <>
          <p style={{ marginBottom: '0', fontSize: '14px' }}>{label}</p>
@@ -15,7 +15,7 @@ export function InputComponent({ Controller, nameProps, plProps, control, requir
                formState: { errors },
             }) => (
                <Input
-                  className=""
+                  className={className}
                   oneTap
                   ref={ref}
                   name={name}
