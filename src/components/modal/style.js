@@ -39,7 +39,8 @@ export const MyModal = styled.div`
          color: #fff;
          text-align: center;
          background: #169622;
-border-radius: 4px;
+         border: 1px solid #169622;
+         border-radius: 4px;
          margin: 0 auto;
          padding: 12px;
 
@@ -70,5 +71,30 @@ border-radius: 4px;
 border-radius: 50px;
 padding: 16px;
    }
+  }
+`;
+
+export const ErrorModal = styled(MyModal)`
+  .panel-body {
+    p {
+      color: #eb5757;
+    }
+
+    svg {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto;
+      color: #eb5757;
+      margin-bottom: 32px;
+      background: #feefef;
+    }
+  }
+
+  .pure-modal {
+    .close {
+      color: #eb5757;
+      background: #fff;
+      border: 1px solid #eb5757;
+    }
   }
 `;
