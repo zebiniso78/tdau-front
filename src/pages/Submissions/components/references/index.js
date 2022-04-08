@@ -58,7 +58,7 @@ export function References() {
           <CancelBtnComponent
             name="Назад"
             className="prev-btn"
-            onClick={() => history.push('/address-info')}
+            onClick={() => history.push('/supporting-info')}
             type="button"
           />
           <NextBtnComponent
