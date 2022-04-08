@@ -12,7 +12,7 @@ function Profile() {
       <ProfileSection>
         {/* <Navbar /> */}
         <ProfileBody>
-          <Container className='profile-container'>
+          <Container className="profile-container">
             <div className="user-card">
               <PersonalCard title="Абдурахимов Абдувохид Абдумалик ўғли" />{' '}
             </div>

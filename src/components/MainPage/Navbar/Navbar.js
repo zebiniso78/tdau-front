@@ -12,8 +12,8 @@ import { BiUser } from 'react-icons/bi';
 import { FiSearch } from 'react-icons/fi';
 import PureModal from 'react-pure-modal';
 // import Input from '../../Input';
-import Input from '../../input'
-import Button from '../../button';
+import Input from '../../Input';
+import Button from '../../Button';
 
 function Navbar() {
   const [modal, setModal] = useState(false);
