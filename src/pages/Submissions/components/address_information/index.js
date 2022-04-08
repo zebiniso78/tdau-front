@@ -1,6 +1,6 @@
 import React from 'react'
 import { Title } from '../../../../styles/globalStyle'
-import { AddressInfoProvider, AddressForm, Paragraph, CheckboxWrapper } from "./style"
+import { AddressInfoProvider, AddressForm, Paragraph, CheckboxWrapper, MaskInputWrapper } from "./style"
 import { useForm, Controller } from "react-hook-form"
 import { CheckboxComponent } from '../../../../components/checkbox'
 import { EntityForm } from './entityForm'
