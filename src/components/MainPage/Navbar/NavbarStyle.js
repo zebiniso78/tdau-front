@@ -2,8 +2,7 @@ import styled from 'styled-components';
 import { Container } from '../../../common/grid';
 
 export const MyHeader = styled.header`
-  /* background-color: rgba(0, 0, 0, 0.4); */
-  background-color: #1a3426;
+  padding: 12px 0;
 
   .pure-modal-backdrop {
     position: fixed;
@@ -72,15 +71,17 @@ export const MyHeader = styled.header`
   }
 
   .panel-body {
-    p {
+    .resend-code__button {
       margin: 0;
       padding: 0;
       text-align: left;
-      font-weight: 500;
+      font-weight: 400;
       font-size: 14px;
       line-height: 18px;
       color: #b2b1ae;
       margin-bottom: 10px;
+      background-color: transparent;
+      border: none;
 
       span {
         margin-right: 4px;

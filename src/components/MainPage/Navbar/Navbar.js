@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import {
   MyContainer,
   LogoWrapper,
@@ -12,16 +13,27 @@ import { BiUser } from 'react-icons/bi';
 import { FiSearch } from 'react-icons/fi';
 import PureModal from 'react-pure-modal';
 // import Input from '../../Input';
-import Input from '../../input';
-import Button from '../../button';
+import Input from '../../Input';
+import Button from '../../Button';
 
 function Navbar() {
-  const [modal, setModal] = useState(false);
-  const [registerModel, setRegisterModel] = useState(false);
-  const [confirmModel, setConfirmModel] = useState(false);
+  const location = useLocation();
+  const [navBg, setNavBg] = React.useState('#1a3426');
+
+  const [registerModal, setRegisterModal] = useState(false);
+  const [confirmModal, setConfirmModal] = useState(false);
+
+  React.useEffect(() => {
+    if (window.location.pathname === '/main') {
+      setNavBg('rgba(0, 0, 0, 0.4)');
+    } else {
+      setNavBg('#1a3426');
+    }
+  }, [location]);
+
   return (
     <>
-      <MyHeader>
+      <MyHeader style={{ backgroundColor: navBg }}>
         <section>
           <MyContainer>
             <LogoWrapper>
@@ -48,9 +60,9 @@ function Navbar() {
               <button
                 className="login-button"
                 type="submit"
-                onClick={() => setModal(true)}
+                onClick={() => setRegisterModal(true)}
               >
-                Вход / Регистрация
+                Admission
                 <BiUser />
               </button>
             </InputWrapper>
@@ -99,45 +111,6 @@ function Navbar() {
         </Nav>
 
         <PureModal
-          header="Вход"
-          footer={
-            <div className="footer-button__wrapper">
-              <Button type="submit" title="Вход" />
-              <Button
-                type="submit"
-                title="Зарегистрироваться"
-                bgColor="transparent"
-                color="#2e7df6"
-                onClick={() => setRegisterModel(true)}
-              />
-            </div>
-          }
-          isOpen={modal}
-          closeButton="X"
-          closeButtonPosition="header"
-          onClose={() => {
-            setModal(false);
-            return true;
-          }}
-        >
-          <Input
-            type={`text`}
-            required
-            title="Логин"
-            placeholder="Your Login Here"
-            length={80}
-          />
-
-          <Input
-            type={`password`}
-            required
-            title="Пароль"
-            placeholder="Your Login Here"
-            length={80}
-          />
-        </PureModal>
-
-        <PureModal
           header="Регистрация"
           footer={
             <div className="footer-button__wrapper">
@@ -145,8 +118,8 @@ function Navbar() {
                 type="submit"
                 title="Продолжить"
                 onClick={() => {
-                  setConfirmModel(true);
-                  setRegisterModel(false);
+                  setConfirmModal(true);
+                  setRegisterModal(false);
                 }}
               />
               <Button
@@ -155,18 +128,17 @@ function Navbar() {
                 bgColor="transparent"
                 color="#2e7df6"
                 onClick={() => {
-                  setRegisterModel(false);
+                  setRegisterModal(false);
                 }}
               />
             </div>
           }
-          isOpen={registerModel}
+          isOpen={registerModal}
           scrollable={true}
           closeButton="X"
           closeButtonPosition="header"
           onClose={() => {
-            setRegisterModel(false);
-            setModal(false);
+            setRegisterModal(false);
             return true;
           }}
         >
@@ -215,17 +187,17 @@ function Navbar() {
                 bgColor="transparent"
                 color="#2e7df6"
                 onClick={() => {
-                  setConfirmModel(false);
-                  setRegisterModel(false);
+                  setConfirmModal(false);
+                  setRegisterModal(false);
                 }}
               />
             </div>
           }
-          isOpen={confirmModel}
+          isOpen={confirmModal}
           closeButton="X"
           closeButtonPosition="header"
           onClose={() => {
-            setConfirmModel(false);
+            setConfirmModal(false);
             return true;
           }}
         >
@@ -245,9 +217,9 @@ function Navbar() {
             length={80}
           />
 
-          <p>
+          <button className="resend-code__button">
             <span>00:56</span>Отправить код ещё раз
-          </p>
+          </button>
         </PureModal>
       </MyHeader>
     </>
