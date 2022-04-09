@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const PassportInfoProvider = styled.div`
-padding: 24px;
+padding: 15px;
 
 & p {
    font-weight: 500;

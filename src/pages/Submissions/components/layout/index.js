@@ -1,5 +1,5 @@
-import React from 'react'
-import { LayoutProvider, DocumentCard } from './style'
+import React from 'react';
+import { LayoutProvider, DocumentCard } from './style';
 import 'antd/dist/antd.css';
 import TimeLine from './timeline';
 import { Route } from 'react-router-dom';
@@ -7,6 +7,8 @@ import { PersonalInfo } from '../personal_information';
 import { AcademicInformation } from '../academic_information';
 import { PassportInformation } from '../passport_information';
 import { AddressInformation } from '../address_information';
+import { AdditionalInformation } from '../additional_information';
+import { References } from '../references';
 import { Education } from '../education';
 import { EnglishLanguage } from '../english_language';
 
@@ -26,7 +28,9 @@ export function Layout() {
                      <Route path='/passport-info' component={PassportInformation} />
                      <Route path='/address-info' component={AddressInformation} />
                      <Route path='/education-qualifications' component={Education} />
-                     <Route path='/english-language' component={EnglishLanguage} />
+                     <Route path='/english-language' component={EnglishLanguage} /> 
+                     <Route path='/references' component={References} />               
+                     <Route path='/additional-info' component={AdditionalInformation} />
                   </DocumentCard>
                </div>
             </div>

@@ -30,6 +30,6 @@ export const ProfileBody = styled.main`
   }
 
   .inputs-card {
-    width: 67%;
+    width: 69%;
   }
 `;

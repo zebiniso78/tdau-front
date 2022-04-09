@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 export const AcademicInfoProvider = styled.div`
- padding: 24px;
+ padding: 15px;
  font-family: 'Open Sans', sans-serif;
 `
 export const AcademicInfoTitle = styled.h4`
