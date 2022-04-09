@@ -10,7 +10,7 @@ function Profile() {
   return (
     <>
       <ProfileSection>
-        {/* <Navbar /> */}
+        <Navbar />
         <ProfileBody>
           <Container className="profile-container">
             <div className="user-card">
@@ -21,7 +21,7 @@ function Profile() {
             </div>
           </Container>
         </ProfileBody>
-        {/* <Footer /> */}
+        <Footer />
       </ProfileSection>
     </>
   );
