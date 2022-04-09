@@ -1,4 +1,6 @@
 import styled from "styled-components"
+import { Timeline } from 'antd';
+
 
 export const LayoutProvider = styled.div`
  width: 100%;
@@ -43,6 +45,4 @@ line-height: 27px;
 color: #11711A;
 margin-bottom: 25px;
 `
-export const PrivateRouteProvider = styled.div`
-
-`
+export const TimeLineProvider = styled(Timeline)``

@@ -22,12 +22,12 @@ export function EnglishLanguage() {
                <CancelBtnComponent
                   name='Назад'
                   className='prev-btn'
-                  onClick={() => history.push("/address-info")}
+                  onClick={() => history.push("/education-qualifications")}
                   type='button' />
                <NextBtnComponent
                   name='Продолжить'
                   className='next-btn'
-                  onClick={() => history.push("/english-language")}
+                  onClick={() => history.push("/supporting-info")}
                   type='submit' />
             </ButtonsProvider>
          </LanguageForm>

@@ -1,14 +1,13 @@
 import React from 'react';
-import { DocumentCard, TimeLineHeader } from './style';
-import { Timeline } from 'antd';
-import { Link, NavLink } from 'react-router-dom';
+import { DocumentCard, TimeLineHeader, TimeLineProvider } from './style';
+import { NavLink } from 'react-router-dom';
 
 export default function TimeLine() {
   return (
     <DocumentCard>
       <TimeLineHeader>Последовательность подачи документов</TimeLineHeader>
-      <Timeline>
-        <Timeline.Item>
+      <TimeLineProvider>
+        <TimeLineProvider.Item>
           <NavLink
             to="/personal-info"
             className="timeline-link"
@@ -16,8 +15,8 @@ export default function TimeLine() {
           >
             Персональные данные
           </NavLink>
-        </Timeline.Item>
-        <Timeline.Item>
+        </TimeLineProvider.Item>
+        <TimeLineProvider.Item>
           <NavLink
             to="/academic-info"
             className="timeline-link"
@@ -25,8 +24,8 @@ export default function TimeLine() {
           >
             Академическая информация
           </NavLink>
-        </Timeline.Item>
-        <Timeline.Item>
+        </TimeLineProvider.Item>
+        <TimeLineProvider.Item>
           <NavLink
             to="/passport-info"
             className="timeline-link"
@@ -34,8 +33,8 @@ export default function TimeLine() {
           >
             Паспортная информация
           </NavLink>
-        </Timeline.Item>
-        <Timeline.Item>
+        </TimeLineProvider.Item>
+        <TimeLineProvider.Item>
           <NavLink
             to="/address-info"
             className="timeline-link"
@@ -43,8 +42,8 @@ export default function TimeLine() {
           >
             Адресаная информация
           </NavLink>
-        </Timeline.Item>
-        <Timeline.Item>
+        </TimeLineProvider.Item>
+        <TimeLineProvider.Item>
           <NavLink
             to="/education-qualifications"
             className="timeline-link"
@@ -52,15 +51,15 @@ export default function TimeLine() {
           >
             Образование и квалификации
           </NavLink>
-        </Timeline.Item>
-        <Timeline.Item>
+        </TimeLineProvider.Item>
+        <TimeLineProvider.Item>
           <NavLink
             to='/english-language'
             className="timeline-link"
             activeClassName="timeline-nav-link">Английский язык
           </NavLink>
-        </Timeline.Item>
-        <Timeline.Item>
+        </TimeLineProvider.Item>
+        <TimeLineProvider.Item>
           <NavLink
             to="/supporting-info"
             className="timeline-link"
@@ -68,8 +67,8 @@ export default function TimeLine() {
           >
             Вспомогательная информация
           </NavLink>
-        </Timeline.Item>
-        <Timeline.Item>
+        </TimeLineProvider.Item>
+        <TimeLineProvider.Item>
           <NavLink
             to="/references"
             className="timeline-link"
@@ -77,8 +76,8 @@ export default function TimeLine() {
           >
             Использованная литература
           </NavLink>
-        </Timeline.Item>
-        <Timeline.Item>
+        </TimeLineProvider.Item>
+        <TimeLineProvider.Item>
           <NavLink
             to="/additional-info"
             className="timeline-link"
@@ -86,8 +85,8 @@ export default function TimeLine() {
           >
             Дополнительная информация
           </NavLink>
-        </Timeline.Item>
-      </Timeline>
+        </TimeLineProvider.Item>
+      </TimeLineProvider>
     </DocumentCard>
   );
 }
