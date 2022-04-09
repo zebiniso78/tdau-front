@@ -26,8 +26,8 @@ export const MyContainer = styled(Container)`
         box-sizing: border-box;
         text-align: left;
         font-weight: 600;
-        font-size: 14px;
-        line-height: 16px;
+        font-size: 18px;
+        line-height: 22px;
         color: #ffffff;
         margin: 0;
         padding: 0;
@@ -38,8 +38,8 @@ export const MyContainer = styled(Container)`
         text-align: left;
         font-style: normal;
         font-weight: 400;
-        font-size: 11px;
-        line-height: 14px;
+        font-size: 14px;
+        line-height: 18px;
         color: #ffffff;
         margin: 0;
         padding: 0;
@@ -105,6 +105,43 @@ export const MyContainer = styled(Container)`
       border-radius: 50px;
       background: #169622;
       box-shadow: 0px 0px 1px 10px rgba(22, 150, 34, 1);
+    }
+  }
+
+  @media (max-width: 1440px) {
+    h2 {
+      font-size: 16px !important;
+    }
+
+    p {
+      font-size: 12px !important;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    h2 {
+      font-size: 14px !important;
+    }
+
+    p {
+      font-size: 11px !important;
+    }
+   .buttons {
+    button {
+      display: block;
+      padding: 8px 24px !important;
+    }
+   }
+
+  .message {
+    width: 3%;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      box-shadow: 0px 2px 1px 6px rgba(22, 150, 34, 1);
     }
   }
 `;

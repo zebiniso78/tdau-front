@@ -6,10 +6,22 @@ export const MyContainer = styled(Container)`
     text-align: left;
     margin: 0;
     padding: 0;
-    font-size: 24px;
-    line-height: 32px;
+    font-size: 32px;
+    line-height: 36px;
     color: #169622;
     margin-bottom: 32px;
+  }
+
+  @media (max-width: 1440px) {
+    h2 {
+      font-size: 28px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    h2 {
+      font-size: 24px;
+    }
   }
 `;
 
@@ -23,7 +35,7 @@ export const Cards = styled.div`
 
   .service-card {
     text-align: left;
-    width: 28%;
+    width: 32%;
 
     img {
       margin: 0;
@@ -35,8 +47,8 @@ export const Cards = styled.div`
       margin: 0;
       padding: 0;
       font-weight: 600;
-      font-size: 24px;
-      line-height: 28px;
+      font-size: 28px;
+      line-height: 32px;
       color: #3b3b3a;
       margin-bottom: 8px;
     }
@@ -45,10 +57,30 @@ export const Cards = styled.div`
       margin: 0;
       padding: 0;
       font-weight: 400;
-      font-size: 18px;
-      line-height: 22px;
+      font-size: 20px;
+      line-height: 24px;
       color: #777674;
       margin-bottom: 16px;
+    }
+  }
+
+  @media (max-width: 1440px) {
+    h2 {
+      font-size: 24px !important;
+    }
+
+    p {
+      font-size: 17px !important;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    h2 {
+      font-size: 20px !important;
+    }
+
+    p {
+      font-size: 14px !important;
     }
   }
 `;

@@ -25,21 +25,42 @@ const Card = styled.div`
   margin: 0;
   padding: 24px;
   margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
 
   a {
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-end;
     padding: 0;
     margin: 0;
     text-decoration: none;
     font-weight: 500;
-    font-size: 18px;
-    line-height: 22px;
+    font-size: 20px;
+    line-height: 24px;
     color: #45ab4e;
 
     svg {
+      margin: 0;
+      padding: 0;
       margin-left: 10px;
+    }
+  }
+
+  @media (max-width: 1440px) {
+    padding: 22px;
+    a {
+      font-size: 17px;
+    }
+  }
+
+  @media (max-width: 1440px) {
+    padding: 20px;
+    a {
+      align-items: center;
+      font-size: 14px;
     }
   }
 `;

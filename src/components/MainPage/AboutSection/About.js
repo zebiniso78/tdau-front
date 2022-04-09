@@ -8,12 +8,12 @@ function About() {
     <>
       <section>
         <MyContainer>
-          <MyCol6>
+          <MyCol6 className="about-left">
             <div className="rectangle">
               <img src={UniPhoto} alt="University Pic" />
             </div>
           </MyCol6>
-          <MyCol6>
+          <MyCol6 className="about-right">
             <h2>Ташкентский государственный аграрный университет</h2>
             <p>
               Этот центр был создан на территории знаменитого комплекса

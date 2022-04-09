@@ -81,7 +81,7 @@ function News() {
   ];
   return (
     <>
-      <MyContainer>
+      <MyContainer className="container">
         <div className="news-title__wrapper">
           <h2>Новости</h2>
           <a href="wikipedia.com">
@@ -90,7 +90,7 @@ function News() {
         </div>
         <div className="news-card__wrapper">
           <div className="one-card__wrapper">
-            <NewsCard
+            <NewsCard className="one-card"
               image={CardImage1}
               date="10 января 2021"
               seen="268 743"

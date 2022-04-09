@@ -7,10 +7,22 @@ export const MyContainer = styled(Container)`
     text-align: left;
     margin: 0;
     padding: 0;
-    font-size: 24px;
+    font-size: 32px;
     line-height: 32px;
     color: #169622;
     margin-bottom: 32px;
+  }
+
+  @media (max-width: 1440px) {
+    h2 {
+      font-size: 28px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    h2 {
+      font-size: 24px;
+    }
   }
 `;
 

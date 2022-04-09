@@ -4,6 +4,11 @@ import { Col6, Container } from '../../../common/grid';
 export const MyContainer = styled(Container)`
   display: flex;
   justify-content: space-between;
+
+  .about-right {
+    width: 100%;
+    height: 70%;
+  }
 `;
 
 export const MyCol6 = styled(Col6)`
@@ -12,8 +17,8 @@ export const MyCol6 = styled(Col6)`
   .rectangle {
     position: relative;
     box-sizing: border-box;
-    width: 45%;
-    height: 110%;
+    width: 55%;
+    height: 100%;
     background-color: #73c07a;
     margin-left: auto;
     margin-right: 32px;
@@ -25,17 +30,16 @@ export const MyCol6 = styled(Col6)`
     height: 100%;
     bottom: 12px;
     left: 12px;
-    box-sizing: border-box;
   }
 
   h2 {
-    width: 70%;
+    width: 100%;
     font-family: 'Cormorant Garamond', serif;
     text-align: left;
     font-style: normal;
     font-weight: 400;
-    font-size: 30px;
-    line-height: 36px;
+    font-size: 50px;
+    line-height: 54px;
     text-transform: uppercase;
     color: #343e5a;
     margin: 0;
@@ -44,11 +48,11 @@ export const MyCol6 = styled(Col6)`
   }
 
   p {
-    width: 70%;
+    width: 100%;
     font-style: normal;
     font-weight: 400;
-    font-size: 15px;
-    line-height: 20px;
+    font-size: 24px;
+    line-height: 28px;
     color: #777674;
     text-align: left;
     margin: 0;
@@ -67,13 +71,13 @@ export const MyCol6 = styled(Col6)`
       padding: 8px 16px;
       color: #fff;
       border: none;
-      font-size: 11px;
+      font-size: 18px;
       margin-right: 16px;
     }
 
     a {
       text-decoration: none;
-      font-size: 12px;
+      font-size: 18px;
       color: #169622;
       display: flex;
       align-items: center;
@@ -97,6 +101,37 @@ export const MyCol6 = styled(Col6)`
           padding: 0;
         }
       }
+    }
+  }
+
+  @media (max-width: 1440px) {
+    .rectangle {
+      width: 63%;
+    }
+    h2 {
+      font-size: 40px;
+    }
+    p {
+      font-size: 20px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .rectangle {
+      width: 63%;
+    }
+    h2 {
+      font-size: 36px;
+    }
+    p {
+      font-size: 18px;
+    }
+    .more-button {
+      font-size: 16px !important;
+    }
+
+    a {
+      font-size: 16px !important;
     }
   }
 `;

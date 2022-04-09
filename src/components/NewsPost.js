@@ -50,10 +50,24 @@ const Texts = styled.div`
     margin: 0;
     padding: 0;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 20px;
     color: #3b3b3a;
     transition: 0.7s;
+  }
+
+  @media (max-width: 1440px) {
+    h3 {
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    h3 {
+      font-size: 12px;
+      line-height: 16px;
+    }
   }
 `;
 

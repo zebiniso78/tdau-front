@@ -97,45 +97,60 @@ export const MyContainer = styled(Container)`
 `;
 
 export const LogoWrapper = styled.div`
-  width: 25%;
+  width: 28%;
   display: flex;
   justify-content: flex-center;
   align-items: center;
   .logo {
-    width: 52px;
-    height: 60px;
+    width: 56px;
+    height: 64px;
     margin-right: 4px;
   }
 
   .header-title {
     color: white;
-    font-size: 20px;
+    font-size: 28px;
     font-weight: bold;
     text-align: left;
+    margin-bottom: 0;
     text-transform: uppercase;
+  }
+
+  @media (max-width: 1440px) {
+    .header-title {
+      font-size: 22px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .header-title {
+      font-size: 18px;
+    }
   }
 `;
 
 export const InputWrapper = styled.div`
-  width: 55%;
+  width: 60%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
 
   .phone-number {
     font-style: normal;
     font-weight: 600;
-    font-size: 18px;
-    line-height: 22px;
+    font-size: 22px;
+    line-height: 26px;
     color: #57b952;
+    margin: 0 32px 0 0;
   }
 
   .input-search-wrapper {
     position: relative;
+    margin-right: 16px;
     svg {
       position: absolute;
-      right: 8px;
-      top: 3px;
+      right: 10px;
+      top: 8px;
       color: #57b952;
     }
   }
@@ -145,20 +160,21 @@ export const InputWrapper = styled.div`
     outline: none;
     box-sizing: border-box;
     color: rgba(255, 255, 255, 0.7);
-    font-size: 12px;
+    font-size: 16px;
     border: 1px solid #728fbb;
     border-radius: 50px;
-    padding: 4px 8px;
+    padding: 4px 12px;
   }
 
   .select-lang {
     background: transparent;
     color: white;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 16px;
     border: 1px solid #728fbb;
     border-radius: 50px;
-    padding: 4px 8px;
+    padding: 4px 12px;
+    margin-right: 16px;
   }
 
   .login-button {
@@ -170,8 +186,8 @@ export const InputWrapper = styled.div`
     border: 1px solid #728fbb;
     border-radius: 50px;
     font-weight: 400;
-    font-size: 12px;
-    padding: 4px 8px;
+    font-size: 16px;
+    padding: 4px 12px;
     transition: 0.5s;
 
     :hover {
@@ -183,9 +199,37 @@ export const InputWrapper = styled.div`
       margin-left: 4px;
     }
   }
+
+  @media (max-width: 1440px) {
+    .phone-number {
+      font-size: 18px;
+      line-height: 22px;
+    }
+
+    .input-search {
+      font-size: 14px;
+      padding: 4px 12px;
+    }
+
+    .select-lang {
+      font-size: 14px;
+    }
+
+    .login-button {
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 1440px) {
+    .phone-number {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
 `;
 
 export const Nav = styled.nav`
+  margin: 36px 0 0 0 !important;
   ul {
     width: 100%;
     list-style: none;
@@ -206,8 +250,8 @@ export const Nav = styled.nav`
 
         span {
           font-weight: 400;
-          font-size: 14px;
-          line-height: 20px;
+          font-size: 18px;
+          line-height: 22px;
           color: #ffffff;
         }
 
@@ -216,6 +260,19 @@ export const Nav = styled.nav`
           margin-left: 4px;
         }
       }
+    }
+  }
+
+  @media (max-width: 1440px) {
+    span {
+      font-size: 15px !important;
+      line-height: 20px;
+    }
+  }
+  @media (max-width: 1024px) {
+    span {
+      font-size: 13px !important;
+      line-height: 17px;
     }
   }
 `;

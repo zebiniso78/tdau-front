@@ -31,12 +31,12 @@ export const MyContainer = styled(Container)`
   }
 
   .first-page-header {
-    width: 60%;
+    width: 63%;
     text-align: left;
     font-style: normal;
     font-weight: 600;
-    font-size: 28px;
-    line-height: 32px;
+    font-size: 36px;
+    line-height: 40px;
     color: #ffffff;
     margin: 0;
     padding: 0;
@@ -44,10 +44,10 @@ export const MyContainer = styled(Container)`
   }
 
   .first-page-title {
-    width: 60%;
+    width: 63%;
     text-align: left;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 28px;
     color: #ffffff;
     margin: 0;
@@ -56,7 +56,7 @@ export const MyContainer = styled(Container)`
   }
 
   .more-button {
-    font-size: 16px;
+    font-size: 18px;
     background: transparent;
     border-radius: 50px;
     padding: 14px 28px;
@@ -69,4 +69,22 @@ export const MyContainer = styled(Container)`
       background-color: rgba(22, 150, 34, 0.7);
     }
   }
+
+  @media (max-width: 1440px) {
+    .first-page-header {
+      font-size: 32px;
+      line-height: 36px;
+    }
+
+    .first-page-title {
+      font-size: 16px;
+      line-height: 28px;
+    }
+
+    .more-button {
+      font-size: 16px;
+    }
+  }
+
+    
 `;

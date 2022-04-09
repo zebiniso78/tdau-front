@@ -39,7 +39,7 @@ const MyCard = styled.div`
     display: flex;
     align-items: center;
     color: #858892;
-    font-size: 13px;
+    font-size: 14px;
     margin: 0;
     padding: 0;
     margin-bottom: 12px;
@@ -78,7 +78,7 @@ const Texts = styled.div`
     margin-bottom: 12px;
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 20px;
     color: #777674;
   }
@@ -93,6 +93,24 @@ const Texts = styled.div`
   ${MyCard}:hover & {
     h3 {
       color: #169622;
+    }
+  }
+
+  @media (max-width: 1440px) {
+    h3 {
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    h3 {
+      font-size: 12px;
+      line-height: 16px;
+    }
+
+    p {
+      margin-bottom: 8px;
     }
   }
 `;

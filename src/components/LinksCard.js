@@ -41,9 +41,25 @@ const Card = styled.a`
 
   h3 {
     font-weight: 500;
-    font-size: 17px;
+    font-size: 18px;
     line-height: 22px;
     color: #3b3b3a;
+  }
+
+  @media (max-width: 1440px) {
+    width: 32.5%;
+    h3 {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    img {
+      margin-right: 10px;
+    }
+    h3 {
+      font-size: 14px;
+    }
   }
 `;
 

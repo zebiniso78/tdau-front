@@ -3,12 +3,13 @@ import { Container } from '../../../common/grid';
 
 export const MyContainer = styled(Container)`
   padding: 60px 0;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
 
   .news-title__wrapper {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     margin: 0;
     padding: 0;
     margin-bottom: 20px;
@@ -16,8 +17,8 @@ export const MyContainer = styled(Container)`
     h2 {
       margin: 0;
       padding: 0;
-      font-size: 24px;
-      line-height: 32px;
+      font-size: 32px;
+      line-height: 36px;
       color: #169622;
     }
 
@@ -29,8 +30,8 @@ export const MyContainer = styled(Container)`
       padding: 0;
       text-decoration: none;
       font-weight: 500;
-      font-size: 18px;
-      line-height: 22px;
+      font-size: 20px;
+      line-height: 24px;
       color: #45ab4e;
 
       svg {
@@ -47,11 +48,21 @@ export const MyContainer = styled(Container)`
   }
 
   .one-card__wrapper {
-    width: 30%;
+    width: 33%;
+
+    .one-card {
+      h3 {
+        font-size: 24px;
+      }
+
+      p {
+        font-size: 18px;
+      }
+    }
   }
 
   .several-cards__wrapper {
-    width: 46%;
+    width: 45%;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -64,18 +75,57 @@ export const MyContainer = styled(Container)`
       margin-bottom: 8px;
 
       h3 {
-        font-size: 14px;
-        line-height: 18px;
         margin-bottom: 6px;
       }
 
       p {
-        font-size: 12px;
+        font-size: 13px;
       }
     }
   }
 
   .news-posts__wrapper {
-    width: 22%;
+    width: 20%;
+  }
+
+  @media (max-width: 1440px) {
+    h2 {
+      font-size: 28px !important;
+    }
+
+    a {
+      font-size: 18px !important;
+    }
+
+    .one-card {
+      h3 {
+        font-size: 18px !important;
+      }
+
+      p {
+        font-size: 14px !important;
+        line-height: 18px;
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    h2 {
+      font-size: 24px !important;
+    }
+
+    a {
+      font-size: 16px !important;
+    }
+    .one-card {
+      h3 {
+        font-size: 16px !important;
+      }
+
+      p {
+        font-size: 12px;
+        line-height: 16px;
+      }
+    }
   }
 `;

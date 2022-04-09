@@ -9,8 +9,8 @@ export const MyContainer = styled(Container)`
     text-align: left;
     margin: 0;
     padding: 0;
-    font-size: 24px;
-    line-height: 32px;
+    font-size: 32px;
+    line-height: 36px;
     color: #169622;
     margin-bottom: 32px;
   }
@@ -112,7 +112,7 @@ export const MyContainer = styled(Container)`
       align-items: stretch !important;
     }
 
-    .owl-item item {
+    .owl-item .item {
       box-sizing: border-box;
       width: 100%;
       height: 100%;
@@ -136,6 +136,17 @@ export const MyContainer = styled(Container)`
         height: 40px;
         margin-left: 16px;
         padding-bottom: 2px;
+        transition: all 0.1s ease;
+
+        &:active {
+          background-color: #169622;
+          transform: translateY(1px);
+          transition: all 0.1s ease;
+
+          span {
+            color: #fff;
+          }
+        }
 
         span {
           margin: 0;
@@ -145,8 +156,21 @@ export const MyContainer = styled(Container)`
           font-size: 28px;
           line-height: 32px;
           transform: translateX(-100%);
+          transition: all 0.1s ease;
         }
       }
+    }
+  }
+
+  @media (max-width: 1440px) {
+    h2 {
+      font-size: 28px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    h2 {
+      font-size: 24px;
     }
   }
 `;
