@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { DocumentCard, TimeLineHeader, TimeLineProvider } from './style';
 import { NavLink } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const timelineList = [
   {
@@ -49,12 +50,24 @@ const timelineList = [
     name: 'Дополнительная информация'
   },
 ]
+
 export default function TimeLine() {
   const [click, setClick] = useState(0)
+  const location = useLocation()
   let Index = null
   function handleClick(index) {
     setClick(index)
     Index = index
+    document.querySelectorAll(".ant-timeline-item-head").forEach((el) => {
+      document.addEventListener('click', () => {
+          el.style.backgroundColor = '#169622'
+      })
+    })
+    document.querySelectorAll(".ant-timeline-item-tail").forEach((element) => {
+      document.addEventListener('click', () => {
+        element.style.borderLeft = '2px solid #169622'
+      })
+    })
   }
   return (
     <DocumentCard>
@@ -63,7 +76,7 @@ export default function TimeLine() {
         {
           timelineList?.map((timeline, index) => (
             <TimeLineProvider.Item
-              color={click >= index ? "red" : "grey"}
+              color={(click >= index || location.pathname === '/personal-info') ? "#169622" : "#C6C5C2"}
               key={timeline.id}
               onClick={() => handleClick(index)}>
               <NavLink
