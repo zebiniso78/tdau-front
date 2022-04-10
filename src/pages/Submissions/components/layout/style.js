@@ -45,4 +45,14 @@ line-height: 27px;
 color: #11711A;
 margin-bottom: 25px;
 `
-export const TimeLineProvider = styled(Timeline)``
+export const TimeLineProvider = styled(Timeline)`
+&.timeline-provider {
+  li > .ant-timeline-item-tail {
+     border-left: ${props => props.click ? "2px solid #73C07A" : "2px solid #F1F0ED"};
+  }
+   /* li > .ant-timeline-item-head {
+     border-color: transparent;
+     background-color:  ${props => props.click >= props.Index ? "#169622" : "#C6C5C2"};
+  } */
+}
+`

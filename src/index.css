@@ -15,15 +15,3 @@ button {
   cursor: pointer;
 }
 
-.ant-timeline-item-head-blue {
-  color: #1890ff;
-  /* border-color: #1890ff; */
-}
-.ant-timeline-item-head {
-  position: absolute;
-  width: 12px !important;
-  height: 12px !important;  
-  background: #C6C5C2 !important;
-  border: 2px solid transparent !important;
-  border-radius: 100px;
-}
