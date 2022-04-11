@@ -1,5 +1,5 @@
 import React from 'react';
-import { LayoutProvider, DocumentCard } from './style';
+import { LayoutProvider, DocumentCard, DocumentCardProvider } from './style';
 import 'antd/dist/antd.css';
 import TimeLine from './timeline';
 import { Route } from 'react-router-dom';
@@ -20,7 +20,9 @@ export function Layout() {
          <div className='container'>
             <div className='row'>
                <div className='col-lg-3 col-md-12 col-sm-12 col-12'>
-                  <TimeLine />
+                  <DocumentCardProvider>
+                     <TimeLine />
+                  </DocumentCardProvider>
                </div>
                <div className='col-lg-9 col-md-12 col-sm-12 col-12'>
                   <DocumentCard className='right-side'>

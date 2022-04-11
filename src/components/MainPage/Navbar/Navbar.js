@@ -14,6 +14,8 @@ import PureModal from 'react-pure-modal';
 // import Input from '../../Input';
 import Input from '../../input';
 import Button from '../../button';
+import { Registration } from "./registration"
+import { Verify } from './verify';
 
 function Navbar() {
   const [modal, setModal] = useState(false);
@@ -102,7 +104,7 @@ function Navbar() {
           header="Вход"
           footer={
             <div className="footer-button__wrapper">
-              <Button type="submit" title="Вход" />
+              <Button type="submit" title="Вход" onClick={() => setConfirmModel(true)} />
               <Button
                 type="submit"
                 title="Зарегистрироваться"
@@ -136,119 +138,16 @@ function Navbar() {
             length={80}
           />
         </PureModal>
-
-        <PureModal
-          header="Регистрация"
-          footer={
-            <div className="footer-button__wrapper">
-              <Button
-                type="submit"
-                title="Продолжить"
-                onClick={() => {
-                  setConfirmModel(true);
-                  setRegisterModel(false);
-                }}
-              />
-              <Button
-                type="submit"
-                title="Выход"
-                bgColor="transparent"
-                color="#2e7df6"
-                onClick={() => {
-                  setRegisterModel(false);
-                }}
-              />
-            </div>
-          }
-          isOpen={registerModel}
-          scrollable={true}
-          closeButton="X"
-          closeButtonPosition="header"
-          onClose={() => {
-            setRegisterModel(false);
-            setModal(false);
-            return true;
-          }}
-        >
-          <Input
-            type={`text`}
-            required
-            title="Имя"
-            placeholder="Your Name Here"
-            length={80}
-          />
-
-          <Input
-            type={`text`}
-            required
-            title="Фамилия"
-            placeholder="Your Surname Here"
-            length={80}
-          />
-
-          <Input
-            type={`email`}
-            required
-            title="Эл.почта"
-            placeholder="Your Email Here"
-            length={40}
-          />
-
-          <Input type={`password`} required title="Пароль" length={20} />
-
-          <Input
-            type={`password`}
-            required
-            title="Подтвердить Пароль"
-            length={20}
-          />
-        </PureModal>
-
-        <PureModal
-          header="Вход"
-          footer={
-            <div className="footer-button__wrapper">
-              <Button type="submit" title="Зарегистрироваться" />
-              <Button
-                type="submit"
-                title="Выход"
-                bgColor="transparent"
-                color="#2e7df6"
-                onClick={() => {
-                  setConfirmModel(false);
-                  setRegisterModel(false);
-                }}
-              />
-            </div>
-          }
-          isOpen={confirmModel}
-          closeButton="X"
-          closeButtonPosition="header"
-          onClose={() => {
-            setConfirmModel(false);
-            return true;
-          }}
-        >
-          <Input
-            type={`tel`}
-            required
-            title="Номер телефонный"
-            placeholder="+998 91 123 45 67 "
-            length={17}
-          />
-
-          <Input
-            type={`password`}
-            required
-            title="СМС-код"
-            placeholder="Введите код"
-            length={80}
-          />
-
-          <p>
-            <span>00:56</span>Отправить код ещё раз
-          </p>
-        </PureModal>
+        <Registration
+          setConfirmModel={setConfirmModel}
+          setRegisterModel={setRegisterModel}
+          setModal={setModal}
+          registerModel={registerModel} />
+        <Verify
+          setConfirmModel={setConfirmModel}
+          setRegisterModel={setRegisterModel}
+          setConfirmModel={setConfirmModel}
+          confirmModel={confirmModel} />
       </MyHeader>
     </>
   );

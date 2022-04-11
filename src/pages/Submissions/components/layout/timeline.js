@@ -60,7 +60,7 @@ export default function TimeLine() {
     Index = index
     document.querySelectorAll(".ant-timeline-item-head").forEach((el) => {
       document.addEventListener('click', () => {
-          el.style.backgroundColor = '#169622'
+        el.style.backgroundColor = '#169622'
       })
     })
     document.querySelectorAll(".ant-timeline-item-tail").forEach((element) => {
@@ -70,27 +70,27 @@ export default function TimeLine() {
     })
   }
   return (
-    <DocumentCard>
-      <TimeLineHeader>Последовательность подачи документов</TimeLineHeader>
-      <TimeLineProvider className='timeline-provider' click={click} Index={Index}>
-        {
-          timelineList?.map((timeline, index) => (
-            <TimeLineProvider.Item
-              color={(click >= index || location.pathname === '/personal-info') ? "#169622" : "#C6C5C2"}
-              key={timeline.id}
-              onClick={() => handleClick(index)}>
-              <NavLink
-                to={timeline.pathName}
-                className="timeline-link"
-                activeClassName="timeline-nav-link"
-              >
-                {timeline.name}
-              </NavLink>
-            </TimeLineProvider.Item>
-          ))
-        }
+      <DocumentCard>
+        <TimeLineHeader>Последовательность подачи документов</TimeLineHeader>
+        <TimeLineProvider className='timeline-provider' click={click} Index={Index}>
+          {
+            timelineList?.map((timeline, index) => (
+              <TimeLineProvider.Item
+                color={(click >= index || location.pathname === '/personal-info') ? "#169622" : "#C6C5C2"}
+                key={timeline.id}
+                onClick={() => handleClick(index)}>
+                <NavLink
+                  to={timeline.pathName}
+                  className="timeline-link"
+                  activeClassName="timeline-nav-link"
+                >
+                  {timeline.name}
+                </NavLink>
+              </TimeLineProvider.Item>
+            ))
+          }
 
-      </TimeLineProvider>
-    </DocumentCard>
+        </TimeLineProvider>
+      </DocumentCard>
   );
 }

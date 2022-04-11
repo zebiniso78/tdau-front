@@ -11,16 +11,18 @@ import { useHistory } from "react-router-dom"
 export function PersonalInfo() {
    const history = useHistory()
    const {
-      register,
       handleSubmit,
-      setValue,
       watch,
       reset,
       control,
       formState: { errors },
    } = useForm();
+   console.log(errors, 'error')
+   const onSubmit = (data) => {
+      console.log(data, 'dataaaaaa')
+   }
    return (
-      <PersonalInfoProvider className='container'>
+      <PersonalInfoProvider className='container' onSubmit={handleSubmit(onSubmit)}>
          <div className='row'>
             <h4>Персональные данные</h4>
             <div className='col-lg-3 col-md-6 col-sm-6 col-12'>
@@ -42,6 +44,7 @@ export function PersonalInfo() {
                   nameProps="name"
                   plProps="Введите Имя"
                   label='Имя*'
+                  required={true}
                />
             </div>
             <div className='col-lg-3 col-md-6 col-sm-6 col-12'>
@@ -49,6 +52,7 @@ export function PersonalInfo() {
                   Controller={Controller}
                   control={control}
                   nameProps="surname"
+                  re
                   plProps="Введите Фамилия"
                   label='Фамилия*'
                />
@@ -68,7 +72,7 @@ export function PersonalInfo() {
                   control={control}
                   title="Дата рождения*"
                   name="depar_id"
-                  required={true}
+                  required={false}
                   placeholder="Мистер"
                   // options={departList}
                   disabled={false}
@@ -80,7 +84,7 @@ export function PersonalInfo() {
                   control={control}
                   title="Пол*"
                   name="depar_id"
-                  required={true}
+                  required={false}
                   placeholder="Мистер"
                   // options={departList}
                   disabled={false}
@@ -133,7 +137,12 @@ export function PersonalInfo() {
          </div>
          <ButtonsProvider>
             <CancelBtnComponent name='Отмена' className='prev-btn' />
-            <NextBtnComponent name='Продолжить' className='next-btn' onClick={() => history.push("/academic-info")} />
+            <NextBtnComponent
+               name='Продолжить'
+               className='next-btn'
+               type='submit'
+            // onClick={() => history.push("/academic-info")}
+            />
          </ButtonsProvider>
       </PersonalInfoProvider>
 

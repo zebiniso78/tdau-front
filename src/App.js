@@ -5,6 +5,7 @@ import Submissions from './pages/Submissions/container';
 import Navbar from './components/MainPage/Navbar/Navbar';
 import Footer from './components/MainPage/Footer/Footer';
 import { Layout } from './pages/Submissions/components/layout';
+import Main from './pages/Main'
 
 function App() {
   return (
@@ -12,10 +13,10 @@ function App() {
       <Navbar />
       <Switch>
         <Route path="/" exact component={Profile} />
-        <Route path="/filing" component={Submissions} />
+        <Route path="/personal-info" component={Submissions} />
+        <Route path='/main' component={Main} />
         <Layout />
       </Switch>
-
       <Footer />
     </BrowserRouter>
   );

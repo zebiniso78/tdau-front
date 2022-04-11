@@ -14,7 +14,7 @@ function Profile() {
         <ProfileBody>
           <Container className="profile-container">
             <div className="user-card">
-              <PersonalCard title="Абдурахимов Абдувохид Абдумалик ўғли" />{' '}
+              <PersonalCard title="Абдурахимов Абдувохид Абдумалик ўғли" />
             </div>
             <div className="inputs-card">
               <InputsCard title="Личная информация" />

@@ -56,3 +56,8 @@ export const TimeLineProvider = styled(Timeline)`
   }
 }
 `
+
+export const DocumentCardProvider = styled.div`
+position: sticky;
+top: 12px;
+`

@@ -1,6 +1,6 @@
 import React from 'react';
 import { MyContainer } from './NewsStyle';
-import NewsCard from '../../NewsCard';
+import NewsCard from '../../newsCard';
 import NewsPost from '../../NewsPost';
 import { AiOutlineRight } from 'react-icons/ai';
 import CardImage1 from '../../../assets/cardImage1.png';

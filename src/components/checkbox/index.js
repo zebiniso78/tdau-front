@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { FormControlLabel } from '@mui/material'
 import { CustomCheckbox } from "./style"
 
@@ -11,14 +11,14 @@ export function CheckboxComponent({ name, label, Controller, control, className 
                control={control}
                name={name}
                render={({
-                  field: { onChange, onBlur, value, name, ref },
+                  field: { onChange, onBlur, value, checked, ref },
                   fieldState: { invalid, isTouched, isDirty, error },
-                  formState,
                }) => (
                   <CustomCheckbox
                      onBlur={onBlur}
-                     onChange={onChange}
-                     checked={value}
+                     checked={checked}
+                     value={value}
+                     onChange={(e) => onChange(e.target.checked)}
                      inputRef={ref}
                      className={className}
                   />
@@ -31,3 +31,5 @@ export function CheckboxComponent({ name, label, Controller, control, className 
 
    )
 }
+
+export const MemoizedCheckbox = memo(CheckboxComponent)
