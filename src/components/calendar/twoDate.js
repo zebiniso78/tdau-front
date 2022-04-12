@@ -1,7 +1,6 @@
 import React from 'react';
-import { DatePicker } from 'antd';
 import Form from 'antd/lib/form/Form';
-const { RangePicker } = DatePicker;
+import { CustomTwoCalendar } from './style';
 export default function TwoDate({
   Controller,
   nameProps,
@@ -27,14 +26,14 @@ export default function TwoDate({
           fieldState: { invalid, isTouched, isDirty, error },
           formState: { errors },
         }) => (
-          <RangePicker
+          <CustomTwoCalendar
             style={{ marginTop: '20px' }}
             onChange={onChange}
             className={className}
             format={format}
             value={value}
-            picker={picker ? picker : undefined}
-            placeholder={plProps}
+            picker={'year'}
+            // placeholder={plProps}
             error={!!errors?.title}
             ref={ref}
           />
