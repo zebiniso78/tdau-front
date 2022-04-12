@@ -3,13 +3,12 @@ import React, { useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { Paragraph, Title } from 'styles/globalStyle';
 
-export function EducationFooter() {
+export function EducationFooter({ transcript, setTranscript, upload, setUpload }) {
   const {
     control,
     formState: { errors },
   } = useForm();
-  const [transcript, setTranscript] = useState([]);
-  const [upload, setUpload] = useState([]);
+
 
   return (
     <div className="row mt-5">

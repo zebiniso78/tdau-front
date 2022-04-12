@@ -9,6 +9,7 @@ export function useGetList({
   setEducationFormList,
   setEducationTypeList,
   setRegions,
+  setQualifications
 }) {
   async function getNationality() {
     try {
@@ -59,7 +60,14 @@ export function useGetList({
       console.log(e);
     }
   }
-
+  async function getQualification() {
+    try {
+      const response = await admissionApi.qualifications(null);
+      SelectItem(response, setQualifications);
+    } catch (e) {
+      console.log(e);
+    }
+  }
 
   return {
     getNationality,
@@ -68,5 +76,6 @@ export function useGetList({
     getEducationForm,
     getEducationType,
     getRegions,
+    getQualification
   };
 }

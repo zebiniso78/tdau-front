@@ -26,12 +26,11 @@ export function PassportInformation() {
   const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = async (data) => {
-    console.log(data);
     try {
       setIsLoading(true);
       let formData = new FormData();
       formData.append('register_step', 3);
-      formData.append('passport', transcript);
+      formData.append('passport', transcript[0]);
       formData.append('passport_number', data?.name);
       formData.append(
         'passport_expire',

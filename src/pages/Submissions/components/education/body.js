@@ -12,7 +12,6 @@ export function EducationBody() {
     watch,
     formState: { errors },
   } = useForm();
-  console.log(watch('yes'));
   return (
     <div className="row align-items-end mt-3">
       {/* <div className='col-lg-4 col-md-6 col-sm-6 col-12'>
@@ -30,7 +29,7 @@ export function EducationBody() {
           Controller={Controller}
           control={control}
           label="Дата начала*"
-          nameProps="starting_date"
+          nameProps="qualification_start"
           plProps="дд/мм/гггг"
           format="DD.MM.YYYY"
           className="calendar"
@@ -41,13 +40,13 @@ export function EducationBody() {
           Controller={Controller}
           control={control}
           label="Дата завершения*"
-          nameProps="end_date"
+          nameProps="qualification_end"
           plProps="дд/мм/гггг"
           format="DD.MM.YYYY"
           className="calendar"
         />
       </div>
-      <div className="col-lg-4 col-md-6 col-sm-6 col-12 mt-3">
+      {/* <div className="col-lg-4 col-md-6 col-sm-6 col-12 mt-3">
         <Calendar
           Controller={Controller}
           control={control}
@@ -57,7 +56,7 @@ export function EducationBody() {
           format="DD.MM.YYYY"
           className="calendar"
         />
-      </div>
+      </div> */}
       {/* <div className="col-lg-4 col-md-6 col-sm-6 col-12 mt-3">
         <CheckboxWrapper>
           <Paragraph>Есть ли у вас какие-либо другие квалификации*</Paragraph>

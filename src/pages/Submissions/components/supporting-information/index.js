@@ -5,16 +5,32 @@ import DragDrop from 'components/dragDrop';
 import { ButtonsProvider } from 'components/buttons/style';
 import { CancelBtnComponent } from 'components/buttons/prev-btn';
 import { NextBtnComponent } from 'components/buttons/next-btn';
+import { admissionApi } from 'services/api/pagesApi';
 
 export function SupportingInformation() {
   const history = useHistory();
   const [supportingStatement, setSupportingStatement] = useState([]);
-  const [researchProposal, setResearchProposal] = useState([]);
   const [resume, setResume] = useState([]);
-  const [medicalSertificate, setMedicalSertificate] = useState([]);
+  const [isLoading, setIsLoading] = useState(false)
+  async function handleSubmit(e) {
+    e.preventDefault()
+    try {
+      setIsLoading(true)
+      let formData = new FormData()
+      formData.append('essay', supportingStatement[0])
+      formData.append('resume', resume[0])
+      formData.append('register_step', 6)
+      await admissionApi.admissionPost(formData);
+      setIsLoading(false)
+      history.push('/references')
+    } catch (e) {
+      console.log(e)
+      setIsLoading(false)
+    }
+  }
   return (
     <>
-      <SupportingInformationProvider className="container">
+      <SupportingInformationProvider onSubmit={handleSubmit} className="container">
         <h4>Вспомогательная информация</h4>
         <div className="row mb-5">
           <div className="title-wrapper">
@@ -122,11 +138,12 @@ export function SupportingInformation() {
             type="button"
             onClick={() => history.push('/english-language')}
           />
-          <CancelBtnComponent name="Сахранит" className="save-btn" />
+          {/* <CancelBtnComponent name="Сахранит" className="save-btn" /> */}
           <NextBtnComponent
             name="Продолжить"
             className="next-btn"
-            onClick={() => history.push('/references')}
+            disabled={isLoading}
+            // onClick={() => history.push('/references')}
             type="submit"
           />
         </ButtonsProvider>

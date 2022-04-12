@@ -26,6 +26,9 @@ class Admissions extends Api {
   district(data) {
     return this.execute('get', `/districts?reg_id=${data?.name}`);
   }
+  qualifications() {
+    return this.execute('get', '/qualifications');
+  }
 }
 
 export default Admissions;
