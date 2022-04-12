@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import UserFormSelectComponent from '../../../../components/select';
 import {
   AcademicInfoProvider,
@@ -14,6 +14,8 @@ import { useHistory } from 'react-router-dom';
 import { Error } from 'common/grid';
 import { admissionApi } from 'services/api/pagesApi';
 import toast from 'react-hot-toast';
+import { useGetList } from '../hooks/useGetList';
+import TwoDate from 'components/calendar/twoDate';
 
 export function AcademicInformation() {
   const {
@@ -27,7 +29,18 @@ export function AcademicInformation() {
   } = useForm();
   const history = useHistory();
   const [isLoading, setIsLoading] = useState(false);
+  const [educationFormList, setEducationFormList] = useState([]);
+  const [educationTypeList, setEducationTypeList] = useState([]);
 
+  const { getEducationForm, getEducationType } = useGetList({
+    setEducationFormList,
+    setEducationTypeList,
+  });
+
+  useEffect(() => {
+    getEducationForm();
+    getEducationType();
+  }, []);
   const onSubmit = async (data) => {
     try {
       setIsLoading(true);
@@ -43,8 +56,8 @@ export function AcademicInformation() {
 
       formData.append('register_step', 2);
       await admissionApi.admissionPost(formData);
-      history.push('/passport-info');
       toast.success('Successfully created');
+      history.push('/passport-info');
       setIsLoading(false);
     } catch (e) {
       console.log(e);
@@ -73,7 +86,20 @@ export function AcademicInformation() {
       </AcademicInfo>
       <AcademicForm className="row">
         <div className="col-lg-4 col-md-6 col-sm-6 col-12">
-          <UserFormSelectComponent
+          <TwoDate
+            Controller={Controller}
+            control={control}
+            required={true}
+            label="Срок приема*"
+            name="srok_priema"
+            placeholder="Мистер"
+            // options={departList}
+            disabled={false}
+            className={
+              errors && errors?.hasOwnProperty('srok_priema') && 'select-error'
+            }
+          />
+          {/* <UserFormSelectComponent
             Controller={Controller}
             control={control}
             required={true}
@@ -85,7 +111,7 @@ export function AcademicInformation() {
             className={
               errors && errors?.hasOwnProperty('srok_priema') && 'select-error'
             }
-          />
+          /> */}
           {errors && errors?.hasOwnProperty('srok_priema') && (
             <Error className="select-error-tooltip">
               Iltimos malumotni kiriting!
@@ -100,7 +126,7 @@ export function AcademicInformation() {
             title="тип обучения*"
             name="obuchenie"
             placeholder="Выберите"
-            // options={departList}
+            options={educationFormList}
             disabled={false}
             className={
               errors && errors?.hasOwnProperty('obuchenie') && 'select-error'
@@ -120,7 +146,7 @@ export function AcademicInformation() {
             title="тип программа*"
             name="tip_programma"
             placeholder="Выберите"
-            // options={departList}
+            options={educationTypeList}
             disabled={false}
             className={
               errors &&
