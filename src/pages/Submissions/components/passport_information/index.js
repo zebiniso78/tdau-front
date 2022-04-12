@@ -9,18 +9,46 @@ import { ButtonsProvider } from '../../../../components/buttons/style';
 import { CancelBtnComponent } from '../../../../components/buttons/prev-btn';
 import { NextBtnComponent } from '../../../../components/buttons/next-btn';
 import { useHistory } from 'react-router-dom';
+import { CustomMask } from 'components/mask/customMask';
+import { admissionApi } from 'services/api/pagesApi';
+import toast from 'react-hot-toast';
+import moment from 'moment';
 
 export function PassportInformation() {
   const history = useHistory();
   const {
     control,
+    handleSubmit,
     formState: { errors },
   } = useForm();
 
   const [transcript, setTranscript] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
+  const onSubmit = async (data) => {
+    console.log(data);
+    try {
+      setIsLoading(true);
+      let formData = new FormData();
+      formData.append('register_step', 3);
+      formData.append('passport', transcript);
+      formData.append('passport_number', data?.name);
+      formData.append(
+        'passport_expire',
+        moment(data?.enteredYear).format('DD.MM.YYYY')
+      );
+      await admissionApi.admissionPost(formData);
+      toast.success('Successfully created');
+      history.push('/address-info');
+      setIsLoading(false);
+    } catch (e) {
+      console.log(e);
+      toast.error(e?.msg);
+      setIsLoading(false);
+    }
+  };
   return (
-    <PassportInfoProvider>
+    <PassportInfoProvider onSubmit={handleSubmit(onSubmit)}>
       <Title>Паспортная информация</Title>
       <Row className="row">
         <Col className="col-lg-4 col-md-6 col-sm-6 col-12">
@@ -31,6 +59,14 @@ export function PassportInformation() {
             plProps="Введите Номер паспорта"
             label="Номер паспорта*"
           />
+          {/* <CustomMask
+            Controller={Controller}
+            control={control}
+            nameProps="passport_number"
+            mask="AA1111111"
+            title="Номер паспорта*"
+            placeholder="Введите Номер паспорта"
+          /> */}
         </Col>
         <Col className="col-lg-4 col-md-6 col-sm-6 col-12">
           <Calendar
@@ -70,7 +106,7 @@ export function PassportInformation() {
         <NextBtnComponent
           name="Продолжить"
           className="next-btn"
-          onClick={() => history.push('/address-info')}
+          type="submit"
         />
       </ButtonsProvider>
     </PassportInfoProvider>

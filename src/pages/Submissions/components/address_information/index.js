@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Title } from '../../../../styles/globalStyle';
 import {
   AddressInfoProvider,
@@ -18,6 +18,8 @@ import { ButtonsProvider } from 'components/buttons/style';
 import { CancelBtnComponent } from 'components/buttons/prev-btn';
 import { NextBtnComponent } from 'components/buttons/next-btn';
 import { useHistory } from 'react-router-dom';
+import { useGetList } from '../hooks/useGetList';
+import UserFormSelectComponent from 'components/select';
 
 export function AddressInformation() {
   const history = useHistory();
@@ -25,6 +27,13 @@ export function AddressInformation() {
     control,
     formState: { errors },
   } = useForm();
+
+  const [regions, setRegions] = useState([]);
+
+  const { setRegion } = useGetList({
+    setRegions,
+  });
+
   return (
     <AddressInfoProvider>
       <Title>Адресаная информация</Title>
@@ -36,7 +45,60 @@ export function AddressInformation() {
       </Paragraph>
       <AddressForm>
         <Title className="form-title">Адрес постоянного проживания</Title>
-        <EntityForm />
+        {/* <EntityForm  /> */}
+        <div className="row mt-3">
+          <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+            <InputComponent
+              Controller={Controller}
+              control={control}
+              nameProps="name"
+              plProps="Адресная строка 1"
+              label="Адресная строка 1*"
+            />
+          </div>
+          <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+            <InputComponent
+              Controller={Controller}
+              control={control}
+              nameProps="surname"
+              plProps="Адресная строка 2"
+              label="Адресная строка 2*"
+            />
+          </div>
+          <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+            <UserFormSelectComponent
+              Controller={Controller}
+              control={control}
+              required={true}
+              title="Город*"
+              name="depar_id"
+              placeholder="Город"
+              // options={departList}
+              disabled={false}
+            />
+          </div>
+          <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+            <UserFormSelectComponent
+              Controller={Controller}
+              control={control}
+              required={true}
+              title="Город*"
+              name="depar_id"
+              placeholder="Район"
+              // options={departList}
+              disabled={false}
+            />
+          </div>
+          <div className="col-lg-3 col-md-6 col-sm-6 col-12 mt-3">
+            <InputComponent
+              Controller={Controller}
+              control={control}
+              nameProps="index"
+              plProps="Введите Номер паспорта"
+              label="Почтовый индекс"
+            />
+          </div>
+        </div>
         <Paragraph className="mt-2">
           Укажите адрес, по которому вы постоянно проживаете. Если у вас есть
           другой временный адрес (например, студенческое общежитие), укажите его
@@ -63,7 +125,59 @@ export function AddressInformation() {
             label="Нет"
           />
         </CheckboxWrapper>
-        <EntityForm />
+        <div className="row mt-3">
+          <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+            <InputComponent
+              Controller={Controller}
+              control={control}
+              nameProps="name"
+              plProps="Адресная строка 1"
+              label="Адресная строка 1*"
+            />
+          </div>
+          <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+            <InputComponent
+              Controller={Controller}
+              control={control}
+              nameProps="surname"
+              plProps="Адресная строка 2"
+              label="Адресная строка 2*"
+            />
+          </div>
+          <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+            <UserFormSelectComponent
+              Controller={Controller}
+              control={control}
+              required={true}
+              title="Город*"
+              name="depar_id"
+              placeholder="Город"
+              // options={departList}
+              disabled={false}
+            />
+          </div>
+          <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+            <UserFormSelectComponent
+              Controller={Controller}
+              control={control}
+              required={true}
+              title="Город*"
+              name="depar_id"
+              placeholder="Район"
+              // options={departList}
+              disabled={false}
+            />
+          </div>
+          <div className="col-lg-3 col-md-6 col-sm-6 col-12 mt-3">
+            <InputComponent
+              Controller={Controller}
+              control={control}
+              nameProps="index"
+              plProps="Введите Номер паспорта"
+              label="Почтовый индекс"
+            />
+          </div>
+        </div>
         <Paragraph className="mt-2">
           Большая часть нашей корреспонденции будет вестись по электронной
           почте, но если мы отправим вам что-либо по почте, мы будем
