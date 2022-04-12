@@ -14,7 +14,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { admissionApi } from 'services/api/pagesApi';
 
 export function PersonalInfo() {
-  let dateFormat = 'DD-MM-YYYY';
+  let dateFormat = 'YYYY-MM-DD';
   const history = useHistory();
   const {
     handleSubmit,
