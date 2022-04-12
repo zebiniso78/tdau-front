@@ -2,6 +2,7 @@ import { CustomMask } from 'components/mask/customMask';
 import React, { useState } from 'react'
 import { useForm, Controller } from 'react-hook-form';
 import PureModal from 'react-pure-modal';
+import { useHistory } from 'react-router-dom';
 import { authApi } from 'services/api/pagesApi';
 import Button from "../../../button"
 
@@ -14,6 +15,7 @@ export function Verify({ setConfirmModel, setRegisterModel, confirmModel, phoneN
       control,
       formState: { errors },
    } = useForm();
+   const history = useHistory()
    const [isLoading, setIsLoading] = useState(false)
    async function onSubmit(data) {
       try {
@@ -22,9 +24,10 @@ export function Verify({ setConfirmModel, setRegisterModel, confirmModel, phoneN
          formData.append("phone", phoneNumber)
          formData.append("code", data?.code)
          let res = await authApi.verify(formData)
-         console.log(res, 'res')
+         localStorage.setItem('token', res?.token)
          setIsLoading(false)
          setConfirmModel(false)
+         history.push('/')
       } catch (e) {
          console.log(e)
          setIsLoading(false)
