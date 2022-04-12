@@ -69,6 +69,7 @@ export const ButtonWrapper = styled.div`
     line-height: 24px;
     color: #eb5757;
     text-transform: capitalize;
+    margin-right:20px;
     &:hover {
       border: 1px solid #eb5757;
     }
@@ -81,4 +82,3 @@ export const ButtonWrapper = styled.div`
     }
   }
 `;
-
