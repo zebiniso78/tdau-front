@@ -13,11 +13,13 @@ const UserFormSelectComponent = ({
   name,
   placeholder,
   required,
-  className
+  className,
 }) => {
   return (
     <StyleSelectAll>
-      <label className="select-label" style={{ fontSize: '14px' }}>{title}</label>
+      <label className="select-label" style={{ fontSize: '14px' }}>
+        {title}
+      </label>
       <Controller
         control={control}
         name={name}
