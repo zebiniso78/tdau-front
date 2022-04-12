@@ -64,9 +64,9 @@ export function PersonalInfo() {
     }
   };
 
-  useEffect(() => {
-    localStorage.setItem('step', 0);
-  }, []);
+  // useEffect(() => {
+  //   localStorage.setItem('step', 0);
+  // }, []);
   return (
     <PersonalInfoProvider
       className="container"

@@ -47,15 +47,15 @@ export function PassportInformation() {
     }
   };
 
-  useEffect(() => {
-    if (localStorage?.getItem('step') < 2) {
-      history.push('/academic-info');
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (localStorage?.getItem('step') < 2) {
+  //     history.push('/academic-info');
+  //   }
+  // }, []);
   return (
     <PassportInfoProvider onSubmit={handleSubmit(onSubmit)}>
       <Title>Паспортная информация</Title>
-      <Row className="row">
+      <Row className="row align-items-end">
         <Col className="col-lg-4 col-md-6 col-sm-6 col-12">
           <InputComponent
             Controller={Controller}

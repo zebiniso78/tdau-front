@@ -65,14 +65,14 @@ export function AcademicInformation() {
       setIsLoading(false);
     }
   };
-  useEffect(() => {
-    if (localStorage?.getItem('step') > 1) {
-      getEducationForm();
-      getEducationType();
-    } else {
-      history.push('/personal-info');
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (localStorage?.getItem('step') > 1) {
+  //     getEducationForm();
+  //     getEducationType();
+  //   } else {
+  //     history.push('/personal-info');
+  //   }
+  // }, []);
   return (
     <AcademicInfoProvider>
       <AcademicInfoTitle>Академическая информация</AcademicInfoTitle>
@@ -91,7 +91,10 @@ export function AcademicInformation() {
           </strong>
         </p>
       </AcademicInfo>
-      <AcademicForm onSubmit={handleSubmit(onSubmit)} className="row">
+      <AcademicForm
+        onSubmit={handleSubmit(onSubmit)}
+        className="row align-items-end"
+      >
         <div className="col-lg-4 col-md-6 col-sm-6 col-12">
           <TwoDate
             Controller={Controller}
