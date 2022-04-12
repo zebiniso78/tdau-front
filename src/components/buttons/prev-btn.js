@@ -6,13 +6,15 @@ export function CancelBtnComponent(props) {
       className,
       name,
       onClick,
-      type
+      type,
+      disabled
    } = props
    return (
       <Button
          variant="outlined"
          className={className}
          onClick={onClick}
+         disabled={disabled}
          type={type}>{name}</Button>
    )
 }

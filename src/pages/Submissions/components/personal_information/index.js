@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ButtonsProvider, PersonalInfoProvider, Error } from './style';
 import UserFormSelectComponent from '../../../../components/select';
 import { Controller, useForm } from 'react-hook-form';
@@ -6,8 +6,15 @@ import { InputComponent } from '../../../../components/input/controllerInput';
 import { CancelBtnComponent } from '../../../../components/buttons/prev-btn';
 import { NextBtnComponent } from '../../../../components/buttons/next-btn';
 import { useHistory } from 'react-router-dom';
+import Calendar from "components/calendar"
+import { useGetList } from '../hooks/useGetList';
+import { useEffect } from 'react';
+import moment from 'moment'
+import toast, { Toaster } from "react-hot-toast"
+import { admissionApi } from 'services/api/pagesApi';
 
 export function PersonalInfo() {
+  let dateFormat = 'DD.MM.YYYY'
   const history = useHistory();
   const {
     handleSubmit,
@@ -16,9 +23,38 @@ export function PersonalInfo() {
     control,
     formState: { errors },
   } = useForm();
-  console.log(errors, 'error');
-  const onSubmit = (data) => {
-    console.log(data, 'dataaaaaa');
+  const [nationalities, setNationalities] = useState([])
+  const [countries, setCountries] = useState([])
+  const [genders, setGenders] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
+  const { getNationality, getCountries, getGenders } = useGetList({ setNationalities, setCountries, setGenders })
+  useEffect(() => {
+    getNationality()
+    getCountries()
+    getGenders()
+  }, [])
+
+  const onSubmit = async(data) => {
+    try {
+      setIsLoading(true)
+      let formData = new FormData()
+      formData.append('name', data?.name)
+      formData.append('surname', data?.surname)
+      formData.append('middle_name', data?.middle_name)
+      formData.append('birthdate', moment(data?.birthdate).format(dateFormat))
+      formData.append('gender_id', data?.genderID?.value)
+      formData.append('nationality', data?.nationalSelect?.label)
+      formData.append('country_birth', data?.countryBirth?.label)
+      formData.append('country_permanent', data?.countryPermanent?.label)
+      formData.append('register_step', 1)
+      await admissionApi.admissionPost(formData)
+      toast.success("Successfully created")
+      history.push("/academic-info")
+      setIsLoading(false)
+    } catch (e) {
+      console.log(e)
+      setIsLoading(false)
+    }
   };
   return (
     <PersonalInfoProvider
@@ -92,7 +128,7 @@ export function PersonalInfo() {
           )}
         </div>
         <div className="col-lg-3 col-md-6 col-sm-6 col-12">
-          <UserFormSelectComponent
+          {/* <UserFormSelectComponent
             Controller={Controller}
             control={control}
             title="Дата рождения*"
@@ -109,17 +145,26 @@ export function PersonalInfo() {
             <Error className="select-error-tooltip">
               Iltimos kafedrani kiriting!
             </Error>
-          )}
+          )} */}
+          <Calendar
+            Controller={Controller}
+            control={control}
+            label="Дата рождения*"
+            nameProps="birthdate"
+            plProps="дд/мм/гггг"
+            format="DD.MM.YYYY"
+            className="calendar"
+          />
         </div>
         <div className="col-lg-3 col-md-6 col-sm-6 col-12">
           <UserFormSelectComponent
             Controller={Controller}
             control={control}
             title="Пол*"
-            name="depar_id"
+            name="genderID"
             required={false}
             placeholder="Мистер"
-            // options={departList}
+            options={genders}
             disabled={false}
             className={
               errors && errors?.hasOwnProperty('depar_id') && 'select-error'
@@ -136,9 +181,9 @@ export function PersonalInfo() {
             Controller={Controller}
             control={control}
             title="Страна рождения*"
-            name="depar_id"
+            name="countryBirth"
             placeholder="Выберите"
-            // options={departList}
+            options={countries}
             disabled={false}
             className={
               errors && errors?.hasOwnProperty('depar_id') && 'select-error'
@@ -155,15 +200,15 @@ export function PersonalInfo() {
             Controller={Controller}
             control={control}
             title="Национальность*"
-            name="depar_id"
+            name="nationalSelect"
             placeholder="Мистер"
-            // options={departList}
+            options={nationalities}
             disabled={false}
             className={
-              errors && errors?.hasOwnProperty('depar_id') && 'select-error'
+              errors && errors?.hasOwnProperty('nationalSelect') && 'select-error'
             }
           />
-          {errors && errors?.hasOwnProperty('depar_id') && (
+          {errors && errors?.hasOwnProperty('nationalSelect') && (
             <Error className="select-error-tooltip">
               Iltimos kafedrani kiriting!
             </Error>
@@ -174,15 +219,15 @@ export function PersonalInfo() {
             Controller={Controller}
             control={control}
             title="Страна постоянного проживания*"
-            name="depar_id"
+            name="countryPermanent"
             placeholder="Выберите"
-            // options={departList}
+            options={countries}
             disabled={false}
             className={
-              errors && errors?.hasOwnProperty('depar_id') && 'select-error'
+              errors && errors?.hasOwnProperty('countryPermanent') && 'select-error'
             }
           />
-          {errors && errors?.hasOwnProperty('depar_id') && (
+          {errors && errors?.hasOwnProperty('countryPermanent') && (
             <Error className="select-error-tooltip">
               Iltimos kafedrani kiriting!
             </Error>
@@ -193,15 +238,15 @@ export function PersonalInfo() {
             Controller={Controller}
             control={control}
             title="Текущее место жительства*"
-            name="depar_id"
+            name="currentCountry"
             placeholder="Выберите"
-            // options={departList}
+            options={countries}
             disabled={false}
             className={
-              errors && errors?.hasOwnProperty('depar_id') && 'select-error'
+              errors && errors?.hasOwnProperty('currentCountry') && 'select-error'
             }
           />
-          {errors && errors?.hasOwnProperty('depar_id') && (
+          {errors && errors?.hasOwnProperty('currentCountry') && (
             <Error className="select-error-tooltip">
               Iltimos kafedrani kiriting!
             </Error>
@@ -210,13 +255,18 @@ export function PersonalInfo() {
       </div>
       <ButtonsProvider>
         <CancelBtnComponent name="Отмена" className="prev-btn" />
-        <CancelBtnComponent name="Сахранит" className="save-btn" />
+        <CancelBtnComponent
+          name="Сахранит"
+          className="save-btn"
+          disabled={isLoading}
+          type='submit' />
         <NextBtnComponent
           name="Продолжить"
           className="next-btn"
-          type="submit"
-          // onClick={() => history.push("/academic-info")}
+          type="button"
+          onClick={() => history.push("/academic-info")}
         />
+        <Toaster />
       </ButtonsProvider>
     </PersonalInfoProvider>
   );
