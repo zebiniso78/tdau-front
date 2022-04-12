@@ -9,10 +9,10 @@ export function CancelBtnComponent(props) {
       type
    } = props
    return (
-      <Button 
-      variant="outlined" 
-      className={className} 
-      onClick={onClick}
-      type={type}>{name}</Button>
+      <Button
+         variant="outlined"
+         className={className}
+         onClick={onClick}
+         type={type}>{name}</Button>
    )
 }

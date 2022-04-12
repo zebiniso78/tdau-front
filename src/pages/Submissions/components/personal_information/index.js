@@ -1,5 +1,5 @@
 import React from 'react'
-import { ButtonsProvider, PersonalInfoProvider } from './style'
+import { ButtonsProvider, PersonalInfoProvider, Error } from './style'
 import UserFormSelectComponent from "../../../../components/select"
 import { Controller, useForm } from 'react-hook-form';
 import { InputComponent } from '../../../../components/input/controllerInput';
@@ -29,13 +29,14 @@ export function PersonalInfo() {
                <UserFormSelectComponent
                   Controller={Controller}
                   control={control}
-                  required={true}
                   title="Кто ты*"
                   name="depar_id"
                   placeholder="Мистер"
                   // options={departList}
                   disabled={false}
+                  className={errors && errors?.hasOwnProperty('depar_id') && 'select-error'}
                />
+               {errors && errors?.hasOwnProperty('depar_id') && <Error className='select-error-tooltip'>Iltimos kafedrani kiriting!</Error>}
             </div>
             <div className='col-lg-3 col-md-6 col-sm-6 col-12'>
                <InputComponent
@@ -44,27 +45,31 @@ export function PersonalInfo() {
                   nameProps="name"
                   plProps="Введите Имя"
                   label='Имя*'
-                  required={true}
+                  className={errors && errors?.hasOwnProperty('name') && 'input-error'}
                />
+               {errors && errors?.hasOwnProperty('name') && <Error>Iltimos ismingizni kiriting!</Error>}
             </div>
             <div className='col-lg-3 col-md-6 col-sm-6 col-12'>
                <InputComponent
                   Controller={Controller}
                   control={control}
                   nameProps="surname"
-                  re
                   plProps="Введите Фамилия"
                   label='Фамилия*'
+                  className={errors && errors?.hasOwnProperty('surname') && 'input-error'}
                />
+               {errors && errors?.hasOwnProperty('surname') && <Error>Iltimos familiyangizni kiriting!</Error>}
             </div>
             <div className='col-lg-3 col-md-6 col-sm-6 col-12'>
                <InputComponent
                   Controller={Controller}
                   control={control}
-                  nameProps="surname"
+                  nameProps="middle_name"
                   plProps="Введите oтчества"
                   label='Отчества*'
+                  className={errors && errors?.hasOwnProperty('middle_name') && 'input-error'}
                />
+               {errors && errors?.hasOwnProperty('middle_name') && <Error>Iltimos sharifingizni kiriting!</Error>}
             </div>
             <div className='col-lg-3 col-md-6 col-sm-6 col-12'>
                <UserFormSelectComponent
@@ -75,8 +80,10 @@ export function PersonalInfo() {
                   required={false}
                   placeholder="Мистер"
                   // options={departList}
+                  className={errors && errors?.hasOwnProperty('depar_id') && 'select-error'}
                   disabled={false}
                />
+               {errors && errors?.hasOwnProperty('depar_id') && <Error className='select-error-tooltip'>Iltimos kafedrani kiriting!</Error>}
             </div>
             <div className='col-lg-3 col-md-6 col-sm-6 col-12'>
                <UserFormSelectComponent
@@ -88,7 +95,9 @@ export function PersonalInfo() {
                   placeholder="Мистер"
                   // options={departList}
                   disabled={false}
+                  className={errors && errors?.hasOwnProperty('depar_id') && 'select-error'}
                />
+               {errors && errors?.hasOwnProperty('depar_id') && <Error className='select-error-tooltip'>Iltimos kafedrani kiriting!</Error>}
             </div>
             <div className='col-lg-3 col-md-6 col-sm-6 col-12'>
                <UserFormSelectComponent
@@ -99,7 +108,9 @@ export function PersonalInfo() {
                   placeholder="Выберите"
                   // options={departList}
                   disabled={false}
+                  className={errors && errors?.hasOwnProperty('depar_id') && 'select-error'}
                />
+               {errors && errors?.hasOwnProperty('depar_id') && <Error className='select-error-tooltip'>Iltimos kafedrani kiriting!</Error>}
             </div>
             <div className='col-lg-3 col-md-6 col-sm-6 col-12'>
                <UserFormSelectComponent
@@ -110,7 +121,9 @@ export function PersonalInfo() {
                   placeholder="Мистер"
                   // options={departList}
                   disabled={false}
+                  className={errors && errors?.hasOwnProperty('depar_id') && 'select-error'}
                />
+               {errors && errors?.hasOwnProperty('depar_id') && <Error className='select-error-tooltip'>Iltimos kafedrani kiriting!</Error>}
             </div>
             <div className='col-lg-3 col-md-6 col-sm-6 col-12'>
                <UserFormSelectComponent
@@ -121,7 +134,9 @@ export function PersonalInfo() {
                   placeholder="Выберите"
                   // options={departList}
                   disabled={false}
+                  className={errors && errors?.hasOwnProperty('depar_id') && 'select-error'}
                />
+               {errors && errors?.hasOwnProperty('depar_id') && <Error className='select-error-tooltip'>Iltimos kafedrani kiriting!</Error>}
             </div>
             <div className='col-lg-3 col-md-6 col-sm-6 col-12'>
                <UserFormSelectComponent
@@ -132,7 +147,9 @@ export function PersonalInfo() {
                   placeholder="Выберите"
                   // options={departList}
                   disabled={false}
+                  className={errors && errors?.hasOwnProperty('depar_id') && 'select-error'}
                />
+               {errors && errors?.hasOwnProperty('depar_id') && <Error className='select-error-tooltip'>Iltimos kafedrani kiriting!</Error>}
             </div>
          </div>
          <ButtonsProvider>

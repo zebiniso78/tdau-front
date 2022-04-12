@@ -21,8 +21,7 @@ export function Verify({ setConfirmModel, setRegisterModel,  confirmModel }) {
          let formData = new FormData()
          formData.append("phone", `+998${data?.phone}`)
          formData.append("code", data?.code)
-         let response = await authApi.verify(formData)
-         console.log(response)
+         await authApi.verify(formData)
       } catch (e) {
          console.log(e)
       }
