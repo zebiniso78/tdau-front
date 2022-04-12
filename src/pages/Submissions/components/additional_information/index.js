@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import {MemoizedCheckbox, CheckboxComponent } from 'components/checkbox';
+import { MemoizedCheckbox, CheckboxComponent } from 'components/checkbox';
 import {
   AdditionalInfoProvider,
   CheckboxWrapper,
@@ -20,14 +20,14 @@ export function AdditionalInformation() {
     watch,
     formState: { errors },
   } = useForm();
-  console.log(watch('yes'))
-  console.log(watch('no'))
+  console.log(watch('yes'));
+  console.log(watch('no'));
 
   return (
     <>
       <AdditionalInfoProvider className="container">
         <div className="row">
-          <h4>Использованная литература</h4>
+          <h4>Условия использывание</h4>
           <p>
             Соответственно, Apply себя не несет прямой или косвенной
             ответственности за любой ущерб или убытки, вызванные или
@@ -77,6 +77,7 @@ export function AdditionalInformation() {
             onClick={() => history.push('/references')}
             type="button"
           />
+          <CancelBtnComponent name="Сахранит" className="save-btn" />
           <NextBtnComponent
             name="Отправлять"
             className="next-btn"

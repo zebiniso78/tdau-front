@@ -14,7 +14,7 @@ export function References() {
     <>
       <ReferencesProvider className="container">
         <div className="row">
-          <h4>Использованная литература</h4>
+          <h4>Рекомендация</h4>
           <p>
             В рамках критериев приема нам требуются две рекомендации. Это должны
             быть академические рекомендации, если вы получали очное образование
@@ -61,6 +61,7 @@ export function References() {
             onClick={() => history.push('/supporting-info')}
             type="button"
           />
+          <CancelBtnComponent name="Сахранит" className="save-btn" />
           <NextBtnComponent
             name="Продолжить"
             className="next-btn"

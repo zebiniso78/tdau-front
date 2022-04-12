@@ -210,6 +210,7 @@ export function PersonalInfo() {
       </div>
       <ButtonsProvider>
         <CancelBtnComponent name="Отмена" className="prev-btn" />
+        <CancelBtnComponent name="Сахранит" className="save-btn" />
         <NextBtnComponent
           name="Продолжить"
           className="next-btn"

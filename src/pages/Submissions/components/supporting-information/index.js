@@ -42,7 +42,7 @@ export function SupportingInformation() {
           </div>
         </div>
 
-        <div className="row mb-5">
+        {/* <div className="row mb-5">
           <div className="title-wrapper">
             <h5>Предложение исследования</h5>
             <hr />
@@ -67,7 +67,7 @@ export function SupportingInformation() {
               className="p-0"
             />
           </div>
-        </div>
+        </div> */}
 
         <div className="row mb-5">
           <div className="title-wrapper">
@@ -92,7 +92,7 @@ export function SupportingInformation() {
           </div>
         </div>
 
-        <div className="row mb-5">
+        {/* <div className="row mb-5">
           <div className="title-wrapper">
             <h5>Форма клинического визита</h5>
             <hr />
@@ -113,14 +113,16 @@ export function SupportingInformation() {
               className="p-0"
             />
           </div>
-        </div>
+        </div> */}
 
         <ButtonsProvider>
           <CancelBtnComponent
             name="Назад"
             className="prev-btn"
             type="button"
-            onClick={() => history.push("/english-language")} />
+            onClick={() => history.push('/english-language')}
+          />
+          <CancelBtnComponent name="Сахранит" className="save-btn" />
           <NextBtnComponent
             name="Продолжить"
             className="next-btn"
