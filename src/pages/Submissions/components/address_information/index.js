@@ -113,7 +113,7 @@ export function AddressInformation() {
       <AddressForm onSubmit={handleSubmit(onSubmit)}>
         <Title className="form-title">Адрес постоянного проживания</Title>
         {/* <EntityForm  /> */}
-        <div className="row mt-3">
+        <div className="row align-items-end mt-3">
           <div className="col-lg-3 col-md-6 col-sm-6 col-12">
             <InputComponent
               Controller={Controller}
@@ -192,7 +192,7 @@ export function AddressInformation() {
             label="Нет"
           />
         </CheckboxWrapper>
-        <div className="row mt-3">
+        <div className="row align-items-end mt-3">
           <div className="col-lg-3 col-md-6 col-sm-6 col-12">
             <InputComponent
               Controller={Controller}
