@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import {
   MyContainer,
@@ -23,7 +23,7 @@ function Navbar() {
   const [registerModal, setRegisterModal] = useState(false);
   const [confirmModal, setConfirmModal] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (window.location.pathname === '/main') {
       setNavBg('rgba(0, 0, 0, 0.4)');
     } else {

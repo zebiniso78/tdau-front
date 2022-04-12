@@ -109,7 +109,7 @@ export const LogoWrapper = styled.div`
 
   .header-title {
     color: white;
-    font-size: 28px;
+    font-size: 23px;
     font-weight: bold;
     text-align: left;
     margin-bottom: 0;
@@ -220,7 +220,7 @@ export const InputWrapper = styled.div`
     }
   }
 
-  @media (max-width: 1440px) {
+  @media (max-width: 1024px) {
     .phone-number {
       font-size: 16px;
       line-height: 22px;
@@ -250,7 +250,7 @@ export const Nav = styled.nav`
 
         span {
           font-weight: 400;
-          font-size: 18px;
+          font-size: 16px;
           line-height: 22px;
           color: #ffffff;
         }
@@ -269,6 +269,14 @@ export const Nav = styled.nav`
       line-height: 20px;
     }
   }
+
+  @media (max-width: 1200px) {
+    span {
+      font-size: 13.5px !important;
+      line-height: 17px;
+    }
+  }
+
   @media (max-width: 1024px) {
     span {
       font-size: 13px !important;

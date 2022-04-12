@@ -10,21 +10,15 @@ import { Layout } from './pages/Submissions/components/layout';
 function App() {
   return (
     <BrowserRouter>
-      {/* <Navbar />
+      <Navbar />
       <Switch>
         <Route path="/" exact component={Profile} />
-        <Route path="/filing" component={Submissions} />
-        <Layout />
-      </Switch>
-
-      <Footer /> */}
-
-      <Switch>
+        <Route path="/personal-info" component={Submissions} />
         <Route path="/main" exact component={Main} />
-        <Route path="/" exact component={Profile} />
-        <Route path="/filing" component={Submissions} />
         <Layout />
       </Switch>
+
+      <Footer />
     </BrowserRouter>
   );
 }

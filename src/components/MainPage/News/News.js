@@ -1,6 +1,6 @@
 import React from 'react';
 import { MyContainer } from './NewsStyle';
-import NewsCard from '../../NewsCard';
+import NewsCard from '../../newsCard';
 import NewsPost from '../../NewsPost';
 import { AiOutlineRight } from 'react-icons/ai';
 import CardImage1 from '../../../assets/cardImage1.png';
@@ -90,7 +90,8 @@ function News() {
         </div>
         <div className="news-card__wrapper">
           <div className="one-card__wrapper">
-            <NewsCard className="one-card"
+            <NewsCard
+              className="one-card"
               image={CardImage1}
               date="10 января 2021"
               seen="268 743"

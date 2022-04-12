@@ -1,6 +1,6 @@
 import React from 'react';
-import Navbar from '../../components/MainPage/Navbar/Navbar';
-import Footer from '../../components/MainPage/Footer/Footer';
+//import Navbar from '../../components/MainPage/Navbar/Navbar';
+//import Footer from '../../components/MainPage/Footer/Footer';
 import { ProfileSection, ProfileBody } from './ProfileStyle';
 import PersonalCard from '../../components/PersonalCard';
 import InputsCard from '../../components/InputsCard';
@@ -10,7 +10,6 @@ function Profile() {
   return (
     <>
       <ProfileSection>
-        <Navbar />
         <ProfileBody>
           <Container className="profile-container">
             <div className="user-card">
@@ -21,7 +20,6 @@ function Profile() {
             </div>
           </Container>
         </ProfileBody>
-        <Footer />
       </ProfileSection>
     </>
   );
