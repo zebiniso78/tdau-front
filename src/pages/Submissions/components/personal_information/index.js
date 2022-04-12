@@ -34,7 +34,7 @@ export function PersonalInfo() {
     getGenders()
   }, [])
 
-  const onSubmit = async(data) => {
+  const onSubmit = async (data) => {
     try {
       setIsLoading(true)
       let formData = new FormData()
@@ -48,11 +48,12 @@ export function PersonalInfo() {
       formData.append('country_permanent', data?.countryPermanent?.label)
       formData.append('register_step', 1)
       await admissionApi.admissionPost(formData)
-      toast.success("Successfully created")
       history.push("/academic-info")
+      // toast.success("Successfully created")
       setIsLoading(false)
     } catch (e) {
       console.log(e)
+      toast.error(e?.msg)
       setIsLoading(false)
     }
   };
