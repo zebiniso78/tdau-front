@@ -41,10 +41,9 @@ export const ButtonsProvider = styled.div`
 `
 
 export const Error = styled.div`
-    color: white;
+    color: #D2504D;
     font-size: 12px;
     margin-top: -2px;
-    background-color: #D2504D;
     border-radius: 4px;
     padding: 2px 8px;
     &.select-error-tooltip {

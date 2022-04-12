@@ -29,11 +29,11 @@ const timelineList = [
     pathName: '/education-qualifications',
     name: 'Образование и квалификации'
   },
-  {
-    id: 6,
-    pathName: '/english-language',
-    name: 'Английский язык'
-  },
+  // {
+  //   id: 6,
+  //   pathName: '/english-language',
+  //   name: 'Английский язык'
+  // },
   {
     id: 7,
     pathName: '/supporting-info',

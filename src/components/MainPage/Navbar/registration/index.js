@@ -8,7 +8,7 @@ import { PhoneMask } from 'components/mask';
 import { authApi } from 'services/api/pagesApi';
 
 
-export function Registration({ setConfirmModel, setRegisterModel, setModal, registerModel }) {
+export function Registration({ setConfirmModel, setRegisterModel, setModal, registerModel, setPhoneNumber }) {
    const {
       handleSubmit,
       watch,
@@ -18,12 +18,12 @@ export function Registration({ setConfirmModel, setRegisterModel, setModal, regi
    } = useForm();
    const [isLoading, setIsLoading] = useState(false)
    async function onSubmit(data) {
-      console.log(data, 'data')
       let formData = new FormData()
       formData.append('username', data?.username)
       formData.append('phone', `+998${data?.phone}`)
       formData.append('email', data?.email)
       formData.append('password', data?.password)
+      setPhoneNumber(`+998${data?.phone}`)
       try {
          setIsLoading(true)
          await authApi.registration(formData)

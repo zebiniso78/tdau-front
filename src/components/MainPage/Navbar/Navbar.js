@@ -21,6 +21,7 @@ function Navbar() {
   const [modal, setModal] = useState(false);
   const [registerModel, setRegisterModel] = useState(false);
   const [confirmModel, setConfirmModel] = useState(false);
+  const [phoneNumber, setPhoneNumber] = useState(null)
   return (
     <>
       <MyHeader>
@@ -142,12 +143,14 @@ function Navbar() {
           setConfirmModel={setConfirmModel}
           setRegisterModel={setRegisterModel}
           setModal={setModal}
-          registerModel={registerModel} />
+          registerModel={registerModel}
+          setPhoneNumber={setPhoneNumber} />
         <Verify
           setConfirmModel={setConfirmModel}
           setRegisterModel={setRegisterModel}
           setConfirmModel={setConfirmModel}
-          confirmModel={confirmModel} />
+          confirmModel={confirmModel}
+          phoneNumber={phoneNumber} />
       </MyHeader>
     </>
   );

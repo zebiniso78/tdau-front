@@ -31,7 +31,7 @@ export function Layout() {
                      <Route path='/passport-info' component={PassportInformation} />
                      <Route path='/address-info' component={AddressInformation} />
                      <Route path='/education-qualifications' component={Education} />
-                     <Route path='/english-language' component={EnglishLanguage} />
+                     {/* <Route path='/english-language' component={EnglishLanguage} /> */}
                      <Route path='/supporting-info' component={SupportingInformation} />
                      <Route path='/references' component={References} />
                      <Route path='/additional-info' component={AdditionalInformation} />
