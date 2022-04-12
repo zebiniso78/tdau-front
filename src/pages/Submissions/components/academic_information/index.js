@@ -11,6 +11,7 @@ import { ButtonsProvider } from '../../../../components/buttons/style';
 import { CancelBtnComponent } from '../../../../components/buttons/prev-btn';
 import { NextBtnComponent } from '../../../../components/buttons/next-btn';
 import { useHistory } from 'react-router-dom';
+import { Error } from 'common/grid';
 
 export function AcademicInformation() {
   const {
@@ -48,11 +49,19 @@ export function AcademicInformation() {
             control={control}
             required={true}
             title="Срок приема*"
-            name="depar_id"
+            name="srok_priema"
             placeholder="Мистер"
             // options={departList}
             disabled={false}
+            className={
+              errors && errors?.hasOwnProperty('srok_priema') && 'select-error'
+            }
           />
+          {errors && errors?.hasOwnProperty('srok_priema') && (
+            <Error className="select-error-tooltip">
+              Iltimos malumotni kiriting!
+            </Error>
+          )}
         </div>
         <div className="col-lg-4 col-md-6 col-sm-6 col-12">
           <UserFormSelectComponent
@@ -60,11 +69,19 @@ export function AcademicInformation() {
             control={control}
             required={true}
             title="тип обучения*"
-            name="depar_id"
+            name="obuchenie"
             placeholder="Выберите"
             // options={departList}
             disabled={false}
+            className={
+              errors && errors?.hasOwnProperty('obuchenie') && 'select-error'
+            }
           />
+          {errors && errors?.hasOwnProperty('obuchenie') && (
+            <Error className="select-error-tooltip">
+              Iltimos malumotni kiriting!
+            </Error>
+          )}
         </div>
         <div className="col-lg-4 col-md-6 col-sm-6 col-12">
           <UserFormSelectComponent
@@ -72,11 +89,21 @@ export function AcademicInformation() {
             control={control}
             required={true}
             title="тип программа*"
-            name="depar_id"
+            name="tip_programma"
             placeholder="Выберите"
             // options={departList}
             disabled={false}
+            className={
+              errors &&
+              errors?.hasOwnProperty('tip_programma') &&
+              'select-error'
+            }
           />
+          {errors && errors?.hasOwnProperty('tip_programma') && (
+            <Error className="select-error-tooltip">
+              Iltimos malumotni kiriting!
+            </Error>
+          )}
         </div>
         <ButtonsProvider>
           <CancelBtnComponent

@@ -1,4 +1,14 @@
 import styled from 'styled-components';
+export const Error = styled.div`
+  color: #d2504d;
+  font-size: 12px;
+  margin-top: -2px;
+  border-radius: 4px;
+  padding: 2px 8px;
+  &.select-error-tooltip {
+    margin-top: 6px;
+  }
+`;
 export const Container = styled.div`
   width: 100%;
   padding-right: 15px;
@@ -55,9 +65,9 @@ export const Col6 = styled(Col12)`
   }
 `;
 export const Col10 = styled.div`
-    flex: 0 0 auto;
-    width: 83.33333333%;
-`
+  flex: 0 0 auto;
+  width: 83.33333333%;
+`;
 export const Col8 = styled(Col12)`
   flex: 0 0 100%;
   max-width: 100%;

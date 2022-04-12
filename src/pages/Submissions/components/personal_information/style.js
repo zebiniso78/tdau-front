@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const PersonalInfoProvider = styled.form`
   padding: 15px;
   & .col-lg-3 {
-    margin-top: 20px;
+    margin-top: 10px;
   }
   & h4 {
     font-weight: 700;

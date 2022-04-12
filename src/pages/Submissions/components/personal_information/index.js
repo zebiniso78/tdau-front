@@ -6,15 +6,15 @@ import { InputComponent } from '../../../../components/input/controllerInput';
 import { CancelBtnComponent } from '../../../../components/buttons/prev-btn';
 import { NextBtnComponent } from '../../../../components/buttons/next-btn';
 import { useHistory } from 'react-router-dom';
-import Calendar from "components/calendar"
+import Calendar from 'components/calendar';
 import { useGetList } from '../hooks/useGetList';
 import { useEffect } from 'react';
-import moment from 'moment'
-import toast, { Toaster } from "react-hot-toast"
+import moment from 'moment';
+import toast, { Toaster } from 'react-hot-toast';
 import { admissionApi } from 'services/api/pagesApi';
 
 export function PersonalInfo() {
-  let dateFormat = 'DD.MM.YYYY'
+  let dateFormat = 'DD.MM.YYYY';
   const history = useHistory();
   const {
     handleSubmit,
@@ -23,38 +23,41 @@ export function PersonalInfo() {
     control,
     formState: { errors },
   } = useForm();
-  const [nationalities, setNationalities] = useState([])
-  const [countries, setCountries] = useState([])
-  const [genders, setGenders] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
-  const { getNationality, getCountries, getGenders } = useGetList({ setNationalities, setCountries, setGenders })
+  const [nationalities, setNationalities] = useState([]);
+  const [countries, setCountries] = useState([]);
+  const [genders, setGenders] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const { getNationality, getCountries, getGenders } = useGetList({
+    setNationalities,
+    setCountries,
+    setGenders,
+  });
   useEffect(() => {
-    getNationality()
-    getCountries()
-    getGenders()
-  }, [])
+    getNationality();
+    getCountries();
+    getGenders();
+  }, []);
 
   const onSubmit = async (data) => {
     try {
-      setIsLoading(true)
-      let formData = new FormData()
-      formData.append('name', data?.name)
-      formData.append('surname', data?.surname)
-      formData.append('middle_name', data?.middle_name)
-      formData.append('birthdate', moment(data?.birthdate).format(dateFormat))
-      formData.append('gender_id', data?.genderID?.value)
-      formData.append('nationality', data?.nationalSelect?.label)
-      formData.append('country_birth', data?.countryBirth?.label)
-      formData.append('country_permanent', data?.countryPermanent?.label)
-      formData.append('register_step', 1)
-      await admissionApi.admissionPost(formData)
-      history.push("/academic-info")
-      // toast.success("Successfully created")
-      setIsLoading(false)
+      setIsLoading(true);
+      let formData = new FormData();
+      formData.append('name', data?.name);
+      formData.append('surname', data?.surname);
+      formData.append('middle_name', data?.middle_name);
+      formData.append('birthdate', moment(data?.birthdate).format(dateFormat));
+      formData.append('gender_id', data?.genderID?.value);
+      formData.append('nationality', data?.nationalSelect?.label);
+      formData.append('country_birth', data?.countryBirth?.label);
+      formData.append('country_permanent', data?.countryPermanent?.label);
+      formData.append('register_step', 1);
+      await admissionApi.admissionPost(formData);
+      toast.success('Successfully created');
+      history.push('/academic-info');
+      setIsLoading(false);
     } catch (e) {
-      console.log(e)
-      toast.error(e?.msg)
-      setIsLoading(false)
+      console.log(e);
+      setIsLoading(false);
     }
   };
   return (
@@ -215,7 +218,9 @@ export function PersonalInfo() {
             options={nationalities}
             disabled={false}
             className={
-              errors && errors?.hasOwnProperty('nationalSelect') && 'select-error'
+              errors &&
+              errors?.hasOwnProperty('nationalSelect') &&
+              'select-error'
             }
           />
           {errors && errors?.hasOwnProperty('nationalSelect') && (
@@ -234,7 +239,9 @@ export function PersonalInfo() {
             options={countries}
             disabled={false}
             className={
-              errors && errors?.hasOwnProperty('countryPermanent') && 'select-error'
+              errors &&
+              errors?.hasOwnProperty('countryPermanent') &&
+              'select-error'
             }
           />
           {errors && errors?.hasOwnProperty('countryPermanent') && (
@@ -253,7 +260,9 @@ export function PersonalInfo() {
             options={countries}
             disabled={false}
             className={
-              errors && errors?.hasOwnProperty('currentCountry') && 'select-error'
+              errors &&
+              errors?.hasOwnProperty('currentCountry') &&
+              'select-error'
             }
           />
           {errors && errors?.hasOwnProperty('currentCountry') && (
@@ -269,12 +278,13 @@ export function PersonalInfo() {
           name="Сахранит"
           className="save-btn"
           disabled={isLoading}
-          type='submit' />
+          type="submit"
+        />
         <NextBtnComponent
           name="Продолжить"
           className="next-btn"
           type="button"
-          onClick={() => history.push("/academic-info")}
+          onClick={() => history.push('/academic-info')}
         />
         <Toaster />
       </ButtonsProvider>
