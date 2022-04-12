@@ -16,6 +16,7 @@ import Input from '../../input';
 import Button from '../../button';
 import { Registration } from "./registration"
 import { Verify } from './verify';
+import { Login } from './login';
 
 function Navbar() {
   const [modal, setModal] = useState(false);
@@ -48,14 +49,18 @@ function Navbar() {
                 <option>Rus</option>
                 <option>Eng</option>
               </select>
-              <button
-                className="login-button"
-                type="submit"
-                onClick={() => setModal(true)}
-              >
-                Вход / Регистрация
-                <BiUser />
-              </button>
+              {
+                localStorage.getItem('token') ? <button className='login-button'>Admission</button> :
+                  <button
+                    className="login-button"
+                    type="submit"
+                    onClick={() => setModal(true)}
+                  >
+                    Вход / Регистрация
+                    <BiUser />
+                  </button>
+              }
+
             </InputWrapper>
           </MyContainer>
         </section>
@@ -101,44 +106,11 @@ function Navbar() {
           </MyContainer>
         </Nav>
 
-        <PureModal
-          header="Вход"
-          footer={
-            <div className="footer-button__wrapper">
-              <Button type="submit" title="Вход" onClick={() => setConfirmModel(true)} />
-              <Button
-                type="submit"
-                title="Зарегистрироваться"
-                bgColor="transparent"
-                color="#2e7df6"
-                onClick={() => setRegisterModel(true)}
-              />
-            </div>
-          }
-          isOpen={modal}
-          closeButton="X"
-          closeButtonPosition="header"
-          onClose={() => {
-            setModal(false);
-            return true;
-          }}
-        >
-          <Input
-            type={`text`}
-            required
-            title="Логин"
-            placeholder="Your Login Here"
-            length={80}
-          />
-
-          <Input
-            type={`password`}
-            required
-            title="Пароль"
-            placeholder="Your Login Here"
-            length={80}
-          />
-        </PureModal>
+        <Login
+          setModal={setModal}
+          modal={modal}
+          setRegisterModel={setRegisterModel}
+        />
         <Registration
           setConfirmModel={setConfirmModel}
           setRegisterModel={setRegisterModel}

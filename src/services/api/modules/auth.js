@@ -2,7 +2,7 @@ import Api from '../index';
 
 class Auth extends Api {
   login(data) {
-    return this.execute('post', 'login', data);
+    return this.execute('post', '/login', data);
   }
   registration(data) {
     return this.execute('post', '/registration', data);
