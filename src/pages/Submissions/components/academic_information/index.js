@@ -16,6 +16,7 @@ import { admissionApi } from 'services/api/pagesApi';
 import toast from 'react-hot-toast';
 import { useGetList } from '../hooks/useGetList';
 import TwoDate from 'components/calendar/twoDate';
+import moment from 'moment';
 
 export function AcademicInformation() {
   const {
@@ -45,14 +46,16 @@ export function AcademicInformation() {
     try {
       setIsLoading(true);
       let formData = new FormData();
-      formData.append('name', data?.name);
-      // formData.append('surname', data?.surname);
-      // formData.append('middle_name', data?.middle_name);
-      // formData.append('birthdate', moment(data?.birthdate).format(dateFormat));
-      // formData.append('gender_id', data?.genderID?.value);
-      // formData.append('nationality', data?.nationalSelect?.label);
-      // formData.append('country_birth', data?.countryBirth?.label);
-      // formData.append('country_permanent', data?.countryPermanent?.label);
+      formData.append('education_form_id', data?.obuchenie?.value);
+      formData.append('education_type_id', data?.tip_programma?.value);
+      formData.append(
+        'accept_deadline',
+        `${
+          moment(data?.srok_priema[0]).format('YYYY') +
+          '-' +
+          moment(data?.srok_priema[1]).format('YYYY')
+        }`
+      );
 
       formData.append('register_step', 2);
       await admissionApi.admissionPost(formData);
@@ -67,7 +70,7 @@ export function AcademicInformation() {
   };
 
   return (
-    <AcademicInfoProvider onSubmit={handleSubmit(onSubmit)}>
+    <AcademicInfoProvider>
       <AcademicInfoTitle>Академическая информация</AcademicInfoTitle>
       <AcademicInfo>
         <p>
@@ -84,20 +87,23 @@ export function AcademicInformation() {
           </strong>
         </p>
       </AcademicInfo>
-      <AcademicForm className="row">
+      <AcademicForm onSubmit={handleSubmit(onSubmit)} className="row">
         <div className="col-lg-4 col-md-6 col-sm-6 col-12">
           <TwoDate
             Controller={Controller}
             control={control}
             required={true}
-            label="Срок приема*"
-            name="srok_priema"
-            placeholder="Мистер"
-            // options={departList}
-            disabled={false}
+            nameProps="srok_priema"
+            plProps="гггг"
+            format="YYYY"
+            // className="calendar"
             className={
-              errors && errors?.hasOwnProperty('srok_priema') && 'select-error'
+              errors && errors?.hasOwnProperty('srok_priema')
+                ? 'calendar-error'
+                : 'calendar'
             }
+            label="Срок приема*"
+            disabled={false}
           />
           {/* <UserFormSelectComponent
             Controller={Controller}

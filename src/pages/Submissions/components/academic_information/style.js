@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const AcademicInfoProvider = styled.form`
+export const AcademicInfoProvider = styled.div`
   padding: 15px;
   font-family: 'Open Sans', sans-serif;
 `;

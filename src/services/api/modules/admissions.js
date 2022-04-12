@@ -19,6 +19,13 @@ class Admissions extends Api {
   educationType() {
     return this.execute('get', '/education_type');
   }
+
+  regions() {
+    return this.execute('get', '/regions');
+  }
+  district(data) {
+    return this.execute('get', `/districts?name=${data?.name}`);
+  }
 }
 
 export default Admissions;

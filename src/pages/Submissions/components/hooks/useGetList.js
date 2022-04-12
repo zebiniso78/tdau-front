@@ -8,6 +8,7 @@ export function useGetList({
   setGenders,
   setEducationFormList,
   setEducationTypeList,
+  setRegion,
 }) {
   async function getNationality() {
     try {
@@ -22,6 +23,14 @@ export function useGetList({
     try {
       const response = await admissionApi.countries(null);
       SelectItem(response, setCountries);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+  async function getRegions() {
+    try {
+      const response = await admissionApi.regions(null);
+      SelectItem(response, setRegion);
     } catch (e) {
       console.log(e);
     }
@@ -56,5 +65,6 @@ export function useGetList({
     getGenders,
     getEducationForm,
     getEducationType,
+    getRegions,
   };
 }
