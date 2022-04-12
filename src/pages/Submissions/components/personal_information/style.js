@@ -21,6 +21,10 @@ export const PersonalInfoProvider = styled.form`
   .select-error > div {
     border: 1px solid #d2504d;
   }
+  .calendar-error {
+    border: 1px solid #d2504d;
+    margin-bottom: 0 !important;
+  }
 `;
 export const ButtonsProvider = styled.div`
   margin-top: 30px;

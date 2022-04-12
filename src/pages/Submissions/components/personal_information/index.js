@@ -95,7 +95,7 @@ export function PersonalInfo() {
             }
           />
           {errors && errors?.hasOwnProperty('name') && (
-            <Error>Iltimos ismingizni kiriting!</Error>
+            <Error>Iltimos ma'lumotni kiriting!</Error>
           )}
         </div>
         <div className="col-lg-3 col-md-6 col-sm-6 col-12">
@@ -110,7 +110,7 @@ export function PersonalInfo() {
             }
           />
           {errors && errors?.hasOwnProperty('surname') && (
-            <Error>Iltimos familiyangizni kiriting!</Error>
+            <Error>Iltimos ma'lumotni kiriting!</Error>
           )}
         </div>
         <div className="col-lg-3 col-md-6 col-sm-6 col-12">
@@ -125,7 +125,7 @@ export function PersonalInfo() {
             }
           />
           {errors && errors?.hasOwnProperty('middle_name') && (
-            <Error>Iltimos sharifingizni kiriting!</Error>
+            <Error>Iltimos ma'lumotni kiriting!</Error>
           )}
         </div>
         <div className="col-lg-3 col-md-6 col-sm-6 col-12">
@@ -150,12 +150,21 @@ export function PersonalInfo() {
           <Calendar
             Controller={Controller}
             control={control}
+            required={true}
             label="Дата рождения*"
             nameProps="birthdate"
             plProps="дд/мм/гггг"
             format="DD.MM.YYYY"
-            className="calendar"
+            // className="calendar"
+            className={
+              errors && errors?.hasOwnProperty('birthdate') ? 'calendar-error' : 'calendar'
+            }
           />
+          {errors && errors?.hasOwnProperty('birthdate') && (
+            <Error className="select-error-tooltip">
+              Iltimos ma'lumotni kiriting!
+            </Error>
+          )}
         </div>
         <div className="col-lg-3 col-md-6 col-sm-6 col-12">
           <UserFormSelectComponent
@@ -168,12 +177,12 @@ export function PersonalInfo() {
             options={genders}
             disabled={false}
             className={
-              errors && errors?.hasOwnProperty('depar_id') && 'select-error'
+              errors && errors?.hasOwnProperty('genderID') && 'select-error'
             }
           />
-          {errors && errors?.hasOwnProperty('depar_id') && (
+          {errors && errors?.hasOwnProperty('genderID') && (
             <Error className="select-error-tooltip">
-              Iltimos kafedrani kiriting!
+              Iltimos ma'lumotni kiriting!
             </Error>
           )}
         </div>
@@ -187,12 +196,12 @@ export function PersonalInfo() {
             options={countries}
             disabled={false}
             className={
-              errors && errors?.hasOwnProperty('depar_id') && 'select-error'
+              errors && errors?.hasOwnProperty('countryBirth') && 'select-error'
             }
           />
-          {errors && errors?.hasOwnProperty('depar_id') && (
+          {errors && errors?.hasOwnProperty('countryBirth') && (
             <Error className="select-error-tooltip">
-              Iltimos kafedrani kiriting!
+              Iltimos ma'lumotni kiriting!
             </Error>
           )}
         </div>
@@ -211,7 +220,7 @@ export function PersonalInfo() {
           />
           {errors && errors?.hasOwnProperty('nationalSelect') && (
             <Error className="select-error-tooltip">
-              Iltimos kafedrani kiriting!
+              Iltimos ma'lumotni kiriting!
             </Error>
           )}
         </div>
@@ -230,7 +239,7 @@ export function PersonalInfo() {
           />
           {errors && errors?.hasOwnProperty('countryPermanent') && (
             <Error className="select-error-tooltip">
-              Iltimos kafedrani kiriting!
+              Iltimos ma'lumotni kiriting!
             </Error>
           )}
         </div>
@@ -249,7 +258,7 @@ export function PersonalInfo() {
           />
           {errors && errors?.hasOwnProperty('currentCountry') && (
             <Error className="select-error-tooltip">
-              Iltimos kafedrani kiriting!
+              Iltimos ma'lumotni kiriting!
             </Error>
           )}
         </div>
