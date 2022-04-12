@@ -52,11 +52,12 @@ export function PersonalInfo() {
       formData.append('country_permanent', data?.countryPermanent?.label);
       formData.append('register_step', 1);
       await admissionApi.admissionPost(formData);
-      toast.success('Successfully created');
       history.push('/academic-info');
+      // toast.success("Successfully created")
       setIsLoading(false);
     } catch (e) {
       console.log(e);
+      toast.error(e?.msg);
       setIsLoading(false);
     }
   };
@@ -160,7 +161,9 @@ export function PersonalInfo() {
             format="DD.MM.YYYY"
             // className="calendar"
             className={
-              errors && errors?.hasOwnProperty('birthdate') ? 'calendar-error' : 'calendar'
+              errors && errors?.hasOwnProperty('birthdate')
+                ? 'calendar-error'
+                : 'calendar'
             }
           />
           {errors && errors?.hasOwnProperty('birthdate') && (
@@ -274,17 +277,18 @@ export function PersonalInfo() {
       </div>
       <ButtonsProvider>
         <CancelBtnComponent name="Отмена" className="prev-btn" />
-        <CancelBtnComponent
+        {/* <CancelBtnComponent
           name="Сахранит"
           className="save-btn"
           disabled={isLoading}
-          type="submit"
-        />
+          // type="submit"
+        /> */}
         <NextBtnComponent
           name="Продолжить"
           className="next-btn"
-          type="button"
-          onClick={() => history.push('/academic-info')}
+          type="submit"
+          disabled={isLoading}
+          // onClick={() => history.push('/academic-info')}
         />
         <Toaster />
       </ButtonsProvider>

@@ -13,7 +13,12 @@ class Admissions extends Api {
   genders() {
     return this.execute('get', '/genders');
   }
-  
+  educationForm() {
+    return this.execute('get', '/education_form');
+  }
+  educationType() {
+    return this.execute('get', '/education_type');
+  }
 }
 
 export default Admissions;
