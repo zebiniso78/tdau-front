@@ -19,20 +19,88 @@ import { CancelBtnComponent } from 'components/buttons/prev-btn';
 import { NextBtnComponent } from 'components/buttons/next-btn';
 import { useHistory } from 'react-router-dom';
 import { useGetList } from '../hooks/useGetList';
-import UserFormSelectComponent from 'components/select';
+import UserFormSelectComponent, { SelectItem } from 'components/select';
+import { admissionApi } from 'services/api/pagesApi';
+import toast from "react-hot-toast"
 
 export function AddressInformation() {
   const history = useHistory();
   const {
     control,
+    watch,
+    handleSubmit,
     formState: { errors },
   } = useForm();
 
   const [regions, setRegions] = useState([]);
-
-  const { setRegion } = useGetList({
-    setRegions,
+  const [district, setDistrict] = useState([]);
+  const [postDistrict, setPostDistrict] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const { getRegions } = useGetList({
+    setRegions
   });
+  useEffect(() => {
+    getRegions()
+  }, [])
+  async function getDistrict() {
+    try {
+      let payload = {
+        name: watch("regionID")?.value
+      }
+      const response = await admissionApi.district(payload);
+      SelectItem(response, setDistrict);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+  async function getPostDistrict() {
+    try {
+      let payload = {
+        name: watch("postRegion")?.value
+      }
+      const response = await admissionApi.district(payload);
+      SelectItem(response, setPostDistrict);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+  useEffect(() => {
+    if (watch("regionID")) {
+      getDistrict()
+    }
+  }, [watch("regionID")])
+  useEffect(() => {
+    if (watch("postRegion")) {
+      getPostDistrict()
+    }
+  }, [watch("postRegion")])
+  const onSubmit = async (data) => {
+    try {
+      setIsLoading(true);
+      let formData = new FormData();
+      formData.append('address1', data?.address1);
+      formData.append('address2', data?.address2);
+      formData.append('post_address1', data?.post_address1);
+      formData.append('post_address2', data?.post_address2);
+      formData.append('post_index', data?.post_index);
+      formData.append('post_index2', data?.post_index2);
+      formData.append('phone', `+998${data?.phone}`);
+      formData.append('phone_a', `+998${data?.phone_a}`);
+      formData.append('region', data?.regionID?.label)
+      formData.append('district', data?.districtID?.label)
+      formData.append('post_region', data?.postRegion?.label)
+      formData.append('post_district', data?.postDistrict?.label)
+      formData.append('register_step', 4);
+      await admissionApi.admissionPost(formData);
+      history.push('/education-qualifications')
+      setIsLoading(false);
+    } catch (e) {
+      console.log(e);
+      toast.error(e?.msg);
+      setIsLoading(false);
+    }
+  };
+
 
   return (
     <AddressInfoProvider>
@@ -43,7 +111,7 @@ export function AddressInformation() {
         следует связаться с приемной комиссией, чтобы ваша запись была
         обновлена.
       </Paragraph>
-      <AddressForm>
+      <AddressForm onSubmit={handleSubmit(onSubmit)}>
         <Title className="form-title">Адрес постоянного проживания</Title>
         {/* <EntityForm  /> */}
         <div className="row mt-3">
@@ -51,7 +119,7 @@ export function AddressInformation() {
             <InputComponent
               Controller={Controller}
               control={control}
-              nameProps="name"
+              nameProps="address1"
               plProps="Адресная строка 1"
               label="Адресная строка 1*"
             />
@@ -60,7 +128,7 @@ export function AddressInformation() {
             <InputComponent
               Controller={Controller}
               control={control}
-              nameProps="surname"
+              nameProps="address2"
               plProps="Адресная строка 2"
               label="Адресная строка 2*"
             />
@@ -71,9 +139,9 @@ export function AddressInformation() {
               control={control}
               required={true}
               title="Город*"
-              name="depar_id"
+              name="regionID"
               placeholder="Город"
-              // options={departList}
+              options={regions}
               disabled={false}
             />
           </div>
@@ -82,10 +150,10 @@ export function AddressInformation() {
               Controller={Controller}
               control={control}
               required={true}
-              title="Город*"
-              name="depar_id"
+              title="Район*"
+              name="districtID"
               placeholder="Район"
-              // options={departList}
+              options={district}
               disabled={false}
             />
           </div>
@@ -93,7 +161,7 @@ export function AddressInformation() {
             <InputComponent
               Controller={Controller}
               control={control}
-              nameProps="index"
+              nameProps="post_index"
               plProps="Введите Номер паспорта"
               label="Почтовый индекс"
             />
@@ -130,7 +198,7 @@ export function AddressInformation() {
             <InputComponent
               Controller={Controller}
               control={control}
-              nameProps="name"
+              nameProps="post_address1"
               plProps="Адресная строка 1"
               label="Адресная строка 1*"
             />
@@ -139,7 +207,7 @@ export function AddressInformation() {
             <InputComponent
               Controller={Controller}
               control={control}
-              nameProps="surname"
+              nameProps="post_address2"
               plProps="Адресная строка 2"
               label="Адресная строка 2*"
             />
@@ -150,9 +218,9 @@ export function AddressInformation() {
               control={control}
               required={true}
               title="Город*"
-              name="depar_id"
+              name="postRegion"
               placeholder="Город"
-              // options={departList}
+              options={regions}
               disabled={false}
             />
           </div>
@@ -161,10 +229,10 @@ export function AddressInformation() {
               Controller={Controller}
               control={control}
               required={true}
-              title="Город*"
-              name="depar_id"
+              title="Район*"
+              name="postDistrict"
               placeholder="Район"
-              // options={departList}
+              options={postDistrict}
               disabled={false}
             />
           </div>
@@ -172,7 +240,7 @@ export function AddressInformation() {
             <InputComponent
               Controller={Controller}
               control={control}
-              nameProps="index"
+              nameProps="post_index2"
               plProps="Введите Номер паспорта"
               label="Почтовый индекс"
             />
@@ -191,7 +259,7 @@ export function AddressInformation() {
           <PhoneMask
             Controller={Controller}
             control={control}
-            nameProps="phone_number"
+            nameProps="phone"
             title="Личный адрес элек.почты заявителя"
             required={true}
             validators={['required', 'isNumber']}
@@ -209,7 +277,7 @@ export function AddressInformation() {
           <PhoneMask
             Controller={Controller}
             control={control}
-            nameProps="personal_phone"
+            nameProps="phone_a"
             title="Личный адрес элек.почты заявителя"
             required={true}
             validators={['required', 'isNumber']}
@@ -266,11 +334,12 @@ export function AddressInformation() {
             onClick={() => history.push('/passport-info')}
             type="button"
           />
-          <CancelBtnComponent name="Сахранит" className="save-btn" />
+          {/* <CancelBtnComponent name="Сахранит" className="save-btn" /> */}
           <NextBtnComponent
             name="Продолжить"
             className="next-btn"
-            onClick={() => history.push('/education-qualifications')}
+            disabled={isLoading}
+            // onClick={() => history.push('/education-qualifications')}
             type="submit"
           />
         </ButtonsProvider>

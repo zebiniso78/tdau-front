@@ -24,7 +24,7 @@ class Admissions extends Api {
     return this.execute('get', '/regions');
   }
   district(data) {
-    return this.execute('get', `/districts?name=${data?.name}`);
+    return this.execute('get', `/districts?reg_id=${data?.name}`);
   }
 }
 

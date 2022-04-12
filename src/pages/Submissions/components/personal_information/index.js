@@ -14,7 +14,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { admissionApi } from 'services/api/pagesApi';
 
 export function PersonalInfo() {
-  let dateFormat = 'DD.MM.YYYY';
+  let dateFormat = 'DD-MM-YYYY';
   const history = useHistory();
   const {
     handleSubmit,
@@ -50,6 +50,7 @@ export function PersonalInfo() {
       formData.append('nationality', data?.nationalSelect?.label);
       formData.append('country_birth', data?.countryBirth?.label);
       formData.append('country_permanent', data?.countryPermanent?.label);
+      formData.append('current_country', data?.currentCountry?.label);
       formData.append('register_step', 1);
       await admissionApi.admissionPost(formData);
       history.push('/academic-info');
@@ -288,7 +289,7 @@ export function PersonalInfo() {
           className="next-btn"
           type="submit"
           disabled={isLoading}
-          // onClick={() => history.push('/academic-info')}
+        // onClick={() => history.push('/academic-info')}
         />
         <Toaster />
       </ButtonsProvider>
