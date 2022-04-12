@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import UserFormSelectComponent from '../../../../components/select';
 import {
   AcademicInfoProvider,
@@ -12,6 +12,8 @@ import { CancelBtnComponent } from '../../../../components/buttons/prev-btn';
 import { NextBtnComponent } from '../../../../components/buttons/next-btn';
 import { useHistory } from 'react-router-dom';
 import { Error } from 'common/grid';
+import { admissionApi } from 'services/api/pagesApi';
+import toast from 'react-hot-toast';
 
 export function AcademicInformation() {
   const {
@@ -24,8 +26,35 @@ export function AcademicInformation() {
     formState: { errors },
   } = useForm();
   const history = useHistory();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const onSubmit = async (data) => {
+    try {
+      setIsLoading(true);
+      let formData = new FormData();
+      formData.append('name', data?.name);
+      // formData.append('surname', data?.surname);
+      // formData.append('middle_name', data?.middle_name);
+      // formData.append('birthdate', moment(data?.birthdate).format(dateFormat));
+      // formData.append('gender_id', data?.genderID?.value);
+      // formData.append('nationality', data?.nationalSelect?.label);
+      // formData.append('country_birth', data?.countryBirth?.label);
+      // formData.append('country_permanent', data?.countryPermanent?.label);
+
+      formData.append('register_step', 2);
+      await admissionApi.admissionPost(formData);
+      history.push('/passport-info');
+      toast.success('Successfully created');
+      setIsLoading(false);
+    } catch (e) {
+      console.log(e);
+      toast.error(e?.msg);
+      setIsLoading(false);
+    }
+  };
+
   return (
-    <AcademicInfoProvider>
+    <AcademicInfoProvider onSubmit={handleSubmit(onSubmit)}>
       <AcademicInfoTitle>Академическая информация</AcademicInfoTitle>
       <AcademicInfo>
         <p>
@@ -111,12 +140,13 @@ export function AcademicInformation() {
             className="prev-btn"
             onClick={() => history.push('/personal-info')}
           />
-          <CancelBtnComponent name="Сахранит" className="save-btn" />
+          {/* <CancelBtnComponent name="Сахранит" className="save-btn" /> */}
           <NextBtnComponent
             name="Продолжить"
             className="next-btn"
             type="submit"
-            onClick={() => history.push('/passport-info')}
+            disabled={isLoading}
+            // onClick={() => history.push('/passport-info')}
           />
         </ButtonsProvider>
       </AcademicForm>
