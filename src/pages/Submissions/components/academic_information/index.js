@@ -38,11 +38,8 @@ export function AcademicInformation() {
     setEducationTypeList,
   });
 
-  useEffect(() => {
-    getEducationForm();
-    getEducationType();
-  }, []);
   const onSubmit = async (data) => {
+    localStorage.setItem('step', 2);
     try {
       setIsLoading(true);
       let formData = new FormData();
@@ -68,7 +65,14 @@ export function AcademicInformation() {
       setIsLoading(false);
     }
   };
-
+  useEffect(() => {
+    if (localStorage?.getItem('step') > 1) {
+      getEducationForm();
+      getEducationType();
+    } else {
+      history.push('/personal-info');
+    }
+  }, []);
   return (
     <AcademicInfoProvider>
       <AcademicInfoTitle>Академическая информация</AcademicInfoTitle>

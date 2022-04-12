@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { InputComponent } from '../../../../components/input/controllerInput';
 import { PassportInfoProvider, Title, Row, Col } from './style';
 import { Controller, useForm } from 'react-hook-form';
@@ -46,6 +46,12 @@ export function PassportInformation() {
       setIsLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (localStorage?.getItem('step') < 2) {
+      history.push('/academic-info');
+    }
+  }, []);
   return (
     <PassportInfoProvider onSubmit={handleSubmit(onSubmit)}>
       <Title>Паспортная информация</Title>

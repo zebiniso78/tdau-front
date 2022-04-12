@@ -21,7 +21,7 @@ import { useHistory } from 'react-router-dom';
 import { useGetList } from '../hooks/useGetList';
 import UserFormSelectComponent, { SelectItem } from 'components/select';
 import { admissionApi } from 'services/api/pagesApi';
-import toast from "react-hot-toast"
+import toast from 'react-hot-toast';
 
 export function AddressInformation() {
   const history = useHistory();
@@ -37,16 +37,16 @@ export function AddressInformation() {
   const [postDistrict, setPostDistrict] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const { getRegions } = useGetList({
-    setRegions
+    setRegions,
   });
   useEffect(() => {
-    getRegions()
-  }, [])
+    getRegions();
+  }, []);
   async function getDistrict() {
     try {
       let payload = {
-        name: watch("regionID")?.value
-      }
+        name: watch('regionID')?.value,
+      };
       const response = await admissionApi.district(payload);
       SelectItem(response, setDistrict);
     } catch (e) {
@@ -56,8 +56,8 @@ export function AddressInformation() {
   async function getPostDistrict() {
     try {
       let payload = {
-        name: watch("postRegion")?.value
-      }
+        name: watch('postRegion')?.value,
+      };
       const response = await admissionApi.district(payload);
       SelectItem(response, setPostDistrict);
     } catch (e) {
@@ -65,15 +65,15 @@ export function AddressInformation() {
     }
   }
   useEffect(() => {
-    if (watch("regionID")) {
-      getDistrict()
+    if (watch('regionID')) {
+      getDistrict();
     }
-  }, [watch("regionID")])
+  }, [watch('regionID')]);
   useEffect(() => {
-    if (watch("postRegion")) {
-      getPostDistrict()
+    if (watch('postRegion')) {
+      getPostDistrict();
     }
-  }, [watch("postRegion")])
+  }, [watch('postRegion')]);
   const onSubmit = async (data) => {
     try {
       setIsLoading(true);
@@ -86,13 +86,13 @@ export function AddressInformation() {
       formData.append('post_index2', data?.post_index2);
       formData.append('phone', `+998${data?.phone}`);
       formData.append('phone_a', `+998${data?.phone_a}`);
-      formData.append('region', data?.regionID?.label)
-      formData.append('district', data?.districtID?.label)
-      formData.append('post_region', data?.postRegion?.label)
-      formData.append('post_district', data?.postDistrict?.label)
+      formData.append('region', data?.regionID?.label);
+      formData.append('district', data?.districtID?.label);
+      formData.append('post_region', data?.postRegion?.label);
+      formData.append('post_district', data?.postDistrict?.label);
       formData.append('register_step', 4);
       await admissionApi.admissionPost(formData);
-      history.push('/education-qualifications')
+      history.push('/education-qualifications');
       setIsLoading(false);
     } catch (e) {
       console.log(e);
@@ -100,7 +100,6 @@ export function AddressInformation() {
       setIsLoading(false);
     }
   };
-
 
   return (
     <AddressInfoProvider>
