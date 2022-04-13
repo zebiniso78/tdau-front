@@ -42,7 +42,7 @@ export function Registration({
   }
   return (
     <RegistrationProvider onSubmit={handleSubmit(onSubmit)}>
-      <div
+      <PureModal
         header="Регистрация"
         footer={
           <div className="footer-button__wrapper">
@@ -68,7 +68,7 @@ export function Registration({
         }
         isOpen={registerModel}
         scrollable={true}
-        closeButton="x"
+        // closeButton="x"
         closeButtonPosition="header"
         onClose={() => {
           setRegisterModel(false);
@@ -76,32 +76,6 @@ export function Registration({
           return true;
         }}
       >
-        <InputComponent
-          Controller={Controller}
-          control={control}
-          nameProps="username"
-          plProps="Username"
-          label="Username*"
-          required={true}
-          className="registration-input"
-        />
-        <Button
-          type="submit"
-          title="Выход"
-          bgColor="transparent"
-          color="#2e7df6"
-          onClick={() => {
-            setRegisterModel(false);
-          }}
-        />
-        isOpen={registerModel}
-        scrollable={true}
-        closeButton="x" closeButtonPosition="header" onClose=
-        {() => {
-          setRegisterModel(false);
-          setModal(false);
-          return true;
-        }}
         <InputComponent
           Controller={Controller}
           control={control}
@@ -139,7 +113,7 @@ export function Registration({
           className="registration-input"
           type="password"
         />
-      </div>
+      </PureModal>
     </RegistrationProvider>
   );
 }

@@ -26,7 +26,7 @@ function Navbar() {
   const [modal, setModal] = useState(false);
   const [registerModel, setRegisterModel] = useState(false);
   const [confirmModel, setConfirmModel] = useState(false);
-  const [phoneNumber, setPhoneNumber] = useState(null)
+  const [phoneNumber, setPhoneNumber] = useState(null);
   return (
     <>
       <MyHeader style={{ backgroundColor: navBg }}>
@@ -40,7 +40,7 @@ function Navbar() {
             </LogoWrapper>
 
             <InputWrapper>
-              <p className="phone-number">+71 631 42 21</p>
+              <p className="phone-number">+998 90 631 42 21</p>
               <div className="input-search-wrapper">
                 <input
                   className="input-search"
@@ -53,18 +53,18 @@ function Navbar() {
                 <option>Rus</option>
                 <option>Eng</option>
               </select>
-              {
-                localStorage.getItem('token') ? <button className='login-button'>Admission</button> :
-                  <button
-                    className="login-button"
-                    type="submit"
-                    onClick={() => setModal(true)}
-                  >
-                    Вход / Регистрация
-                    <BiUser />
-                  </button>
-              }
-
+              {localStorage.getItem('token') ? (
+                <button className="login-button">Admission</button>
+              ) : (
+                <button
+                  className="login-button"
+                  type="submit"
+                  onClick={() => setModal(true)}
+                >
+                  Admission
+                  <BiUser />
+                </button>
+              )}
             </InputWrapper>
           </MyContainer>
         </section>
@@ -120,13 +120,14 @@ function Navbar() {
           setRegisterModel={setRegisterModel}
           setModal={setModal}
           registerModel={registerModel}
-          setPhoneNumber={setPhoneNumber} />
+          setPhoneNumber={setPhoneNumber}
+        />
         <Verify
           setConfirmModel={setConfirmModel}
           setRegisterModel={setRegisterModel}
-          setConfirmModel={setConfirmModel}
           confirmModel={confirmModel}
-          phoneNumber={phoneNumber} />
+          phoneNumber={phoneNumber}
+        />
       </MyHeader>
     </>
   );

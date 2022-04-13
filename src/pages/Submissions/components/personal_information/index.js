@@ -39,6 +39,7 @@ export function PersonalInfo() {
   }, []);
 
   const onSubmit = async (data) => {
+    localStorage.setItem('step', 1);
     try {
       setIsLoading(true);
       let formData = new FormData();
@@ -62,6 +63,10 @@ export function PersonalInfo() {
       setIsLoading(false);
     }
   };
+
+  // useEffect(() => {
+  //   localStorage.setItem('step', 0);
+  // }, []);
   return (
     <PersonalInfoProvider
       className="container"
@@ -289,7 +294,7 @@ export function PersonalInfo() {
           className="next-btn"
           type="submit"
           disabled={isLoading}
-        // onClick={() => history.push('/academic-info')}
+          // onClick={() => history.push('/academic-info')}
         />
         <Toaster />
       </ButtonsProvider>

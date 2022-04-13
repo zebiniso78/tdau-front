@@ -149,8 +149,8 @@ export const InputWrapper = styled.div`
     margin-right: 16px;
     svg {
       position: absolute;
-      right: 10px;
-      top: 8px;
+      right: 9px;
+      top: 5px;
       color: #57b952;
     }
   }
@@ -163,7 +163,7 @@ export const InputWrapper = styled.div`
     font-size: 16px;
     border: 1px solid #728fbb;
     border-radius: 50px;
-    padding: 4px 12px;
+    padding: 4px 24px 4px 12px;
   }
 
   .select-lang {
@@ -190,7 +190,7 @@ export const InputWrapper = styled.div`
     padding: 4px 12px;
     transition: 0.5s;
 
-    :hover {
+    &:hover {
       color: #57b952;
     }
 
