@@ -15,6 +15,7 @@ import { useEffect } from 'react';
 import { admissionApi } from 'services/api/pagesApi';
 import moment from 'moment';
 import Calendar from 'components/calendar';
+import { Error } from "styles/globalStyle"
 
 export function Education() {
   const history = useHistory();
@@ -58,7 +59,6 @@ export function Education() {
       console.log(e);
     }
   };
-  console.log(transcript[0], 'infooo');
   return (
     <EducationProvider>
       <Title>Образование и квалификации</Title>
@@ -73,7 +73,13 @@ export function Education() {
               plProps="Школа/колледж"
               label="Школа/колледж*"
               // className="mb-0"
+              className={
+                errors && errors?.hasOwnProperty('school') && 'input-error'
+              }
             />
+            {errors && errors?.hasOwnProperty('school') && (
+              <Error>Iltimos ma'lumotni kiriting!</Error>
+            )}
           </div>
           <div className="col-lg-4 col-md-6 col-sm-6 col-12">
             <UserFormSelectComponent
@@ -85,7 +91,15 @@ export function Education() {
               placeholder="Район"
               options={qualifications}
               disabled={false}
+              className={
+                errors && errors?.hasOwnProperty('qualification') && 'select-error'
+              }
             />
+            {errors && errors?.hasOwnProperty('qualification') && (
+              <Error className="select-error-tooltip">
+                Iltimos ma'lumotni kiriting!
+              </Error>
+            )}
           </div>
           {/* <div className='col-lg-4 col-md-6 col-sm-6 col-12'>
             <InputComponent
@@ -130,7 +144,18 @@ export function Education() {
               plProps="дд/мм/гггг"
               format="DD.MM.YYYY"
               className="calendar"
+              required={true}
+              className={
+                errors && errors?.hasOwnProperty('qualification_start')
+                  ? 'calendar-error'
+                  : 'calendar'
+              }
             />
+            {errors && errors?.hasOwnProperty('qualification_start') && (
+              <Error className="select-error-tooltip">
+                Iltimos ma'lumotni kiriting!
+              </Error>
+            )}
           </div>
           <div className="col-lg-4 col-md-6 col-sm-6 col-12">
             <Calendar
@@ -141,7 +166,18 @@ export function Education() {
               plProps="дд/мм/гггг"
               format="DD.MM.YYYY"
               className="calendar"
+              required={true}
+              className={
+                errors && errors?.hasOwnProperty('qualification_end')
+                  ? 'calendar-error'
+                  : 'calendar'
+              }
             />
+             {errors && errors?.hasOwnProperty('qualification_end') && (
+              <Error className="select-error-tooltip">
+                Iltimos ma'lumotni kiriting!
+              </Error>
+            )}
           </div>
         </div>
         <EducationFooter

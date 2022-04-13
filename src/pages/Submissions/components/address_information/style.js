@@ -2,6 +2,12 @@ import styled from "styled-components";
 
 export const AddressInfoProvider = styled.div`
 padding: 15px;
+.input-error {
+    border: 1px solid #d2504d;
+  }
+  .select-error > div {
+    border: 1px solid #d2504d;
+  }
 `
 export const Paragraph = styled.p`
 font-weight: 500;

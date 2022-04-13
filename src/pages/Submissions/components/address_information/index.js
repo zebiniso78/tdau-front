@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Title } from '../../../../styles/globalStyle';
+import { Error, Title } from '../../../../styles/globalStyle';
 import {
   AddressInfoProvider,
   AddressForm,
@@ -121,7 +121,13 @@ export function AddressInformation() {
               nameProps="address1"
               plProps="Адресная строка 1"
               label="Адресная строка 1*"
+              className={
+                errors && errors?.hasOwnProperty('address1') && 'input-error'
+              }
             />
+            {errors && errors?.hasOwnProperty('address1') && (
+              <Error>Iltimos ma'lumotni kiriting!</Error>
+            )}
           </div>
           <div className="col-lg-3 col-md-6 col-sm-6 col-12">
             <InputComponent
@@ -130,7 +136,13 @@ export function AddressInformation() {
               nameProps="address2"
               plProps="Адресная строка 2"
               label="Адресная строка 2*"
+              className={
+                errors && errors?.hasOwnProperty('address2') && 'input-error'
+              }
             />
+            {errors && errors?.hasOwnProperty('address2') && (
+              <Error>Iltimos ma'lumotni kiriting!</Error>
+            )}
           </div>
           <div className="col-lg-3 col-md-6 col-sm-6 col-12">
             <UserFormSelectComponent
@@ -142,7 +154,15 @@ export function AddressInformation() {
               placeholder="Город"
               options={regions}
               disabled={false}
+              className={
+                errors && errors?.hasOwnProperty('regionID') && 'select-error'
+              }
             />
+            {errors && errors?.hasOwnProperty('regionID') && (
+              <Error className="select-error-tooltip">
+                Iltimos ma'lumotni kiriting!
+              </Error>
+            )}
           </div>
           <div className="col-lg-3 col-md-6 col-sm-6 col-12">
             <UserFormSelectComponent
@@ -154,7 +174,15 @@ export function AddressInformation() {
               placeholder="Район"
               options={district}
               disabled={false}
+              className={
+                errors && errors?.hasOwnProperty('districtID') && 'select-error'
+              }
             />
+            {errors && errors?.hasOwnProperty('districtID') && (
+              <Error className="select-error-tooltip">
+                Iltimos ma'lumotni kiriting!
+              </Error>
+            )}
           </div>
           <div className="col-lg-3 col-md-6 col-sm-6 col-12 mt-3">
             <InputComponent
@@ -200,7 +228,13 @@ export function AddressInformation() {
               nameProps="post_address1"
               plProps="Адресная строка 1"
               label="Адресная строка 1*"
+              className={
+                errors && errors?.hasOwnProperty('post_address1') && 'input-error'
+              }
             />
+            {errors && errors?.hasOwnProperty('post_address1') && (
+              <Error>Iltimos ma'lumotni kiriting!</Error>
+            )}
           </div>
           <div className="col-lg-3 col-md-6 col-sm-6 col-12">
             <InputComponent
@@ -209,7 +243,13 @@ export function AddressInformation() {
               nameProps="post_address2"
               plProps="Адресная строка 2"
               label="Адресная строка 2*"
+              className={
+                errors && errors?.hasOwnProperty('post_address2') && 'input-error'
+              }
             />
+            {errors && errors?.hasOwnProperty('post_address2') && (
+              <Error>Iltimos ma'lumotni kiriting!</Error>
+            )}
           </div>
           <div className="col-lg-3 col-md-6 col-sm-6 col-12">
             <UserFormSelectComponent
@@ -221,7 +261,15 @@ export function AddressInformation() {
               placeholder="Город"
               options={regions}
               disabled={false}
+              className={
+                errors && errors?.hasOwnProperty('postRegion') && 'select-error'
+              }
             />
+            {errors && errors?.hasOwnProperty('postRegion') && (
+              <Error className="select-error-tooltip">
+                Iltimos ma'lumotni kiriting!
+              </Error>
+            )}
           </div>
           <div className="col-lg-3 col-md-6 col-sm-6 col-12">
             <UserFormSelectComponent
@@ -233,7 +281,15 @@ export function AddressInformation() {
               placeholder="Район"
               options={postDistrict}
               disabled={false}
+              className={
+                errors && errors?.hasOwnProperty('postDistrict') && 'select-error'
+              }
             />
+            {errors && errors?.hasOwnProperty('postDistrict') && (
+              <Error className="select-error-tooltip">
+                Iltimos ma'lumotni kiriting!
+              </Error>
+            )}
           </div>
           <div className="col-lg-3 col-md-6 col-sm-6 col-12 mt-3">
             <InputComponent
