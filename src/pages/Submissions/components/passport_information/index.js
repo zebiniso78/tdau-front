@@ -58,7 +58,7 @@ export function PassportInformation() {
       <Title>Паспортная информация</Title>
       <Row className="row align-items-end">
         <Col className="col-lg-4 col-md-6 col-sm-6 col-12">
-          <InputComponent
+          {/* <InputComponent
             Controller={Controller}
             control={control}
             nameProps="name"
@@ -70,15 +70,22 @@ export function PassportInformation() {
           />
           {errors && errors?.hasOwnProperty('name') && (
             <Error>Iltimos ma'lumotni kiriting!</Error>
-          )}
-          {/* <CustomMask
+          )} */}
+          <CustomMask
             Controller={Controller}
             control={control}
-            nameProps="passport_number"
+            nameProps="name"
             mask="AA1111111"
             title="Номер паспорта*"
+            required={true}
             placeholder="Введите Номер паспорта"
-          /> */}
+            className={
+              errors && errors?.hasOwnProperty('name') && 'input-error'
+            }
+          />
+          {errors && errors?.hasOwnProperty('name') && (
+            <Error>Iltimos ma'lumotni kiriting!</Error>
+          )}
         </Col>
         <Col className="col-lg-4 col-md-6 col-sm-6 col-12">
           <Calendar
@@ -95,7 +102,7 @@ export function PassportInformation() {
             }
             required={true}
           />
-           {errors && errors?.hasOwnProperty('enteredYear') && (
+          {errors && errors?.hasOwnProperty('enteredYear') && (
             <Error className="select-error-tooltip">
               Iltimos ma'lumotni kiriting!
             </Error>

@@ -9,22 +9,25 @@ export function CustomMask({
   placeholder,
   mask,
   title,
+  required,
+  className='pasport-mask'
 }) {
   return (
     <Wrapper>
-      <label>{title}</label>
+      <label style={{fontSize:'14px'}}>{title}</label>
       <Controller
         control={control}
         name={nameProps}
-        // rules={{ required: required, minLength: 3 }}
+        rules={{ required: required, minLength: 3 }}
         render={({
           field: { onChange, onBlur, value, name, ref },
           fieldState: { invalid, isTouched, isDirty, error },
           formState: { errors },
         }) => (
           <MaskedInput
+            ref={ref}
             mask={mask}
-            className="pasport-mask"
+            className={className}
             value={value}
             onChange={onChange}
             placeholder={placeholder}
