@@ -6,7 +6,7 @@ import Navbar from './components/MainPage/Navbar/Navbar';
 import Footer from './components/MainPage/Footer/Footer';
 import Main from 'pages/Main';
 import { Layout } from './pages/Submissions/components/layout';
-import Main from './pages/Main';
+// import Main from './pages/Main';
 
 function App() {
   return (

@@ -1,7 +1,7 @@
 import { PhoneMask } from 'components/mask';
 import React, { useState } from 'react';
 import PureModal from 'react-pure-modal';
-import Button from '../../../button';
+import Button from '../../../Button';
 import { useForm, Controller } from 'react-hook-form';
 import { authApi } from 'services/api/pagesApi';
 import { InputComponent } from 'components/input/controllerInput';

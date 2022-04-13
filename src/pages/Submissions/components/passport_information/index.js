@@ -107,7 +107,7 @@ export function PassportInformation() {
           className="prev-btn"
           onClick={() => history.push('/academic-info')}
         />
-        <CancelBtnComponent name="Сахранит" className="save-btn" />
+        {/* <CancelBtnComponent name="Сахранит" className="save-btn" /> */}
         <NextBtnComponent
           name="Продолжить"
           className="next-btn"

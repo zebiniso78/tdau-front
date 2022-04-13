@@ -77,7 +77,7 @@ export function AdditionalInformation() {
             onClick={() => history.push('/references')}
             type="button"
           />
-          <CancelBtnComponent name="Сахранит" className="save-btn" />
+          {/* <CancelBtnComponent name="Сахранит" className="save-btn" /> */}
           <NextBtnComponent
             name="Отправлять"
             className="next-btn"
