@@ -9,8 +9,10 @@ import { Paragraph } from "styles/globalStyle"
 export function EducationBody() {
    const {
       control,
+      watch,
       formState: { errors },
    } = useForm();
+   console.log(watch("yes"))
    return (
       <div className='row align-items-end mt-3'>
          <div className='col-lg-4 col-md-6 col-sm-6 col-12'>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Input } from './style'
 
-export function InputComponent({ Controller, nameProps, plProps, control, required, disabled, label, className }) {
+export function InputComponent({ Controller, nameProps, plProps, control, required=true, disabled, label, className, type = 'text' }) {
    return (
       <>
          <p style={{ marginBottom: '0', fontSize: '14px' }}>{label}</p>
@@ -23,7 +23,9 @@ export function InputComponent({ Controller, nameProps, plProps, control, requir
                   disabled={disabled}
                   onChange={onChange}
                   placeholder={plProps}
-               // onBlur={onBlur} /
+                  error={!!errors?.title}
+                  type={type}
+                  onBlur={onBlur}
                />
             )}
 

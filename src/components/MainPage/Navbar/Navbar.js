@@ -15,13 +15,16 @@ import PureModal from 'react-pure-modal';
 // import Input from '../../Input';
 import Input from '../../Input';
 import Button from '../../Button';
+import { Registration } from './registration';
+import { Verify } from './verify';
 
 function Navbar() {
   const location = useLocation();
   const [navBg, setNavBg] = React.useState('#1a3426');
 
-  const [registerModal, setRegisterModal] = useState(false);
-  const [confirmModal, setConfirmModal] = useState(false);
+  const [modal, setModal] = useState(false);
+  const [registerModel, setRegisterModel] = useState(false);
+  const [confirmModel, setConfirmModel] = useState(false);
 
   useEffect(() => {
     if (window.location.pathname === '/main') {
@@ -60,7 +63,7 @@ function Navbar() {
               <button
                 className="login-button"
                 type="submit"
-                onClick={() => setRegisterModal(true)}
+                onClick={() => setRegisterModel(true)}
               >
                 Admission
                 <BiUser />
@@ -111,116 +114,58 @@ function Navbar() {
         </Nav>
 
         <PureModal
-          header="Регистрация"
-          footer={
-            <div className="footer-button__wrapper">
-              <Button
-                type="submit"
-                title="Продолжить"
-                onClick={() => {
-                  setConfirmModal(true);
-                  setRegisterModal(false);
-                }}
-              />
-              <Button
-                type="submit"
-                title="Выход"
-                bgColor="transparent"
-                color="#2e7df6"
-                onClick={() => {
-                  setRegisterModal(false);
-                }}
-              />
-            </div>
-          }
-          isOpen={registerModal}
-          scrollable={true}
-          closeButton="X"
-          closeButtonPosition="header"
-          onClose={() => {
-            setRegisterModal(false);
-            return true;
-          }}
-        >
-          <Input
-            type={`text`}
-            required
-            title="Имя"
-            placeholder="Your Name Here"
-            length={80}
-          />
-
-          <Input
-            type={`text`}
-            required
-            title="Фамилия"
-            placeholder="Your Surname Here"
-            length={80}
-          />
-
-          <Input
-            type={`email`}
-            required
-            title="Эл.почта"
-            placeholder="Your Email Here"
-            length={40}
-          />
-
-          <Input type={`password`} required title="Пароль" length={20} />
-
-          <Input
-            type={`password`}
-            required
-            title="Подтвердить Пароль"
-            length={20}
-          />
-        </PureModal>
-
-        <PureModal
           header="Вход"
           footer={
             <div className="footer-button__wrapper">
-              <Button type="submit" title="Зарегистрироваться" />
               <Button
                 type="submit"
-                title="Выход"
+                title="Вход"
+                onClick={() => setConfirmModel(true)}
+              />
+              <Button
+                type="submit"
+                title="Зарегистрироваться"
                 bgColor="transparent"
                 color="#2e7df6"
-                onClick={() => {
-                  setConfirmModal(false);
-                  setRegisterModal(false);
-                }}
+                onClick={() => setRegisterModel(true)}
               />
             </div>
           }
-          isOpen={confirmModal}
+          isOpen={modal}
           closeButton="X"
           closeButtonPosition="header"
           onClose={() => {
-            setConfirmModal(false);
+            setModal(false);
             return true;
           }}
         >
           <Input
-            type={`tel`}
+            type={`text`}
             required
-            title="Номер телефонный"
-            placeholder="+998 91 123 45 67 "
-            length={17}
+            title="Логин"
+            placeholder="Your Login Here"
+            length={80}
           />
 
           <Input
             type={`password`}
             required
-            title="СМС-код"
-            placeholder="Введите код"
+            title="Пароль"
+            placeholder="Your Login Here"
             length={80}
           />
-
-          <button className="resend-code__button">
-            <span>00:56</span>Отправить код ещё раз
-          </button>
         </PureModal>
+        <Registration
+          setConfirmModel={setConfirmModel}
+          setRegisterModel={setRegisterModel}
+          setModal={setModal}
+          registerModel={registerModel}
+        />
+        <Verify
+          setConfirmModel={setConfirmModel}
+          setRegisterModel={setRegisterModel}
+          confirmModel={confirmModel}
+        />
       </MyHeader>
     </>
   );

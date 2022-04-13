@@ -14,10 +14,9 @@ function App() {
       <Switch>
         <Route path="/" exact component={Profile} />
         <Route path="/personal-info" component={Submissions} />
-        <Route path="/main" exact component={Main} />
+        <Route path='/main' component={Main} />
         <Layout />
       </Switch>
-
       <Footer />
     </BrowserRouter>
   );

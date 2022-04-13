@@ -120,8 +120,7 @@ export function SupportingInformation() {
             name="Назад"
             className="prev-btn"
             type="button"
-            onClick={() => history.push('/english-language')}
-          />
+            onClick={() => history.push("/english-language")} />
           <NextBtnComponent
             name="Продолжить"
             className="next-btn"

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { CheckboxComponent } from 'components/checkbox';
+import {MemoizedCheckbox, CheckboxComponent } from 'components/checkbox';
 import {
   AdditionalInfoProvider,
   CheckboxWrapper,
@@ -17,8 +17,12 @@ export function AdditionalInformation() {
   const [modal, setModal] = useState(false);
   const {
     control,
+    watch,
     formState: { errors },
   } = useForm();
+  console.log(watch('yes'))
+  console.log(watch('no'))
+
   return (
     <>
       <AdditionalInfoProvider className="container">
@@ -52,13 +56,13 @@ export function AdditionalInformation() {
             <sup>*</sup>
           </Paragraph>
           <CheckboxWrapper>
-            <CheckboxComponent
+            <MemoizedCheckbox
               Controller={Controller}
               control={control}
               name="yes"
               label="Да"
             />
-            <CheckboxComponent
+            <MemoizedCheckbox
               Controller={Controller}
               control={control}
               name="no"
