@@ -10,11 +10,11 @@ export function CustomMask({
   mask,
   title,
   required,
-  className='pasport-mask'
+  className = 'pasport-mask'
 }) {
   return (
     <Wrapper>
-      <label style={{fontSize:'14px'}}>{title}</label>
+      <label style={{ fontSize: '14px' }}>{title}</label>
       <Controller
         control={control}
         name={nameProps}

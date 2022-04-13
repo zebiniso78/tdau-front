@@ -15,6 +15,7 @@ margin-bottom: 8px;
   border-radius: 4px !important;
   /* padding: 10px 12px 8px 16px !important; */
   color: black !important;
+  font-size: 14px;
   margin-top: 6px;
   &::placeholder {
     font-size: 14px;

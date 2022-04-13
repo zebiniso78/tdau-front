@@ -56,8 +56,8 @@ export function PassportInformation() {
   return (
     <PassportInfoProvider onSubmit={handleSubmit(onSubmit)}>
       <Title>Паспортная информация</Title>
-      <Row className="row align-items-end">
-        <Col className="col-lg-4 col-md-6 col-sm-6 col-12">
+      <Row className="row align-items-start">
+        <Col className="col-lg-4 col-md-6 col-sm-6 col-12" style={{marginTop:'9px'}}>
           {/* <InputComponent
             Controller={Controller}
             control={control}
