@@ -47,10 +47,9 @@ export function AcademicInformation() {
       formData.append('education_type_id', data?.tip_programma?.value);
       formData.append(
         'accept_deadline',
-        `${
-          moment(data?.srok_priema[0]).format('YYYY') +
-          '-' +
-          moment(data?.srok_priema[1]).format('YYYY')
+        `${moment(data?.srok_priema[0]).format('YYYY') +
+        '-' +
+        moment(data?.srok_priema[1]).format('YYYY')
         }`
       );
 
@@ -66,7 +65,7 @@ export function AcademicInformation() {
     }
   };
   useEffect(() => {
-    if (localStorage?.getItem('step') > 1) {
+    if (localStorage?.getItem('step') > 0) {
       getEducationForm();
       getEducationType();
     } else {
@@ -182,7 +181,7 @@ export function AcademicInformation() {
             className="next-btn"
             type="submit"
             disabled={isLoading}
-            // onClick={() => history.push('/passport-info')}
+          // onClick={() => history.push('/passport-info')}
           />
         </ButtonsProvider>
       </AcademicForm>

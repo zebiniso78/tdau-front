@@ -17,8 +17,10 @@ import Button from '../../button';
 import { Registration } from "./registration"
 import { Verify } from './verify';
 import { Login } from './login';
+import { useHistory } from 'react-router-dom';
 
 function Navbar() {
+  const history = useHistory()
   const [modal, setModal] = useState(false);
   const [registerModel, setRegisterModel] = useState(false);
   const [confirmModel, setConfirmModel] = useState(false);
@@ -50,7 +52,10 @@ function Navbar() {
                 <option>Eng</option>
               </select>
               {
-                localStorage.getItem('token') ? <button className='login-button'>Admission</button> :
+                localStorage.getItem('token') ?
+                  <button
+                    className='login-button'
+                    onClick={() => history.push("/personal-info")}>Admission</button> :
                   <button
                     className="login-button"
                     type="submit"

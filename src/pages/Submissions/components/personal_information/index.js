@@ -64,9 +64,9 @@ export function PersonalInfo() {
     }
   };
 
-  useEffect(() => {
-    localStorage.setItem('step', 0);
-  }, []);
+  // useEffect(() => {
+  //   localStorage.setItem('step', 0);
+  // }, []);
   return (
     <PersonalInfoProvider
       className="container"
@@ -294,7 +294,7 @@ export function PersonalInfo() {
           className="next-btn"
           type="submit"
           disabled={isLoading}
-          // onClick={() => history.push('/academic-info')}
+        // onClick={() => history.push('/academic-info')}
         />
         <Toaster />
       </ButtonsProvider>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { MemoizedCheckbox, CheckboxComponent } from 'components/checkbox';
 import {
@@ -11,21 +11,48 @@ import { Controller, useForm } from 'react-hook-form';
 import { CancelBtnComponent } from 'components/buttons/prev-btn';
 import { NextBtnComponent } from 'components/buttons/next-btn';
 import Modal from '../../../../components/modal';
+import { admissionApi } from 'services/api/pagesApi';
 
 export function AdditionalInformation() {
   const history = useHistory();
   const [modal, setModal] = useState(false);
+  const [addMissionID, setAddMissionID] = useState(null)
   const {
     control,
     watch,
     formState: { errors },
   } = useForm();
   console.log(watch('yes'));
-  console.log(watch('no'));
+  useEffect(() => {
+    async function AdditionalInfo() {
+      try {
+        const res = await admissionApi.admissionGet(null)
+        setAddMissionID(res?.id)
+      } catch (e) {
+        console.log(e)
+      }
+    }
+    AdditionalInfo()
+  }, [])
+  async function handleSubmit(e) {
+    e.preventDefault()
+    try {
+      let formData = new FormData()
+      formData.append('adm_id', addMissionID)
+      admissionApi.admissionConfirm(formData)
+      // toast.success("Addmission successfully created")
+      setModal(true)
+      setTimeout(() => {
+        history.push("/admission")
+      }, 1000)
+    } catch (e) {
+      console.log(e)
+    }
+  }
 
   return (
     <>
-      <AdditionalInfoProvider className="container">
+      <AdditionalInfoProvider onSubmit={handleSubmit} className="container">
         <div className="row">
           <h4>Условия использывание</h4>
           <p>
@@ -62,12 +89,12 @@ export function AdditionalInformation() {
               name="yes"
               label="Да"
             />
-            <MemoizedCheckbox
+            {/* <MemoizedCheckbox
               Controller={Controller}
               control={control}
               name="no"
               label="Нет"
-            />
+            /> */}
           </CheckboxWrapper>
         </div>
         <ButtonWrapper>
@@ -77,13 +104,15 @@ export function AdditionalInformation() {
             onClick={() => history.push('/references')}
             type="button"
           />
-          <CancelBtnComponent name="Сахранит" className="save-btn" />
+          {/* <CancelBtnComponent name="Сахранит" className="save-btn" /> */}
           <NextBtnComponent
             name="Отправлять"
             className="next-btn"
-            onClick={() => {
-              setModal(true);
-            }}
+            disabled={watch("yes") ? false : true}
+            type='submit'
+          // onClick={() => {
+          //   setModal(true);
+          // }}
           />
         </ButtonWrapper>
       </AdditionalInfoProvider>

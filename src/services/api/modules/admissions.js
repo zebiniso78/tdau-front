@@ -4,6 +4,9 @@ class Admissions extends Api {
   admissionPost(data) {
     return this.execute('post', '/admission_form', data);
   }
+  admissionGet(data) {
+    return this.execute('get', '/admission_form', data);
+  }
   nationality() {
     return this.execute('get', '/nationalities');
   }
@@ -28,6 +31,9 @@ class Admissions extends Api {
   }
   qualifications() {
     return this.execute('get', '/qualifications');
+  }
+  admissionConfirm(data) {
+    return this.execute('post', `/admission_confirm`, data);
   }
 }
 

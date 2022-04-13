@@ -6,13 +6,15 @@ export function NextBtnComponent(props) {
       className = 'next-btn',
       name,
       onClick,
-      type
+      type,
+      disabled
    } = props
    return (
       <Button
          variant="contained"
          className={className}
          onClick={onClick}
-         type={type}>{name}</Button>
+         type={type}
+         disabled={disabled}>{name}</Button>
    )
 }

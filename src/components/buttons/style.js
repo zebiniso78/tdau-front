@@ -8,6 +8,9 @@ export const ButtonsProvider = styled.div`
     border-radius: 4px;
     text-transform: capitalize !important;
     font-family: 'Inter', sans-serif;
+    &:disabled {
+      background: red;
+    }
   }
   & .save-btn {
     margin-left: 20px;
