@@ -13,6 +13,7 @@ import { CustomMask } from 'components/mask/customMask';
 import { admissionApi } from 'services/api/pagesApi';
 import toast from 'react-hot-toast';
 import moment from 'moment';
+import { Error } from 'styles/globalStyle';
 
 export function PassportInformation() {
   const history = useHistory();
@@ -34,7 +35,7 @@ export function PassportInformation() {
       formData.append('passport_number', data?.name);
       formData.append(
         'passport_expire',
-        moment(data?.enteredYear).format('DD.MM.YYYY')
+        moment(data?.enteredYear).format('YYYY-DD-MM')
       );
       await admissionApi.admissionPost(formData);
       toast.success('Successfully created');
@@ -47,15 +48,15 @@ export function PassportInformation() {
     }
   };
 
-  useEffect(() => {
-    if (localStorage?.getItem('step') < 2) {
-      history.push('/academic-info');
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (localStorage?.getItem('step') < 2) {
+  //     history.push('/academic-info');
+  //   }
+  // }, []);
   return (
     <PassportInfoProvider onSubmit={handleSubmit(onSubmit)}>
       <Title>Паспортная информация</Title>
-      <Row className="row">
+      <Row className="row align-items-end">
         <Col className="col-lg-4 col-md-6 col-sm-6 col-12">
           <InputComponent
             Controller={Controller}
@@ -63,7 +64,13 @@ export function PassportInformation() {
             nameProps="name"
             plProps="Введите Номер паспорта"
             label="Номер паспорта*"
+            className={
+              errors && errors?.hasOwnProperty('name') && 'input-error'
+            }
           />
+          {errors && errors?.hasOwnProperty('name') && (
+            <Error>Iltimos ma'lumotni kiriting!</Error>
+          )}
           {/* <CustomMask
             Controller={Controller}
             control={control}
@@ -81,8 +88,18 @@ export function PassportInformation() {
             nameProps="enteredYear"
             plProps="дд/мм/гггг"
             format="DD.MM.YYYY"
-            className="calendar"
+            className={
+              errors && errors?.hasOwnProperty('enteredYear')
+                ? 'calendar-error'
+                : 'calendar'
+            }
+            required={true}
           />
+           {errors && errors?.hasOwnProperty('enteredYear') && (
+            <Error className="select-error-tooltip">
+              Iltimos ma'lumotni kiriting!
+            </Error>
+          )}
         </Col>
       </Row>
       <Row className="row">
@@ -107,7 +124,7 @@ export function PassportInformation() {
           className="prev-btn"
           onClick={() => history.push('/academic-info')}
         />
-        <CancelBtnComponent name="Сахранит" className="save-btn" />
+        {/* <CancelBtnComponent name="Сахранит" className="save-btn" /> */}
         <NextBtnComponent
           name="Продолжить"
           className="next-btn"

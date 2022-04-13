@@ -90,7 +90,10 @@ export function AcademicInformation() {
           </strong>
         </p>
       </AcademicInfo>
-      <AcademicForm onSubmit={handleSubmit(onSubmit)} className="row">
+      <AcademicForm
+        onSubmit={handleSubmit(onSubmit)}
+        className="row align-items-end"
+      >
         <div className="col-lg-4 col-md-6 col-sm-6 col-12">
           <TwoDate
             Controller={Controller}
@@ -122,7 +125,7 @@ export function AcademicInformation() {
             }
           /> */}
           {errors && errors?.hasOwnProperty('srok_priema') && (
-            <Error className="select-error-tooltip">
+            <Error className="calendar-error-tooltip">
               Iltimos malumotni kiriting!
             </Error>
           )}

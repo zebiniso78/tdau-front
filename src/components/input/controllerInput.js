@@ -28,7 +28,6 @@ export function InputComponent({ Controller, nameProps, plProps, control, requir
                   onBlur={onBlur}
                />
             )}
-
          />
       </>
    )

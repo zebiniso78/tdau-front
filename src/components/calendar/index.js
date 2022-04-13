@@ -12,11 +12,11 @@ export default function Calendar({
    label,
    picker,
    className,
-   required=false
+   required = false
 }) {
    return (
       <Form>
-         <p style={{ marginLeft: '0', marginBottom: '-10px', fontSize: '14px' }}>{label}</p>
+         <p style={{  margin:'10px', fontSize: '14px' }}>{label}</p>
          <Controller
             control={control}
             name={nameProps}
@@ -27,7 +27,7 @@ export default function Calendar({
                formState: { errors },
             }) => (
                <CustomCalendar
-                  style={{ marginTop: '20px' }}
+                  // style={{ marginTop: '10px' }}
                   onChange={onChange}
                   className={className}
                   format={format}

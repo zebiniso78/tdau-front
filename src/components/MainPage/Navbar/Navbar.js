@@ -14,7 +14,7 @@ import PureModal from 'react-pure-modal';
 // import Input from '../../Input';
 import Input from '../../input';
 import Button from '../../button';
-import { Registration } from "./registration"
+import { Registration } from './registration';
 import { Verify } from './verify';
 import { Login } from './login';
 import { useHistory } from 'react-router-dom';
@@ -24,7 +24,7 @@ function Navbar() {
   const [modal, setModal] = useState(false);
   const [registerModel, setRegisterModel] = useState(false);
   const [confirmModel, setConfirmModel] = useState(false);
-  const [phoneNumber, setPhoneNumber] = useState(null)
+  const [phoneNumber, setPhoneNumber] = useState(null);
   return (
     <>
       <MyHeader>
@@ -38,7 +38,7 @@ function Navbar() {
             </LogoWrapper>
 
             <InputWrapper>
-              <p className="phone-number">+71 631 42 21</p>
+              <p className="phone-number">+998 90 631 42 21</p>
               <div className="input-search-wrapper">
                 <input
                   className="input-search"
@@ -121,13 +121,15 @@ function Navbar() {
           setRegisterModel={setRegisterModel}
           setModal={setModal}
           registerModel={registerModel}
-          setPhoneNumber={setPhoneNumber} />
+          setPhoneNumber={setPhoneNumber}
+        />
         <Verify
           setConfirmModel={setConfirmModel}
           setRegisterModel={setRegisterModel}
           setConfirmModel={setConfirmModel}
           confirmModel={confirmModel}
-          phoneNumber={phoneNumber} />
+          phoneNumber={phoneNumber}
+        />
       </MyHeader>
     </>
   );

@@ -18,4 +18,7 @@ export const AcademicInfo = styled.div`
 `;
 export const AcademicForm = styled.form`
   font-family: 'Inter', sans-serif;
+  .select-error > div {
+    border: 1px solid #d2504d;
+  }
 `;

@@ -13,17 +13,17 @@ import { useHistory } from 'react-router-dom';
 import { useGetList } from '../hooks/useGetList';
 import { useEffect } from 'react';
 import { admissionApi } from 'services/api/pagesApi';
-import moment from 'moment'
+import moment from 'moment';
 import Calendar from 'components/calendar';
 
 export function Education() {
   const history = useHistory();
-  const [qualifications, setQualifications] = useState([])
+  const [qualifications, setQualifications] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [transcript, setTranscript] = useState([]);
   const [upload, setUpload] = useState([]);
 
-  const { getQualification } = useGetList({ setQualifications })
+  const { getQualification } = useGetList({ setQualifications });
   const {
     control,
     watch,
@@ -31,28 +31,34 @@ export function Education() {
     formState: { errors },
   } = useForm();
   useEffect(() => {
-    getQualification()
-  }, [])
+    getQualification();
+  }, []);
   const onSubmit = async (data) => {
-    console.log(data)
+    console.log(data);
     try {
       setIsLoading(true);
       let formData = new FormData();
       formData.append('school', data?.school);
-      formData.append('qualification', data?.qualification?.label)
-      formData.append('qualification_start', moment(data?.qualification_start).format('YYYY-MM-DD'));
-      formData.append('qualification_end', moment(data?.qualification_end).format('YYYY-MM-DD'));
+      formData.append('qualification', data?.qualification?.label);
+      formData.append(
+        'qualification_start',
+        moment(data?.qualification_start).format('YYYY-MM-DD')
+      );
+      formData.append(
+        'qualification_end',
+        moment(data?.qualification_end).format('YYYY-MM-DD')
+      );
       formData.append('qualification_info', transcript[0]);
       formData.append('qualification_diploma', upload[0]);
       formData.append('register_step', 5);
       await admissionApi.admissionPost(formData);
-      history.push('/supporting-info')
+      history.push('/supporting-info');
       setIsLoading(false);
     } catch (e) {
-      console.log(e)
+      console.log(e);
     }
-  }
-  console.log(transcript[0], 'infooo')
+  };
+  console.log(transcript[0], 'infooo');
   return (
     <EducationProvider>
       <Title>Образование и квалификации</Title>
@@ -66,7 +72,7 @@ export function Education() {
               nameProps="school"
               plProps="Школа/колледж"
               label="Школа/колледж*"
-              className="mb-0"
+              // className="mb-0"
             />
           </div>
           <div className="col-lg-4 col-md-6 col-sm-6 col-12">
@@ -142,7 +148,8 @@ export function Education() {
           transcript={transcript}
           setTranscript={setTranscript}
           upload={upload}
-          setUpload={setUpload} />
+          setUpload={setUpload}
+        />
         <ButtonsProvider>
           <CancelBtnComponent
             name="Назад"

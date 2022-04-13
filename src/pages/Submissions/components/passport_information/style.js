@@ -10,6 +10,14 @@ export const PassportInfoProvider = styled.form`
     color: #313131;
     margin-bottom: 0;
   }
+  .input-error {
+    border: 1px solid #d2504d;
+  }
+  .calendar-error {
+    border: 1px solid #d2504d;
+    margin-bottom: 0 !important;
+    margin-top: 0px !important;
+  }
 `;
 export const Title = styled.h4`
   font-weight: 700;

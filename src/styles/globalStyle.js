@@ -92,3 +92,16 @@ export const Paragraph = styled.p`
     margin-top: 10px;
   }
 `;
+export const Error = styled.div`
+  color: #d2504d;
+  font-size: 12px;
+  margin-top: -2px;
+  border-radius: 4px;
+  padding: 2px 8px;
+  &.select-error-tooltip {
+    margin-top: 6px;
+  }
+  &.calendar-error-tooltip {
+    margin-top: -2px;
+  }
+`;

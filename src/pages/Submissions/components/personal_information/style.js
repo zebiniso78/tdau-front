@@ -24,6 +24,7 @@ export const PersonalInfoProvider = styled.form`
   .calendar-error {
     border: 1px solid #d2504d;
     margin-bottom: 0 !important;
+    margin-top: 0px !important;
   }
 `;
 export const ButtonsProvider = styled.div`
@@ -58,5 +59,8 @@ export const Error = styled.div`
   padding: 2px 8px;
   &.select-error-tooltip {
     margin-top: 6px;
+  }
+  &.calendar-error-tooltip {
+    margin-top: -2px;
   }
 `;
