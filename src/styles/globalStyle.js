@@ -1,7 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 export const StyleSelectAll = styled.div`
+  margin-top: 8px;
+  margin-bottom: 8px;
   border-radius: 4px;
-   
+
   & > div > div {
     width: 100%;
     /* border-color: transparent !important; */
@@ -71,22 +73,22 @@ export const StyleSelectAll = styled.div`
 `;
 
 export const Title = styled.h4`
-font-family: 'Open Sans', sans-serif;
-font-weight: 700;
-font-size: 20px;
-color: #010E31;
-&.form-title {
-  font-weight: 600;
-  font-size: 18px;
-}
-`
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #010e31;
+  &.form-title {
+    font-weight: 600;
+    font-size: 18px;
+  }
+`;
 export const Paragraph = styled.p`
-font-weight: 500;
-font-size: 14px;
-line-height: 19px;
-color: #313131;
-&.footer-paragraph {
-   color: #777674;
-   margin-top: 10px;
-}
-`
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+  color: #313131;
+  &.footer-paragraph {
+    color: #777674;
+    margin-top: 10px;
+  }
+`;

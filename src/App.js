@@ -6,15 +6,16 @@ import Navbar from './components/MainPage/Navbar/Navbar';
 import Footer from './components/MainPage/Footer/Footer';
 import Main from 'pages/Main';
 import { Layout } from './pages/Submissions/components/layout';
+import Main from './pages/Main';
 
 function App() {
   return (
     <BrowserRouter>
       <Navbar />
       <Switch>
-        <Route path="/" exact component={Profile} />
+        <Route path="/" exact component={Main} />
         <Route path="/personal-info" component={Submissions} />
-        <Route path='/main' component={Main} />
+        <Route path="/admission" component={Profile} />
         <Layout />
       </Switch>
       <Footer />

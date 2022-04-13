@@ -12,6 +12,7 @@ export function Registration({
   setRegisterModel,
   setModal,
   registerModel,
+  setPhoneNumber,
 }) {
   const {
     handleSubmit,
@@ -22,12 +23,12 @@ export function Registration({
   } = useForm();
   const [isLoading, setIsLoading] = useState(false);
   async function onSubmit(data) {
-    console.log(data, 'data');
     let formData = new FormData();
     formData.append('username', data?.username);
     formData.append('phone', `+998${data?.phone}`);
     formData.append('email', data?.email);
     formData.append('password', data?.password);
+    setPhoneNumber(`+998${data?.phone}`);
     try {
       setIsLoading(true);
       await authApi.registration(formData);
@@ -41,7 +42,7 @@ export function Registration({
   }
   return (
     <RegistrationProvider onSubmit={handleSubmit(onSubmit)}>
-      <PureModal
+      <div
         header="Регистрация"
         footer={
           <div className="footer-button__wrapper">
@@ -84,6 +85,32 @@ export function Registration({
           required={true}
           className="registration-input"
         />
+        <Button
+          type="submit"
+          title="Выход"
+          bgColor="transparent"
+          color="#2e7df6"
+          onClick={() => {
+            setRegisterModel(false);
+          }}
+        />
+        isOpen={registerModel}
+        scrollable={true}
+        closeButton="x" closeButtonPosition="header" onClose=
+        {() => {
+          setRegisterModel(false);
+          setModal(false);
+          return true;
+        }}
+        <InputComponent
+          Controller={Controller}
+          control={control}
+          nameProps="username"
+          plProps="Username"
+          label="Username*"
+          required={true}
+          className="registration-input"
+        />
         <InputComponent
           Controller={Controller}
           control={control}
@@ -112,7 +139,7 @@ export function Registration({
           className="registration-input"
           type="password"
         />
-      </PureModal>
+      </div>
     </RegistrationProvider>
   );
 }

@@ -5,16 +5,34 @@ import DragDrop from 'components/dragDrop';
 import { ButtonsProvider } from 'components/buttons/style';
 import { CancelBtnComponent } from 'components/buttons/prev-btn';
 import { NextBtnComponent } from 'components/buttons/next-btn';
+import { admissionApi } from 'services/api/pagesApi';
 
 export function References() {
   const history = useHistory();
   const [recomendationDoc, setRecomendationDoc] = useState([]);
   const [recomendationDoc2, setRecomendationDoc2] = useState([]);
+  const [isLoading, setIsLoading] = useState(false)
+  async function handleSubmit(e) {
+    e.preventDefault()
+    try {
+      setIsLoading(true)
+      let formData = new FormData()
+      formData.append('recommendation', recomendationDoc[0])
+      formData.append('recommendation_second', recomendationDoc2[0])
+      formData.append('register_step', 7)
+      await admissionApi.admissionPost(formData);
+      setIsLoading(false)
+      history.push('/additional-info')
+    } catch (e) {
+      console.log(e)
+      setIsLoading(false)
+    }
+  }
   return (
     <>
-      <ReferencesProvider className="container">
+      <ReferencesProvider onSubmit={handleSubmit} className="container">
         <div className="row">
-          <h4>Использованная литература</h4>
+          <h4>Рекомендация</h4>
           <p>
             В рамках критериев приема нам требуются две рекомендации. Это должны
             быть академические рекомендации, если вы получали очное образование
@@ -61,10 +79,11 @@ export function References() {
             onClick={() => history.push('/supporting-info')}
             type="button"
           />
+          <CancelBtnComponent name="Сахранит" className="save-btn" />
           <NextBtnComponent
             name="Продолжить"
             className="next-btn"
-            onClick={() => history.push('/additional-info')}
+            disabled={isLoading}
             type="submit"
           />
         </ButtonsProvider>

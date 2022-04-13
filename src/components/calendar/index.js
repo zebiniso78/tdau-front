@@ -11,7 +11,8 @@ export default function Calendar({
    format,
    label,
    picker,
-   className
+   className,
+   required=false
 }) {
    return (
       <Form>
@@ -19,10 +20,11 @@ export default function Calendar({
          <Controller
             control={control}
             name={nameProps}
+            rules={{ required: required }}
             render={({
                field: { onChange, onBlur, value, name, ref },
                fieldState: { invalid, isTouched, isDirty, error },
-               formState,
+               formState: { errors },
             }) => (
                <CustomCalendar
                   style={{ marginTop: '20px' }}
@@ -32,6 +34,8 @@ export default function Calendar({
                   value={value}
                   picker={picker ? picker : undefined}
                   placeholder={plProps}
+                  error={!!errors?.title}
+                  ref={ref}
                />
             )}
          />

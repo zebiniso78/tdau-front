@@ -10,7 +10,7 @@ class Api {
     });
     this.api2client.defaults.params = {};
     this.query = {};
-    this.token = Cookies.get(Token);
+    this.token = localStorage.getItem('token');
     this.setInterceptors();
   }
   setInterceptors() {
@@ -34,7 +34,7 @@ class Api {
     );
   }
   async execute(method, url, data, onUploadProgress, id) {
-    const accessToken = Cookies.get(Token);
+    const accessToken = localStorage.getItem('token');
     let headers = {};
     if (accessToken) {
       headers = {
@@ -126,3 +126,7 @@ class Api {
    */
 }
 export default Api;
+
+
+// phone: 906001202
+// password: 124235534
