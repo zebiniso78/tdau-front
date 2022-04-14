@@ -86,7 +86,7 @@ export default function AddressInformation() {
       formData.append('post_index', data?.post_index);
       formData.append('post_index2', data?.post_index2);
       formData.append('phone', `+998${data?.phone}`);
-      formData.append('phone_a', `+998${data?.phone_a}`);
+      formData.append('email', data?.email);
       formData.append('region', data?.regionID?.label);
       formData.append('district', data?.districtID?.label);
       formData.append('post_region', data?.postRegion?.label);
@@ -322,7 +322,7 @@ export default function AddressInformation() {
             Controller={Controller}
             control={control}
             nameProps="phone"
-            title="Личный адрес элек.почты заявителя"
+            title=""
             required={true}
             validators={['required', 'isNumber']}
           />
@@ -336,14 +336,27 @@ export default function AddressInformation() {
           всегда отправляем корреспонденцию по правильному адресу.
         </Paragraph>
         <MaskInputWrapper>
-          <PhoneMask
+          {/* <PhoneMask
             Controller={Controller}
             control={control}
             nameProps="phone_a"
             title="Личный адрес элек.почты заявителя"
             required={true}
             validators={['required', 'isNumber']}
+          /> */}
+          <InputComponent
+            Controller={Controller}
+            control={control}
+            nameProps="email"
+            plProps="Елек.почты"
+            label="Личный адрес элек.почты заявителя"
+            className={
+              errors && errors?.hasOwnProperty('email') && 'input-error'
+            }
           />
+          {errors && errors?.hasOwnProperty('email') && (
+            <Error>Iltimos ma'lumotni kiriting!</Error>
+          )}
         </MaskInputWrapper>
         {/* <AddressFooter>
           <Title className='mt-4 form-title'>Адрес электронной почты</Title>

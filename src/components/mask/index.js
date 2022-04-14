@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { PhoneMaskProvider } from "./style"
 import InputMask from "react-input-mask";
 import "./index.css"
@@ -14,6 +14,7 @@ export function PhoneMask(props) {
       validators,
       label,
       errorMessages } = props
+      
    return (
       <PhoneMaskProvider>
          <div>
@@ -32,6 +33,7 @@ export function PhoneMask(props) {
                      formState: { errors },
                   }) => (
                      <InputMask
+                        ref={ref}
                         value={value}
                         onChange={onChange}
                         name={name}
