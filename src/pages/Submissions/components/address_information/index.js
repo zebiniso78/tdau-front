@@ -23,7 +23,7 @@ import UserFormSelectComponent, { SelectItem } from 'components/select';
 import { admissionApi } from 'services/api/pagesApi';
 import toast from 'react-hot-toast';
 
-export function AddressInformation() {
+export default function AddressInformation() {
   const history = useHistory();
   const {
     control,
@@ -75,6 +75,7 @@ export function AddressInformation() {
     }
   }, [watch('postRegion')]);
   const onSubmit = async (data) => {
+    localStorage.setItem('step', 4);
     try {
       setIsLoading(true);
       let formData = new FormData();
@@ -100,6 +101,11 @@ export function AddressInformation() {
       setIsLoading(false);
     }
   };
+  useEffect(() => {
+    if (localStorage?.getItem('step') < 3) {
+      history.push('/personal-info');
+    }
+  }, []);
 
   return (
     <AddressInfoProvider>

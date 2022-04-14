@@ -13,7 +13,7 @@ import { NextBtnComponent } from 'components/buttons/next-btn';
 import Modal from '../../../../components/modal';
 import { admissionApi } from 'services/api/pagesApi';
 
-export function AdditionalInformation() {
+export default function AdditionalInformation() {
   const history = useHistory();
   const [modal, setModal] = useState(false);
   const [addMissionID, setAddMissionID] = useState(null)
@@ -36,6 +36,7 @@ export function AdditionalInformation() {
   }, [])
   async function handleSubmit(e) {
     e.preventDefault()
+    localStorage.setItem('step', 8)
     try {
       let formData = new FormData()
       formData.append('adm_id', addMissionID)
@@ -49,7 +50,11 @@ export function AdditionalInformation() {
       console.log(e)
     }
   }
-
+  useEffect(() => {
+    if (localStorage?.getItem('step') < 7) {
+      history.push('/personal-info');
+    }
+  }, []);
   return (
     <>
       <AdditionalInfoProvider onSubmit={handleSubmit} className="container">

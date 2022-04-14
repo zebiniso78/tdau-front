@@ -156,13 +156,11 @@ export const Info = styled.div`
     margin: 15px;
     text-transform: capitalize !important;
     font-family: 'Inter', sans-serif !important;
-font-style: normal;
-font-weight: 500;
-font-size: 14px;
-line-height: 18px;
-color: #2E7DF6;
-
-  }
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    color: #2E7DF6 !important; }
   & p {
   font-family:'Inter', sans-serif;
   font-weight: 500;

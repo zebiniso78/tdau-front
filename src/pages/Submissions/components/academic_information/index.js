@@ -18,7 +18,7 @@ import { useGetList } from '../hooks/useGetList';
 import TwoDate from 'components/calendar/twoDate';
 import moment from 'moment';
 
-export function AcademicInformation() {
+export default function AcademicInformation() {
   const {
     register,
     handleSubmit,

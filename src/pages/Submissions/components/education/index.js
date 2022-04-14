@@ -17,7 +17,7 @@ import moment from 'moment';
 import Calendar from 'components/calendar';
 import { Error } from "styles/globalStyle"
 
-export function Education() {
+export default function Education() {
   const history = useHistory();
   const [qualifications, setQualifications] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -35,6 +35,7 @@ export function Education() {
     getQualification();
   }, []);
   const onSubmit = async (data) => {
+    localStorage.setItem('step', 5)
     console.log(data);
     try {
       setIsLoading(true);
@@ -59,6 +60,11 @@ export function Education() {
       console.log(e);
     }
   };
+  useEffect(() => {
+    if (localStorage?.getItem('step') < 4) {
+      history.push('/personal-info');
+    }
+  }, []);
   return (
     <EducationProvider>
       <Title>Образование и квалификации</Title>

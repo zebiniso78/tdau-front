@@ -1,17 +1,26 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { LayoutProvider, DocumentCard, DocumentCardProvider } from './style';
 import 'antd/dist/antd.css';
 import TimeLine from './timeline';
 import { Route } from 'react-router-dom';
-import { PersonalInfo } from '../personal_information';
-import { AcademicInformation } from '../academic_information';
-import { PassportInformation } from '../passport_information';
-import { AddressInformation } from '../address_information';
-import { AdditionalInformation } from '../additional_information';
-import { References } from '../references';
-import { Education } from '../education';
-import { EnglishLanguage } from '../english_language';
-import { SupportingInformation } from '../supporting-information';
+const PersonalInfo = lazy(() => import('../personal_information'));
+const AcademicInformation = lazy(() => import('../academic_information'));
+const PassportInformation = lazy(() => import('../passport_information'));
+const AddressInformation = lazy(() => import('../address_information'));
+const References = lazy(() => import('../references'));
+const Education = lazy(() => import('../education'));
+const SupportingInformation = lazy(() => import('../supporting-information'));
+const AdditionalInformation = lazy(() => import('../additional_information'));
+
+
+
+// import { PersonalInfo } from '../personal_information';
+// import { AcademicInformation } from '../academic_information';
+// import { PassportInformation } from '../passport_information';
+// import { AddressInformation } from '../address_information';
+// import { References } from '../references';
+// import { Education } from '../education';
+// import { SupportingInformation } from '../supporting-information';
 
 
 export function Layout() {
@@ -26,15 +35,17 @@ export function Layout() {
                </div>
                <div className='col-lg-9 col-md-12 col-sm-12 col-12'>
                   <DocumentCard className='right-side'>
-                     <Route path='/personal-info' component={PersonalInfo} />
-                     <Route path='/academic-info' component={AcademicInformation} />
-                     <Route path='/passport-info' component={PassportInformation} />
-                     <Route path='/address-info' component={AddressInformation} />
-                     <Route path='/education-qualifications' component={Education} />
-                     {/* <Route path='/english-language' component={EnglishLanguage} /> */}
-                     <Route path='/supporting-info' component={SupportingInformation} />
-                     <Route path='/references' component={References} />
-                     <Route path='/additional-info' component={AdditionalInformation} />
+                     <Suspense fallback={null}>
+                        <Route path='/personal-info' component={PersonalInfo} />
+                        <Route path='/academic-info' component={AcademicInformation} />
+                        <Route path='/passport-info' component={PassportInformation} />
+                        <Route path='/address-info' component={AddressInformation} />
+                        <Route path='/education-qualifications' component={Education} />
+                        {/* <Route path='/english-language' component={EnglishLanguage} /> */}
+                        <Route path='/supporting-info' component={SupportingInformation} />
+                        <Route path='/references' component={References} />
+                        <Route path='/additional-info' component={AdditionalInformation} />
+                     </Suspense>
                   </DocumentCard>
                </div>
             </div>

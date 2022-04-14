@@ -13,7 +13,7 @@ import moment from 'moment';
 import toast, { Toaster } from 'react-hot-toast';
 import { admissionApi } from 'services/api/pagesApi';
 
-export function PersonalInfo() {
+export default function PersonalInfo() {
   let dateFormat = 'YYYY-MM-DD';
   const history = useHistory();
   const {

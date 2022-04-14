@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { ReferencesProvider } from './style';
 import DragDrop from 'components/dragDrop';
@@ -7,12 +7,13 @@ import { CancelBtnComponent } from 'components/buttons/prev-btn';
 import { NextBtnComponent } from 'components/buttons/next-btn';
 import { admissionApi } from 'services/api/pagesApi';
 
-export function References() {
+export default function References() {
   const history = useHistory();
   const [recomendationDoc, setRecomendationDoc] = useState([]);
   const [recomendationDoc2, setRecomendationDoc2] = useState([]);
   const [isLoading, setIsLoading] = useState(false)
   async function handleSubmit(e) {
+    localStorage.setItem('step', 7)
     e.preventDefault()
     try {
       setIsLoading(true)
@@ -28,6 +29,11 @@ export function References() {
       setIsLoading(false)
     }
   }
+  useEffect(() => {
+    if (localStorage?.getItem('step') < 6) {
+      history.push('/personal-info');
+    }
+  }, []);
   return (
     <>
       <ReferencesProvider onSubmit={handleSubmit} className="container">

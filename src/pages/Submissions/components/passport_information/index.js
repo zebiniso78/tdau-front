@@ -15,7 +15,7 @@ import toast from 'react-hot-toast';
 import moment from 'moment';
 import { Error } from 'styles/globalStyle';
 
-export function PassportInformation() {
+export default function PassportInformation() {
   const history = useHistory();
   const {
     control,
@@ -27,6 +27,7 @@ export function PassportInformation() {
   const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = async (data) => {
+    localStorage.setItem('step', 3);
     try {
       setIsLoading(true);
       let formData = new FormData();
@@ -48,11 +49,12 @@ export function PassportInformation() {
     }
   };
 
-  // useEffect(() => {
-  //   if (localStorage?.getItem('step') < 2) {
-  //     history.push('/academic-info');
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (localStorage?.getItem('step') < 2) {
+      history.push('/personal-info');
+    }
+  }, []);
+ 
   return (
     <PassportInfoProvider onSubmit={handleSubmit(onSubmit)}>
       <Title>Паспортная информация</Title>

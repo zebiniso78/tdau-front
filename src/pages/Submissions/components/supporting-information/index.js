@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { SupportingInformationProvider } from './style';
 import DragDrop from 'components/dragDrop';
@@ -7,12 +7,13 @@ import { CancelBtnComponent } from 'components/buttons/prev-btn';
 import { NextBtnComponent } from 'components/buttons/next-btn';
 import { admissionApi } from 'services/api/pagesApi';
 
-export function SupportingInformation() {
+export default function SupportingInformation() {
   const history = useHistory();
   const [supportingStatement, setSupportingStatement] = useState([]);
   const [resume, setResume] = useState([]);
   const [isLoading, setIsLoading] = useState(false)
   async function handleSubmit(e) {
+    localStorage.setItem('step', 6);
     e.preventDefault()
     try {
       setIsLoading(true)
@@ -28,6 +29,11 @@ export function SupportingInformation() {
       setIsLoading(false)
     }
   }
+  useEffect(() => {
+    if (localStorage?.getItem('step') < 5) {
+      history.push('/personal-info');
+    }
+  }, []);
   return (
     <>
       <SupportingInformationProvider onSubmit={handleSubmit} className="container">
