@@ -21,8 +21,7 @@ height: auto;
 min-height: 95vh;
 background: #FFFFFF;
 border-radius: 12px;
-border-radius: 12px;
-padding: 15px;
+padding: 0px;
 &.right-side {
    padding: 5px;
 }
@@ -31,6 +30,7 @@ padding: 15px;
    text-decoration:none;
    color: #B2B1AE;
    font-weight: 500;
+   font-size: 13px;
    font-family: 'Open Sans', sans-serif;
 }
 & .timeline-nav-link {
@@ -43,9 +43,13 @@ font-weight: bold;
 font-size: 18px;
 line-height: 27px;
 color: #11711A;
-margin-bottom: 25px;
+padding-top:15px;
+margin: 0px 0px 25px 15px;
+/* margin-bottom: 25px; */
+/* margin-left: 15px; */
 `
 export const TimeLineProvider = styled(Timeline)`
+padding-left: 15px;
 &.timeline-provider {
   li > .ant-timeline-item-tail {
      border-left: 2px solid #F1F0ED;
