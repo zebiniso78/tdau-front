@@ -10,7 +10,7 @@ import Calendar from 'components/calendar';
 import { useGetList } from '../hooks/useGetList';
 import { useEffect } from 'react';
 import moment from 'moment';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { admissionApi } from 'services/api/pagesApi';
 
 export default function PersonalInfo() {
@@ -54,8 +54,8 @@ export default function PersonalInfo() {
       formData.append('current_country', data?.currentCountry?.label);
       formData.append('register_step', 1);
       await admissionApi.admissionPost(formData);
+      toast.success("Личная информация успешно создана")
       history.push('/academic-info');
-      // toast.success("Successfully created")
       setIsLoading(false);
     } catch (e) {
       console.log(e);
@@ -296,7 +296,6 @@ export default function PersonalInfo() {
           disabled={isLoading}
         // onClick={() => history.push('/academic-info')}
         />
-        <Toaster />
       </ButtonsProvider>
     </PersonalInfoProvider>
   );

@@ -6,6 +6,7 @@ import { ButtonsProvider } from 'components/buttons/style';
 import { CancelBtnComponent } from 'components/buttons/prev-btn';
 import { NextBtnComponent } from 'components/buttons/next-btn';
 import { admissionApi } from 'services/api/pagesApi';
+import toast from "react-hot-toast"
 
 export default function SupportingInformation() {
   const history = useHistory();
@@ -23,6 +24,7 @@ export default function SupportingInformation() {
       formData.append('register_step', 6)
       await admissionApi.admissionPost(formData);
       setIsLoading(false)
+      toast.success('Вспомогательная информация успешно создана')
       history.push('/references')
     } catch (e) {
       console.log(e)

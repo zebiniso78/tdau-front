@@ -3,6 +3,7 @@ import { LayoutProvider, DocumentCard, DocumentCardProvider } from './style';
 import 'antd/dist/antd.css';
 import TimeLine from './timeline';
 import { Route } from 'react-router-dom';
+
 const PersonalInfo = lazy(() => import('../personal_information'));
 const AcademicInformation = lazy(() => import('../academic_information'));
 const PassportInformation = lazy(() => import('../passport_information'));
@@ -12,15 +13,6 @@ const Education = lazy(() => import('../education'));
 const SupportingInformation = lazy(() => import('../supporting-information'));
 const AdditionalInformation = lazy(() => import('../additional_information'));
 
-
-
-// import { PersonalInfo } from '../personal_information';
-// import { AcademicInformation } from '../academic_information';
-// import { PassportInformation } from '../passport_information';
-// import { AddressInformation } from '../address_information';
-// import { References } from '../references';
-// import { Education } from '../education';
-// import { SupportingInformation } from '../supporting-information';
 
 
 export function Layout() {

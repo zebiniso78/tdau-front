@@ -39,7 +39,7 @@ export default function PassportInformation() {
         moment(data?.enteredYear).format('YYYY-DD-MM')
       );
       await admissionApi.admissionPost(formData);
-      toast.success('Successfully created');
+      toast.success("Паспортные данные успешно созданы")
       history.push('/address-info');
       setIsLoading(false);
     } catch (e) {
@@ -54,12 +54,12 @@ export default function PassportInformation() {
       history.push('/personal-info');
     }
   }, []);
- 
+
   return (
     <PassportInfoProvider onSubmit={handleSubmit(onSubmit)}>
       <Title>Паспортная информация</Title>
       <Row className="row align-items-start">
-        <Col className="col-lg-4 col-md-6 col-sm-6 col-12" style={{marginTop:'9px'}}>
+        <Col className="col-lg-4 col-md-6 col-sm-6 col-12" style={{ marginTop: '9px' }}>
           {/* <InputComponent
             Controller={Controller}
             control={control}

@@ -6,7 +6,8 @@ import Navbar from './components/MainPage/Navbar/Navbar';
 import Footer from './components/MainPage/Footer/Footer';
 import { Layout } from './pages/Submissions/components/layout';
 import Main from './pages/Main';
-import { useHistory } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+
 
 function App() {
   
@@ -20,6 +21,7 @@ function App() {
         <Layout />
       </Switch>
       <Footer />
+      <Toaster position="top-right" reverseOrder={false} />
     </BrowserRouter>
   );
 }

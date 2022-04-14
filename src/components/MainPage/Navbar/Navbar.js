@@ -17,7 +17,7 @@ import Button from '../../button';
 import { Registration } from './registration';
 import { Verify } from './verify';
 import { Login } from './login';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 function Navbar() {
   const history = useHistory()
@@ -30,13 +30,12 @@ function Navbar() {
       <MyHeader>
         <section>
           <MyContainer>
-            <LogoWrapper>
-              <img className="logo" src={Logo} alt="Logo" />
-              <p className="header-title">
-                Toshkent Davlat Agrar Universtiteti
-              </p>
-            </LogoWrapper>
-
+              <LogoWrapper to='/'>
+                <img className="logo" src={Logo} alt="Logo" />
+                <p className="header-title">
+                  Toshkent Davlat Agrar Universtiteti
+                </p>
+              </LogoWrapper>
             <InputWrapper>
               <p className="phone-number">+998 90 631 42 21</p>
               <div className="input-search-wrapper">

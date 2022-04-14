@@ -4,7 +4,6 @@ import { EducationProvider, EducationForm } from './style';
 import { useForm, Controller } from 'react-hook-form';
 import { InputComponent } from 'components/input/controllerInput';
 import UserFormSelectComponent from 'components/select';
-import { EducationBody } from './body';
 import { EducationFooter } from './footer';
 import { ButtonsProvider } from 'components/buttons/style';
 import { CancelBtnComponent } from 'components/buttons/prev-btn';
@@ -16,6 +15,8 @@ import { admissionApi } from 'services/api/pagesApi';
 import moment from 'moment';
 import Calendar from 'components/calendar';
 import { Error } from "styles/globalStyle"
+import toast from "react-hot-toast"
+
 
 export default function Education() {
   const history = useHistory();
@@ -36,7 +37,6 @@ export default function Education() {
   }, []);
   const onSubmit = async (data) => {
     localStorage.setItem('step', 5)
-    console.log(data);
     try {
       setIsLoading(true);
       let formData = new FormData();
@@ -54,6 +54,7 @@ export default function Education() {
       formData.append('qualification_diploma', upload[0]);
       formData.append('register_step', 5);
       await admissionApi.admissionPost(formData);
+      toast.success("Образовательные квалификации успешно созданы")
       history.push('/supporting-info');
       setIsLoading(false);
     } catch (e) {
@@ -179,7 +180,7 @@ export default function Education() {
                   : 'calendar'
               }
             />
-             {errors && errors?.hasOwnProperty('qualification_end') && (
+            {errors && errors?.hasOwnProperty('qualification_end') && (
               <Error className="select-error-tooltip">
                 Iltimos ma'lumotni kiriting!
               </Error>

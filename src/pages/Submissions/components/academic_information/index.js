@@ -55,7 +55,7 @@ export default function AcademicInformation() {
 
       formData.append('register_step', 2);
       await admissionApi.admissionPost(formData);
-      toast.success('Successfully created');
+      toast.success("Академические данные успешно созданы")
       history.push('/passport-info');
       setIsLoading(false);
     } catch (e) {

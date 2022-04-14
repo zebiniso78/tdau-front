@@ -93,6 +93,7 @@ export default function AddressInformation() {
       formData.append('post_district', data?.postDistrict?.label);
       formData.append('register_step', 4);
       await admissionApi.admissionPost(formData);
+      toast.success("Информация об адресе успешно создана")
       history.push('/education-qualifications');
       setIsLoading(false);
     } catch (e) {
