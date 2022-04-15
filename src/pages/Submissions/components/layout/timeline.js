@@ -12,16 +12,16 @@ export default function TimeLine() {
   function handleClick(index) {
     setClick(index)
     Index = index
-    // document.querySelectorAll(".ant-timeline-item-head").forEach((el) => {
-    //   document.addEventListener('click', () => {
-    //     el.style.backgroundColor = '#169622'
-    //   })
-    // })
-    // document.querySelectorAll(".ant-timeline-item-tail").forEach((element) => {
-    //   document.addEventListener('click', () => {
-    //     element.style.borderLeft = '2px solid #169622'
-    //   })
-    // })
+    document.querySelectorAll(".ant-timeline-item-head").forEach((el) => {
+      document.addEventListener('click', () => {
+        el.style.backgroundColor = '#169622'
+      })
+    })
+    document.querySelectorAll(".ant-timeline-item-tail").forEach((element) => {
+      document.addEventListener('click', () => {
+        element.style.borderLeft = '2px solid #169622'
+      })
+    })
   }
   return (
     <DocumentCard>
