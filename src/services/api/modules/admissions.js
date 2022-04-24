@@ -35,6 +35,12 @@ class Admissions extends Api {
   admissionConfirm(data) {
     return this.execute('post', `/admission_confirm`, data);
   }
+  profileGet() {
+    return this.execute('get', `/profile`);
+  }
+  facultyGet() {
+    return this.execute('get', `/faculties`);
+  }
 }
 
 export default Admissions;

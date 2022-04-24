@@ -6,6 +6,7 @@ import { InputComponent } from 'components/input/controllerInput';
 import { useForm, Controller } from 'react-hook-form';
 import { PhoneMask } from 'components/mask';
 import { authApi } from 'services/api/pagesApi';
+import toast from 'react-hot-toast';
 
 export function Registration({
   setConfirmModel,
@@ -37,6 +38,7 @@ export function Registration({
       setRegisterModel(false);
     } catch (e) {
       console.log(e);
+      toast.error(e?.msg);
       setIsLoading(false);
     }
   }
