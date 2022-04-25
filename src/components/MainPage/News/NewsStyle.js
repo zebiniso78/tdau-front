@@ -3,7 +3,7 @@ import { Container } from '../../../common/grid';
 
 export const MyContainer = styled(Container)`
   padding: 60px 0;
-  display: inline-block;
+  /* display: inline-block; */
 
   .news-title__wrapper {
     display: flex;
