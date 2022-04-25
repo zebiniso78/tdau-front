@@ -22,6 +22,7 @@ import { useGetList } from '../hooks/useGetList';
 import UserFormSelectComponent, { SelectItem } from 'components/select';
 import { admissionApi } from 'services/api/pagesApi';
 import toast from 'react-hot-toast';
+import { CustomCheckbox } from 'components/checkbox/style';
 
 export default function AddressInformation() {
   const history = useHistory();
@@ -36,6 +37,7 @@ export default function AddressInformation() {
   const [district, setDistrict] = useState([]);
   const [postDistrict, setPostDistrict] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [chekeed, setChekeed] = useState(true);
   const { getRegions } = useGetList({
     setRegions,
   });
@@ -93,7 +95,7 @@ export default function AddressInformation() {
       formData.append('post_district', data?.postDistrict?.label);
       formData.append('register_step', 4);
       await admissionApi.admissionPost(formData);
-      toast.success("Информация об адресе успешно создана")
+      toast.success('Информация об адресе успешно создана');
       history.push('/education-qualifications');
       setIsLoading(false);
     } catch (e) {
@@ -214,7 +216,22 @@ export default function AddressInformation() {
           <br /> с вашим постоянным адресом?*
         </Paragraph>
         <CheckboxWrapper>
-          <CheckboxComponent
+          <label>
+            <CustomCheckbox
+              checked={chekeed}
+              onChange={() => setChekeed(!chekeed)}
+            />
+            Yes
+          </label>
+          <label>
+            <CustomCheckbox
+              checked={!chekeed}
+              onChange={() => setChekeed(!chekeed)}
+            />
+            No
+          </label>
+
+          {/* <CheckboxComponent
             Controller={Controller}
             control={control}
             name="yes"
@@ -225,7 +242,7 @@ export default function AddressInformation() {
             control={control}
             name="no"
             label="Нет"
-          />
+          /> */}
         </CheckboxWrapper>
         <div className="row align-items-end mt-3">
           <div className="col-lg-3 col-md-6 col-sm-6 col-12">
@@ -236,7 +253,9 @@ export default function AddressInformation() {
               plProps="Адресная строка 1"
               label="Адресная строка 1*"
               className={
-                errors && errors?.hasOwnProperty('post_address1') && 'input-error'
+                errors &&
+                errors?.hasOwnProperty('post_address1') &&
+                'input-error'
               }
             />
             {errors && errors?.hasOwnProperty('post_address1') && (
@@ -251,7 +270,9 @@ export default function AddressInformation() {
               plProps="Адресная строка 2"
               label="Адресная строка 2*"
               className={
-                errors && errors?.hasOwnProperty('post_address2') && 'input-error'
+                errors &&
+                errors?.hasOwnProperty('post_address2') &&
+                'input-error'
               }
             />
             {errors && errors?.hasOwnProperty('post_address2') && (
@@ -289,7 +310,9 @@ export default function AddressInformation() {
               options={postDistrict}
               disabled={false}
               className={
-                errors && errors?.hasOwnProperty('postDistrict') && 'select-error'
+                errors &&
+                errors?.hasOwnProperty('postDistrict') &&
+                'select-error'
               }
             />
             {errors && errors?.hasOwnProperty('postDistrict') && (

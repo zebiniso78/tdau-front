@@ -14,9 +14,8 @@ import { useEffect } from 'react';
 import { admissionApi } from 'services/api/pagesApi';
 import moment from 'moment';
 import Calendar from 'components/calendar';
-import { Error } from "styles/globalStyle"
-import toast from "react-hot-toast"
-
+import { Error } from 'styles/globalStyle';
+import toast from 'react-hot-toast';
 
 export default function Education() {
   const history = useHistory();
@@ -36,7 +35,7 @@ export default function Education() {
     getQualification();
   }, []);
   const onSubmit = async (data) => {
-    localStorage.setItem('step', 5)
+    localStorage.setItem('step', 5);
     try {
       setIsLoading(true);
       let formData = new FormData();
@@ -54,7 +53,7 @@ export default function Education() {
       formData.append('qualification_diploma', upload[0]);
       formData.append('register_step', 5);
       await admissionApi.admissionPost(formData);
-      toast.success("Образовательные квалификации успешно созданы")
+      toast.success('Образовательные квалификации успешно созданы');
       history.push('/supporting-info');
       setIsLoading(false);
     } catch (e) {
@@ -99,7 +98,9 @@ export default function Education() {
               options={qualifications}
               disabled={false}
               className={
-                errors && errors?.hasOwnProperty('qualification') && 'select-error'
+                errors &&
+                errors?.hasOwnProperty('qualification') &&
+                'select-error'
               }
             />
             {errors && errors?.hasOwnProperty('qualification') && (
@@ -150,7 +151,6 @@ export default function Education() {
               nameProps="qualification_start"
               plProps="дд/мм/гггг"
               format="DD.MM.YYYY"
-              className="calendar"
               required={true}
               className={
                 errors && errors?.hasOwnProperty('qualification_start')
@@ -172,7 +172,6 @@ export default function Education() {
               nameProps="qualification_end"
               plProps="дд/мм/гггг"
               format="DD.MM.YYYY"
-              className="calendar"
               required={true}
               className={
                 errors && errors?.hasOwnProperty('qualification_end')

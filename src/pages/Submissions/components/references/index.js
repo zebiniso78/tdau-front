@@ -6,29 +6,29 @@ import { ButtonsProvider } from 'components/buttons/style';
 import { CancelBtnComponent } from 'components/buttons/prev-btn';
 import { NextBtnComponent } from 'components/buttons/next-btn';
 import { admissionApi } from 'services/api/pagesApi';
-import toast from 'react-hot-toast'
+import toast from 'react-hot-toast';
 
 export default function References() {
   const history = useHistory();
   const [recomendationDoc, setRecomendationDoc] = useState([]);
   const [recomendationDoc2, setRecomendationDoc2] = useState([]);
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
   async function handleSubmit(e) {
-    localStorage.setItem('step', 7)
-    e.preventDefault()
+    localStorage.setItem('step', 7);
+    e.preventDefault();
     try {
-      setIsLoading(true)
-      let formData = new FormData()
-      formData.append('recommendation', recomendationDoc[0])
-      formData.append('recommendation_second', recomendationDoc2[0])
-      formData.append('register_step', 7)
+      setIsLoading(true);
+      let formData = new FormData();
+      formData.append('recommendation', recomendationDoc[0]);
+      formData.append('recommendation_second', recomendationDoc2[0]);
+      formData.append('register_step', 7);
       await admissionApi.admissionPost(formData);
-      setIsLoading(false)
-      toast.success("Рекомендации успешно создан")
-      history.push('/additional-info')
+      setIsLoading(false);
+      toast.success('Рекомендации успешно создан');
+      history.push('/additional-info');
     } catch (e) {
-      console.log(e)
-      setIsLoading(false)
+      console.log(e);
+      setIsLoading(false);
     }
   }
   useEffect(() => {
@@ -87,7 +87,7 @@ export default function References() {
             onClick={() => history.push('/supporting-info')}
             type="button"
           />
-          <CancelBtnComponent name="Сахранит" className="save-btn" />
+          {/* <CancelBtnComponent name="Сахранит" className="save-btn" /> */}
           <NextBtnComponent
             name="Продолжить"
             className="next-btn"

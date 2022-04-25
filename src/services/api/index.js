@@ -1,7 +1,7 @@
 import axios from 'axios';
 import toast from 'react-hot-toast';
-import { Token } from '../token';
-import Cookies from 'js-cookie';
+// import { Token } from '../token';
+// import Cookies from 'js-cookie';
 
 class Api {
   constructor() {
@@ -126,7 +126,6 @@ class Api {
    */
 }
 export default Api;
-
 
 // phone: 906001202
 // password: 124235534
