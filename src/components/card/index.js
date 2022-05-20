@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, CardHeader, CardBody, CardFooter, CardFooterTitle, CardInfo, TrainingDate } from './style'
 
-export function CardComponent({ image, alt, cardLogo, logo, title, type, aosCount, status, training_date }) {
+export function CardComponent({ image, alt, cardLogo, logo, title, type, aosCount, status, training_date, starting_date }) {
    return (
       <Card data-aos='flip-left' data-aos-duration={aosCount}>
          <CardHeader>
@@ -25,7 +25,7 @@ export function CardComponent({ image, alt, cardLogo, logo, title, type, aosCoun
          <CardFooter>
             <CardFooterTitle>
                {
-                  type === 'event_calendar' ? <p>training</p> : title
+                  type === 'event_calendar' ? <p>{starting_date}</p> : title
                }
             </CardFooterTitle>
          </CardFooter>

@@ -1,14 +1,13 @@
 import React from 'react'
 import { Container } from 'styles/globalStyle'
-import { EventCalendar } from '../components/event-calendar'
-import { Indicator } from '../components/indicator'
-import { Partners } from '../components/partners/container'
-import { Subscribe } from '../components/subscribe'
+import { EventCalendar, Indicator, News, Partners, Subscribe } from '../components'
+
 
 export function Home() {
   return (
     <Container>
       <Partners />
+      <News />
       <Indicator />
       <EventCalendar />
       <Subscribe />
