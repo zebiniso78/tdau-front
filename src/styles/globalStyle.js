@@ -105,3 +105,43 @@ export const Error = styled.div`
     margin-top: -2px;
   }
 `;
+
+export const MainLayoutProvider = styled.div`
+position: relative;
+width: 98%;
+height: 110vh;
+margin: 15px auto;
+background: rgba(255, 255, 255, 0.25);
+border: 1.2px solid #FFFFFF;
+box-shadow: 0px 60px 60px #DFD9CE;
+border-radius: 64.8px;
+@media (max-width: 768px) {
+  height: auto; 
+}
+`
+
+export const Container = styled.div`
+margin: 0 auto; 
+width: calc(100% - 100px);
+`
+export const LandingTitle = styled.h3`
+font-family: 'Inter';
+font-style: normal;
+font-weight: 800;
+font-size: 34px;
+line-height: 58px;
+text-transform: uppercase;
+text-align: center;
+color: #142E38;
+`
+export const CardProvider = styled.div`
+height: auto;
+margin: 70px 0;
+`
+export const CardWrap = styled.div`
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+width: 100%;
+margin-top: 60px;
+`

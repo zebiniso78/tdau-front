@@ -3,6 +3,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(85.38deg, #EDEDE4 -23.38%, #F8F2EB 97.65%);;
 }
 
 code {

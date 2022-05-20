@@ -12,8 +12,8 @@ import BottomNews from '../components/MainPage/BottomNews/BottomNews';
 function Main() {
   return (
     <>
-      <Header>
-        {/* <Navbar /> */}
+    <h2>main started</h2>
+      {/* <Header>
         <IntroSection />
         <BottomNews />
       </Header>
@@ -27,8 +27,7 @@ function Main() {
         <Service />
         <MediaGallery />
         <LinksSection />
-      </MainBody>
-      {/* <Footer /> */}
+      </MainBody> */}
     </>
   );
 }
