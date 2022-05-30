@@ -21,6 +21,22 @@ width: 50%;
    width: 100%;
 }
 `
+export const TopTour = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+width: 100px;
+height: 35px;
+background: #D5EEC6;
+border-radius: 15px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+text-transform: capitalize;
+color: #244030;
+margin-bottom: 20px;
+`
 export const MainRight = styled.div`
 width: 50%;
 @media (max-width: 768px) {
@@ -37,6 +53,18 @@ font-weight: 700;
 font-size: 45px;
 line-height: 55px;
 color: #142E38;
+@media (max-width: 676px) {
+   font-size: 30px;
+   line-height: 40px;
+}
+@media (max-width: 400px) {
+   font-size: 20px;
+   line-height: 30px;
+}
+@media (max-width: 300px) {
+   font-size: 16px;
+   line-height: 24px;
+}
 `
 export const MainInfoDescription = styled.p`
 font-style: normal;
@@ -44,9 +72,15 @@ font-weight: 700;
 font-size: 16px;
 line-height: 20px;
 margin-top: 25px;
-color: #142E38;`
+color: #142E38;
+@media (max-width:400px) {
+   font-size: 14px;
+}`
 export const MainBtnWrap = styled.div`
-margin-top: 71px;`
+margin-top: 71px;
+@media (max-width: 400px) {
+   margin-top: 40px;
+}`
 export const MainBtn = styled.button`
 width: 162px;
 height: 50px;
@@ -58,6 +92,12 @@ font-family: 'Inter', sans-serif;
 font-weight: 500;
 font-size: 22px;
 color: white;
+@media (max-width: 576px) {
+   width: 100px;
+   height: 35px;
+   font-size: 16px;
+   border-radius: 16px;
+}
 `
 
 export const MainFooter = styled.div`
@@ -69,8 +109,11 @@ width: 68%;
 height: 92px;
 background: #142E38;
 box-shadow: 8.95798px 12.5412px 34.0403px rgba(0, 0, 0, 0.14);
-border-bottom-right-radius: 64.8px !important;
+/* border-bottom-right-radius: 64.8px !important; */
 border-radius: 26.8739px 0px 0px 0px;
+@media (max-width: 768px) {
+   display: none;
+}
 `
 export const MainFooterLeft = styled.div`
 position: relative;

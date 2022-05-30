@@ -4,9 +4,12 @@ import { Select } from "antd";
 import { systemColors } from "assets/styles/colors";
 
 export const Nav = styled.nav`
-  width: calc(100% - 100px);
+  position: ${props => props.pathName === '/about' ? 'absolute' : 'static'};
+  top: 0;
+  width: 100%;
   margin: 0 auto;
-  background-color: transparent;
+  background:  ${props => props.pathName === '/about' ? 'rgba(255, 255, 255, 0.1);' : 'transparent'}; 
+  backdrop-filter: ${props => props.pathName === '/about' ? 'blur(150px)' : 'blur(0px)'};
   font-family: "DM Sans", sans-serif;
   height: 96px;
   display: flex;
@@ -17,6 +20,16 @@ export const Nav = styled.nav`
     width: calc(100% - 20px);
   }
 `;
+export const NavContainer = styled.div`
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ width: calc(100% - 100px);
+ margin: 0 auto;
+ @media (max-width: 400px) {
+   width: 100%;
+ }
+`
 export const AntdSelect = styled(Select)`
 color: ${systemColors.mainBlue} !important;
   display: flex;
@@ -159,13 +172,18 @@ export const NavMenu = styled.ul`
     width: 100%;
     height: 90vh;
     padding: 0;
-    z-index: 1000;
+    z-index: 10000;
     top: 90px;
-    left: ${({ click }) => (click ? 0 : "-100%")};
+    /* top: ${({ click }) => (click ? '90px' : '-90vh')}; */
+    /* left: 0; */
+    left: ${({ click }) => (click ? 0 : "-105%")};
     opacity: 1;
     transition: all 0.5s ease;
-    background: #fff;
-    backdrop-filter: blur(3px) !important;
+    background: red;
+    /* backdrop-filter: blur(3px) !important; */
+  }
+  @media (max-width: 676px) {
+    width: 100%;
   }
 `;
 

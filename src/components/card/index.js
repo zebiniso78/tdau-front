@@ -1,9 +1,20 @@
 import React from 'react'
 import { Card, CardHeader, CardBody, CardFooter, CardFooterTitle, CardInfo, TrainingDate } from './style'
 
-export function CardComponent({ image, alt, cardLogo, logo, title, type, aosCount, status, training_date, starting_date }) {
+export function CardComponent({
+   image,
+   alt,
+   cardLogo,
+   logo,
+   title,
+   type,
+   aosCount,
+   status,
+   training_date,
+   starting_date,
+   onClick }) {
    return (
-      <Card data-aos='flip-left' data-aos-duration={aosCount}>
+      <Card data-aos='flip-left' data-aos-duration={aosCount} onClick={onClick}>
          <CardHeader>
             <img src={image} alt={alt} />
             {

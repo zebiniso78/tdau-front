@@ -10,14 +10,16 @@ import Academia from "assets/cards/academiya.png"
 import MagnusUniversity from "assets/cards/magnus_university.png"
 import RussianUniversity from "assets/cards/russian_university.png"
 import { Col, Row } from 'antd'
+import { useHistory } from 'react-router-dom'
 
 
 
 export function Cards() {
+   const history = useHistory()
    return (
       <CardProvider>
          <LandingTitle>PARTNER UNIVERSITIES</LandingTitle>
-         <CardWrap style={{justifyContent:'center'}}>
+         <CardWrap style={{ justifyContent: 'center' }}>
             <Row gutter={[16, 16]}>
                <Col span={24} xl={6} sm={12}>
                   <CardComponent
@@ -27,6 +29,7 @@ export function Cards() {
                </Col>
                <Col span={24} xl={6} sm={12}>
                   <CardComponent
+                     onClick={() => history.push("/about")}
                      image={CardSecond}
                      cardLogo={MagnusUniversity}
                      title='Vytautas Magnus university in Litva' />

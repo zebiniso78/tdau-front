@@ -51,6 +51,14 @@ font-weight: 400;
 font-size: 27px;
 line-height: 47px;
 color: #142E38;
+@media (max-width: 600px) {
+   font-size: 18px;
+}
+@media (max-width: 420px) {
+   font-size: 16px;
+   text-align:center;
+   line-height: 20px;
+}
 }
 & h4 {
    font-family: 'Inter';
@@ -60,10 +68,20 @@ font-size: 18px;
 color: #142E38;
 opacity: 0.75;
 margin-top: 23px;
+@media (max-width: 420px) {
+   font-size: 14px;
+   text-align: center;
 }
+}
+
 `
 export const SubscribeInputWrap = styled.div`
-margin-top:23px;`
+margin-top:23px;
+@media (max-width: 600px) {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}`
 export const Input = styled.input`
 background: #F9F9F9;
 border: 1.62812px solid #E6E6E6;
@@ -84,6 +102,10 @@ line-height: 140%;
 color: #142E38;
 opacity: 0.75;
 }
+@media (max-width: 600px) {
+   width: 50%;
+   height: 50px;
+}
 `
 export const Button = styled.button`
 background: #142E38;
@@ -97,6 +119,10 @@ font-style: normal;
 font-weight: 400;
 font-size: 15px;
 padding: 21px  29px;
+@media (max-width: 600px) {
+   height: 50px;
+   padding: 0 15px;
+}
 `
 
 

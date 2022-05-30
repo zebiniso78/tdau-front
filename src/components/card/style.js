@@ -7,15 +7,28 @@ box-shadow: 0px 11.1735px 27.9339px #DFD9CE;
 border-radius: 4.88166px;
 height: auto;
 min-height: 390px;
+cursor: pointer;
 `
 export const CardHeader = styled.div`
 position: relative;
+overflow: hidden;
+border-radius: 4.88166px;
+   border-bottom-left-radius: 0;
+   border-bottom-right-radius: 0;
 & img {
    width: 100%;
    border-radius: 4.88166px;
    border-bottom-left-radius: 0;
    border-bottom-right-radius: 0;
+   transition: all .5s;
+   &:hover {
+      transform: scale(1.2);
+      border-radius: 4.88166px;
+   border-bottom-left-radius: 0;
+   border-bottom-right-radius: 0;
+   }
 }
+
 `
 export const CardBody = styled.div`
    text-align: center;

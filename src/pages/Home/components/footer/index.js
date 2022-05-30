@@ -4,7 +4,7 @@ import { Container } from 'styles/globalStyle'
 import { FooterProvider, HorizontalLine, FooterBottom } from './style'
 import { useList } from './useList'
 
-export function Footer() {
+export default function Footer() {
    const { footerList } = useList()
    return (
       <FooterProvider>

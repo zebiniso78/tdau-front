@@ -108,13 +108,11 @@ export const Error = styled.div`
 
 export const MainLayoutProvider = styled.div`
 position: relative;
-width: 98%;
+width: 100%;
 height: 110vh;
-margin: 15px auto;
-background: rgba(255, 255, 255, 0.25);
-border: 1.2px solid #FFFFFF;
-box-shadow: 0px 60px 60px #DFD9CE;
-border-radius: 64.8px;
+background: rgba(255, 255, 255, 0.15);
+/* box-shadow: 0px 11.17px 27.93px #DFD9CE; */
+backdrop-filter: blur(20px);
 @media (max-width: 768px) {
   height: auto; 
 }
@@ -133,6 +131,9 @@ line-height: 58px;
 text-transform: uppercase;
 text-align: center;
 color: #142E38;
+@media (max-width: 576px) {
+  font-size: 24px;
+}
 `
 export const CardProvider = styled.div`
 height: auto;
