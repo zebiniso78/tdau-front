@@ -5,12 +5,12 @@ html {
 
 body {
   margin: 0;
-  width: 100%;  
+  width: 100%;
   /* overflow-x: hidden !impor/tant; */
   font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(85.38deg, #EDEDE4 -23.38%, #F8F2EB 97.65%);;
+  background: linear-gradient(85.38deg, #edede4 -23.38%, #f8f2eb 97.65%);
 }
 
 code {
@@ -24,11 +24,11 @@ button {
 }
 
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active{
-    -webkit-box-shadow: 0 0 0 30px white inset !important;
-    background-color: transparent;
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  background-color: transparent;
 }
 .ant-carousel .slick-dots li {
   width: 18px !important;
@@ -38,6 +38,13 @@ input:-webkit-autofill:active{
   width: 18px !important;
   height: 18px !important;
   border-radius: 50% !important;
-  background: linear-gradient(85.38deg, #EDEDE4 -23.38%, #F8F2EB 97.65%);
-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(85.38deg, #edede4 -23.38%, #f8f2eb 97.65%);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.slick-slide:nth-of-type(odd) .tdau-item {
+  flex-direction: row-reverse;
+}
+.slick-slide:nth-of-type(odd) .tdau-item-two {
+  justify-content: flex-start;
 }

@@ -107,42 +107,42 @@ export const Error = styled.div`
 `;
 
 export const MainLayoutProvider = styled.div`
-position: relative;
-width: 100%;
-height: 110vh;
-background: rgba(255, 255, 255, 0.15);
-/* box-shadow: 0px 11.17px 27.93px #DFD9CE; */
-backdrop-filter: blur(20px);
-@media (max-width: 768px) {
-  height: auto; 
-}
-`
+  position: relative;
+  width: 100%;
+  height: 110vh;
+  background: rgba(255, 255, 255, 0.15);
+  /* box-shadow: 0px 11.17px 27.93px #DFD9CE; */
+  backdrop-filter: blur(20px);
+  @media (max-width: 768px) {
+    height: auto;
+  }
+`;
 
 export const Container = styled.div`
-margin: 0 auto; 
-width: calc(100% - 100px);
-`
+  margin: 0 auto;
+  width: calc(100% - 100px);
+`;
 export const LandingTitle = styled.h3`
-font-family: 'Inter';
-font-style: normal;
-font-weight: 800;
-font-size: 34px;
-line-height: 58px;
-text-transform: uppercase;
-text-align: center;
-color: #142E38;
-@media (max-width: 576px) {
-  font-size: 24px;
-}
-`
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 34px;
+  line-height: 58px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #142e38;
+  @media (max-width: 576px) {
+    font-size: 24px;
+  }
+`;
 export const CardProvider = styled.div`
-height: auto;
-margin: 70px 0;
-`
+  height: auto;
+  margin: 70px 0;
+`;
 export const CardWrap = styled.div`
-display: flex;
-justify-content: space-between;
-flex-wrap: wrap;
-width: 100%;
-margin-top: 60px;
-`
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 60px;
+`;
