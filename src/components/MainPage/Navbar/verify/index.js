@@ -13,6 +13,7 @@ export function Verify({
   setRegisterModel,
   confirmModel,
   phoneNumber,
+  handleCancel
 }) {
   const {
     handleSubmit,
@@ -40,7 +41,7 @@ export function Verify({
   }
 
   return (
-    <Modal title="Login Form" visible={confirmModel} footer={false}>
+    <Modal title="Login Form" visible={confirmModel} footer={false} onCancel={handleCancel}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <CustomMask
           Controller={Controller}

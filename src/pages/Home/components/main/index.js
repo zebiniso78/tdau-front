@@ -82,6 +82,7 @@ export function MainSection() {
           setRegisterModel={setRegisterModel}
           confirmModel={confirmModel}
           phoneNumber={phoneNumber}
+          handleCancel={handleCancel}
         />
       </MainLayoutProvider>
     </>
