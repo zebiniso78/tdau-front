@@ -6,8 +6,9 @@ import { useForm, Controller } from 'react-hook-form';
 import { authApi } from 'services/api/pagesApi';
 import { InputComponent } from 'components/input/controllerInput';
 import { useHistory } from 'react-router-dom';
+import { Modal } from 'antd';
 
-export function Login({ setModal, setRegisterModel, modal }) {
+export function Login({ setModal, setRegisterModel, handleCancel, isModalVisible, setIsModalVisible }) {
   const [isLoading, setIsLoading] = useState(false);
   const history = useHistory();
   const {
@@ -19,6 +20,7 @@ export function Login({ setModal, setRegisterModel, modal }) {
   } = useForm();
 
   const onSubmit = async (data) => {
+    console.log(data)
     try {
       setIsLoading(true);
       let formData = new FormData();
@@ -34,11 +36,32 @@ export function Login({ setModal, setRegisterModel, modal }) {
       setIsLoading(false);
     }
   };
+
+
+
+
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <PureModal
-        header="Вход"
-        footer={
+    <>
+      <Modal title="Login Form" visible={isModalVisible} footer={false} onCancel={handleCancel} >
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <PhoneMask
+            Controller={Controller}
+            control={control}
+            nameProps="phone"
+            title="Phone number"
+            required={true}
+            validators={['required', 'isNumber']}
+          />
+          <InputComponent
+            Controller={Controller}
+            control={control}
+            nameProps="password"
+            plProps="Enter password"
+            label="Password*"
+            required={true}
+            className="registration-input"
+            type="password"
+          />
           <div className="footer-button__wrapper">
             <Button type="submit" title="Вход" disabled={isLoading} />
             <Button
@@ -46,36 +69,14 @@ export function Login({ setModal, setRegisterModel, modal }) {
               title="Зарегистрироваться"
               bgColor="transparent"
               color="#2e7df6"
-              onClick={() => setRegisterModel(true)}
+              onClick={() => {
+                setRegisterModel(true)
+                setIsModalVisible(false)
+              }}
             />
           </div>
-        }
-        isOpen={modal}
-        closeButtonPosition="header"
-        onClose={() => {
-          setModal(false);
-          return true;
-        }}
-      >
-        <PhoneMask
-          Controller={Controller}
-          control={control}
-          nameProps="phone"
-          title="Phone number"
-          required={true}
-          validators={['required', 'isNumber']}
-        />
-        <InputComponent
-          Controller={Controller}
-          control={control}
-          nameProps="password"
-          plProps="Enter password"
-          label="Password*"
-          required={true}
-          className="registration-input"
-          type="password"
-        />
-      </PureModal>
-    </form>
+        </form>
+      </Modal>
+    </>
   );
 }

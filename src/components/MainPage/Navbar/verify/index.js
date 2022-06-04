@@ -5,6 +5,8 @@ import PureModal from 'react-pure-modal';
 import { useHistory } from 'react-router-dom';
 import { authApi } from 'services/api/pagesApi';
 import Button from '../../../button';
+import { Modal } from 'antd';
+
 
 export function Verify({
   setConfirmModel,
@@ -30,7 +32,7 @@ export function Verify({
       localStorage.setItem('token', res?.token);
       setIsLoading(false);
       setConfirmModel(false);
-      history.push('/');
+      history.push('/personal-info');
     } catch (e) {
       console.log(e);
       setIsLoading(false);
@@ -38,43 +40,8 @@ export function Verify({
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <PureModal
-        header="Вход"
-        footer={
-          <div className="footer-button__wrapper">
-            <Button
-              type="submit"
-              title="Зарегистрироваться"
-              disabled={isLoading}
-            />
-            <Button
-              type="submit"
-              title="Выход"
-              bgColor="transparent"
-              color="#2e7df6"
-              // onClick={() => {
-              //    setConfirmModel(false);
-              //    setRegisterModel(false);
-              // }}
-            />
-          </div>
-        }
-        isOpen={confirmModel}
-        // closeButton="X"
-        closeButtonPosition="header"
-        onClose={() => {
-          setConfirmModel(false);
-          return true;
-        }}
-      >
-        {/* <Input
-               type={`password`}
-               required
-               title="СМС-код"
-               placeholder="Введите код"
-               length={80}
-            /> */}
+    <Modal title="Login Form" visible={confirmModel} footer={false}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <CustomMask
           Controller={Controller}
           control={control}
@@ -86,7 +53,24 @@ export function Verify({
         <p>
           <span>00:56</span>Отправить код ещё раз
         </p>
-      </PureModal>
-    </form>
+        <div className="footer-button__wrapper">
+          <Button
+            type="submit"
+            title="Зарегистрироваться"
+            disabled={isLoading}
+          />
+          <Button
+            type="submit"
+            title="Выход"
+            bgColor="transparent"
+            color="#2e7df6"
+            onClick={() => {
+              setConfirmModel(false);
+              setRegisterModel(false);
+            }}
+          />
+        </div>
+      </form>
+    </Modal>
   );
 }

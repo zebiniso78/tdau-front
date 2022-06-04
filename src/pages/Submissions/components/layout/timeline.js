@@ -8,10 +8,8 @@ import { useList } from './useList';
 export default function TimeLine() {
   const [click, setClick] = useState(0)
   const { timelineList } = useList()
-  let Index = null
   function handleClick(index) {
     setClick(index)
-    Index = index
     document.querySelectorAll(".ant-timeline-item-head").forEach((el) => {
       document.addEventListener('click', () => {
         el.style.backgroundColor = '#169622'
@@ -26,7 +24,7 @@ export default function TimeLine() {
   return (
     <DocumentCard>
       <TimeLineHeader>Последовательность подачи документов</TimeLineHeader>
-      <TimeLineProvider className='timeline-provider' click={click} Index={Index}>
+      <TimeLineProvider className='timeline-provider' click={click} >
         {
           timelineList?.map((timeline, index) => (
             <TimeLineProvider.Item

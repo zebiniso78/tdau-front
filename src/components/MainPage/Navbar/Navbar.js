@@ -30,12 +30,12 @@ function Navbar() {
       <MyHeader>
         <section>
           <MyContainer>
-              <LogoWrapper to='/'>
-                <img className="logo" src={Logo} alt="Logo" />
-                <p className="header-title">
-                  Toshkent Davlat Agrar Universtiteti
-                </p>
-              </LogoWrapper>
+            <LogoWrapper to='/'>
+              <img className="logo" src={Logo} alt="Logo" />
+              <p className="header-title">
+                Toshkent Davlat Agrar Universtiteti
+              </p>
+            </LogoWrapper>
             <InputWrapper>
               <p className="phone-number">+998 90 631 42 21</p>
               <div className="input-search-wrapper">
@@ -125,7 +125,6 @@ function Navbar() {
         <Verify
           setConfirmModel={setConfirmModel}
           setRegisterModel={setRegisterModel}
-          setConfirmModel={setConfirmModel}
           confirmModel={confirmModel}
           phoneNumber={phoneNumber}
         />

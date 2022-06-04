@@ -6,18 +6,18 @@ import { InputComponent } from 'components/input/controllerInput';
 import { useForm, Controller } from 'react-hook-form';
 import { PhoneMask } from 'components/mask';
 import { authApi } from 'services/api/pagesApi';
+import { Modal } from 'antd';
+
 
 export function Registration({
   setConfirmModel,
   setRegisterModel,
-  setModal,
   registerModel,
   setPhoneNumber,
+  handleCancel
 }) {
   const {
     handleSubmit,
-    watch,
-    reset,
     control,
     formState: { errors },
   } = useForm();
@@ -41,41 +41,8 @@ export function Registration({
     }
   }
   return (
-    <RegistrationProvider onSubmit={handleSubmit(onSubmit)}>
-      <PureModal
-        header="Регистрация"
-        footer={
-          <div className="footer-button__wrapper">
-            <Button
-              type="submit"
-              title="Продолжить"
-              disabled={isLoading}
-              // onClick={() => {
-              //    setConfirmModel(true);
-              //    setRegisterModel(false);
-              // }}
-            />
-            <Button
-              type="submit"
-              title="Выход"
-              bgColor="transparent"
-              color="#2e7df6"
-              onClick={() => {
-                setRegisterModel(false);
-              }}
-            />
-          </div>
-        }
-        isOpen={registerModel}
-        scrollable={true}
-        // closeButton="x"
-        closeButtonPosition="header"
-        onClose={() => {
-          setRegisterModel(false);
-          setModal(false);
-          return true;
-        }}
-      >
+    <Modal title="Login Form" visible={registerModel} footer={false} onCancel={handleCancel}>
+      <RegistrationProvider onSubmit={handleSubmit(onSubmit)}>
         <InputComponent
           Controller={Controller}
           control={control}
@@ -113,7 +80,19 @@ export function Registration({
           className="registration-input"
           type="password"
         />
-      </PureModal>
-    </RegistrationProvider>
+        <Button
+          type="submit"
+          title="Продолжить"
+          disabled={isLoading}
+          onClick={() => {
+            setConfirmModel(true);
+            setRegisterModel(false);
+          }}
+        />
+      </RegistrationProvider>
+    </Modal>
+
+
+
   );
 }
