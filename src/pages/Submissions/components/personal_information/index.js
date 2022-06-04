@@ -39,6 +39,7 @@ export default function PersonalInfo() {
   }, []);
 
   const onSubmit = async (data) => {
+    console.log(moment(data?.birthdate).format(dateFormat), 'data');
     localStorage.setItem('step', 1);
     try {
       setIsLoading(true);
@@ -54,7 +55,7 @@ export default function PersonalInfo() {
       formData.append('current_country', data?.currentCountry?.label);
       formData.append('register_step', 1);
       await admissionApi.admissionPost(formData);
-      toast.success("Личная информация успешно создана")
+      toast.success('Личная информация успешно создана');
       history.push('/academic-info');
       setIsLoading(false);
     } catch (e) {
@@ -74,25 +75,6 @@ export default function PersonalInfo() {
     >
       <div className="row align-items-end">
         <h4>Персональные данные</h4>
-        {/* <div className="col-lg-3 col-md-6 col-sm-6 col-12">
-          <UserFormSelectComponent
-            Controller={Controller}
-            control={control}
-            title="Кто ты*"
-            name="depar_id"
-            placeholder="Мистер"
-            // options={departList}
-            disabled={false}
-            className={
-              errors && errors?.hasOwnProperty('depar_id') && 'select-error'
-            }
-          />
-          {errors && errors?.hasOwnProperty('depar_id') && (
-            <Error className="select-error-tooltip">
-              Iltimos kafedrani kiriting!
-            </Error>
-          )}
-        </div> */}
         <div className="col-lg-3 col-md-6 col-sm-6 col-12">
           <InputComponent
             Controller={Controller}
@@ -139,24 +121,6 @@ export default function PersonalInfo() {
           )}
         </div>
         <div className="col-lg-3 col-md-6 col-sm-6 col-12">
-          {/* <UserFormSelectComponent
-            Controller={Controller}
-            control={control}
-            title="Дата рождения*"
-            name="depar_id"
-            required={false}
-            placeholder="Мистер"
-            // options={departList}
-            className={
-              errors && errors?.hasOwnProperty('depar_id') && 'select-error'
-            }
-            disabled={false}
-          />
-          {errors && errors?.hasOwnProperty('depar_id') && (
-            <Error className="select-error-tooltip">
-              Iltimos kafedrani kiriting!
-            </Error>
-          )} */}
           <Calendar
             Controller={Controller}
             control={control}
@@ -165,7 +129,6 @@ export default function PersonalInfo() {
             nameProps="birthdate"
             plProps="дд/мм/гггг"
             format="DD.MM.YYYY"
-            // className="calendar"
             className={
               errors && errors?.hasOwnProperty('birthdate')
                 ? 'calendar-error'
@@ -178,7 +141,7 @@ export default function PersonalInfo() {
             </Error>
           )}
         </div>
-        <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+        {/* <div className="col-lg-3 col-md-6 col-sm-6 col-12">
           <UserFormSelectComponent
             Controller={Controller}
             control={control}
@@ -279,7 +242,7 @@ export default function PersonalInfo() {
               Iltimos ma'lumotni kiriting!
             </Error>
           )}
-        </div>
+        </div> */}
       </div>
       <ButtonsProvider>
         <CancelBtnComponent name="Отмена" className="prev-btn" />
@@ -294,7 +257,7 @@ export default function PersonalInfo() {
           className="next-btn"
           type="submit"
           disabled={isLoading}
-        // onClick={() => history.push('/academic-info')}
+          // onClick={() => history.push('/academic-info')}
         />
       </ButtonsProvider>
     </PersonalInfoProvider>

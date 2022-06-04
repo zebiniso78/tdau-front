@@ -8,7 +8,6 @@ export const CustomCalendar = styled(DatePicker)`
   background: #ffffff;
   border: 1px solid #bcc6d4;
   border-radius: 4px;
-  /* margin-top: 16px !important; */
   margin-bottom: 8px !important;
   &:focus {
     box-shadow: none;
