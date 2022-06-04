@@ -13,7 +13,6 @@ export function Verify({
   setRegisterModel,
   confirmModel,
   phoneNumber,
-  handleCancel
 }) {
   const {
     handleSubmit,
@@ -38,6 +37,9 @@ export function Verify({
       console.log(e);
       setIsLoading(false);
     }
+  }
+  const handleCancel = () => {
+    setConfirmModel(false);
   }
 
   return (

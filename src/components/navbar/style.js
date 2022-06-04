@@ -29,6 +29,9 @@ export const NavContainer = styled.div`
  @media (max-width: 400px) {
    width: 100%;
  }
+ & img {
+   width: 180px;
+ }
 `
 export const AntdSelect = styled(Select)`
 color: ${systemColors.mainBlue} !important;

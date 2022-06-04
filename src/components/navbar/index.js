@@ -16,6 +16,7 @@ import { Twirl as Hamburger } from "hamburger-react";
 import logoTip from "../../assets/logo/logo.svg";
 import { useLocation } from "react-router-dom";
 import { Container } from "styles/globalStyle";
+import { Link } from "react-router-dom";
 
 
 export function Navigator() {
@@ -44,9 +45,9 @@ export function Navigator() {
       <div>
          <Nav pathName={location.pathname}>
             <NavContainer>
-               <NavLink to="/">
+               <Link to="/">
                   <img src={logoTip} alt="registon" className="logo-image" />
-               </NavLink>
+               </Link>
                <MobileIcon onClick={handleClick} click={click}>
                   <Hamburger
                      rounded
