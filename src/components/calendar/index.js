@@ -2,6 +2,8 @@ import { Form } from 'antd';
 import React from 'react';
 import 'antd/dist/antd.css';
 import { CustomCalendar } from "./style"
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 export default function Calendar({
    Controller,
@@ -16,7 +18,7 @@ export default function Calendar({
 }) {
    return (
       <Form>
-         <p style={{  margin:'10px', fontSize: '14px' }}>{label}</p>
+         <p style={{ margin: '10px', fontSize: '14px' }}>{label}</p>
          <Controller
             control={control}
             name={nameProps}
@@ -26,14 +28,23 @@ export default function Calendar({
                fieldState: { invalid, isTouched, isDirty, error },
                formState: { errors },
             }) => (
+               // <CustomCalendar
+               //    // style={{ marginTop: '10px' }}
+               //    onChange={onChange}
+               //    className={className}
+               //    format={format}
+               //    value={value}
+               //    picker={picker ? picker : undefined}
+               //    placeholder={plProps}
+               //    error={!!errors?.title}
+               //    ref={ref}
+               // />
                <CustomCalendar
-                  // style={{ marginTop: '10px' }}
+                  selected={value}
                   onChange={onChange}
+                  placeholderText={plProps}
                   className={className}
-                  format={format}
                   value={value}
-                  picker={picker ? picker : undefined}
-                  placeholder={plProps}
                   error={!!errors?.title}
                   ref={ref}
                />

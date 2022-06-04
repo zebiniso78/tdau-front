@@ -4,6 +4,12 @@ class Admissions extends Api {
   admissionPost(data) {
     return this.execute('post', '/admission_form', data);
   }
+  admissionPostForign(data) {
+    return this.execute('post', '/admission_form_foreign', data);
+  }
+  admissionGetForign() {
+    return this.execute('get', '/admission_form_foreign');
+  }
   admissionGet(data) {
     return this.execute('get', '/admission_form', data);
   }
@@ -35,6 +41,10 @@ class Admissions extends Api {
   admissionConfirm(data) {
     return this.execute('post', `/admission_confirm`, data);
   }
+  admissionConfirmForeign(data) {
+    return this.execute('post', `/admission_confirm_foreign`, data);
+  }
+
 }
 
 export default Admissions;

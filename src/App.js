@@ -10,15 +10,21 @@ import { Navigator } from './components/navbar/index';
 import Home from 'pages/Home/container';
 // import { MainSection } from 'pages/Home/components/main';
 import Footer from 'pages/Home/components/footer';
-import Aos from 'aos';
-import 'aos/dist/aos.css';
+// import Aos from 'aos';
+// import 'aos/dist/aos.css';
 import About from 'pages/About/container';
+import Admissions from 'pages/addmission/container';
+
+
+// import 'antd/dist/antd.css';
+
 
 function App() {
-  useEffect(() => {
-    Aos.init({ duration: 1500, once: false });
-    // setLoading(true);
-  }, []);
+
+  // useEffect(() => {
+  //   Aos.init({ duration: 1500, once: false });
+  //   // setLoading(true);
+  // }, []);
   return (
     <BrowserRouter>
       <Navigator />
@@ -27,6 +33,7 @@ function App() {
         <Route path="/personal-info" component={Submissions} />
         <Route path="/admission" component={Profile} />
         <Route path="/about" component={About} />
+        <Route path="/university-admissions" component={Admissions} />
         <Layout />
       </Switch>
       <Footer />
