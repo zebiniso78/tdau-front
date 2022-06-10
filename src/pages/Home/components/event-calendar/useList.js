@@ -45,6 +45,16 @@ export function useList() {
          description: 'FRIDAY TALK WITH A FAMOUS ACTOR AND SHOWMAN, MR ALISHER UZOKOV.',
          starting_date: '15:00 PM'
       },
+      {
+         id: 5,
+         image: `${CardFour}`,
+         status: 'FRIDAY TALK',
+         type: 'event_calendar',
+         training_date: '29-aprel',
+         title: 'Russian State Agrarian University Moscow Timiryazev Agricultural Academy',
+         description: 'FRIDAY TALK WITH A FAMOUS ACTOR AND SHOWMAN, MR ALISHER UZOKOV.',
+         starting_date: '15:00 PM'
+      },
    ], [])
    return { calendarList }
 }

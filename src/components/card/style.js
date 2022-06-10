@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
 export const Card = styled.div`
-width: 100%;
+/* width: ${props => props.type === 'event_calendar' ? '90% !important' : '100%'};  */
 background: rgba(255, 255, 255, 0.15) !important;
 box-shadow: 0px 11.1735px 27.9339px #DFD9CE;
 border-radius: 4.88166px;
 height: auto;
 min-height: 390px;
-cursor: pointer;
+margin: 0 15px;
+cursor: pointer;  
 `
 export const CardHeader = styled.div`
 position: relative;

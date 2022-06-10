@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Carousel } from 'antd';
 import {
   Image,
@@ -16,6 +16,8 @@ import { useHistory } from 'react-router-dom'
 import { Login } from 'components/MainPage/Navbar/login';
 import { Registration } from 'components/MainPage/Navbar/registration';
 import { Verify } from 'components/MainPage/Navbar/verify';
+import { fetchData } from 'hooks/useFetch';
+import { admissionApi } from 'services/api/pagesApi';
 const contentStyle = {
   width: '100vw',
   // minHeight: '100vh',
@@ -34,6 +36,8 @@ export function CarouselComponent({ first, second, third, four }) {
   const [registerModel, setRegisterModel] = useState(false);
   const [confirmModel, setConfirmModel] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState(null);
+  const [entityID, setEntityID] = useState([])
+  const [loader, setLoader] = useState(false);
   const history = useHistory()
   const showModal = () => {
     setIsModalVisible(true);
@@ -41,38 +45,21 @@ export function CarouselComponent({ first, second, third, four }) {
   const handleCancel = () => {
     setIsModalVisible(false);
   };
-  //   /admission_form_foreign => admission
-  // /admission_confirm_foreign => admission confirm
-  // /education_type_foreign => all
-  // /faculties_foreign => all
-  // /admission_foreign(u) =>adm by id
-  // /get_foreign_universities => all universitets
-  // /add/faculty_foreign
-  // _____________________
-  // name
-  // code
-  // university_id
-  // _____________________
-
-  // /add/edu_types_foreign
-  // ________________________
-  // name
-  // ________________________
-
-  // /add/university_foreign
-  // _______________________
-  // title
-  // logo
-  // _______________________
 
   function apply(id) {
     if (token) {
-      localStorage.setItem('university_id', id)
+      localStorage.setItem('university_id', JSON.stringify(id));
       history.push('/university-admissions/personal-info');
     } else {
       showModal()
+      // localStorage.setItem('university_id', JSON.stringify(id));
     }
   }
+  useEffect(() => {
+    if (token) {
+      fetchData(admissionApi.allUniversityID(null), setEntityID, setLoader)
+    }
+  }, [token])
 
   return (
     <>
@@ -89,7 +76,7 @@ export function CarouselComponent({ first, second, third, four }) {
               </p>
               <MainBtnWrap style={{ marginTop: '16px' }}>
 
-                <MainBtn type="button" onClick={() => apply(1)}>Apply</MainBtn>
+                <MainBtn type="button" onClick={() => apply(entityID ? entityID[0]?.id : 22)}>Apply</MainBtn>
               </MainBtnWrap>
             </LeftContent>
             <RightContent className="tdau-item-two">
@@ -119,7 +106,7 @@ export function CarouselComponent({ first, second, third, four }) {
                 Undergraduate and Postgraduate courses!
               </p>
               <MainBtnWrap style={{ marginTop: '16px' }}>
-                <MainBtn type="button" onClick={() => apply(2)}>Apply</MainBtn>
+                <MainBtn type="button" onClick={() => apply(entityID ? entityID[1]?.id : 22)}>Apply</MainBtn>
               </MainBtnWrap>
             </LeftContent>
             <RightContent className="tdau-item-two">
@@ -149,7 +136,7 @@ export function CarouselComponent({ first, second, third, four }) {
                 Undergraduate and Postgraduate courses!
               </p>
               <MainBtnWrap style={{ marginTop: '16px' }}>
-                <MainBtn type="button" onClick={() => apply(3)}>Apply</MainBtn>
+                <MainBtn type="button" onClick={() => apply(entityID ? entityID[2]?.id : 22)}>Apply</MainBtn>
               </MainBtnWrap>
             </LeftContent>
             <RightContent className="tdau-item-two">
@@ -179,7 +166,7 @@ export function CarouselComponent({ first, second, third, four }) {
                 Undergraduate and Postgraduate courses!
               </p>
               <MainBtnWrap style={{ marginTop: '16px' }}>
-                <MainBtn type="button" onClick={() => apply(4)}>Apply</MainBtn>
+                <MainBtn type="button" onClick={() => apply(entityID ? entityID[3]?.id : 22)}>Apply</MainBtn>
               </MainBtnWrap>
             </LeftContent>
             <RightContent className="tdau-item-two">

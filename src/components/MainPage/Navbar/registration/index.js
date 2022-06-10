@@ -1,20 +1,19 @@
 import React, { useState } from 'react';
 import { RegistrationProvider } from './style';
-import PureModal from 'react-pure-modal';
 import Button from '../../../button';
 import { InputComponent } from 'components/input/controllerInput';
 import { useForm, Controller } from 'react-hook-form';
 import { PhoneMask } from 'components/mask';
 import { authApi } from 'services/api/pagesApi';
 import { Modal } from 'antd';
+import toast from 'react-hot-toast'
 
 
 export function Registration({
   setConfirmModel,
   setRegisterModel,
   registerModel,
-  setPhoneNumber,
-  handleCancel
+  setPhoneNumber
 }) {
   const {
     handleSubmit,
@@ -38,7 +37,11 @@ export function Registration({
     } catch (e) {
       console.log(e);
       setIsLoading(false);
+      toast.error(e?.msg)
     }
+  }
+  const handleCancel = () => {
+    setRegisterModel(false);
   }
   return (
     <Modal title="Login Form" visible={registerModel} footer={false} onCancel={handleCancel}>
@@ -91,8 +94,5 @@ export function Registration({
         />
       </RegistrationProvider>
     </Modal>
-
-
-
   );
 }

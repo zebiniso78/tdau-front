@@ -111,8 +111,8 @@ export const MainLayoutProvider = styled.div`
   width: 100%;
   height: 110vh;
   background: rgba(255, 255, 255, 0.15);
-  /* box-shadow: 0px 11.17px 27.93px #DFD9CE; */
-  backdrop-filter: blur(20px);
+  box-shadow: 0px 11.17px 27.93px #DFD9CE;
+  backdrop-filter: blur(250px);
   @media (max-width: 768px) {
     height: auto;
   }
@@ -136,13 +136,44 @@ export const LandingTitle = styled.h3`
   }
 `;
 export const CardProvider = styled.div`
+  position: relative;
   height: auto;
   margin: 70px 0;
+  box-shadow: none !important;
+  .button {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    z-index: 9;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #142E38;
+    font-size: 20px;
+    background: rgba(255, 255, 255, 0.15);
+box-shadow: 0px 5px 12.5px #DFD9CE;
+    cursor: pointer;
+    bottom: 50%;
+    &:hover {
+      background-color: #318161;
+      color: white;
+    }
+  }
+  .next__btn {
+    right: -40px;
+  }
+  .prev__btn {
+    left: -40px;
+  }
 `;
 export const CardWrap = styled.div`
-  display: flex;
+  width: 100%;
+  /* display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   width: 100%;
+  margin-top: 60px; */
   margin-top: 60px;
 `;

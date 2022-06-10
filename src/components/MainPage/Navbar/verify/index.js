@@ -1,18 +1,19 @@
 import { CustomMask } from 'components/mask/customMask';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import PureModal from 'react-pure-modal';
 import { useHistory } from 'react-router-dom';
-import { authApi } from 'services/api/pagesApi';
+import { admissionApi, authApi } from 'services/api/pagesApi';
 import Button from '../../../button';
 import { Modal } from 'antd';
+import { fetchData } from 'hooks/useFetch';
 
 
 export function Verify({
   setConfirmModel,
   setRegisterModel,
   confirmModel,
-  phoneNumber,
+  phoneNumber
 }) {
   const {
     handleSubmit,
@@ -20,8 +21,16 @@ export function Verify({
     control,
     formState: { errors },
   } = useForm();
+  let token = localStorage.getItem('token');
   const history = useHistory();
   const [isLoading, setIsLoading] = useState(false);
+  const [entityID, setEntityID] = useState([])
+  const [loader, setLoader] = useState(false);
+  useEffect(() => {
+    if (token) {
+      fetchData(admissionApi.allUniversityID(null), setEntityID, setLoader)
+    }
+  }, [token])
   async function onSubmit(data) {
     try {
       setIsLoading(true);
@@ -30,9 +39,16 @@ export function Verify({
       formData.append('code', data?.code);
       let res = await authApi.verify(formData);
       localStorage.setItem('token', res?.token);
+      if (res?.token) {
+        localStorage.setItem('university_id', JSON.stringify(entityID ? entityID[0]?.id : 22));
+      }
       setIsLoading(false);
       setConfirmModel(false);
-      history.push('/personal-info');
+      if (localStorage.getItem('university_id')) {
+        history.push('/university-admissions/personal-info');
+      } else {
+        history.push('/personal-info');
+      }
     } catch (e) {
       console.log(e);
       setIsLoading(false);
@@ -42,6 +58,7 @@ export function Verify({
     setConfirmModel(false);
   }
 
+  console.log(entityID)
   return (
     <Modal title="Login Form" visible={confirmModel} footer={false} onCancel={handleCancel}>
       <form onSubmit={handleSubmit(onSubmit)}>

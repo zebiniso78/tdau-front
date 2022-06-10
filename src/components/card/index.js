@@ -14,7 +14,7 @@ export function CardComponent({
    starting_date,
    onClick }) {
    return (
-      <Card data-aos='flip-left' data-aos-duration={aosCount} onClick={onClick}>
+      <Card data-aos='flip-left' data-aos-duration={aosCount} onClick={onClick} type={type}>
          <CardHeader>
             <img src={image} alt={alt} />
             {

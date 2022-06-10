@@ -44,6 +44,9 @@ class Admissions extends Api {
   admissionConfirmForeign(data) {
     return this.execute('post', `/admission_confirm_foreign`, data);
   }
+  allUniversityID() {
+    return this.execute('get', `/list_admissions`);
+  }
 
 }
 

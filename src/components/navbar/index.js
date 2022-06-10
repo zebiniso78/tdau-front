@@ -68,7 +68,7 @@ export function Navigator() {
                      <button className="nav-btn">International partners</button>
                   </NavLink>
                   <NavLink href="#contact">
-                     <button className="nav-btn">Admisson</button>
+                     <button className="nav-btn">Double degree</button>
                   </NavLink>
                   <NavLink href="#contact">
                      <button className="nav-btn">Contacts</button>
