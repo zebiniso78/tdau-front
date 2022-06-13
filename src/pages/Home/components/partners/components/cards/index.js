@@ -14,6 +14,7 @@ import { useHistory } from 'react-router-dom'
 import { fetchData } from 'hooks/useFetch'
 import { partnersApi } from 'services/api/pagesApi'
 import YouTube, { UniversitySkeleton } from 'components/skeleton'
+import browserStorage from 'services/storage'
 
 
 
@@ -31,6 +32,10 @@ export function Cards() {
          setData(partners?.all)
       }
    }, [partners])
+   function blogInfo(item) {
+      browserStorage.set('blog', JSON.stringify(item))
+      history.push(`/partner-universities/blog/${item?.id}`)
+   }
    return (
       <CardProvider>
          <LandingTitle>PARTNER UNIVERSITIES</LandingTitle>
@@ -43,7 +48,7 @@ export function Cards() {
                            <Col key={item?.id} span={24} xl={6} sm={12}>
                               <CardComponent
                                  type='university'
-                                 onClick={() => history.push(`/partner-universities/blog/${item?.id}`)}
+                                 onClick={() => blogInfo(item)}
                                  image={`${process.env.REACT_APP_API_SECOND_ROOT}/${item?.picture}`}
                                  cardLogo={`${process.env.REACT_APP_API_SECOND_ROOT}/${item?.logo}`}
                                  title={item?.title} />

@@ -53,6 +53,9 @@ class Admissions extends Api {
   profileGetForeign() {
     return this.execute('get', `/profile_foreign`);
   }
+  facultiesForeignByID(data) {
+    return this.execute('post', `/faculties_foreign_by_id`, data);
+  }
 
 }
 

@@ -2,12 +2,14 @@ import React from 'react'
 import { AboutMain, Article, Discover, ImageComponent } from '../components'
 import WSBImage from 'assets/dynamicImage/1.png'
 import { AboutContainer } from './style'
+import { Video } from '../components/video'
 
 export default function About() {
+   let siteBlog = JSON.parse(localStorage.getItem('blog'))
    return (
       <>
          <AboutMain />
-         <AboutContainer>
+         <AboutContainer type='video'>
             <Discover
                type='magnusUniversity'
                firstInfo='WSB University not only sets the standards of education on the Polish market,
@@ -30,6 +32,9 @@ export default function About() {
                Development in Dynamic Societies); EUR-ACE® Label granted to the University for 5 years by Accreditation
                Commission of Universities of Technology (KAUT); and has been positively awarded with The HR Excellence in
                Research Award.' />
+         </AboutContainer>
+         <Video type='video' url={siteBlog?.video} />
+         <AboutContainer>
             <ImageComponent
                title='Why WSB University?'
                image={WSBImage}

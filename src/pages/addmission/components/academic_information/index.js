@@ -15,10 +15,12 @@ import { Error } from 'common/grid';
 import { admissionApi } from 'services/api/pagesApi';
 import toast from 'react-hot-toast';
 import { useGetList } from '../hooks/useGetList';
-import TwoDate from 'components/calendar/twoDate';
-import moment from 'moment';
-import Calendar from 'components/calendar';
+// import TwoDate from 'components/calendar/twoDate';
+// import moment from 'moment';
+// import Calendar from 'components/calendar';
 import { acceptDedline } from 'views';
+import { fetchData } from 'hooks/useFetch';
+import browserStorage from 'services/storage';
 
 export default function AcademicInformation() {
   const {
@@ -30,16 +32,37 @@ export default function AcademicInformation() {
     control,
     formState: { errors },
   } = useForm();
+  let universityID = browserStorage.set('university_id');
   const history = useHistory();
   const [isLoading, setIsLoading] = useState(false);
   const [educationFormList, setEducationFormList] = useState([]);
   const [educationTypeList, setEducationTypeList] = useState([]);
+  const [facultyList, setFacultyList] = useState(undefined);
+  const [eduTypeForeign, setEduTypeForeign] = useState([])
+  const [facultyForeign, setFacultyForeign] = useState([])
 
-  const { getEducationForm, getEducationType } = useGetList({
+  const { getEducationForm, getEducationType, facultyByID } = useGetList({
     setEducationFormList,
     setEducationTypeList,
+    setFacultyList,
+    setEduTypeForeign
   });
-
+  useEffect(() => {
+    facultyByID()
+  }, [universityID])
+  useEffect(() => {
+    if (facultyList?.faculties?.length > 0) {
+      let cloneList = [...facultyList?.faculties]
+      let newList = cloneList?.filter(item => item?.code === watch('tip_programma')?.label)?.map(x => {
+        return {
+          label: x?.name,
+          value: x?.id
+        }
+      })
+      setFacultyForeign([...newList])
+    }
+  }, [facultyList?.faculties, watch('tip_programma')?.label])
+  console.log(facultyForeign)
   const onSubmit = async (data) => {
     console.log(data);
     try {
@@ -120,7 +143,8 @@ export default function AcademicInformation() {
             title="тип программа*"
             name="tip_programma"
             placeholder="Выберите"
-            options={educationTypeList}
+            // options={educationTypeList}
+            options={eduTypeForeign}
             disabled={false}
             className={
               errors &&
@@ -142,7 +166,8 @@ export default function AcademicInformation() {
             title="Направление*"
             name="napravleniya"
             placeholder="Выберите"
-            options={educationFormList}
+            // options={educationFormList}
+            options={facultyForeign}
             disabled={false}
             className={
               errors && errors?.hasOwnProperty('napravleniya') && 'select-error'

@@ -9,7 +9,9 @@ export function useGetList({
   setEducationFormList,
   setEducationTypeList,
   setRegions,
-  setQualifications
+  setQualifications,
+  setFacultyList,
+  setEduTypeForeign,
 }) {
   async function getNationality() {
     try {
@@ -68,6 +70,25 @@ export function useGetList({
       console.log(e);
     }
   }
+  async function facultyByID() {
+    try {
+      let formData = new FormData();
+      formData.append('id', localStorage.getItem('university_id'));
+      const response = await admissionApi.facultiesForeignByID(formData);
+      setFacultyList(response)
+      let cloneList = [...response?.edu_types_foreign]
+      let newList = cloneList?.map(item => {
+        return {
+          value: item?.id,
+          label: item?.name
+        }
+      })
+      setEduTypeForeign([...newList])
+
+    } catch (e) {
+      console.log(e);
+    }
+  }
 
   return {
     getNationality,
@@ -76,6 +97,7 @@ export function useGetList({
     getEducationForm,
     getEducationType,
     getRegions,
-    getQualification
+    getQualification,
+    facultyByID
   };
 }
