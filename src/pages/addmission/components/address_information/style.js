@@ -20,7 +20,11 @@ color: #313131;
 }
 `
 export const AddressForm = styled.form``
-export const CheckboxWrapper = styled.div``
+export const CheckboxWrapper = styled.div`
+& > label {
+  margin-left: 10px;
+}
+`
 export const MaskInputWrapper = styled.div`
 width: 40%;
 @media (max-width: 992px) {

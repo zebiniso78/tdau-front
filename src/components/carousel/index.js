@@ -31,7 +31,7 @@ const contentStyle = {
 };
 
 export function CarouselComponent({ first, second, third, four }) {
-  let token = Cookies.get('token');
+  let token = localStorage.getItem('token');
   const [modal, setModal] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [registerModel, setRegisterModel] = useState(false);
@@ -48,8 +48,9 @@ export function CarouselComponent({ first, second, third, four }) {
   };
 
   function apply(id) {
-    if (token) {
-      localStorage.setItem('university_id', JSON.stringify(id));
+    console.log(id)
+    localStorage.setItem('university_id', JSON.stringify(id));
+    if (token && localStorage.getItem('university_id')) {
       history.push('/university-admissions/personal-info');
     } else {
       showModal()

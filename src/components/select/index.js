@@ -23,7 +23,7 @@ const UserFormSelectComponent = ({
       <Controller
         control={control}
         name={name}
-        rules={{ required: true }}
+        rules={{ required: required }}
         render={({
           field: { onChange, value, ref },
           formState: { errors },

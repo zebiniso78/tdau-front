@@ -48,14 +48,6 @@ export default function AcademicInformation() {
       // formData.append('education_form_id', data?.obuchenie?.value);
       formData.append('education_type_id', data?.tip_programma?.value);
       formData.append('accept_deadline', data?.srok_priema?.value)
-      // formData.append(
-      //   'accept_deadline',
-      //   `${moment(data?.srok_priema1).format('YYYY') +
-      //   '-' +
-      //   moment(data?.srok_priema).format('YYYY')
-      //   }`
-      // );
-
       formData.append('register_step', 2);
       await admissionApi.admissionPostForign(formData);
       toast.success("Академические данные успешно созданы")

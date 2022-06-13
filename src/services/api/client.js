@@ -66,7 +66,7 @@ class Api {
       } else if (url.includes('delete')) {
         toast.success('Succefully deleted');
       }
-      return resp.data;
+      return resp?.data;
     } catch (err) {
       const error = err.response;
       if (error.code === 401) window.location.replace('/');

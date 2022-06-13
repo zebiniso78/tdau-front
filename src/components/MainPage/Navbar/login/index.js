@@ -31,7 +31,12 @@ export function Login({ setModal, setRegisterModel, handleCancel, isModalVisible
       localStorage.setItem('token', res?.token);
       setIsLoading(false);
       setModal(false);
-      history.push('/personal-info');
+      if (localStorage.getItem('university_id')) {
+        history.push('/university-admissions/personal-info');
+      } else {
+        history.push('/personal-info');
+      }
+      toast.success('Вы успешно вошли в систему')
     } catch (e) {
       console.log(e);
       setIsLoading(false);
