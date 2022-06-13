@@ -44,7 +44,7 @@ export function Verify({
       }
       setIsLoading(false);
       setConfirmModel(false);
-      if (localStorage.getItem('university_id')) {
+      if (localStorage.getItem('university_id') !== undefined) {
         history.push('/university-admissions/personal-info');
       } else {
         history.push('/personal-info');

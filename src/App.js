@@ -31,8 +31,9 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/personal-info" component={Submissions} />
         <Route path="/admission" component={Profile} />
-        <Route path="/about" component={About} />
+        {/* <Route path="/about" component={About} /> */}
         <Route path="/university-admissions" component={Admissions} />
+        <Route path='/partner-universities/blog/:id' component={About} />
         <Layout />
       </Switch>
       <Footer />

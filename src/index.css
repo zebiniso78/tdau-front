@@ -48,3 +48,17 @@ input:-webkit-autofill:active {
 .slick-slide:nth-of-type(odd) .tdau-item-two {
   justify-content: flex-start;
 }
+.slick-dots li button::before {
+  font-family: 'slick';
+  font-size: 6px;
+  line-height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  content: '' !important;
+  text-align: center;
+  opacity: .25;
+  color: black;
+}

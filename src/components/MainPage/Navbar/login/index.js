@@ -7,6 +7,7 @@ import { authApi } from 'services/api/pagesApi';
 import { InputComponent } from 'components/input/controllerInput';
 import { useHistory } from 'react-router-dom';
 import { Modal } from 'antd';
+import toast from 'react-hot-toast'
 
 export function Login({ setModal, setRegisterModel, handleCancel, isModalVisible, setIsModalVisible }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -24,16 +25,17 @@ export function Login({ setModal, setRegisterModel, handleCancel, isModalVisible
     try {
       setIsLoading(true);
       let formData = new FormData();
-      formData.append('phone', `+998${data?.phone}`);
+      formData.append('username', data?.username);
       formData.append('password', data?.password);
       let res = await authApi.login(formData);
       localStorage.setItem('token', res?.token);
       setIsLoading(false);
       setModal(false);
-      history.push('/');
+      history.push('/personal-info');
     } catch (e) {
       console.log(e);
       setIsLoading(false);
+      toast.error(e.msg);
     }
   };
 
@@ -44,13 +46,23 @@ export function Login({ setModal, setRegisterModel, handleCancel, isModalVisible
     <>
       <Modal title="Login Form" visible={isModalVisible} footer={false} onCancel={handleCancel} >
         <form onSubmit={handleSubmit(onSubmit)}>
-          <PhoneMask
+          {/* <PhoneMask
             Controller={Controller}
             control={control}
-            nameProps="phone"
+            nameProps="username"
             title="Phone number"
             required={true}
             validators={['required', 'isNumber']}
+          /> */}
+          <InputComponent
+            Controller={Controller}
+            control={control}
+            nameProps="username"
+            plProps="Enter username"
+            label="Username*"
+            required={true}
+            className="registration-input"
+            type="text"
           />
           <InputComponent
             Controller={Controller}

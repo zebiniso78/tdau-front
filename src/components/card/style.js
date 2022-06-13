@@ -1,23 +1,28 @@
 import styled from "styled-components";
 
 export const Card = styled.div`
-/* width: ${props => props.type === 'event_calendar' ? '90% !important' : '100%'};  */
+width: ${props => props.type === 'event_calendar' ? '90% !important' : '100%'}; 
 background: rgba(255, 255, 255, 0.15) !important;
 box-shadow: 0px 11.1735px 27.9339px #DFD9CE;
 border-radius: 4.88166px;
-height: auto;
+/* height: auto; */
 min-height: 390px;
 margin: 0 15px;
-cursor: pointer;  
+cursor: pointer;
+height: ${props => props.type === 'university' ? '430px' : 'auto'};
 `
 export const CardHeader = styled.div`
 position: relative;
 overflow: hidden;
 border-radius: 4.88166px;
+min-height: 200px;
    border-bottom-left-radius: 0;
    border-bottom-right-radius: 0;
 & img {
    width: 100%;
+   max-height: 250px;
+   height:250px;
+   object-fit: cover;
    border-radius: 4.88166px;
    border-bottom-left-radius: 0;
    border-bottom-right-radius: 0;
@@ -34,6 +39,9 @@ border-radius: 4.88166px;
 export const CardBody = styled.div`
    text-align: center;
    margin: 11px 0;
+   & img {
+      width: 70%;
+   }
 `
 export const CardFooter = styled.div`
 `
