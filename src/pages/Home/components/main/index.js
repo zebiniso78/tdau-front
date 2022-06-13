@@ -3,7 +3,7 @@ import {
   MainWrapper, MainLeft,
   MainRight, MainInfo,
   MainInfoTitle, MainInfoDescription,
-  MainBtnWrap, MainBtn, MainFooter, MainFooterLeft, MainFooterRight, TopTour
+  MainBtnWrap, MainBtn, MainFooter, MainFooterLeft, MainFooterRight, TopTour, MainFooterImage
 } from './style'
 import RightImage from "assets/main/right.svg"
 import FooterImage from 'assets/main/footer_image.png'
@@ -12,6 +12,7 @@ import { Login } from 'components/MainPage/Navbar/login'
 import { Registration } from 'components/MainPage/Navbar/registration'
 import { Verify } from 'components/MainPage/Navbar/verify'
 import { useHistory } from 'react-router-dom'
+import Ellipse from 'assets/rectangles/ellipse_top.png'
 
 export function MainSection() {
   const history = useHistory()
@@ -84,6 +85,9 @@ export function MainSection() {
           phoneNumber={phoneNumber}
         // handleCancel={handleCancel}
         />
+        <MainFooterImage>
+          <img src={Ellipse} alt='ellipse' />
+        </MainFooterImage>
       </MainLayoutProvider>
     </>
   )

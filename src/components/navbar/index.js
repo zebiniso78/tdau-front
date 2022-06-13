@@ -6,10 +6,6 @@ import {
    MobileIcon,
    NavMenu,
    NavContainer,
-   SelectWrapper,
-   LanguageStyled,
-   Language,
-   LanguageBody
 } from "./style";
 import { Twirl as Hamburger } from "hamburger-react";
 // import "antd/dist/antd.css";

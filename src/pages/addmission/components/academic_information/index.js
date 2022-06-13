@@ -18,6 +18,7 @@ import { useGetList } from '../hooks/useGetList';
 import TwoDate from 'components/calendar/twoDate';
 import moment from 'moment';
 import Calendar from 'components/calendar';
+import { acceptDedline } from 'views';
 
 export default function AcademicInformation() {
   const {
@@ -46,13 +47,14 @@ export default function AcademicInformation() {
       let formData = new FormData();
       // formData.append('education_form_id', data?.obuchenie?.value);
       formData.append('education_type_id', data?.tip_programma?.value);
-      formData.append(
-        'accept_deadline',
-        `${moment(data?.srok_priema1).format('YYYY') +
-        '-' +
-        moment(data?.srok_priema).format('YYYY')
-        }`
-      );
+      formData.append('accept_deadline', data?.srok_priema?.value)
+      // formData.append(
+      //   'accept_deadline',
+      //   `${moment(data?.srok_priema1).format('YYYY') +
+      //   '-' +
+      //   moment(data?.srok_priema).format('YYYY')
+      //   }`
+      // );
 
       formData.append('register_step', 2);
       await admissionApi.admissionPostForign(formData);
@@ -97,56 +99,27 @@ export default function AcademicInformation() {
         className="row align-items-end"
       >
         <div className="col-lg-4 col-md-6 col-sm-6 col-12">
-          <Calendar
+          <UserFormSelectComponent
             Controller={Controller}
             control={control}
             required={true}
-            nameProps="srok_priema1"
-            plProps="гггг"
-            format="YYYY"
-            // className="calendar"
-            className={
-              errors && errors?.hasOwnProperty('srok_priema1')
-                ? 'calendar-error'
-                : 'calendar'
-            }
-            label="Срок приема*"
+            title="Срок приема*"
+            name="srok_priema"
+            placeholder="Выберите"
+            options={acceptDedline}
             disabled={false}
+            className={
+              errors &&
+              errors?.hasOwnProperty('srok_priema') &&
+              'select-error'
+            }
           />
-
-          {errors && errors?.hasOwnProperty('srok_priema1') && (
-            <Error className="calendar-error-tooltip">
+          {errors && errors?.hasOwnProperty('tip_programma') && (
+            <Error className="select-error-tooltip">
               Iltimos malumotni kiriting!
             </Error>
           )}
         </div>
-
-
-        <div className="col-lg-4 col-md-6 col-sm-6 col-12">
-          <Calendar
-            Controller={Controller}
-            control={control}
-            required={true}
-            nameProps="srok_priema"
-            plProps="гггг"
-            format="YYYY"
-            // className="calendar"
-            className={
-              errors && errors?.hasOwnProperty('srok_priema')
-                ? 'calendar-error'
-                : 'calendar'
-            }
-            label="Срок приема*"
-            disabled={false}
-          />
-
-          {errors && errors?.hasOwnProperty('srok_priema') && (
-            <Error className="calendar-error-tooltip">
-              Iltimos malumotni kiriting!
-            </Error>
-          )}
-        </div>
-
         <div className="col-lg-4 col-md-6 col-sm-6 col-12">
           <UserFormSelectComponent
             Controller={Controller}

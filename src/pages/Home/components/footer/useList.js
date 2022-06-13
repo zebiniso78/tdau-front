@@ -1,11 +1,16 @@
 import { useMemo } from "react";
+import logoTip from "assets/logo/logo.svg";
 
 
 export function useList() {
    const footerList = useMemo(() => [
       {
          id: 1,
-         name: 'lorem ipsum'
+         name: 'lorem ipsum',
+         image: logoTip,
+         section1: '2, Universitet st, 100140 Tashkent reg, Qibray area, Republic of Uzbekistan',
+         section2: '+998 (71) 260 43-82',
+         section3: 'tuag_info@edu.uz',
       },
       {
          id: 2,

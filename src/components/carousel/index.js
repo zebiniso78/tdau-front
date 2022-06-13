@@ -18,6 +18,7 @@ import { Registration } from 'components/MainPage/Navbar/registration';
 import { Verify } from 'components/MainPage/Navbar/verify';
 import { fetchData } from 'hooks/useFetch';
 import { admissionApi } from 'services/api/pagesApi';
+import Cookies from 'js-cookie';
 const contentStyle = {
   width: '100vw',
   // minHeight: '100vh',
@@ -30,7 +31,7 @@ const contentStyle = {
 };
 
 export function CarouselComponent({ first, second, third, four }) {
-  let token = localStorage.getItem('token');
+  let token = Cookies.get('token');
   const [modal, setModal] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [registerModel, setRegisterModel] = useState(false);
@@ -56,10 +57,8 @@ export function CarouselComponent({ first, second, third, four }) {
     }
   }
   useEffect(() => {
-    if (token) {
-      fetchData(admissionApi.allUniversityID(null), setEntityID, setLoader)
-    }
-  }, [token])
+    fetchData(admissionApi.allUniversityID(null), setEntityID, setLoader)
+  }, [])
 
   return (
     <>

@@ -27,10 +27,8 @@ export function Verify({
   const [entityID, setEntityID] = useState([])
   const [loader, setLoader] = useState(false);
   useEffect(() => {
-    if (token) {
-      fetchData(admissionApi.allUniversityID(null), setEntityID, setLoader)
-    }
-  }, [token])
+    fetchData(admissionApi.allUniversityID(null), setEntityID, setLoader)
+  }, [])
   async function onSubmit(data) {
     try {
       setIsLoading(true);

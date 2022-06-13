@@ -47,6 +47,12 @@ class Admissions extends Api {
   allUniversityID() {
     return this.execute('get', `/list_admissions`);
   }
+  profileGet() {
+    return this.execute('get', `/profile`);
+  }
+  profileGetForeign() {
+    return this.execute('get', `/profile_foreign`);
+  }
 
 }
 

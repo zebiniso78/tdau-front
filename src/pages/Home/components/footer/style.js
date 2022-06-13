@@ -1,18 +1,21 @@
 import styled from 'styled-components'
 
+
 export const FooterProvider = styled.footer`
+position: relative;
 width: 100%;
 height: auto;
 background: rgba(255, 255, 255, 0.25);
 border: 1.2px solid #FFFFFF;
 box-shadow: 0px 60px 60px #DFD9CE;
+
 & ul li {
    list-style: none;
    font-family: 'Inter';
 font-style: normal;
 font-weight: 700;
 font-size: 13px;
-line-height: 22px;
+line-height: 25px;
 text-align: right;
 color: #142F38;
 }
@@ -46,4 +49,8 @@ font-weight: 700;
 font-size: 12px;
 color: #142E38;
 }
+`
+export const FooterImage = styled.div`
+position: absolute;
+bottom: 0;
 `

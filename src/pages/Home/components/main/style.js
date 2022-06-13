@@ -144,4 +144,11 @@ font-weight: 700;
 font-size: 17px;
 }
 `
-
+export const MainFooterImage = styled.div`
+position: absolute;
+top: 0;
+left: 20%;
+& img {
+   width: 60%;
+}
+`

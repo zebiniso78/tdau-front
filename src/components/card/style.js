@@ -9,7 +9,7 @@ border-radius: 4.88166px;
 min-height: 390px;
 margin: 0 15px;
 cursor: pointer;
-height: ${props => props.type === 'university' ? '430px' : 'auto'};
+height: ${props => props.type === 'university' ? '450px' : 'auto'};
 `
 export const CardHeader = styled.div`
 position: relative;
