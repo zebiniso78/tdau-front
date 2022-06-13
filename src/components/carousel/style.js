@@ -3,6 +3,8 @@ import styled from 'styled-components';
 export const CarouselLayout = styled.div`
   position: relative;
   min-height: 100vh;
+  /* top: -50px; */
+  backdrop-filter: blur(10px);
 `;
 
 export const TextContent = styled.div`

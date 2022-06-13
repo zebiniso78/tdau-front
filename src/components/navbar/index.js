@@ -41,7 +41,7 @@ export function Navigator() {
 
    return (
       <div>
-         <Nav pathName={location.pathname}>
+         <Nav pathName={location.pathname} id={localStorage.getItem('university_id')}>
             <NavContainer>
                <Link to="/">
                   <img src={logoTip} alt="registon" className="logo-image" />
