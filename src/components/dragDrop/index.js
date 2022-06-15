@@ -64,14 +64,15 @@ function DragDrop(props) {
                <p>
                   Выберите изображение или перетащите его сюда JPG, PNG, PDF, DOC...
                </p>
-                  <Button variant="outlined" className='file-upload-btn'>Выберите файл</Button>
-                  {/* <FiFolder /> */}
+               <Button variant="outlined" className='file-upload-btn'>Выберите файл</Button>
+               {/* <FiFolder /> */}
             </Info>
             <input
                name={props.name}
                id={props.inputId}
                type="file"
                value=""
+               accept={props.accept || ''}
                onChange={onFileDrop}
             // required={props.required ? true : false}
             />

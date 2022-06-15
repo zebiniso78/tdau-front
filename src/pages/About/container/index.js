@@ -33,7 +33,7 @@ export default function About() {
                Commission of Universities of Technology (KAUT); and has been positively awarded with The HR Excellence in
                Research Award.' />
          </AboutContainer>
-         <Video type='video' url={siteBlog?.video} />
+         <Video url={siteBlog?.video} />
          <AboutContainer>
             <ImageComponent
                title='Why WSB University?'

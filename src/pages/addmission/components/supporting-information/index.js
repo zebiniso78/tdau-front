@@ -7,12 +7,23 @@ import { CancelBtnComponent } from 'components/buttons/prev-btn';
 import { NextBtnComponent } from 'components/buttons/next-btn';
 import { admissionApi } from 'services/api/pagesApi';
 import toast from "react-hot-toast"
+import { fetchData } from 'hooks/useFetch';
+import { Attachments } from 'hooks/useAttachment';
+import { FileUpload } from 'components/fileUpload';
 
 export default function SupportingInformation() {
   const history = useHistory();
   const [supportingStatement, setSupportingStatement] = useState([]);
   const [resume, setResume] = useState([]);
   const [isLoading, setIsLoading] = useState(false)
+  const [defaultValues, setDefaultValues] = useState(undefined);
+  const [isFetch, setIsFetch] = useState(true)
+  const [attachEssay, setAttachEssay] = useState(true)
+  const [attachResume, setAttachResume] = useState(true)
+  useEffect(() => {
+    fetchData(admissionApi.admissionGetForign(null), setDefaultValues, setIsFetch)
+  }, [])
+  console.log(defaultValues, 'defaultValues')
   async function handleSubmit(e) {
     localStorage.setItem('step', 6);
     e.preventDefault()
@@ -55,64 +66,55 @@ export default function SupportingInformation() {
             будущее
           </p>
           <div className="drag-drop__wrapper col-lg-8 col-sm-8 col-12">
-            <DragDrop
-              name="recomendationDoc"
-              inputId="recomendationDoc"
-              files={supportingStatement}
-              setFile={setSupportingStatement}
-              required
-              className="p-0"
-            />
+            {
+              (Attachments(defaultValues?.attachments, 'essay') !== false && attachEssay) ? (
+                <div style={{ maxWidth: '60%' }}>
+                  <FileUpload
+                    path={Attachments(defaultValues?.attachments, 'essay')?.path}
+                    ext={Attachments(defaultValues?.attachments, 'essay')?.ext}
+                    setState={setAttachEssay} />
+                </div>
+              ) :
+                <DragDrop
+                  name="recomendationDoc"
+                  inputId="recomendationDoc"
+                  files={supportingStatement}
+                  setFile={setSupportingStatement}
+                  required
+                  className="p-0"
+                />
+            }
           </div>
         </div>
-
-        {/* <div className="row mb-5">
-          <div className="title-wrapper">
-            <h5>Предложение исследования</h5>
-            <hr />
-          </div>
-
-          <p>
-            Если вы хотите получить исследовательскую степень (PhD, MPhil, MRes
-            и т. д.), пожалуйста, загрузите свое исследовательское предложение.
-            Предложение по исследованию должно включать краткое описание
-            предметной области, в которой вы хотели бы провести исследование,
-            или подробное описание конкретного проекта, а также должно включать
-            имя (имена) предполагаемого научного руководителя (ов). Если вы
-            подаете заявку на объявленное обучение, вы также должны указать это
-          </p>
-          <div className="drag-drop__wrapper col-lg-8 col-sm-8 col-12">
-            <DragDrop
-              name="recomendationDoc"
-              inputId="recomendationDoc"
-              files={researchProposal}
-              setFile={setResearchProposal}
-              required
-              className="p-0"
-            />
-          </div>
-        </div> */}
-
         <div className="row mb-5">
           <div className="title-wrapper">
             <h5 className="resume-title">Биография \ Резюме</h5>
             <hr className="resume-hr" />
           </div>
-
           <p>
             Пожалуйста, загрузите копию своего резюме в поддержку вашего
             заявления. Обратите внимание, что соискателям программы MBA резюме
             необходимо для рассмотрения заявки
           </p>
           <div className="drag-drop__wrapper col-lg-8 col-sm-8 col-12">
-            <DragDrop
-              name="recomendationDoc"
-              inputId="recomendationDoc"
-              files={resume}
-              setFile={setResume}
-              required
-              className="p-0"
-            />
+            {
+              (Attachments(defaultValues?.attachments, 'resume') !== false && attachResume) ? (
+                <div style={{ maxWidth: '60%' }}>
+                  <FileUpload
+                    path={Attachments(defaultValues?.attachments, 'resume')?.path}
+                    ext={Attachments(defaultValues?.attachments, 'resume')?.ext}
+                    setState={setAttachResume} />
+                </div>
+              ) :
+                <DragDrop
+                  name="recomendationDoc"
+                  inputId="recomendationDoc"
+                  files={resume}
+                  setFile={setResume}
+                  required
+                  className="p-0"
+                />
+            }
           </div>
         </div>
 

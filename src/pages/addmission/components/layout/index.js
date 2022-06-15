@@ -12,6 +12,8 @@ const References = lazy(() => import('../references'));
 const Education = lazy(() => import('../education'));
 const SupportingInformation = lazy(() => import('../supporting-information'));
 const AdditionalInformation = lazy(() => import('../additional_information'));
+const CheckApplication = lazy(() => import('../check-application'));
+
 
 
 
@@ -36,6 +38,7 @@ export function Layout() {
                         {/* <Route path='/english-language' component={EnglishLanguage} /> */}
                         <Route path='/university-admissions/supporting-info' component={SupportingInformation} />
                         <Route path='/university-admissions/references' component={References} />
+                        <Route path='/university-admissions/check-your-application' component={CheckApplication} />
                         <Route path='/university-admissions/additional-info' component={AdditionalInformation} />
                      </Suspense>
                   </DocumentCard>

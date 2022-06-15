@@ -7,17 +7,38 @@ export const useSend = ({ setIsLoading, isChecked }) => {
    const onSubmit = async (data) => {
       localStorage.setItem('step', 4);
       try {
+         console.log(data)
          setIsLoading(true);
          let formData = new FormData();
-         formData.append('address1', data?.address1);
-         formData.append('address2', data?.address2);
+         formData.append('adress1', data?.address1);
+         formData.append('adress2', data?.address2);
          if (data?.post_index !== undefined) formData.append('post_index', data?.post_index);
-         if (data?.post_address1 !== undefined) formData.append('post_address1', data?.post_address1);
-         if (data?.post_address2 !== undefined) formData.append('post_address2', data?.post_address2);
-         if (data?.postRegion !== undefined) formData.append('post_region', data?.postRegion?.label);
-         if (data?.postDistrict !== undefined) formData.append('post_district', data?.postDistrict?.label);
-         if (data?.post_index2 !== undefined) formData.append('post_index2', data?.post_index2);
-         formData.append('phone', `+998${data?.phone}`);
+         if (data?.post_address1 !== undefined && isChecked) {
+            formData.append('post_address1', data?.post_address1);
+         } else {
+            formData.append('post_address1', null);
+         }
+         if (data?.post_address2 !== undefined && isChecked) {
+            formData.append('post_address2', data?.post_address2);
+         } else {
+            formData.append('post_address2', null);
+         }
+         if (data?.postRegion !== undefined && isChecked) {
+            formData.append('post_region', data?.postRegion?.label);
+         } else {
+            formData.append('post_region', null);
+         }
+         if (data?.postDistrict !== undefined && isChecked) {
+            formData.append('post_district', data?.postDistrict?.label);
+         } else {
+            formData.append('post_district', null);
+         }
+         if (data?.post_index2 !== undefined && isChecked) {
+            formData.append('post_index2', data?.post_index2);
+         } else {
+            formData.append('post_index2', null);
+         }
+         formData.append('phone', data?.phone);
          formData.append('email', data?.email);
          formData.append('region', data?.regionID?.label);
          formData.append('district', data?.districtID?.label);

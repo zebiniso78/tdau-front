@@ -1,10 +1,10 @@
 import { VideoPlayer } from 'components/videoPlayer'
 import React from 'react'
 
-export function Video({ type, url }) {
+export function Video({ url }) {
    return (
       <>
-         <VideoPlayer type={type} url={url} />
+         <VideoPlayer url={url} />
       </>
    )
 }

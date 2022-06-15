@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import UserFormSelectComponent from '../../../../components/select';
 import {
   AcademicInfoProvider,
@@ -21,6 +21,7 @@ import { useGetList } from '../hooks/useGetList';
 import { acceptDedline } from 'views';
 import { fetchData } from 'hooks/useFetch';
 import browserStorage from 'services/storage';
+import { LoaderComponent } from 'components/loader';
 
 export default function AcademicInformation() {
   const {
@@ -33,6 +34,7 @@ export default function AcademicInformation() {
     formState: { errors },
   } = useForm();
   let universityID = browserStorage.set('university_id');
+  let steps = localStorage.getItem('step')
   const history = useHistory();
   const [isLoading, setIsLoading] = useState(false);
   const [educationFormList, setEducationFormList] = useState([]);
@@ -40,6 +42,10 @@ export default function AcademicInformation() {
   const [facultyList, setFacultyList] = useState(undefined);
   const [eduTypeForeign, setEduTypeForeign] = useState([])
   const [facultyForeign, setFacultyForeign] = useState([])
+  const [isFetch, setIsFetch] = useState(true)
+  const [defaultValues, setDefaultValues] = useState(undefined)
+
+
 
   const { getEducationForm, getEducationType, facultyByID } = useGetList({
     setEducationFormList,
@@ -47,6 +53,31 @@ export default function AcademicInformation() {
     setFacultyList,
     setEduTypeForeign
   });
+  useEffect(() => {
+    if (steps) {
+      fetchData(admissionApi.admissionGetForign(null), setDefaultValues, setIsFetch)
+    }
+  }, [steps])
+  useMemo(() => {
+    if (defaultValues?.accept_deadline == null && defaultValues?.education_type_id == null) {
+      console.log('null')
+    } else {
+      reset({
+        srok_priema: {
+          label: acceptDedline?.find(item => item?.label === defaultValues?.accept_deadline)?.label,
+          value: acceptDedline?.find(item => item?.label === defaultValues?.accept_deadline)?.value
+        },
+        tip_programma: {
+          label: eduTypeForeign?.find(item => item?.value === defaultValues?.education_type_id)?.label,
+          value: eduTypeForeign?.find(item => item?.value === defaultValues?.education_type_id)?.value
+        },
+        napravleniya: {
+          label: facultyForeign?.find(item => item?.value === defaultValues?.faculty_id)?.label,
+          value: facultyForeign?.find(item => item?.value === defaultValues?.faculty_id)?.value
+        }
+      })
+    }
+  }, [isFetch, defaultValues, acceptDedline, eduTypeForeign, facultyForeign])
   useEffect(() => {
     facultyByID()
   }, [universityID])
@@ -62,15 +93,15 @@ export default function AcademicInformation() {
       setFacultyForeign([...newList])
     }
   }, [facultyList?.faculties, watch('tip_programma')?.label])
-  console.log(facultyForeign)
+
   const onSubmit = async (data) => {
     console.log(data);
     try {
       setIsLoading(true);
       let formData = new FormData();
-      // formData.append('education_form_id', data?.obuchenie?.value);
+      formData.append('faculty_id', data?.napravleniya?.value);
       formData.append('education_type_id', data?.tip_programma?.value);
-      formData.append('accept_deadline', data?.srok_priema?.value)
+      formData.append('accept_deadline', data?.srok_priema?.label)
       formData.append('register_step', 2);
       await admissionApi.admissionPostForign(formData);
       toast.success("Академические данные успешно созданы")
@@ -109,92 +140,95 @@ export default function AcademicInformation() {
           </strong>
         </p>
       </AcademicInfo>
-      <AcademicForm
-        onSubmit={handleSubmit(onSubmit)}
-        className="row align-items-end"
-      >
-        <div className="col-lg-4 col-md-6 col-sm-6 col-12">
-          <UserFormSelectComponent
-            Controller={Controller}
-            control={control}
-            required={true}
-            title="Срок приема*"
-            name="srok_priema"
-            placeholder="Выберите"
-            options={acceptDedline}
-            disabled={false}
-            className={
-              errors &&
-              errors?.hasOwnProperty('srok_priema') &&
-              'select-error'
-            }
-          />
-          {errors && errors?.hasOwnProperty('tip_programma') && (
-            <Error className="select-error-tooltip">
-              Iltimos malumotni kiriting!
-            </Error>
-          )}
-        </div>
-        <div className="col-lg-4 col-md-6 col-sm-6 col-12">
-          <UserFormSelectComponent
-            Controller={Controller}
-            control={control}
-            required={true}
-            title="тип программа*"
-            name="tip_programma"
-            placeholder="Выберите"
-            // options={educationTypeList}
-            options={eduTypeForeign}
-            disabled={false}
-            className={
-              errors &&
-              errors?.hasOwnProperty('tip_programma') &&
-              'select-error'
-            }
-          />
-          {errors && errors?.hasOwnProperty('tip_programma') && (
-            <Error className="select-error-tooltip">
-              Iltimos malumotni kiriting!
-            </Error>
-          )}
-        </div>
-        <div className="col-lg-4 col-md-6 col-sm-6 col-12">
-          <UserFormSelectComponent
-            Controller={Controller}
-            control={control}
-            required={true}
-            title="Направление*"
-            name="napravleniya"
-            placeholder="Выберите"
-            // options={educationFormList}
-            options={facultyForeign}
-            disabled={false}
-            className={
-              errors && errors?.hasOwnProperty('napravleniya') && 'select-error'
-            }
-          />
-          {errors && errors?.hasOwnProperty('napravleniya') && (
-            <Error className="select-error-tooltip">
-              Iltimos malumotni kiriting!
-            </Error>
-          )}
-        </div>
-        <ButtonsProvider>
-          <CancelBtnComponent
-            name="Отмена"
-            className="prev-btn"
-            onClick={() => history.push('/personal-info')}
-          />
-          {/* <CancelBtnComponent name="Сахранит" className="save-btn" /> */}
-          <NextBtnComponent
-            name="Продолжить"
-            className="next-btn"
-            type="submit"
-            disabled={isLoading}
-          // onClick={() => history.push('/passport-info')}
-          />
-        </ButtonsProvider>
-      </AcademicForm>
+      {
+        !isFetch ? <AcademicForm
+          onSubmit={handleSubmit(onSubmit)}
+          className="row align-items-end"
+        >
+          <div className="col-lg-4 col-md-6 col-sm-6 col-12">
+            <UserFormSelectComponent
+              Controller={Controller}
+              control={control}
+              required={true}
+              title="Срок приема*"
+              name="srok_priema"
+              placeholder="Выберите"
+              options={acceptDedline}
+              disabled={false}
+              className={
+                errors &&
+                errors?.hasOwnProperty('srok_priema') &&
+                'select-error'
+              }
+            />
+            {errors && errors?.hasOwnProperty('srok_priema') && (
+              <Error className="select-error-tooltip">
+                Iltimos malumotni kiriting!
+              </Error>
+            )}
+          </div>
+          <div className="col-lg-4 col-md-6 col-sm-6 col-12">
+            <UserFormSelectComponent
+              Controller={Controller}
+              control={control}
+              required={true}
+              title="тип программа*"
+              name="tip_programma"
+              placeholder="Выберите"
+              // options={educationTypeList}
+              options={eduTypeForeign}
+              disabled={false}
+              className={
+                errors &&
+                errors?.hasOwnProperty('tip_programma') &&
+                'select-error'
+              }
+            />
+            {errors && errors?.hasOwnProperty('tip_programma') && (
+              <Error className="select-error-tooltip">
+                Iltimos malumotni kiriting!
+              </Error>
+            )}
+          </div>
+          <div className="col-lg-4 col-md-6 col-sm-6 col-12">
+            <UserFormSelectComponent
+              Controller={Controller}
+              control={control}
+              required={true}
+              title="Направление*"
+              name="napravleniya"
+              placeholder="Выберите"
+              // options={educationFormList}
+              options={facultyForeign}
+              disabled={false}
+              className={
+                errors && errors?.hasOwnProperty('napravleniya') && 'select-error'
+              }
+            />
+            {errors && errors?.hasOwnProperty('napravleniya') && (
+              <Error className="select-error-tooltip">
+                Iltimos malumotni kiriting!
+              </Error>
+            )}
+          </div>
+          <ButtonsProvider>
+            <CancelBtnComponent
+              name="Отмена"
+              className="prev-btn"
+              onClick={() => history.push('/personal-info')}
+            />
+            {/* <CancelBtnComponent name="Сахранит" className="save-btn" /> */}
+            <NextBtnComponent
+              name="Продолжить"
+              className="next-btn"
+              type="submit"
+              disabled={isLoading}
+            // onClick={() => history.push('/passport-info')}
+            />
+          </ButtonsProvider>
+        </AcademicForm> : <LoaderComponent type='academic_info' />
+      }
+
     </AcademicInfoProvider>
   );
 }

@@ -42,6 +42,11 @@ export function useList() {
       },
       {
          id: 8,
+         pathName: '/university-admissions/check-your-application',
+         name: 'Проверьте ваше приложение'
+      },
+      {
+         id: 9,
          pathName: '/university-admissions/additional-info',
          name: 'Дополнительная информация'
       },

@@ -22,12 +22,12 @@ export default function AdditionalInformation() {
     watch,
     formState: { errors },
   } = useForm();
-  console.log(watch('yes'));
   useEffect(() => {
     async function AdditionalInfo() {
       try {
         const res = await admissionApi.admissionGetForign(null)
         setAddMissionID(res?.id)
+        console.log(res, 'res')
       } catch (e) {
         console.log(e)
       }

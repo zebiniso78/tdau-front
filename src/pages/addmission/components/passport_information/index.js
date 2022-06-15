@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { InputComponent } from '../../../../components/input/controllerInput';
 import { PassportInfoProvider, Title, Row, Col } from './style';
 import { Controller, useForm } from 'react-hook-form';
@@ -14,18 +14,45 @@ import { admissionApi } from 'services/api/pagesApi';
 import toast from 'react-hot-toast';
 import moment from 'moment';
 import { Error } from 'styles/globalStyle';
+import { fetchData } from 'hooks/useFetch';
+import { LoaderComponent } from 'components/loader';
+import { Attachments } from 'hooks/useAttachment';
+import { FileUpload } from 'components/fileUpload';
 
 export default function PassportInformation() {
   const history = useHistory();
+  let dateFormat = 'YYYY-MM-DD';
   const {
     control,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
-
+  let steps = localStorage.getItem('step')
   const [transcript, setTranscript] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [defaultValues, setDefaultValues] = useState(undefined);
+  const [isFetch, setIsFetch] = useState(true);
+  const [attachPassword, setAttachPassword] = useState(true)
 
+  useEffect(() => {
+    if (steps) {
+      setIsFetch(true)
+      fetchData(admissionApi.admissionGetForign(null), setDefaultValues, setIsFetch)
+      setIsFetch(false)
+    }
+  }, [steps])
+  useMemo(() => {
+    if (defaultValues?.passport_number == null) {
+      console.log('null')
+    } else {
+      reset({
+        name: defaultValues?.passport_number,
+        enteredYear: moment(defaultValues?.passport_expiry).toDate()
+      })
+    }
+    setIsFetch(false)
+  }, [isFetch, defaultValues])
   const onSubmit = async (data) => {
     localStorage.setItem('step', 3);
     try {
@@ -34,10 +61,7 @@ export default function PassportInformation() {
       formData.append('register_step', 3);
       formData.append('passport', transcript[0]);
       formData.append('passport_number', data?.name);
-      formData.append(
-        'passport_expire',
-        moment(data?.enteredYear).format('YYYY-DD-MM')
-      );
+      formData.append('passport_expiry', moment(data?.enteredYear).format(dateFormat));
       await admissionApi.admissionPostForign(formData);
       toast.success("Паспортные данные успешно созданы")
       history.push('/university-admissions/address-info');
@@ -58,74 +82,77 @@ export default function PassportInformation() {
   return (
     <PassportInfoProvider onSubmit={handleSubmit(onSubmit)}>
       <Title>Паспортная информация</Title>
-      <Row className="row align-items-start">
-        <Col className="col-lg-4 col-md-6 col-sm-6 col-12" style={{ marginTop: '9px' }}>
-          {/* <InputComponent
-            Controller={Controller}
-            control={control}
-            nameProps="name"
-            plProps="Введите Номер паспорта"
-            label="Номер паспорта*"
-            className={
-              errors && errors?.hasOwnProperty('name') && 'input-error'
-            }
-          />
-          {errors && errors?.hasOwnProperty('name') && (
-            <Error>Iltimos ma'lumotni kiriting!</Error>
-          )} */}
-          <CustomMask
-            Controller={Controller}
-            control={control}
-            nameProps="name"
-            mask="AA1111111"
-            title="Номер паспорта*"
-            required={true}
-            placeholder="Введите Номер паспорта"
-            className={
-              errors && errors?.hasOwnProperty('name') && 'input-error'
-            }
-          />
-          {errors && errors?.hasOwnProperty('name') && (
-            <Error>Iltimos ma'lumotni kiriting!</Error>
-          )}
-        </Col>
-        <Col className="col-lg-4 col-md-6 col-sm-6 col-12">
-          <Calendar
-            Controller={Controller}
-            control={control}
-            label="Срок действия паспорта*"
-            nameProps="enteredYear"
-            plProps="дд/мм/гггг"
-            format="DD.MM.YYYY"
-            className={
-              errors && errors?.hasOwnProperty('enteredYear')
-                ? 'calendar-error'
-                : 'calendar'
-            }
-            required={true}
-          />
-          {errors && errors?.hasOwnProperty('enteredYear') && (
-            <Error className="select-error-tooltip">
-              Iltimos ma'lumotni kiriting!
-            </Error>
-          )}
-        </Col>
-      </Row>
-      <Row className="row">
-        <Col className="col-lg-8 col-md-6 col-sm-6 col-12 mt-3">
-          <p style={{ padding: '0' }}>
-            Пожалуйста, загрузите копию вашего действующего паспорта*
-          </p>
-          <DragDrop
-            name="transcript"
-            inputId="transcript"
-            files={transcript}
-            setFile={setTranscript}
-            required
-            className="p-0"
-          />
-        </Col>
-      </Row>
+      {
+        !isFetch ?
+          <>
+            <Row className="row align-items-start">
+              <Col className="col-lg-4 col-md-6 col-sm-6 col-12" style={{ marginTop: '9px' }}>
+                <CustomMask
+                  Controller={Controller}
+                  control={control}
+                  nameProps="name"
+                  mask="AA1111111"
+                  title="Номер паспорта*"
+                  required={true}
+                  placeholder="Введите Номер паспорта"
+                  className={
+                    errors && errors?.hasOwnProperty('name') && 'input-error'
+                  }
+                />
+                {errors && errors?.hasOwnProperty('name') && (
+                  <Error>Iltimos ma'lumotni kiriting!</Error>
+                )}
+              </Col>
+              <Col className="col-lg-4 col-md-6 col-sm-6 col-12">
+                <Calendar
+                  Controller={Controller}
+                  control={control}
+                  label="Срок действия паспорта*"
+                  nameProps="enteredYear"
+                  plProps="дд/мм/гггг"
+                  format="DD.MM.YYYY"
+                  className={
+                    errors && errors?.hasOwnProperty('enteredYear')
+                      ? 'calendar-error'
+                      : 'calendar'
+                  }
+                  required={true}
+                />
+                {errors && errors?.hasOwnProperty('enteredYear') && (
+                  <Error className="select-error-tooltip">
+                    Iltimos ma'lumotni kiriting!
+                  </Error>
+                )}
+              </Col>
+            </Row>
+            <Row className="row">
+              <Col className="col-lg-8 col-md-6 col-sm-6 col-12 mt-3">
+                <p style={{ padding: '0' }}>
+                  Пожалуйста, загрузите копию вашего действующего паспорта*
+                </p>
+
+                {
+                  (Attachments(defaultValues?.attachments, 'qualification diploma') !== false && attachPassword) ? (
+                    <div style={{ maxWidth: '60%' }}>
+                      <FileUpload
+                        path={Attachments(defaultValues?.attachments, 'qualification diploma')?.path}
+                        ext={Attachments(defaultValues?.attachments, 'qualification diploma')?.ext}
+                        setState={setAttachPassword} />
+                    </div>
+                  ) :
+                    <DragDrop
+                      name="transcript"
+                      inputId="transcript"
+                      files={transcript}
+                      setFile={setTranscript}
+                      required
+                      className="p-0"
+                    />
+                }
+              </Col>
+            </Row>
+          </> : <LoaderComponent />
+      }
       <Col className="col-10" />
       <ButtonsProvider>
         <CancelBtnComponent

@@ -2,7 +2,6 @@ import { Form } from 'antd';
 import React from 'react';
 import 'antd/dist/antd.css';
 import { CustomCalendar } from "./style"
-import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 export default function Calendar({
@@ -14,7 +13,8 @@ export default function Calendar({
    label,
    picker,
    className,
-   required = false
+   required = false,
+   selected
 }) {
    return (
       <Form>
