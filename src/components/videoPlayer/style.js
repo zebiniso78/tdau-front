@@ -15,3 +15,11 @@ position: relative;
    background-color: #213832;
 }
 `
+export const PlayerProvider = styled.div`
+max-width: 100%;
+& > div {
+   max-width: 100% !important;
+   width: 100% !important;
+   min-height: 100vh !important;
+}
+`

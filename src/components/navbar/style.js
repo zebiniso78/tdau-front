@@ -324,8 +324,9 @@ export const NavDropMenu = styled.ul`
   }
 `
 
-export const NavDropMenuWrapper = styled.span`
+export const NavDropMenuWrapper = styled.div`
 position: relative;
+z-index: 10000 !important;
 color: #142F38 !important;
   display: flex;
   justify-content: center;

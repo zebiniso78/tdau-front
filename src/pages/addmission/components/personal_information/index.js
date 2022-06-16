@@ -50,11 +50,10 @@ export default function PersonalInfo() {
     setIsFetch(false)
   }, []);
   useEffect(() => {
-    if (steps) {
-      fetchData(admissionApi.admissionGetForign(null), setDefaultValues, setIsFetch)
-    }
-  }, [steps])
-  console.log(defaultValues, 'defaultValues')
+    // if (steps) {
+    fetchData(admissionApi.admissionGetForign(null), setDefaultValues, setIsFetch)
+    // }
+  }, [])
   useMemo(() => {
     if (defaultValues === undefined || (defaultValues?.surname == null && defaultValues?.middle_name == null)) {
       console.log('hech nima')
