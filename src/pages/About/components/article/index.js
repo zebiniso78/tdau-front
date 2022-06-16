@@ -10,7 +10,7 @@ import {
   ContentInfo
 } from './style'
 
-export function Article() {
+export function Article({ articles }) {
   return (
     <ArticleProvider>
       <ArticleLeft>
