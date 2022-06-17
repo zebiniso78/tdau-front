@@ -14,6 +14,7 @@ import Aos from 'aos';
 import 'aos/dist/aos.css';
 import About from 'pages/About/container';
 import Admissions from 'pages/addmission/container';
+import RectorsMessage from 'pages/test-pages/rector-massage/container';
 
 
 
@@ -28,6 +29,7 @@ function App() {
     <BrowserRouter>
       <Navigator />
       <Switch>
+      <Route path='/rectors-message' exact component={RectorsMessage} />
         <Route path="/" exact component={Home} />
         <Route path="/personal-info" component={Submissions} />
         <Route path="/admission" component={Profile} />

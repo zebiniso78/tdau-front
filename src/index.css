@@ -6,17 +6,11 @@ html {
 body {
   margin: 0;
   width: 100%;
-  /* overflow-x: hidden !impor/tant; */
+  /* overflow-x: hidden !important; */
   font-family: 'Open Sans', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(85.38deg, #edede4 -23.38%, #f8f2eb 97.65%);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
 
 a,
 button {

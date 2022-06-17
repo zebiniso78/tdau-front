@@ -68,7 +68,7 @@ export function Navigator() {
                         <li>Branches</li>
                      </NavDropMenu>
                   </NavDropMenuWrapper>
-                  <NavLink href="#customers">
+                  <NavLink to="/rectors-message">
                      <button className="nav-btn">Interactive service</button>
                   </NavLink>
                   <NavLink href="#contact">
