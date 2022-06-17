@@ -17,4 +17,6 @@ margin-bottom: 71px;
 `
 export const Image = styled.img`
 width: 100%;
+max-height: 100vh;
+object-fit: cover;
 `

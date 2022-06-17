@@ -1,10 +1,10 @@
-import { VideoPlayer } from 'components/videoPlayer'
-import React from 'react'
+import { VideoPlayer } from 'components/videoPlayer';
+import React from 'react';
 
 export function Video({ url }) {
-   return (
-      <>
-         <VideoPlayer url={url} />
-      </>
-   )
+  return (
+    <>
+      <VideoPlayer url={url} />
+    </>
+  );
 }

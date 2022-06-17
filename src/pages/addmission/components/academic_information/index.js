@@ -47,7 +47,7 @@ export default function AcademicInformation() {
 
 
 
-  const { getEducationForm, getEducationType, facultyByID } = useGetList({
+  const { facultyByID } = useGetList({
     setEducationFormList,
     setEducationTypeList,
     setFacultyList,
@@ -58,7 +58,7 @@ export default function AcademicInformation() {
       fetchData(admissionApi.admissionGetForign(null), setDefaultValues, setIsFetch)
     }
   }, [steps])
-  useMemo(() => {
+  useEffect(() => {
     if (defaultValues?.accept_deadline == null && defaultValues?.education_type_id == null) {
       console.log('null')
     } else {
@@ -77,7 +77,7 @@ export default function AcademicInformation() {
         }
       })
     }
-  }, [isFetch, defaultValues, acceptDedline, eduTypeForeign, facultyForeign])
+  }, [defaultValues, acceptDedline, eduTypeForeign, facultyForeign])
   useEffect(() => {
     facultyByID()
   }, [universityID])
@@ -90,6 +90,7 @@ export default function AcademicInformation() {
           value: x?.id
         }
       })
+      console.log(newList)
       setFacultyForeign([...newList])
     }
   }, [facultyList?.faculties, watch('tip_programma')?.label])
@@ -116,8 +117,8 @@ export default function AcademicInformation() {
   };
   useEffect(() => {
     if (localStorage?.getItem('step') > 0) {
-      getEducationForm();
-      getEducationType();
+      // getEducationForm();
+      // getEducationType();
     } else {
       history.push('/university-admissions/personal-info');
     }

@@ -46,22 +46,22 @@ export function useGetList({
       console.log(e);
     }
   }
-  async function getEducationForm() {
-    try {
-      const response = await admissionApi.educationForm(null);
-      SelectItem(response, setEducationFormList);
-    } catch (e) {
-      console.log(e);
-    }
-  }
-  async function getEducationType() {
-    try {
-      const response = await admissionApi.educationType(null);
-      SelectItem(response, setEducationTypeList);
-    } catch (e) {
-      console.log(e);
-    }
-  }
+  // async function getEducationForm() {
+  //   try {
+  //     const response = await admissionApi.educationForm(null);
+  //     SelectItem(response, setEducationFormList);
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // }
+  // async function getEducationType() {
+  //   try {
+  //     const response = await admissionApi.educationType(null);
+  //     SelectItem(response, setEducationTypeList);
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // }
   async function getQualification() {
     try {
       const response = await admissionApi.qualifications(null);
@@ -94,8 +94,8 @@ export function useGetList({
     getNationality,
     getCountries,
     getGenders,
-    getEducationForm,
-    getEducationType,
+    // getEducationForm,
+    // getEducationType,
     getRegions,
     getQualification,
     facultyByID

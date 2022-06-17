@@ -8,7 +8,7 @@ export async function fetchData(url, setState, setLoader) {
       setLoader(false)
    } catch (e) {
       console.log(e)
-      toast.error(e)
+      toast.error(e?.msg)
       setLoader(false)
    }
 }

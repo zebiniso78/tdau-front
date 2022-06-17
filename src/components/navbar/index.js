@@ -56,7 +56,7 @@ export function Navigator() {
                   />
                </MobileIcon>
                <NavMenu onClick={handleClick} click={click}>
-                  {/* <NavDropMenuWrapper>
+                  <NavDropMenuWrapper>
                      <button className="nav-btn">University</button>
                      <NavDropMenu>
                         <li>Rector's Message</li>
@@ -67,10 +67,7 @@ export function Navigator() {
                         <li>Programmes</li>
                         <li>Branches</li>
                      </NavDropMenu>
-                  </NavDropMenuWrapper> */}
-                  <Link to="/rectors-message">
-                     <button className="nav-btn">Interactive service</button>
-                  </Link>
+                  </NavDropMenuWrapper>
                   <NavLink href="#customers">
                      <button className="nav-btn">Interactive service</button>
                   </NavLink>
