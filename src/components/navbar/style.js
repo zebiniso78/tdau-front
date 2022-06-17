@@ -4,14 +4,13 @@ import { Select } from "antd";
 import { systemColors } from "assets/styles/colors";
 
 export const Nav = styled.nav`
-  /* position: ${props => props.pathName !== `/` ? 'absolute' : 'static'}; */
+  /* position: ${props => (props.pathName !== `/` || props.pathName !== `/university-admissions/personal-info`) ? 'absolute' : 'static'}; */
   /* position: absolute; */
   top: 0;
   width: 100%;
   margin: 0 auto;
   background-color: rgba(255, 255, 255, 0.1);
-  /* backdrop-filter: blur(150px) !important; */
-  /* backdrop-filter: blur(150px); */
+  /* backdrop-filter: ${props => props.pathName !== `/` ? 'blur(150px)' : 'blur(0px)'}; */
   font-family: "DM Sans", sans-serif;
   height: 96px;
   display: flex;

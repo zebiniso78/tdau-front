@@ -67,12 +67,16 @@ export function Navigator() {
                         <li>Vision,Mission, Core Values</li>
                         <li>Quality Policy and Objectives</li>
                         <li>History of university</li>
-                        <li>University's structure</li>
+                        <li>
+                           <Link to='/university-structure' style={{ textDecoration: 'none', color: '#142F38' }}>
+                              University's structure
+                           </Link>
+                        </li>
                         <li>Programmes</li>
                         <li>Branches</li>
                      </NavDropMenu>
                   </NavDropMenuWrapper>
-                  <NavLink to="/rectors-message">
+                  <NavLink href="#">
                      <button className="nav-btn">International Relationship</button>
                   </NavLink>
                   <NavLink href="#contact">

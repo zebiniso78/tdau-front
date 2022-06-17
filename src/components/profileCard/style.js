@@ -121,3 +121,74 @@ p b{
     color: #318161;
 }
 `
+export const CardInfo = styled.ul`
+font-family: 'Rubik', sans-serif;
+margin: 0;
+padding: 0;
+`
+export const SocialParams = styled.li`
+list-style: none;
+font-weight: 400;
+& span {
+    color: #318161; 
+}
+`
+export const Card = styled.div`
+display: flex;
+justify-content: space-between;
+width: 100%;
+min-height: 250px;
+background: rgba(255, 255, 255, 0.5);
+box-shadow: 0px 6.38489px 15.9622px #DFD9CE;
+backdrop-filter: blur(11.4286px);
+border-radius: 3px;`
+export const CardLeft = styled.div`
+width: 40%;
+overflow: hidden;
+& img {
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    object-fit: cover;
+    transition: all .3s;
+    &:hover {
+        transform: scale(1.2);
+    }
+}
+`
+export const CardRight = styled.div`
+ width: 60%;
+ padding: 20px 10px 20px 20px;
+`
+export const UserName = styled.h5`
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 22px;
+text-transform: uppercase;
+color: #142E38;`
+
+export const UserPosition = styled.p`
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 17px;
+color: #142E38;
+`
+export const UserLocation = styled.ul`
+margin: 0;
+padding: 0;
+& li {
+    list-style: none;
+    font-size: 12px;
+    color: #142E38;
+    font-family: 'Inter', sans-serif;
+    line-height: 19px;
+    & span {
+        color: #318161;
+        font-weight: 500;
+    }
+}
+`

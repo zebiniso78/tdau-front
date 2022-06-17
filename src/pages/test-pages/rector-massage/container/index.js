@@ -5,13 +5,11 @@ import { Container } from './style';
 
 
 function RectorsMessage() {
-    useEffect(() => {
 
-    }, []);
     return (
         <Container>
-            <TitleCard/>
-            <TextContnet/>
+            <TitleCard />
+            <TextContnet />
         </Container>
     );
 }
