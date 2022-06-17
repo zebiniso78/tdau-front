@@ -59,7 +59,11 @@ export function Navigator() {
                   <NavDropMenuWrapper>
                      <button className="nav-btn">University</button>
                      <NavDropMenu>
-                        <li>Rector's Message</li>
+                        <li>
+                           <Link to='/rectors-message'>
+                              Rector's Message
+                           </Link>
+                        </li>
                         <li>Vision,Mission, Core Values</li>
                         <li>Quality Policy and Objectives</li>
                         <li>History of university</li>
@@ -68,8 +72,8 @@ export function Navigator() {
                         <li>Branches</li>
                      </NavDropMenu>
                   </NavDropMenuWrapper>
-                  <NavLink href="#customers">
-                     <button className="nav-btn">Interactive service</button>
+                  <NavLink href="#">
+                     <button className="nav-btn">International Relationship</button>
                   </NavLink>
                   <NavLink href="#contact">
                      <button className="nav-btn">International partners</button>

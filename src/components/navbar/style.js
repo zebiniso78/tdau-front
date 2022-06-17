@@ -1,5 +1,5 @@
 import styled from "styled-components";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Select } from "antd";
 import { systemColors } from "assets/styles/colors";
 
@@ -50,7 +50,7 @@ color: ${systemColors.mainBlue} !important;
   margin-top: 13px;
   font-size: 18.6px;
 `
-export const NavLink = styled.a`
+export const NavLink = styled(Link)`
   color: #142F38 !important;
   display: flex;
   justify-content: center;

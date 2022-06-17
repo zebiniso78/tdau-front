@@ -44,7 +44,7 @@ padding: 0 96px;
     }
 }
 & .right-content{
-        width: 548px;
+        /* width: 548px; */
 }
 `
 
@@ -91,6 +91,21 @@ img{
     width: 458px;
     height: 288px;
 }
+    @media (max-width: 950px) {
+    flex-direction: column-reverse !important;
+    img{
+        width: calc(100% - 150px);
+        height: auto;
+    }
+    &:first-child{
+        align-items: center
+    }
+    }
+    @media (max-width: 668px) {
+        img{
+            width: 100%;
+        }
+    }
 `
 export const TextContainer2 = styled.div`
 margin-top: 25px;

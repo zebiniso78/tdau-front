@@ -23,8 +23,8 @@ export function Article({ articles }) {
         ) : (
           <ArticleRight>
             <RightContent>
-              <ContentInfo>{article?.text}</ContentInfo>
               <ContentTitle>{article?.title}</ContentTitle>
+              <ContentInfo>{article?.text}</ContentInfo>
             </RightContent>
           </ArticleRight>
         )

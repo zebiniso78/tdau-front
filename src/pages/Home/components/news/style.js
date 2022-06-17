@@ -1,6 +1,12 @@
 import styled from 'styled-components'
 
-export const LatestNewsProvider = styled.section``
+export const LatestNewsProvider = styled.section`
+@media (max-width: 992px) {
+   & .news-col {
+      width: 100% !important;
+   }
+}
+`
 export const NewsTitle = styled.h2`
 font-family: 'Inter';
 font-style: normal;
@@ -15,6 +21,9 @@ width: 100%;
 height: 392px;
 border-radius: 6px;
 overflow: hidden;
+@media (max-width: 576px) {
+   height: 320px;
+}
 
 & img {
    width: 100%;
@@ -46,6 +55,10 @@ font-size: 25px;
 line-height: 31px;
 color: #FFFFFF;
 text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.75);
+@media (max-width: 576px) {
+   font-size: 16px;
+   line-height: 25px;
+}
 }
 & h3 {
    font-size: 16px;
@@ -61,6 +74,7 @@ text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.75);
 & h5 {
    font-size: 14px;
 }
+
 `
 
 export const Wrap = styled.div`
