@@ -30,8 +30,9 @@ const contentStyle = {
   justifyContent: 'center',
 };
 
-export function CarouselComponent({ first, second, third, four }) {
+export function CarouselComponent({ first, second, third, four, id }) {
   let token = localStorage.getItem('token');
+  let siteBlog = JSON.parse(localStorage.getItem('blog'))
   const [modal, setModal] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [registerModel, setRegisterModel] = useState(false);
@@ -48,8 +49,7 @@ export function CarouselComponent({ first, second, third, four }) {
   };
 
   function apply(id) {
-    console.log(id)
-    localStorage.setItem('university_id', JSON.stringify(id));
+    localStorage.setItem('university_id', id);
     if (token && localStorage.getItem('university_id')) {
       history.push('/university-admissions/personal-info');
     } else {
@@ -60,23 +60,112 @@ export function CarouselComponent({ first, second, third, four }) {
   useEffect(() => {
     fetchData(admissionApi.allUniversityID(null), setEntityID, setLoader)
   }, [])
-
+  console.log(siteBlog, 'siteBlog')
   return (
     <>
 
       <Carousel autoplay effect="fade">
         <CarouselLayout style={contentStyle}>
-          <Image src={first} alt="first" />
+          <Image src={`${process.env.REACT_APP_API_SECOND_ROOT}/${siteBlog?.picture}`} alt="first" />
           <TextContent className="tdau-item">
             <LeftContent>
-              <h2>WSB University in Poland</h2>
+              <h2>{siteBlog?.title}</h2>
               <p>
                 Applications are now Open for the Academic year 2022-2023 for
                 Undergraduate and Postgraduate courses!
               </p>
               <MainBtnWrap style={{ marginTop: '16px' }}>
 
-                <MainBtn type="button" onClick={() => apply(entityID ? entityID[0]?.id : 22)}>Apply</MainBtn>
+                <MainBtn type="button" onClick={() => apply(id)}>Apply</MainBtn>
+              </MainBtnWrap>
+            </LeftContent>
+            <RightContent className="tdau-item-two">
+              <div className="item">
+                <a href="https://www.facebook.com/asadbek.azamov.399">
+                  <Facebook />
+                </a>
+                <a href="https://www.instagram.com/azamov_9909/">
+                  <Instagram />
+                </a>
+                <a href="https://t.me/AsadbekAzamov01">
+                  <Telegram />
+                </a>
+                <div className="line"></div>
+              </div>
+            </RightContent>
+          </TextContent>
+        </CarouselLayout>
+        <CarouselLayout style={contentStyle}>
+          <Image src={`${process.env.REACT_APP_API_SECOND_ROOT}/${siteBlog?.picture}`} alt="first" />
+          <TextContent className="tdau-item">
+            <LeftContent>
+              <h2>{siteBlog?.title}</h2>
+              <p>
+                Applications are now Open for the Academic year 2022-2023 for
+                Undergraduate and Postgraduate courses!
+              </p>
+              <MainBtnWrap style={{ marginTop: '16px' }}>
+
+                <MainBtn type="button" onClick={() => apply(id)}>Apply</MainBtn>
+              </MainBtnWrap>
+            </LeftContent>
+            <RightContent className="tdau-item-two">
+              <div className="item">
+                <a href="https://www.facebook.com/asadbek.azamov.399">
+                  <Facebook />
+                </a>
+                <a href="https://www.instagram.com/azamov_9909/">
+                  <Instagram />
+                </a>
+                <a href="https://t.me/AsadbekAzamov01">
+                  <Telegram />
+                </a>
+                <div className="line"></div>
+              </div>
+            </RightContent>
+          </TextContent>
+        </CarouselLayout>
+        <CarouselLayout style={contentStyle}>
+          <Image src={`${process.env.REACT_APP_API_SECOND_ROOT}/${siteBlog?.picture}`} alt="first" />
+          <TextContent className="tdau-item">
+            <LeftContent>
+              <h2>{siteBlog?.title}</h2>
+              <p>
+                Applications are now Open for the Academic year 2022-2023 for
+                Undergraduate and Postgraduate courses!
+              </p>
+              <MainBtnWrap style={{ marginTop: '16px' }}>
+
+                <MainBtn type="button" onClick={() => apply(id)}>Apply</MainBtn>
+              </MainBtnWrap>
+            </LeftContent>
+            <RightContent className="tdau-item-two">
+              <div className="item">
+                <a href="https://www.facebook.com/asadbek.azamov.399">
+                  <Facebook />
+                </a>
+                <a href="https://www.instagram.com/azamov_9909/">
+                  <Instagram />
+                </a>
+                <a href="https://t.me/AsadbekAzamov01">
+                  <Telegram />
+                </a>
+                <div className="line"></div>
+              </div>
+            </RightContent>
+          </TextContent>
+        </CarouselLayout>   <CarouselLayout style={contentStyle}>
+          <Image src={`${process.env.REACT_APP_API_SECOND_ROOT}/${siteBlog?.picture}`} alt="first" />
+          <TextContent className="tdau-item">
+            <LeftContent>
+              <h2>{siteBlog?.title}</h2>
+              <p>
+                Applications are now Open for the Academic year 2022-2023 for
+                Undergraduate and Postgraduate courses!
+              </p>
+              <MainBtnWrap style={{ marginTop: '16px' }}>
+
+                <MainBtn type="button" onClick={() => apply(id)}>Apply</MainBtn>
               </MainBtnWrap>
             </LeftContent>
             <RightContent className="tdau-item-two">
@@ -96,7 +185,7 @@ export function CarouselComponent({ first, second, third, four }) {
           </TextContent>
         </CarouselLayout>
 
-        <CarouselLayout style={contentStyle}>
+        {/* <CarouselLayout style={contentStyle}>
           <Image src={second} alt="second" />
           <TextContent className="tdau-item">
             <LeftContent>
@@ -106,7 +195,7 @@ export function CarouselComponent({ first, second, third, four }) {
                 Undergraduate and Postgraduate courses!
               </p>
               <MainBtnWrap style={{ marginTop: '16px' }}>
-                <MainBtn type="button" onClick={() => apply(entityID ? entityID[1]?.id : 22)}>Apply</MainBtn>
+                <MainBtn type="button" onClick={() => apply(id)}>Apply</MainBtn>
               </MainBtnWrap>
             </LeftContent>
             <RightContent className="tdau-item-two">
@@ -136,7 +225,7 @@ export function CarouselComponent({ first, second, third, four }) {
                 Undergraduate and Postgraduate courses!
               </p>
               <MainBtnWrap style={{ marginTop: '16px' }}>
-                <MainBtn type="button" onClick={() => apply(entityID ? entityID[2]?.id : 22)}>Apply</MainBtn>
+                <MainBtn type="button" onClick={() => apply(id)}>Apply</MainBtn>
               </MainBtnWrap>
             </LeftContent>
             <RightContent className="tdau-item-two">
@@ -166,7 +255,7 @@ export function CarouselComponent({ first, second, third, four }) {
                 Undergraduate and Postgraduate courses!
               </p>
               <MainBtnWrap style={{ marginTop: '16px' }}>
-                <MainBtn type="button" onClick={() => apply(entityID ? entityID[3]?.id : 22)}>Apply</MainBtn>
+                <MainBtn type="button" onClick={() => apply(id)}>Apply</MainBtn>
               </MainBtnWrap>
             </LeftContent>
             <RightContent className="tdau-item-two">
@@ -184,8 +273,7 @@ export function CarouselComponent({ first, second, third, four }) {
               </div>
             </RightContent>
           </TextContent>
-        </CarouselLayout>
-
+        </CarouselLayout> */}
       </Carousel>
       <Login
         setModal={setModal}

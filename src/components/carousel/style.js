@@ -45,8 +45,8 @@ export const LeftContent = styled.div`
     font-weight: 700;
     color: #142e38;
     max-width: 622px;
-    font-size: 48px;
-    line-height: 77px;
+    font-size: 42px;
+    line-height: 60px;
   }
   font-weight: 700;
   font-size: 20px;

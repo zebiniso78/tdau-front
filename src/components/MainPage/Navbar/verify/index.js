@@ -7,6 +7,7 @@ import { admissionApi, authApi } from 'services/api/pagesApi';
 import Button from '../../../button';
 import { Modal } from 'antd';
 import { fetchData } from 'hooks/useFetch';
+import toast from 'react-hot-toast';
 
 
 export function Verify({
@@ -49,6 +50,7 @@ export function Verify({
       }
     } catch (e) {
       console.log(e);
+      toast.error(e?.msg)
       setIsLoading(false);
     }
   }

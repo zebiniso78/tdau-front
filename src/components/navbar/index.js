@@ -60,7 +60,7 @@ export function Navigator() {
                      <button className="nav-btn">University</button>
                      <NavDropMenu>
                         <li>
-                           <Link to='/rectors-message'>
+                           <Link to='/rectors-message' style={{ textDecoration: 'none', color: '#142F38' }}>
                               Rector's Message
                            </Link>
                         </li>
