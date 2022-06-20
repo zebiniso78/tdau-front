@@ -12,9 +12,10 @@ import BottomNews from '../components/MainPage/BottomNews/BottomNews';
 function Main() {
   return (
     <>
-      <Header>
-        {/* <Navbar /> */}
-        <IntroSection />
+      <h1>Salom</h1>
+      {/* <Header> */}
+      {/* <Navbar /> */}
+      {/* <IntroSection />
         <BottomNews />
       </Header>
       <MainBody>
@@ -27,7 +28,7 @@ function Main() {
         <Service />
         <MediaGallery />
         <LinksSection />
-      </MainBody>
+      </MainBody> */}
       {/* <Footer /> */}
     </>
   );

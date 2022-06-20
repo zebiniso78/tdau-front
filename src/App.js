@@ -8,9 +8,7 @@ import { Layout } from './pages/Submissions/components/layout';
 import Main from './pages/Main';
 import { Toaster } from 'react-hot-toast';
 
-
 function App() {
-  
   return (
     <BrowserRouter>
       <Navbar />
