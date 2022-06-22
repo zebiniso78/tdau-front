@@ -91,7 +91,6 @@ export default function AddressInformation() {
     }
     // setIsFetch(false)
   }, [isFetch, defaultValues, regions])
-  console.log(defaultValues, 'defaultValues')
   async function getDistrict() {
     try {
       let payload = {
@@ -360,17 +359,6 @@ export default function AddressInformation() {
               въехали и когда собираетесь уехать. Это поможет нам убедиться, что мы
               всегда отправляем корреспонденцию по правильному адресу.
             </Paragraph>
-            <MaskInputWrapper>
-              <Title className="form-title">Номер телефона</Title>
-              <PhoneMask
-                Controller={Controller}
-                control={control}
-                nameProps="phone"
-                title=""
-                required={true}
-                validators={['required', 'isNumber']}
-              />
-            </MaskInputWrapper>
             <Paragraph className="mt-2">
               Большая часть нашей корреспонденции будет вестись по электронной
               почте, но если мы отправим вам что-либо по почте, мы будем
@@ -379,22 +367,6 @@ export default function AddressInformation() {
               въехали и когда собираетесь уехать. Это поможет нам убедиться, что мы
               всегда отправляем корреспонденцию по правильному адресу.
             </Paragraph>
-            <MaskInputWrapper>
-              <InputComponent
-                Controller={Controller}
-                control={control}
-                nameProps="email"
-                required={false}
-                plProps="Елек.почты"
-                label="Личный адрес элек.почты заявителя"
-                className={
-                  errors && errors?.hasOwnProperty('email') && 'input-error'
-                }
-              />
-              {errors && errors?.hasOwnProperty('email') && (
-                <Error>Iltimos ma'lumotni kiriting!</Error>
-              )}
-            </MaskInputWrapper>
             <ButtonsProvider>
               <CancelBtnComponent
                 name="Назад"

@@ -38,8 +38,6 @@ export const useSend = ({ setIsLoading, isChecked }) => {
          } else {
             formData.append('post_index2', null);
          }
-         formData.append('phone', data?.phone);
-         formData.append('email', data?.email);
          formData.append('region', data?.regionID?.label);
          formData.append('district', data?.districtID?.label);
          formData.append('register_step', 4);

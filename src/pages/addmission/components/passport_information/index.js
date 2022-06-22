@@ -18,6 +18,7 @@ import { fetchData } from 'hooks/useFetch';
 import { LoaderComponent } from 'components/loader';
 import { Attachments } from 'hooks/useAttachment';
 import { FileUpload } from 'components/fileUpload';
+import AntdCalendar from 'components/calendar/calendar';
 
 export default function PassportInformation() {
   const history = useHistory();
