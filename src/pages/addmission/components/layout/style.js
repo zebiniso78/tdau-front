@@ -12,6 +12,9 @@ export const LayoutProvider = styled.div`
       margin-top: 20px;
     }
   }
+  @media (max-width: 720px) {
+    padding: 40px 0;
+  }
 
   & .logout {
     color: #eb5757 !important;
@@ -21,6 +24,9 @@ export const LayoutProvider = styled.div`
     min-width: 140px;
     margin-bottom: 16px;
     margin-top: -24px;
+    @media (max-width: 991px) {
+      margin-top: -4px;
+    }
   }
 `;
 

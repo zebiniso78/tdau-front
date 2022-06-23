@@ -121,6 +121,9 @@ export const MainLayoutProvider = styled.div`
 export const Container = styled.div`
   margin: 0 auto;
   width: calc(100% - 100px);
+  @media (max-width: 768px) {
+    width: calc(100% - 20px);
+  }
 `;
 export const LandingTitle = styled.h3`
   font-family: 'Inter';
@@ -140,6 +143,12 @@ export const CardProvider = styled.div`
   height: auto;
   margin: 70px 0;
   box-shadow: none !important;
+  @media (max-width: 768px) {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 30px;
+  }
   .button {
     position: absolute;
     width: 40px;

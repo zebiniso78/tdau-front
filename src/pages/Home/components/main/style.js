@@ -13,6 +13,7 @@ export const MainWrapper = styled.div`
     display: flex;
     flex-direction: column-reverse;
     height: auto;
+    /* width: calc(100% - 20px); */
   }
 `;
 export const MainLeft = styled.div`

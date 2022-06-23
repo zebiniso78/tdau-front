@@ -22,7 +22,7 @@ export default function Footer() {
               xl={4}
               sm={12}
               key={list.id}
-              className="d-flex justify-content-center"
+              className="d-flex justify-content-center foot"
             >
               <ul>
                 <li>
