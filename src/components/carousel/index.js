@@ -12,7 +12,7 @@ import { MainBtn, MainBtnWrap } from 'pages/Home/components/main/style';
 import { ReactComponent as Facebook } from 'assets/carousel/icon/f.svg';
 import { ReactComponent as Telegram } from 'assets/carousel/icon/tg.svg';
 import { ReactComponent as Instagram } from 'assets/carousel/icon/intagram.svg';
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
 import { Login } from 'components/MainPage/Navbar/login';
 import { Registration } from 'components/MainPage/Navbar/registration';
 import { Verify } from 'components/MainPage/Navbar/verify';
@@ -32,15 +32,15 @@ const contentStyle = {
 
 export function CarouselComponent({ first, second, third, four, id }) {
   let token = localStorage.getItem('token');
-  let siteBlog = JSON.parse(localStorage.getItem('blog'))
+  let siteBlog = JSON.parse(localStorage.getItem('blog'));
   const [modal, setModal] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [registerModel, setRegisterModel] = useState(false);
   const [confirmModel, setConfirmModel] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState(null);
-  const [entityID, setEntityID] = useState([])
+  const [entityID, setEntityID] = useState([]);
   const [loader, setLoader] = useState(false);
-  const history = useHistory()
+  const history = useHistory();
   const showModal = () => {
     setIsModalVisible(true);
   };
@@ -53,20 +53,22 @@ export function CarouselComponent({ first, second, third, four, id }) {
     if (token && localStorage.getItem('university_id')) {
       history.push('/university-admissions/personal-info');
     } else {
-      showModal()
+      showModal();
       // localStorage.setItem('university_id', JSON.stringify(id));
     }
   }
   useEffect(() => {
-    fetchData(admissionApi.allUniversityID(null), setEntityID, setLoader)
-  }, [])
-  console.log(siteBlog, 'siteBlog')
+    fetchData(admissionApi.allUniversityID(null), setEntityID, setLoader);
+  }, []);
+  console.log(siteBlog, 'siteBlog');
   return (
     <>
-
       <Carousel autoplay effect="fade">
         <CarouselLayout style={contentStyle}>
-          <Image src={`${process.env.REACT_APP_API_SECOND_ROOT}/${siteBlog?.picture}`} alt="first" />
+          <Image
+            src={`${process.env.REACT_APP_API_SECOND_ROOT}/${siteBlog?.picture}`}
+            alt="first"
+          />
           <TextContent className="tdau-item">
             <LeftContent>
               <h2>{siteBlog?.title}</h2>
@@ -75,8 +77,9 @@ export function CarouselComponent({ first, second, third, four, id }) {
                 Undergraduate and Postgraduate courses!
               </p>
               <MainBtnWrap style={{ marginTop: '16px' }}>
-
-                <MainBtn type="button" onClick={() => apply(id)}>Apply</MainBtn>
+                <MainBtn type="button" onClick={() => apply(id)}>
+                  Apply
+                </MainBtn>
               </MainBtnWrap>
             </LeftContent>
             <RightContent className="tdau-item-two">
@@ -96,7 +99,10 @@ export function CarouselComponent({ first, second, third, four, id }) {
           </TextContent>
         </CarouselLayout>
         <CarouselLayout style={contentStyle}>
-          <Image src={`${process.env.REACT_APP_API_SECOND_ROOT}/${siteBlog?.picture}`} alt="first" />
+          <Image
+            src={`${process.env.REACT_APP_API_SECOND_ROOT}/${siteBlog?.picture}`}
+            alt="first"
+          />
           <TextContent className="tdau-item">
             <LeftContent>
               <h2>{siteBlog?.title}</h2>
@@ -105,8 +111,9 @@ export function CarouselComponent({ first, second, third, four, id }) {
                 Undergraduate and Postgraduate courses!
               </p>
               <MainBtnWrap style={{ marginTop: '16px' }}>
-
-                <MainBtn type="button" onClick={() => apply(id)}>Apply</MainBtn>
+                <MainBtn type="button" onClick={() => apply(id)}>
+                  Apply
+                </MainBtn>
               </MainBtnWrap>
             </LeftContent>
             <RightContent className="tdau-item-two">
@@ -126,7 +133,10 @@ export function CarouselComponent({ first, second, third, four, id }) {
           </TextContent>
         </CarouselLayout>
         <CarouselLayout style={contentStyle}>
-          <Image src={`${process.env.REACT_APP_API_SECOND_ROOT}/${siteBlog?.picture}`} alt="first" />
+          <Image
+            src={`${process.env.REACT_APP_API_SECOND_ROOT}/${siteBlog?.picture}`}
+            alt="first"
+          />
           <TextContent className="tdau-item">
             <LeftContent>
               <h2>{siteBlog?.title}</h2>
@@ -135,8 +145,9 @@ export function CarouselComponent({ first, second, third, four, id }) {
                 Undergraduate and Postgraduate courses!
               </p>
               <MainBtnWrap style={{ marginTop: '16px' }}>
-
-                <MainBtn type="button" onClick={() => apply(id)}>Apply</MainBtn>
+                <MainBtn type="button" onClick={() => apply(id)}>
+                  Apply
+                </MainBtn>
               </MainBtnWrap>
             </LeftContent>
             <RightContent className="tdau-item-two">
@@ -154,8 +165,12 @@ export function CarouselComponent({ first, second, third, four, id }) {
               </div>
             </RightContent>
           </TextContent>
-        </CarouselLayout>   <CarouselLayout style={contentStyle}>
-          <Image src={`${process.env.REACT_APP_API_SECOND_ROOT}/${siteBlog?.picture}`} alt="first" />
+        </CarouselLayout>{' '}
+        <CarouselLayout style={contentStyle}>
+          <Image
+            src={`${process.env.REACT_APP_API_SECOND_ROOT}/${siteBlog?.picture}`}
+            alt="first"
+          />
           <TextContent className="tdau-item">
             <LeftContent>
               <h2>{siteBlog?.title}</h2>
@@ -164,8 +179,9 @@ export function CarouselComponent({ first, second, third, four, id }) {
                 Undergraduate and Postgraduate courses!
               </p>
               <MainBtnWrap style={{ marginTop: '16px' }}>
-
-                <MainBtn type="button" onClick={() => apply(id)}>Apply</MainBtn>
+                <MainBtn type="button" onClick={() => apply(id)}>
+                  Apply
+                </MainBtn>
               </MainBtnWrap>
             </LeftContent>
             <RightContent className="tdau-item-two">
@@ -184,7 +200,6 @@ export function CarouselComponent({ first, second, third, four, id }) {
             </RightContent>
           </TextContent>
         </CarouselLayout>
-
         {/* <CarouselLayout style={contentStyle}>
           <Image src={second} alt="second" />
           <TextContent className="tdau-item">
@@ -298,6 +313,5 @@ export function CarouselComponent({ first, second, third, four, id }) {
         phoneNumber={phoneNumber}
       />
     </>
-
   );
 }

@@ -6,14 +6,13 @@ import { useForm, Controller } from 'react-hook-form';
 import { PhoneMask } from 'components/mask';
 import { authApi } from 'services/api/pagesApi';
 import { Modal } from 'antd';
-import toast from 'react-hot-toast'
-
+import toast from 'react-hot-toast';
 
 export function Registration({
   setConfirmModel,
   setRegisterModel,
   registerModel,
-  setPhoneNumber
+  setPhoneNumber,
 }) {
   const {
     handleSubmit,
@@ -21,6 +20,7 @@ export function Registration({
     formState: { errors },
   } = useForm();
   const [isLoading, setIsLoading] = useState(false);
+
   async function onSubmit(data) {
     let formData = new FormData();
     formData.append('username', data?.username);
@@ -30,21 +30,30 @@ export function Registration({
     setPhoneNumber(`+998${data?.phone}`);
     try {
       setIsLoading(true);
-      await authApi.registration(formData);
-      setIsLoading(false);
-      setConfirmModel(true);
+      const res = await authApi.registration(formData);
+      console.log(res);
+      // if (res) {
       setRegisterModel(false);
+      setConfirmModel(true);
+      setIsLoading(false);
+      // }
     } catch (e) {
       console.log(e);
       setIsLoading(false);
-      toast.error(e?.msg)
+      toast.error(e?.msg);
     }
   }
+
   const handleCancel = () => {
     setRegisterModel(false);
-  }
+  };
   return (
-    <Modal title="Login Form" visible={registerModel} footer={false} onCancel={handleCancel}>
+    <Modal
+      title="Login Form"
+      visible={registerModel}
+      footer={false}
+      onCancel={handleCancel}
+    >
       <RegistrationProvider onSubmit={handleSubmit(onSubmit)}>
         <InputComponent
           Controller={Controller}
@@ -87,10 +96,10 @@ export function Registration({
           type="submit"
           title="Продолжить"
           disabled={isLoading}
-          onClick={() => {
-            setConfirmModel(true);
-            setRegisterModel(false);
-          }}
+          // onClick={() => {
+          //   setConfirmModel(true);
+          //   setRegisterModel(false);
+          // }}
         />
       </RegistrationProvider>
     </Modal>
