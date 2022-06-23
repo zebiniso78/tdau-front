@@ -56,6 +56,9 @@ class Admissions extends Api {
   facultiesForeignByID(data) {
     return this.execute('post', `/faculties_foreign_by_id`, data);
   }
+  facultyList(data) {
+    return this.execute('post', `/get_faculty`, data);
+  }
 
 }
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import UserFormSelectComponent from '../../../../components/select';
+import UserFormSelectComponent, { SelectItem } from '../../../../components/select';
 import {
   AcademicInfoProvider,
   AcademicInfoTitle,
@@ -81,22 +81,25 @@ export default function AcademicInformation() {
   useEffect(() => {
     facultyByID()
   }, [universityID])
-  useEffect(() => {
-    if (facultyList?.faculties?.length > 0) {
-      let cloneList = [...facultyList?.faculties]
-      let newList = cloneList?.filter(item => item?.code === watch('tip_programma')?.label)?.map(x => {
-        return {
-          label: x?.name,
-          value: x?.id
-        }
-      })
-      console.log(newList)
-      setFacultyForeign([...newList])
+
+  async function getFaculty() {
+    try {
+      let formData = new FormData()
+      formData.append('type', watch("tip_programma")?.label)
+      let res = await admissionApi.facultyList(formData)
+      SelectItem(res, setFacultyForeign)
+      console.log(res, 'res')
+    } catch (e) {
+      console.log(e)
     }
-  }, [facultyList?.faculties, watch('tip_programma')?.label])
+  }
+  useEffect(() => {
+    if (watch("tip_programma")?.label !== undefined) {
+      getFaculty()
+    }
+  }, [watch("tip_programma")?.label])
 
   const onSubmit = async (data) => {
-    console.log(data);
     try {
       setIsLoading(true);
       let formData = new FormData();

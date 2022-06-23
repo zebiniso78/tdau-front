@@ -50,10 +50,11 @@ export default function Education() {
     } else {
       reset({
         school: defaultValues?.school,
-        qualification: {
-          label: qualifications.find(item => item?.label === defaultValues?.qualification)?.label,
-          value: qualifications.find(item => item?.label === defaultValues?.qualification)?.value,
-        },
+        qualification: defaultValues?.qualification,
+        // qualification: {
+        //   label: qualifications.find(item => item?.label === defaultValues?.qualification)?.label,
+        //   value: qualifications.find(item => item?.label === defaultValues?.qualification)?.value,
+        // },
         qualification_start: moment(defaultValues?.qualification_start)?.toDate(),
         qualification_end: moment(defaultValues?.qualification_end)?.toDate(),
       })
@@ -65,7 +66,7 @@ export default function Education() {
       setIsLoading(true);
       let formData = new FormData();
       formData.append('school', data?.school);
-      formData.append('qualification', data?.qualification?.label);
+      formData.append('qualification', data?.qualification);
       formData.append(
         'qualification_start',
         moment(data?.qualification_start).format('YYYY-MM-DD')
@@ -116,7 +117,7 @@ export default function Education() {
                 )}
               </div>
               <div className="col-lg-4 col-md-6 col-sm-6 col-12">
-                <UserFormSelectComponent
+                {/* <UserFormSelectComponent
                   Controller={Controller}
                   control={control}
                   required={true}
@@ -133,6 +134,20 @@ export default function Education() {
                   <Error className="select-error-tooltip">
                     Iltimos ma'lumotni kiriting!
                   </Error>
+                )} */}
+                <InputComponent
+                  Controller={Controller}
+                  control={control}
+                  nameProps="qualification"
+                  plProps="Получена квалификация*"
+                  label="Получена квалификация*"
+                  // className="mb-0"
+                  className={
+                    errors && errors?.hasOwnProperty('qualification') && 'input-error'
+                  }
+                />
+                {errors && errors?.hasOwnProperty('qualification') && (
+                  <Error>Iltimos ma'lumotni kiriting!</Error>
                 )}
               </div>
             </div>
