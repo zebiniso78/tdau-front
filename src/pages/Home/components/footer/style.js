@@ -29,6 +29,7 @@ export const FooterProvider = styled.footer`
   }
   @media (max-width: 768px) {
     text-align: center;
+    overflow-x: hidden;
     .foot {
       li {
         text-align: center;

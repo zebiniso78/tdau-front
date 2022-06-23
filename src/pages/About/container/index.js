@@ -8,7 +8,7 @@ export default function About() {
   let siteBlog = JSON.parse(localStorage.getItem('blog'));
   console.log(siteBlog?.texts);
   return (
-    <>
+    <div style={{ msOverflowX: 'hidden' }}>
       <AboutMain />
       <AboutContainer type="video">
         <Discover type="magnusUniversity" firstInfo={siteBlog?.description} />
@@ -24,6 +24,6 @@ export default function About() {
         />
         <Article articles={siteBlog?.texts} />
       </AboutContainer>
-    </>
+    </div>
   );
 }
