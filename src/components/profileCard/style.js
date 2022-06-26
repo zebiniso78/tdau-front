@@ -11,7 +11,8 @@ export const Container = styled.div`
 export const ContentCard = styled.div`
 display: flex;
 width: 100%;
-height: 520px;
+min-height: 520px;
+height: auto;
 align-items: center;
 background: rgba(255, 255, 255, 0.5);
     border: 1.03125px solid ${systemColors.white};
@@ -45,6 +46,12 @@ padding: 0 96px;
 }
 & .right-content{
         /* width: 548px; */
+}
+@media (max-width: 868px) {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 25px 0;
 }
 `
 

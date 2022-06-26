@@ -21,7 +21,7 @@ export function Navigator() {
    const [click, setClick] = useState(false);
    const [button, setButton] = useState(true);
    const location = useLocation()
-
+   let blogID = JSON.parse(localStorage.getItem('blog'))
    const showButton = () => {
       if (window.innerWidth <= 960) {
          setButton(false);
@@ -41,7 +41,7 @@ export function Navigator() {
 
    return (
       <div>
-         <Nav pathName={location.pathname} id={localStorage.getItem('university_id')}>
+         <Nav pathName={location.pathname} id={blogID?.id}>
             <NavContainer>
                <Link to="/">
                   <img src={logoTip} alt="registon" className="logo-image" />
@@ -80,13 +80,13 @@ export function Navigator() {
                      <button className="nav-btn">International Relationship</button>
                   </NavLink>
                   <NavLink href="#contact">
-                     <button className="nav-btn">International partners</button>
-                  </NavLink>
-                  <NavLink href="#contact">
                      <button className="nav-btn">Double degree</button>
                   </NavLink>
                   <NavLink href="#contact">
-                     <button className="nav-btn">Contacts</button>
+                     <button className="nav-btn">Campus Life</button>
+                  </NavLink>
+                  <NavLink href="#contact">
+                     <button className="nav-btn">Quick Links</button>
                   </NavLink>
                   <NavLink href="#contact">
                      <button className="nav-btn">Eng</button>

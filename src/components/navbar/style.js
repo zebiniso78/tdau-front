@@ -4,25 +4,26 @@ import { Select } from "antd";
 import { systemColors } from "assets/styles/colors";
 
 export const Nav = styled.nav`
-  /* position: ${props => (props.pathName !== `/` || props.pathName !== `/university-admissions/personal-info`) ? 'absolute' : 'static'}; */
+  /* position: ${props => (props.pathName === `/partner-universities/blog/${props?.id}`) ? 'absolute' : 'static'}; */
   /* position: absolute; */
   top: 0;
   width: 100%;
   margin: 0 auto;
   background-color: rgba(255, 255, 255, 0.1);
-  /* backdrop-filter: ${props => props.pathName !== `/` ? 'blur(150px)' : 'blur(0px)'}; */
+  /* backdrop-filter: blur(150px); */
+  /* backdrop-filter: ${props => props.pathName === `/partner-universities/blog/${props?.id}` ? 'blur(150px)' : 'blur(0px) !important'}; */
   font-family: "DM Sans", sans-serif;
   height: 96px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 10000;
+  z-index: 1000;
   @media (max-width: 676px) {
     width: calc(100% - 20px);
   }
-  /* @media (max-width: 960px) {
+  @media (max-width: 960px) {
     backdrop-filter: blur(0px) !important;
-  } */
+  }
 `;
 export const NavContainer = styled.div`
  display: flex;
@@ -114,22 +115,6 @@ export const NavLink = styled(Link)`
     color: black;
   }
 `;
-// export const BtnLink = styled(Link)`
-//   .login-btn {
-//     width: 160px;
-//     height: 40px;
-//     background: var(--btn_color);
-//     border-radius: 8px;
-//     color: white;
-//     border: none;
-//     &:focus {
-//       outline: none;
-//     }
-//     img {
-//       width: 220px;
-//     }
-//   }
-// `;
 export const PhoneLink = styled.a`
   color: #000;
   display: none;
@@ -305,7 +290,7 @@ export const NavDropMenu = styled.ul`
   list-style-type: none;
   padding: 1.2rem;
   margin: 0;
-  z-index: 99999;
+  z-index: 100000;
   color: #142F38;
   font-family: 'Poppins', "Inter";
   text-align: start;

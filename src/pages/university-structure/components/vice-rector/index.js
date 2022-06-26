@@ -9,8 +9,8 @@ export function ViceRector({ title }) {
     <ViceRectorProvider>
       <Title>{title}</Title>
       <Row gutter={[16, 16]}>
-        {staff.map((item) => (
-          <Col span={24} md={8}>
+        {staff?.map((item) => (
+          <Col span={24} md={12} lg={8}>
             <UserCard item={item} />
           </Col>
         ))}

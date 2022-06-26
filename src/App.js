@@ -14,6 +14,7 @@ import About from 'pages/About/container';
 import Admissions from 'pages/addmission/container';
 import RectorsMessage from 'pages/test-pages/rector-massage/container';
 import UniversityStructure from 'pages/university-structure/container';
+import Levels from 'pages/Levels/container';
 
 
 
@@ -35,6 +36,7 @@ function App() {
         <Route path="/university-admissions" component={Admissions} />
         <Route path='/partner-universities/blog/:id' component={About} />
         <Route path='/university-structure' component={UniversityStructure} />
+        <Route path='/levels' component={Levels} />
         <Layout />
       </Switch>
       <Footer />
