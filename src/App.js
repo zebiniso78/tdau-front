@@ -36,7 +36,7 @@ function App() {
         <Route path="/university-admissions" component={Admissions} />
         <Route path='/partner-universities/blog/:id' component={About} />
         <Route path='/university-structure' component={UniversityStructure} />
-        <Route path='/levels' component={Levels} />
+        <Route path='/programmes' component={Levels} />
         <Layout />
       </Switch>
       <Footer />

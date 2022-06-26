@@ -10,7 +10,6 @@ export const Nav = styled.nav`
   width: 100%;
   margin: 0 auto;
   background-color: rgba(255, 255, 255, 0.1);
-  /* backdrop-filter: blur(150px); */
   /* backdrop-filter: ${props => props.pathName === `/partner-universities/blog/${props?.id}` ? 'blur(150px)' : 'blur(0px) !important'}; */
   font-family: "DM Sans", sans-serif;
   height: 96px;
@@ -21,9 +20,9 @@ export const Nav = styled.nav`
   @media (max-width: 676px) {
     width: calc(100% - 20px);
   }
-  @media (max-width: 960px) {
+  /* @media (max-width: 960px) {
     backdrop-filter: blur(0px) !important;
-  }
+  } */
 `;
 export const NavContainer = styled.div`
  display: flex;
@@ -294,7 +293,8 @@ export const NavDropMenu = styled.ul`
   color: #142F38;
   font-family: 'Poppins', "Inter";
   text-align: start;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(250px);
   border-radius: 23px;
   /* opacity: 0.75; */
   box-shadow: 0px 10px 25px #DFD9CE;

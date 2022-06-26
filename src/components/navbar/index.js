@@ -72,7 +72,11 @@ export function Navigator() {
                               University's structure
                            </Link>
                         </li>
-                        <li>Programmes</li>
+                        <li>
+                           <Link to='/programmes' style={{ textDecoration: 'none', color: '#142F38' }}>
+                              Programmes
+                           </Link>
+                        </li>
                         <li>Branches</li>
                      </NavDropMenu>
                   </NavDropMenuWrapper>
