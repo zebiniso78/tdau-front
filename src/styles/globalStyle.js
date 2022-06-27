@@ -111,7 +111,7 @@ export const MainLayoutProvider = styled.div`
   width: 100%;
   height: 110vh;
   background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0px 11.17px 27.93px #DFD9CE;
+  box-shadow: 0px 11.17px 27.93px #dfd9ce;
   /* -filter: blur(250px); */
   @media (max-width: 768px) {
     height: auto;
@@ -121,6 +121,9 @@ export const MainLayoutProvider = styled.div`
 export const Container = styled.div`
   margin: 0 auto;
   width: calc(100% - 100px);
+  @media (max-width: 768px) {
+    width: calc(100% - 20px);
+  }
 `;
 export const LandingTitle = styled.h3`
   font-family: 'Inter';
@@ -140,6 +143,12 @@ export const CardProvider = styled.div`
   height: auto;
   margin: 70px 0;
   box-shadow: none !important;
+  @media (max-width: 768px) {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 30px;
+  }
   .button {
     position: absolute;
     width: 40px;
@@ -150,10 +159,10 @@ export const CardProvider = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #142E38;
+    color: #142e38;
     font-size: 20px;
     background: rgba(255, 255, 255, 0.15);
-box-shadow: 0px 5px 12.5px #DFD9CE;
+    box-shadow: 0px 5px 12.5px #dfd9ce;
     cursor: pointer;
     bottom: 50%;
     &:hover {

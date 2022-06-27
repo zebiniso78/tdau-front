@@ -7,9 +7,15 @@ import { authApi } from 'services/api/pagesApi';
 import { InputComponent } from 'components/input/controllerInput';
 import { useHistory } from 'react-router-dom';
 import { Modal } from 'antd';
-import toast from 'react-hot-toast'
+import toast from 'react-hot-toast';
 
-export function Login({ setModal, setRegisterModel, handleCancel, isModalVisible, setIsModalVisible }) {
+export function Login({
+  setModal,
+  setRegisterModel,
+  handleCancel,
+  isModalVisible,
+  setIsModalVisible,
+}) {
   const [isLoading, setIsLoading] = useState(false);
   const history = useHistory();
   const {
@@ -21,7 +27,7 @@ export function Login({ setModal, setRegisterModel, handleCancel, isModalVisible
   } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data)
+    console.log(data);
     try {
       setIsLoading(true);
       let formData = new FormData();
@@ -36,7 +42,7 @@ export function Login({ setModal, setRegisterModel, handleCancel, isModalVisible
       } else {
         history.push('/personal-info');
       }
-      toast.success('Вы успешно вошли в систему')
+      toast.success('Вы успешно вошли в систему');
     } catch (e) {
       console.log(e);
       setIsLoading(false);
@@ -44,12 +50,14 @@ export function Login({ setModal, setRegisterModel, handleCancel, isModalVisible
     }
   };
 
-
-
-
   return (
     <>
-      <Modal title="Login Form" visible={isModalVisible} footer={false} onCancel={handleCancel} >
+      <Modal
+        title="Login Form"
+        visible={isModalVisible}
+        footer={false}
+        onCancel={handleCancel}
+      >
         <form onSubmit={handleSubmit(onSubmit)}>
           {/* <PhoneMask
             Controller={Controller}
@@ -82,13 +90,13 @@ export function Login({ setModal, setRegisterModel, handleCancel, isModalVisible
           <div className="footer-button__wrapper">
             <Button type="submit" title="Вход" disabled={isLoading} />
             <Button
-              type="submit"
+              type="button"
               title="Зарегистрироваться"
               bgColor="transparent"
               color="#2e7df6"
               onClick={() => {
-                setRegisterModel(true)
-                setIsModalVisible(false)
+                setRegisterModel(true);
+                setIsModalVisible(false);
               }}
             />
           </div>

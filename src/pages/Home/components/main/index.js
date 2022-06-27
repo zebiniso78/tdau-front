@@ -1,21 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import {
-  MainWrapper, MainLeft,
-  MainRight, MainInfo,
-  MainInfoTitle, MainInfoDescription,
-  MainBtnWrap, MainBtn, MainFooter, MainFooterLeft, MainFooterRight, TopTour, MainFooterImage
-} from './style'
-import RightImage from "assets/main/right.svg"
-import FooterImage from 'assets/main/footer_image.png'
-import { MainLayoutProvider } from 'styles/globalStyle'
-import { Login } from 'components/MainPage/Navbar/login'
-import { Registration } from 'components/MainPage/Navbar/registration'
-import { Verify } from 'components/MainPage/Navbar/verify'
-import { useHistory } from 'react-router-dom'
-import Ellipse from 'assets/rectangles/ellipse_top.png'
+  MainWrapper,
+  MainLeft,
+  MainRight,
+  MainInfo,
+  MainInfoTitle,
+  MainInfoDescription,
+  MainBtnWrap,
+  MainBtn,
+  MainFooter,
+  MainFooterLeft,
+  MainFooterRight,
+  TopTour,
+  MainFooterImage,
+} from './style';
+import RightImage from 'assets/main/right.svg';
+import FooterImage from 'assets/main/footer_image.png';
+import { MainLayoutProvider } from 'styles/globalStyle';
+import { Login } from 'components/MainPage/Navbar/login';
+import { Registration } from 'components/MainPage/Navbar/registration';
+import { Verify } from 'components/MainPage/Navbar/verify';
+import { useHistory } from 'react-router-dom';
+import Ellipse from 'assets/rectangles/ellipse_top.png';
 
 export function MainSection() {
-  const history = useHistory()
+  const history = useHistory();
   const [modal, setModal] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [registerModel, setRegisterModel] = useState(false);
@@ -23,7 +32,7 @@ export function MainSection() {
   const [phoneNumber, setPhoneNumber] = useState(null);
   const showModal = () => {
     if (localStorage.getItem('token')) {
-      history.push("/personal-info")
+      history.push('/personal-info');
     } else {
       setIsModalVisible(true);
     }
@@ -38,28 +47,30 @@ export function MainSection() {
           <MainLeft>
             <MainInfo>
               <TopTour>360° VR tour</TopTour>
-              <MainInfoTitle>
-                Tashkent State Agrarian University
-              </MainInfoTitle>
+              <MainInfoTitle>Tashkent State Agrarian University</MainInfoTitle>
               <MainInfoDescription>
-                Applications are now Open for the Academic year 2022-2023 for  Undergraduate and Postgraduate courses!
+                Applications are now Open for the Academic year 2022-2023 for
+                Undergraduate and Postgraduate courses!
               </MainInfoDescription>
             </MainInfo>
             <MainBtnWrap>
-              <MainBtn
-                type='button'
-                onClick={showModal}>Apply</MainBtn>
+              <MainBtn type="button" onClick={showModal}>
+                Apply
+              </MainBtn>
             </MainBtnWrap>
           </MainLeft>
           <MainRight>
-            <img src={RightImage} alt='right-image' />
+            <img src={RightImage} alt="right-image" />
           </MainRight>
           <MainFooter>
             <MainFooterLeft>
               <img src={FooterImage} alt="mainFooter" />
             </MainFooterLeft>
             <MainFooterRight>
-              <p>Our knowledge forms the foundation of a sustainable, thriving and better world. </p>
+              <p>
+                Our knowledge forms the foundation of a sustainable, thriving
+                and better world.{' '}
+              </p>
             </MainFooterRight>
           </MainFooter>
         </MainWrapper>
@@ -83,12 +94,12 @@ export function MainSection() {
           setRegisterModel={setRegisterModel}
           confirmModel={confirmModel}
           phoneNumber={phoneNumber}
-        // handleCancel={handleCancel}
+          // handleCancel={handleCancel}
         />
         <MainFooterImage>
-          <img src={Ellipse} alt='ellipse' />
+          <img src={Ellipse} alt="ellipse" />
         </MainFooterImage>
       </MainLayoutProvider>
     </>
-  )
+  );
 }

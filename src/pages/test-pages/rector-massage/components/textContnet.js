@@ -83,7 +83,7 @@ function TextContnet({ add_info, work_activities, photo }) {
 
         {work_activities?.map((x, i) => (
           <p key={i}>
-            <b>{x?.key}</b> {x?.value}
+            <b>{x?.key}:</b> {x?.value}
           </p>
         ))}
         {/* <p>

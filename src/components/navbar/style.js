@@ -1,17 +1,22 @@
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { Select } from "antd";
-import { systemColors } from "assets/styles/colors";
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { Select } from 'antd';
+import { systemColors } from 'assets/styles/colors';
 
 export const Nav = styled.nav`
-  /* position: ${props => (props.pathName === `/partner-universities/blog/${props?.id}`) ? 'absolute' : 'static'}; */
+  /* position: ${(props) =>
+    props.pathName !== `/` ||
+      props.pathName !== `/university-admissions/personal-info`
+      ? 'absolute'
+      : 'static'}; */
   /* position: absolute; */
   top: 0;
   width: 100%;
   margin: 0 auto;
   background-color: rgba(255, 255, 255, 0.1);
-  /* backdrop-filter: ${props => props.pathName === `/partner-universities/blog/${props?.id}` ? 'blur(150px)' : 'blur(0px) !important'}; */
-  font-family: "DM Sans", sans-serif;
+  /* backdrop-filter: ${(props) =>
+    props.pathName !== `/` ? 'blur(150px)' : 'blur(0px)'}; */
+  font-family: 'DM Sans', sans-serif;
   height: 96px;
   display: flex;
   justify-content: space-between;
@@ -25,20 +30,20 @@ export const Nav = styled.nav`
   } */
 `;
 export const NavContainer = styled.div`
- display: flex;
- justify-content: space-between;
- align-items: center;
- width: calc(100% - 100px);
- margin: 0 auto;
- @media (max-width: 400px) {
-   width: 100%;
- }
- & img {
-   width: 180px;
- }
-`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100% - 100px);
+  margin: 0 auto;
+  @media (max-width: 400px) {
+    width: 100%;
+  }
+  & img {
+    width: 180px;
+  }
+`;
 export const AntdSelect = styled(Select)`
-color: ${systemColors.mainBlue} !important;
+  color: ${systemColors.mainBlue} !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,9 +53,9 @@ color: ${systemColors.mainBlue} !important;
   padding: 0 1rem;
   margin-top: 13px;
   font-size: 18.6px;
-`
+`;
 export const NavLink = styled(Link)`
-  color: #142F38 !important;
+  color: #142f38 !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,19 +70,19 @@ export const NavLink = styled(Link)`
     color: ${systemColors.mainBlue} !important;
   }
   &:after {
-      content: "";
-      position: absolute;
-      width: 0px;
-      height: 5px;
-      left: 50%;
-      bottom: 0;
-      background-color: ${systemColors.mainBlue};
-      transition: all ease-in-out 0.2s;
-    }
-    &:after:hover {
-      width: 100%;
-      left:0;
-    }
+    content: '';
+    position: absolute;
+    width: 0px;
+    height: 5px;
+    left: 50%;
+    bottom: 0;
+    background-color: ${systemColors.mainBlue};
+    transition: all ease-in-out 0.2s;
+  }
+  &:after:hover {
+    width: 100%;
+    left: 0;
+  }
   &:hover {
     text-decoration: none !important;
   }
@@ -86,13 +91,13 @@ export const NavLink = styled(Link)`
   }
   .nav-btn {
     margin-top: 13px;
-    font-family: "DM Sans", sans-serif;
+    font-family: 'DM Sans', sans-serif;
     transition: all 0.5s;
     background-color: transparent;
     border: none;
     font-family: 'Inter', sans-serif;
     font-weight: 700;
-    color: #142F38;
+    color: #142f38;
     font-size: 16px;
     cursor: pointer;
     &:focus {
@@ -102,7 +107,7 @@ export const NavLink = styled(Link)`
   .language-select {
     &:focus {
       border: none !important;
-      box-shadow: none !important; 
+      box-shadow: none !important;
     }
   }
   @media (max-width: 576px) {
@@ -167,7 +172,7 @@ export const NavMenu = styled.ul`
     top: 90px;
     /* top: ${({ click }) => (click ? '90px' : '-90vh')}; */
     /* left: 0; */
-    left: ${({ click }) => (click ? 0 : "-105%")};
+    left: ${({ click }) => (click ? 0 : '-105%')};
     opacity: 1;
     transition: all 0.5s ease;
     background: rgba(255, 255, 255, 0.4);
@@ -194,8 +199,6 @@ export const SelectWrapper = styled.div`
   ul li:first-child {
     opacity: 1;
   }
- 
-  
 `;
 
 export const LanguageStyled = styled.ol`
@@ -203,12 +206,12 @@ export const LanguageStyled = styled.ol`
   width: 140px;
   height: 44.4px;
   border-radius: 12px;
-  padding: 0; 
+  padding: 0;
   margin-bottom: 0 !important;
   font-size: 18.6px !important;
   font-weight: 400;
   list-style: none;
-  color: #3D68FF;
+  color: #3d68ff;
   cursor: pointer;
 
   & li > ol {
@@ -224,7 +227,7 @@ export const LanguageStyled = styled.ol`
     font-weight: 400;
     opacity: 0;
     z-index: -1;
-    color: #3D68FF;
+    color: #3d68ff;
     padding-top: 38px;
     padding-bottom: 10px;
     /* line-height: 30px; */
@@ -289,15 +292,15 @@ export const NavDropMenu = styled.ul`
   list-style-type: none;
   padding: 1.2rem;
   margin: 0;
-  z-index: 100000;
-  color: #142F38;
-  font-family: 'Poppins', "Inter";
+  z-index: 99999;
+  color: #142f38;
+  font-family: 'Poppins', 'Inter';
   text-align: start;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(250px);
   border-radius: 23px;
   /* opacity: 0.75; */
-  box-shadow: 0px 10px 25px #DFD9CE;
+  box-shadow: 0px 10px 25px #dfd9ce;
   li {
     font-weight: 700;
     font-size: 16px;
@@ -306,12 +309,12 @@ export const NavDropMenu = styled.ul`
   li:hover {
     color: #000;
   }
-`
+`;
 
 export const NavDropMenuWrapper = styled.div`
-position: relative;
-z-index: 10000 !important;
-color: #142F38 !important;
+  position: relative;
+  z-index: 10000 !important;
+  color: #142f38 !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -324,28 +327,28 @@ color: #142F38 !important;
     display: inline-block;
   }
   &:after {
-      content: "";
-      position: absolute;
-      width: 0px;
-      height: 5px;
-      left: 50%;
-      bottom: 0;
-      background-color: ${systemColors.mainBlue};
-      transition: all ease-in-out 0.2s;
-    }
-    &:after:hover {
-      width: 100%;
-      left:0;
-    }
+    content: '';
+    position: absolute;
+    width: 0px;
+    height: 5px;
+    left: 50%;
+    bottom: 0;
+    background-color: ${systemColors.mainBlue};
+    transition: all ease-in-out 0.2s;
+  }
+  &:after:hover {
+    width: 100%;
+    left: 0;
+  }
   .nav-btn {
     margin-top: 13px;
-    font-family: "DM Sans", sans-serif;
+    font-family: 'DM Sans', sans-serif;
     transition: all 0.5s;
     background-color: transparent;
     border: none;
     font-family: 'Inter', sans-serif;
     font-weight: 700;
-    color: #142F38;
+    color: #142f38;
     font-size: 16px;
     cursor: pointer;
     &:focus {
@@ -355,4 +358,4 @@ color: #142F38 !important;
   @media (max-width: 960px) {
     color: black;
   }
-`
+`;

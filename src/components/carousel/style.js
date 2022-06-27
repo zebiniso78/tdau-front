@@ -52,11 +52,13 @@ export const LeftContent = styled.div`
   font-size: 20px;
   line-height: 1.5;
   @media (max-width: 991px) {
-    padding: 20px;
+    padding: 24px 30px;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
-    height: 70%;
+    border-radius: 16px;
+    /* height: 70%; */
+    min-height: auto !important;
     h2 {
       font-size: 32px;
       line-height: 1.5;
