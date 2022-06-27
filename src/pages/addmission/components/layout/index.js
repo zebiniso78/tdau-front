@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useEffect } from 'react';
 import { LayoutProvider, DocumentCard, DocumentCardProvider } from './style';
 import 'antd/dist/antd.css';
 import TimeLine from './timeline';
@@ -42,6 +42,12 @@ export function Layout() {
     localStorage.removeItem('token');
     history.push('/');
   }
+
+  useEffect(() => {
+    if (localStorage.getItem('step') == 8) {
+      history.push('/admission');
+    }
+  }, []);
   return (
     <LayoutProvider>
       <div className="container">
