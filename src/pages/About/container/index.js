@@ -6,7 +6,6 @@ import { Video } from '../components/video';
 
 export default function About() {
   let siteBlog = JSON.parse(localStorage.getItem('blog'));
-  console.log(siteBlog?.texts);
   return (
     <>
       <AboutMain />
