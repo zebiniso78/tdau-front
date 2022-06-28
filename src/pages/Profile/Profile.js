@@ -63,7 +63,7 @@ function Profile() {
                 <>
                   {/* Accepted  */}
                   <div className="row align-items-center">
-                    <div className="col-6 col-md-8 col-lg-9">
+                    <div className="col-12">
                       <Alert
                         message="Your admission accepted!"
                         description="You have been successfully admitted to the student body! you have been provided with a login and password to log in!"
@@ -72,7 +72,7 @@ function Profile() {
                         banner
                       />
                     </div>
-                    <div className="col-6 col-md-4 col-lg-3 ">
+                    {/* <div className="col-6 col-md-4 col-lg-3 ">
                       <Alert
                         message={`Login : ${data?.username} `}
                         description={`Password : ${data?.password}`}
@@ -80,7 +80,7 @@ function Profile() {
                         banner
                         showIcon={false}
                       />
-                    </div>
+                    </div> */}
                   </div>
                   {/* Accepted end */}
                 </>

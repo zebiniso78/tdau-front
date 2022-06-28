@@ -16,7 +16,7 @@ import { admissionApi } from 'services/api/pagesApi';
 export default function AdditionalInformation() {
   const history = useHistory();
   const [modal, setModal] = useState(false);
-  const [addMissionID, setAddMissionID] = useState(null)
+  const [addMissionID, setAddMissionID] = useState(null);
   const {
     control,
     watch,
@@ -26,28 +26,29 @@ export default function AdditionalInformation() {
   useEffect(() => {
     async function AdditionalInfo() {
       try {
-        const res = await admissionApi.admissionGet(null)
-        setAddMissionID(res?.id)
+        const res = await admissionApi.admissionGet(null);
+        console.log(res);
+        setAddMissionID(res?.id);
       } catch (e) {
-        console.log(e)
+        console.log(e);
       }
     }
-    AdditionalInfo()
-  }, [])
+    AdditionalInfo();
+  }, []);
   async function handleSubmit(e) {
-    e.preventDefault()
-    localStorage.setItem('step', 8)
+    e.preventDefault();
+    localStorage.setItem('step', 8);
     try {
-      let formData = new FormData()
-      formData.append('adm_id', addMissionID)
-      admissionApi.admissionConfirm(formData)
+      let formData = new FormData();
+      formData.append('adm_id', addMissionID);
+      admissionApi.admissionConfirm(formData);
       // toast.success("Addmission successfully created")
-      setModal(true)
+      setModal(true);
       setTimeout(() => {
-        history.push("/admission")
-      }, 1000)
+        history.push('/admission');
+      }, 1000);
     } catch (e) {
-      console.log(e)
+      console.log(e);
     }
   }
   useEffect(() => {
@@ -55,6 +56,7 @@ export default function AdditionalInformation() {
       history.push('/personal-info');
     }
   }, []);
+
   return (
     <>
       <AdditionalInfoProvider onSubmit={handleSubmit} className="container">
@@ -113,11 +115,11 @@ export default function AdditionalInformation() {
           <NextBtnComponent
             name="Отправлять"
             className="next-btn"
-            disabled={watch("yes") ? false : true}
-            type='submit'
-          // onClick={() => {
-          //   setModal(true);
-          // }}
+            disabled={watch('yes') ? false : true}
+            type="submit"
+            // onClick={() => {
+            //   setModal(true);
+            // }}
           />
         </ButtonWrapper>
       </AdditionalInfoProvider>
