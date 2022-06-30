@@ -5,6 +5,7 @@ import { fetchData } from 'hooks/useFetch'
 import { newsApi } from 'services/api/pagesApi'
 import moment from 'moment'
 import 'moment/locale/he';
+import { FirebaseLoader } from 'components/firebaseLoader'
 
 
 export function News() {
@@ -13,7 +14,6 @@ export function News() {
   useEffect(() => {
     fetchData(newsApi.readNews(null), setNews, setIsFetch)
   }, [])
-  console.log(news, 'news')
   return (
     <LatestNewsProvider>
       <NewsTitle>Latest news</NewsTitle>
@@ -38,7 +38,7 @@ export function News() {
               </ImageLayout>
             </Col>
           )
-          ) : <p>no data</p>
+          ) : <FirebaseLoader />
         }
       </Row>
     </LatestNewsProvider>

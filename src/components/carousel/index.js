@@ -60,13 +60,13 @@ export function CarouselComponent({ first, second, third, four, id }) {
   useEffect(() => {
     fetchData(admissionApi.allUniversityID(null), setEntityID, setLoader);
   }, []);
-  console.log(siteBlog, 'siteBlog');
   return (
     <>
       <Carousel autoplay effect="fade">
         <CarouselLayout style={contentStyle}>
           <Image
-            src={`${process.env.REACT_APP_API_SECOND_ROOT}/${siteBlog?.picture}`}
+            // src={`${process.env.REACT_APP_API_SECOND_ROOT}/${siteBlog?.picture}`}
+            src={first}
             alt="first"
           />
           <TextContent className="tdau-item">
@@ -100,7 +100,8 @@ export function CarouselComponent({ first, second, third, four, id }) {
         </CarouselLayout>
         <CarouselLayout style={contentStyle}>
           <Image
-            src={`${process.env.REACT_APP_API_SECOND_ROOT}/${siteBlog?.picture}`}
+            // src={`${process.env.REACT_APP_API_SECOND_ROOT}/${siteBlog?.picture}`}
+            src={second}
             alt="first"
           />
           <TextContent className="tdau-item">
@@ -134,7 +135,8 @@ export function CarouselComponent({ first, second, third, four, id }) {
         </CarouselLayout>
         <CarouselLayout style={contentStyle}>
           <Image
-            src={`${process.env.REACT_APP_API_SECOND_ROOT}/${siteBlog?.picture}`}
+            // src={`${process.env.REACT_APP_API_SECOND_ROOT}/${siteBlog?.picture}`}
+            src={third}
             alt="first"
           />
           <TextContent className="tdau-item">
@@ -168,7 +170,8 @@ export function CarouselComponent({ first, second, third, four, id }) {
         </CarouselLayout>{' '}
         <CarouselLayout style={contentStyle}>
           <Image
-            src={`${process.env.REACT_APP_API_SECOND_ROOT}/${siteBlog?.picture}`}
+            // src={`${process.env.REACT_APP_API_SECOND_ROOT}/${siteBlog?.picture}`}
+            src={four}
             alt="first"
           />
           <TextContent className="tdau-item">

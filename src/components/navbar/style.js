@@ -296,9 +296,10 @@ export const NavDropMenu = styled.ul`
   color: #142f38;
   font-family: 'Poppins', 'Inter';
   text-align: start;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(250px);
   border-radius: 23px;
+  opacity: 0.95;
   /* opacity: 0.75; */
   box-shadow: 0px 10px 25px #dfd9ce;
   li {
