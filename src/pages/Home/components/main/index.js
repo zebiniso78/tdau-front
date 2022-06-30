@@ -14,7 +14,7 @@ import {
   TopTour,
   MainFooterImage,
 } from './style';
-import RightImage from 'assets/main/right.svg';
+import RightImage from 'assets/main/right.png';
 import FooterImage from 'assets/main/footer_image.png';
 import { MainLayoutProvider } from 'styles/globalStyle';
 import { Login } from 'components/MainPage/Navbar/login';
