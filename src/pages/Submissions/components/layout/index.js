@@ -19,6 +19,7 @@ export function Layout() {
     if (localStorage.getItem('step') == 8) {
       history.push('/admission');
     }
+    localStorage.removeItem('university_id');
   }, []);
 
   return (
