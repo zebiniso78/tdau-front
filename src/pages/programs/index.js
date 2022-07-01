@@ -9,7 +9,7 @@ export default function ProgramsPage() {
   return (
     <div>
       <CarouselComponents
-        id={1}
+        id={'tdau'}
         picture={ProgramPic}
         title="Tashkent State Agrarian University"
         text="Applications are now Open for the Academic year 2022-2023

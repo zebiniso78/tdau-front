@@ -18,6 +18,7 @@ export default function Programs() {
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       time: '15:00 PM',
       img: BachelorImg,
+      link: '/bachelor',
     },
     {
       id: 2,
@@ -26,6 +27,7 @@ export default function Programs() {
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       time: '15:00 PM',
       img: MagistrImg,
+      link: '/magistracy',
     },
     {
       id: 3,
@@ -34,6 +36,7 @@ export default function Programs() {
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       time: '15:00 PM',
       img: PhdImg,
+      link: '/phd',
     },
   ];
 
@@ -97,7 +100,7 @@ export default function Programs() {
         {Items?.map((x, i) => (
           <Col key={i} span={24} md={8}>
             <CardComponent
-              onClick={() => history.push('/bachelour')}
+              onClick={() => history.push(x?.link)}
               status={x?.name}
               image={x?.img}
               type="event_calendar"

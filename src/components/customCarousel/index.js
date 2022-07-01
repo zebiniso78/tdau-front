@@ -46,9 +46,13 @@ export function CustomCarouselComponent({ first, title, text, id }) {
   };
 
   function apply(id) {
-    localStorage.setItem('university_id', id);
-    if (token && localStorage.getItem('university_id')) {
-      history.push('/university-admissions/personal-info');
+    // localStorage.setItem('university_id', id);
+    // if (token && localStorage.getItem('university_id')) {
+    //   history.push('/university-admissions/personal-info');
+    // }
+
+    if (localStorage.getItem('token')) {
+      history.push('/personal-info');
     } else {
       showModal();
       // localStorage.setItem('university_id', JSON.stringify(id));
