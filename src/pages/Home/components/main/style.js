@@ -40,8 +40,10 @@ export const TopTour = styled.div`
 `;
 export const MainRight = styled.div`
   width: 50%;
-  @media (max-width: 768px) {
+  @media (max-width: 960px) {
     width: 100%;
+    text-align: center;
+    padding-top: 24px;
   }
   & img {
     width: 75%;

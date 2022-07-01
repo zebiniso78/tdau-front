@@ -4,18 +4,11 @@ import { Select } from 'antd';
 import { systemColors } from 'assets/styles/colors';
 
 export const Nav = styled.nav`
-  /* position: ${(props) =>
-    props.pathName !== `/` ||
-      props.pathName !== `/university-admissions/personal-info`
-      ? 'absolute'
-      : 'static'}; */
-  /* position: absolute; */
   top: 0;
   width: 100%;
   margin: 0 auto;
   background-color: rgba(255, 255, 255, 0.1);
-  /* backdrop-filter: ${(props) =>
-    props.pathName !== `/` ? 'blur(150px)' : 'blur(0px)'}; */
+
   font-family: 'DM Sans', sans-serif;
   height: 96px;
   display: flex;
@@ -25,9 +18,6 @@ export const Nav = styled.nav`
   @media (max-width: 676px) {
     width: calc(100% - 20px);
   }
-  /* @media (max-width: 960px) {
-    backdrop-filter: blur(0px) !important;
-  } */
 `;
 export const NavContainer = styled.div`
   display: flex;
@@ -110,13 +100,16 @@ export const NavLink = styled(Link)`
       box-shadow: none !important;
     }
   }
+  @media (max-width: 960px) {
+    color: black;
+    .nav-btn {
+      margin-top: 0;
+    }
+  }
   @media (max-width: 576px) {
     img {
       width: 130px !important;
     }
-  }
-  @media (max-width: 960px) {
-    color: black;
   }
 `;
 export const PhoneLink = styled.a`
@@ -126,7 +119,6 @@ export const PhoneLink = styled.a`
   text-decoration: none !important;
   transition: 0.4s ease-in-out;
   padding: 0 1rem;
-  /* height: 100%; */
   @media (max-width: 960px) {
     display: flex;
     justify-content: center;
@@ -160,26 +152,33 @@ export const NavMenu = styled.ul`
   justify-content: center;
   align-items: center;
   text-align: center;
-  @media screen and (max-width: 960px) {
-    display: flex;
+  @media screen and (max-width: 991px) {
     flex-direction: column;
     justify-content: flex-start;
-    position: absolute;
-    width: 100%;
-    height: 90vh;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
     padding: 0;
     z-index: 10000;
-    top: 90px;
-    /* top: ${({ click }) => (click ? '90px' : '-90vh')}; */
-    /* left: 0; */
-    left: ${({ click }) => (click ? 0 : '-105%')};
+    top: 0;
+    left: 0;
+    transform: translateX(${({ click }) => (click ? 0 : '105%')});
     opacity: 1;
     transition: all 0.5s ease;
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(150px) !important;
+    background: #f6f1ea;
   }
   @media (max-width: 676px) {
     width: 100%;
+  }
+`;
+
+export const WrapperMedia = styled.div`
+  display: none;
+  width: 100%;
+  padding: 24px;
+  padding-right: 16px;
+  @media (max-width: 991px) {
+    display: block;
   }
 `;
 
@@ -260,11 +259,9 @@ export const LanguageBody = styled.div`
   top: 0;
   left: 0;
   width: 140px;
-  /* height: 44.4px; */
   display: flex;
   flex-wrap: wrap;
   font-size: 18.6px !important;
-  /* justify-content: center; */
   align-items: center;
   border-radius: 12px;
   background: #ffffff;
@@ -276,7 +273,6 @@ export const LanguageBody = styled.div`
 `;
 export const Language = styled.div`
   width: 100%;
-  /* font-weight: bold; */
   display: flex;
   justify-content: center;
   z-index: 2;
@@ -291,23 +287,41 @@ export const NavDropMenu = styled.ul`
   left: 0;
   list-style-type: none;
   padding: 1.2rem;
+  padding-top: 8px;
   margin: 0;
   z-index: 99999;
   color: #142f38;
   font-family: 'Poppins', 'Inter';
   text-align: start;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(250px);
   border-radius: 23px;
-  /* opacity: 0.75; */
   box-shadow: 0px 10px 25px #dfd9ce;
   li {
     font-weight: 700;
     font-size: 16px;
+    margin-top: 8px;
     width: 100%;
   }
   li:hover {
     color: #000;
+  }
+
+  @media (max-width: 960px) {
+    position: static;
+    background-color: transparent;
+    backdrop-filter: blur(0);
+    box-shadow: none;
+    text-align: center;
+    padding-bottom: 0;
+    padding-top: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    height: ${({ dropdowntype }) => (dropdowntype === true ? 'auto' : '8px')};
+    opacity: ${({ dropdowntype }) => (dropdowntype === true ? 1 : 0)};
+    li {
+      padding: 0 16px;
+    }
   }
 `;
 
@@ -323,6 +337,7 @@ export const NavDropMenuWrapper = styled.div`
   padding: 0 1rem;
   height: 10%;
   cursor: pointer;
+
   &:hover ul {
     display: inline-block;
   }
@@ -357,5 +372,10 @@ export const NavDropMenuWrapper = styled.div`
   }
   @media (max-width: 960px) {
     color: black;
+    flex-direction: column;
+    height: auto;
+    ul {
+      display: inline-block;
+    }
   }
 `;
