@@ -3,8 +3,10 @@ import styled from 'styled-components';
 export const CarouselLayout = styled.div`
   position: relative;
   min-height: 100vh;
-  /* top: -50px; */
   backdrop-filter: blur(10px);
+  @media (max-width: 991px) {
+    min-height: 70vh !important;
+  }
 `;
 
 export const TextContent = styled.div`
@@ -60,7 +62,7 @@ export const LeftContent = styled.div`
     /* height: 70%; */
     min-height: auto !important;
     h2 {
-      font-size: 32px;
+      font-size: 22px;
       line-height: 1.5;
     }
     p {
@@ -131,4 +133,7 @@ export const Image = styled.img`
   vertical-align: middle;
   object-fit: cover;
   object-position: center;
+  @media (max-width: 991px) {
+    min-height: 70vh !important;
+  }
 `;

@@ -20,8 +20,6 @@ import { fetchData } from 'hooks/useFetch';
 import { admissionApi } from 'services/api/pagesApi';
 const contentStyle = {
   width: '100vw',
-  // minHeight: '100vh',
-  // color: 'red',
   lineHeight: '160px',
   textAlign: 'center',
   display: 'flex',

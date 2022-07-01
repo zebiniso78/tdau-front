@@ -21,8 +21,7 @@ import { admissionApi } from 'services/api/pagesApi';
 import Cookies from 'js-cookie';
 const contentStyle = {
   width: '100vw',
-  // minHeight: '100vh',
-  // color: 'red',
+
   lineHeight: '160px',
   textAlign: 'center',
   display: 'flex',
