@@ -17,6 +17,7 @@ import toast from 'react-hot-toast';
 import { useGetList } from '../hooks/useGetList';
 import TwoDate from 'components/calendar/twoDate';
 import moment from 'moment';
+import Calendar from 'components/calendar';
 
 export default function AcademicInformation() {
   const {
@@ -47,15 +48,16 @@ export default function AcademicInformation() {
       formData.append('education_type_id', data?.tip_programma?.value);
       formData.append(
         'accept_deadline',
-        `${moment(data?.srok_priema[0]).format('YYYY') +
-        '-' +
-        moment(data?.srok_priema[1]).format('YYYY')
+        `${
+          moment(data?.srok_priema[0]).format('YYYY') +
+          '-' +
+          moment(data?.srok_priema[1]).format('YYYY')
         }`
       );
 
       formData.append('register_step', 2);
       await admissionApi.admissionPost(formData);
-      toast.success("Академические данные успешно созданы")
+      toast.success('Академические данные успешно созданы');
       history.push('/passport-info');
       setIsLoading(false);
     } catch (e) {
@@ -95,7 +97,22 @@ export default function AcademicInformation() {
         className="row align-items-end"
       >
         <div className="col-lg-4 col-md-6 col-sm-6 col-12">
-          <TwoDate
+          <Calendar
+            Controller={Controller}
+            control={control}
+            required={true}
+            label="Дата начала*"
+            nameProps="srok_priema"
+            plProps="гггг"
+            format="YYYY"
+            className={
+              errors && errors?.hasOwnProperty('srok_priema')
+                ? 'calendar-error'
+                : 'calendar'
+            }
+          />
+
+          {/* <TwoDate
             Controller={Controller}
             control={control}
             required={true}
@@ -110,7 +127,7 @@ export default function AcademicInformation() {
             }
             label="Срок приема*"
             disabled={false}
-          />
+          /> */}
           {/* <UserFormSelectComponent
             Controller={Controller}
             control={control}
@@ -184,7 +201,7 @@ export default function AcademicInformation() {
             className="next-btn"
             type="submit"
             disabled={isLoading}
-          // onClick={() => history.push('/passport-info')}
+            // onClick={() => history.push('/passport-info')}
           />
         </ButtonsProvider>
       </AcademicForm>
