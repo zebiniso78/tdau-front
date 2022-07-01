@@ -21,6 +21,7 @@ export function CardComponent({
   training_date,
   starting_date,
   onClick,
+  description,
 }) {
   return (
     <Card
@@ -40,8 +41,9 @@ export function CardComponent({
           <CardInfo>
             <h5>{status}</h5>
             <p>
-              YOU ARE CORDIALLY INVITED TO THE INTERACTIVE TRAINING SESSION FOR
-              VOLUNTEERS WITH THE DIRECTOR OF
+              {description
+                ? description
+                : 'YOU ARE CORDIALLY INVITED TO THE INTERACTIVE TRAINING SESSION FOR VOLUNTEERS WITH THE DIRECTOR OF'}
             </p>
           </CardInfo>
         ) : (

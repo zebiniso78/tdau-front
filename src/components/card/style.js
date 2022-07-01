@@ -80,13 +80,15 @@ export const CardInfo = styled.div`
     font-weight: 700;
     font-size: 14px;
     color: #142e38;
+    padding: 0 21px;
+    text-align: left;
   }
 `;
 export const TrainingDate = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 71px;
+  width: 90px;
   height: 35px;
   background: #318161;
   font-family: 'Inter';

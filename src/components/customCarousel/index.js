@@ -27,7 +27,7 @@ const contentStyle = {
   justifyContent: 'center',
 };
 
-export function CustomCarouselComponent({ first, second, third, four, id }) {
+export function CustomCarouselComponent({ first, title, text, id }) {
   let token = localStorage.getItem('token');
   let siteBlog = JSON.parse(localStorage.getItem('blog'));
   const [modal, setModal] = useState(false);
@@ -62,17 +62,11 @@ export function CustomCarouselComponent({ first, second, third, four, id }) {
     <>
       <Carousel autoplay effect="fade">
         <CarouselLayout style={contentStyle}>
-          <Image
-            src={`${process.env.REACT_APP_API_SECOND_ROOT}/${siteBlog?.picture}`}
-            alt="first"
-          />
+          <Image src={first} alt="first" />
           <TextContent className="tdau-item">
             <LeftContent>
-              <h2>{siteBlog?.title}</h2>
-              <p>
-                Applications are now Open for the Academic year 2022-2023 for
-                Undergraduate and Postgraduate courses!
-              </p>
+              <h2>{title}</h2>
+              <p>{text}</p>
               <MainBtnWrap style={{ marginTop: '16px' }}>
                 <MainBtn type="button" onClick={() => apply(id)}>
                   Apply
@@ -95,7 +89,7 @@ export function CustomCarouselComponent({ first, second, third, four, id }) {
             </RightContent>
           </TextContent>
         </CarouselLayout>
-        <CarouselLayout style={contentStyle}>
+        {/* <CarouselLayout style={contentStyle}>
           <Image src={second} alt="second" />
           <TextContent className="tdau-item">
             <LeftContent>
@@ -187,7 +181,7 @@ export function CustomCarouselComponent({ first, second, third, four, id }) {
               </div>
             </RightContent>
           </TextContent>
-        </CarouselLayout>
+        </CarouselLayout> */}
       </Carousel>
       <Login
         setModal={setModal}

@@ -3,9 +3,38 @@ import { CardComponent } from 'components/card';
 import { ProgramContainer } from 'pages/programs/style';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-
+import ImageTdaus from 'assets/programs/tdausImg.png';
+import ImageTdausLogo from 'assets/programs/tdaus.png';
 export default function Branches() {
   const history = useHistory();
+
+  const Items = [
+    {
+      id: 1,
+      name: 'Toshkent davlat agrar universiteti Samarqand filiali',
+      img: ImageTdaus,
+      logo: ImageTdausLogo,
+    },
+    {
+      id: 2,
+      name: 'Toshkent davlat agrar universiteti Samarqand filiali',
+      img: ImageTdaus,
+      logo: ImageTdausLogo,
+    },
+    {
+      id: 3,
+      name: 'Toshkent davlat agrar universiteti Samarqand filiali',
+      img: ImageTdaus,
+      logo: ImageTdausLogo,
+    },
+    {
+      id: 4,
+      name: 'Toshkent davlat agrar universiteti Samarqand filiali',
+      img: ImageTdaus,
+      logo: ImageTdausLogo,
+    },
+  ];
+
   return (
     <ProgramContainer className="my-5">
       <h2
@@ -21,42 +50,17 @@ export default function Branches() {
       <br />
 
       <Row gutter={[16, 16]} align="middle" justify="space-between">
-        <Col span={24} md={8}>
-          <CardComponent
-            onClick={() => history.push('/bachelour')}
-            status="Branches"
-            image="https://picsum.photos/400"
-            type="event_calendar"
-            training_date="12 - MAY"
-            title="Branches"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-            starting_date="15:00 PM"
-          />
-        </Col>
-        <Col span={24} md={8}>
-          <CardComponent
-            onClick={() => history.push('/bachelour')}
-            status="Branches"
-            image="https://picsum.photos/400"
-            type="event_calendar"
-            training_date="12 - MAY"
-            title="Branches"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-            starting_date="15:00 PM"
-          />
-        </Col>
-        <Col span={24} md={8}>
-          <CardComponent
-            onClick={() => history.push('/bachelour')}
-            status="Branches"
-            image="https://picsum.photos/400"
-            type="event_calendar"
-            training_date="12 - MAY"
-            title="Branches"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-            starting_date="15:00 PM"
-          />
-        </Col>
+        {Items?.map((item, i) => (
+          <Col key={item?.id} span={24} ms={12} xl={6}>
+            <CardComponent
+              type="university"
+              // onClick={() => blogInfo(item)}
+              image={item?.img}
+              cardLogo={item?.logo}
+              title={item?.name}
+            />
+          </Col>
+        ))}
       </Row>
     </ProgramContainer>
   );
