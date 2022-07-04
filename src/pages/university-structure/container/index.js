@@ -15,7 +15,7 @@ export default function UniversityStructure() {
       />
       <ViceRector
         data={data?.filter((x) => x?.role === 'decan')}
-        title="faculties decanlaries"
+        title="Deans of faculties"
       />
     </Container>
   );

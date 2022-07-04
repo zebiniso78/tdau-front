@@ -15,7 +15,7 @@ export default function Levels() {
         picture={
           pathname == '/bachelor'
             ? Bachelour
-            : pathname == '/magistracy'
+            : pathname == '/Master'
             ? Magistr
             : PHD
         }

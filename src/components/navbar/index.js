@@ -121,7 +121,7 @@ export function Navigator() {
                 </li>
                 <li onClick={handleClick}>
                   <Link
-                    to="/programmes"
+                    to="/about-university"
                     style={{ textDecoration: 'none', color: '#142F38' }}
                   >
                     Programmes

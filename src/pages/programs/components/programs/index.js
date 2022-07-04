@@ -23,11 +23,11 @@ export default function Programs() {
     {
       id: 2,
       faculty_count: 34,
-      name: 'Magistracy',
+      name: 'Master',
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       time: '15:00 PM',
       img: MagistrImg,
-      link: '/magistracy',
+      link: '/Master',
     },
     {
       id: 3,

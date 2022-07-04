@@ -13,8 +13,8 @@ export function Card() {
       <CardTitle>
         {pathname === '/bachelor'
           ? 'Bachelor'
-          : pathname === '/magistracy'
-          ? 'Magistracy'
+          : pathname === '/Master'
+          ? 'Master'
           : 'PHD'}
       </CardTitle>
       <Row gutter={[16, 16]}>

@@ -34,9 +34,9 @@ function App() {
         <Route path="/partner-universities/blog/:id" component={About} />
         <Route path="/university-structure" component={UniversityStructure} />
         <Route path="/bachelor" component={Levels} />
-        <Route path="/magistracy" component={Levels} />
+        <Route path="/Master" component={Levels} />
         <Route path="/phd" component={Levels} />
-        <Route path="/programmes" component={ProgramsPage} />
+        <Route path="/about-university" component={ProgramsPage} />
         <Layout />
       </Switch>
       <Footer />
