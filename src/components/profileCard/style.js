@@ -50,6 +50,11 @@ export const ContentCard = styled.div`
   }
   & .card-container {
     position: relative;
+    width: 50%;
+    @media (max-width: 991px) {
+      width: 100%;
+      padding-bottom: 8px;
+    }
     & .card-img {
       position: absolute;
       object-fit: cover;
