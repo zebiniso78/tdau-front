@@ -102,6 +102,14 @@ export function Navigator() {
               <NavDropMenu dropdowntype={openDropdown}>
                 <li onClick={handleClick}>
                   <Link
+                    to="/about-university"
+                    style={{ textDecoration: 'none', color: '#142F38' }}
+                  >
+                    About University
+                  </Link>
+                </li>
+                <li onClick={handleClick}>
+                  <Link
                     to="/rectors-message"
                     style={{ textDecoration: 'none', color: '#142F38' }}
                   >
@@ -119,14 +127,7 @@ export function Navigator() {
                     University's structure
                   </Link>
                 </li>
-                <li onClick={handleClick}>
-                  <Link
-                    to="/about-university"
-                    style={{ textDecoration: 'none', color: '#142F38' }}
-                  >
-                    Programmes
-                  </Link>
-                </li>
+
                 <li onClick={handleClick}>Branches</li>
               </NavDropMenu>
             </NavDropMenuWrapper>
