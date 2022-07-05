@@ -6,8 +6,11 @@ import Bachelour from 'assets/programs/bachelor.png';
 import Magistr from 'assets/programs/magistr.png';
 import PHD from 'assets/programs/phd.png';
 import { useLocation } from 'react-router-dom';
+import moment from 'moment';
+import useLevels from '../hooks';
 export default function Levels() {
   const { pathname } = useLocation();
+  const { data, prog } = useLevels();
   return (
     <>
       <CarouselLevels
@@ -20,11 +23,13 @@ export default function Levels() {
             : PHD
         }
         title="Tashkent State Agrarian University"
-        text="Applications are now Open for the Academic year 2022-2023
-for Undergraduate and Postgraduate courses!"
+        text={`Applications are now Open for the Academic year  ${parseInt(
+          moment(new Date()).format('YYYY')
+        )}-${parseInt(moment(new Date()).format('YYYY')) + 1}
+for Undergraduate and Postgraduate courses!`}
       />
       <Container>
-        <Card />
+        <Card data={data} program={prog} />
       </Container>
     </>
   );

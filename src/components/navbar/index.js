@@ -131,19 +131,19 @@ export function Navigator() {
                 <li onClick={handleClick}>Branches</li>
               </NavDropMenu>
             </NavDropMenuWrapper>
-            <NavLink onClick={handleClick} href="#">
+            <NavLink to="/university-structure" onClick={handleClick}>
               <button className="nav-btn">International Relationship</button>
             </NavLink>
-            <NavLink onClick={handleClick} href="#contact">
+            <NavLink to="/university-structure" onClick={handleClick}>
               <button className="nav-btn">Double degree</button>
             </NavLink>
-            <NavLink onClick={handleClick} href="#contact">
+            <NavLink to="/university-structure" onClick={handleClick}>
               <button className="nav-btn">Campus Life</button>
             </NavLink>
-            <NavLink onClick={handleClick} href="#contact">
+            <NavLink to="/university-structure" onClick={handleClick}>
               <button className="nav-btn">Quick Links</button>
             </NavLink>
-            <NavLink onClick={handleClick} href="#contact">
+            <NavLink to="/university-structure" onClick={handleClick}>
               <button className="nav-btn">Eng</button>
             </NavLink>
           </NavMenu>

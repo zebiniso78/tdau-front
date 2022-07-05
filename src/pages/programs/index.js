@@ -4,21 +4,31 @@ import CarouselComponents from './components/carousel';
 import AboutComponents from './components/about';
 import Programs from './components/programs';
 import Branches from './components/branches';
-import ProgramPic from 'assets/program.png';
+import useAboutUniver from './hooks';
+import moment from 'moment';
 export default function ProgramsPage() {
+  const [loading, setLoading] = React.useState(true);
+  const { aboutData, programsData, branchesData } = useAboutUniver({
+    setLoading,
+  });
+  console.log('====================================');
+  console.log(branchesData);
+  console.log('====================================');
   return (
     <div>
       <CarouselComponents
         id={'tdau'}
-        picture={ProgramPic}
+        picture={`${process.env.REACT_APP_API_SECOND_ROOT}/${aboutData?.photo1}`}
         title="Tashkent State Agrarian University"
-        text="Applications are now Open for the Academic year 2022-2023
-for Undergraduate and Postgraduate courses!"
+        text={`Applications are now Open for the Academic year  ${parseInt(
+          moment(new Date()).format('YYYY')
+        )}-${parseInt(moment(new Date()).format('YYYY')) + 1}
+for Undergraduate and Postgraduate courses!`}
       />
-      <AboutComponents />
-      <Video url="https://www.youtube.com/watch?v=RRaZwB56djI&ab_channel=NevoMusic" />
-      <Programs />
-      <Branches />
+      <AboutComponents data={aboutData} />
+      <Video url={aboutData?.link} />
+      <Programs data={aboutData} programsData={programsData} />
+      <Branches branchesData={branchesData} />
     </div>
   );
 }
