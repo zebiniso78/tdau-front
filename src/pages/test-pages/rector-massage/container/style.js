@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: calc(100% - 100px);
-
   margin: 0 auto;
+  overflow-x: hidden;
   /* display: flex;
     text-decoration: column; */
 
@@ -23,8 +23,19 @@ export const ContentCard = styled.div`
   border-radius: 17.1875px;
   gap: 50px;
   padding: 0 96px;
+  img {
+    object-fit: contain;
+  }
+  @media (max-width: 991px) {
+    padding: 0 16px;
+    flex-wrap: wrap;
+    height: auto;
+  }
   & .left-img {
     display: flex;
+    @media (max-width: 991px) {
+      width: 100%;
+    }
     & .cubick-rub {
       width: 48px;
       height: 80px;
@@ -32,11 +43,15 @@ export const ContentCard = styled.div`
     }
     img {
       width: 255px;
+      object-fit: contain;
       height: 306px;
     }
   }
   & .card-container {
     position: relative;
+    @media (max-width: 991px) {
+      width: 100%;
+    }
     & .card-img {
       position: absolute;
       object-fit: cover;
@@ -58,6 +73,9 @@ export const H1 = styled.h1`
   font-weight: 400;
   font-size: 39px;
   color: #142e38;
+  @media (max-width: 991px) {
+    font-size: 28px;
+  }
 `;
 export const Position = styled.p`
   font-family: 'Rubik';

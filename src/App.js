@@ -15,12 +15,9 @@ import Admissions from 'pages/addmission/container';
 import RectorsMessage from 'pages/test-pages/rector-massage/container';
 import UniversityStructure from 'pages/university-structure/container';
 import Levels from 'pages/Levels/container';
-
-
-
+import ProgramsPage from 'pages/programs';
 
 function App() {
-
   useEffect(() => {
     Aos.init({ duration: 1500, once: false });
     // setLoading(true);
@@ -29,14 +26,17 @@ function App() {
     <BrowserRouter>
       <Navigator />
       <Switch>
-        <Route path='/rectors-message' exact component={RectorsMessage} />
+        <Route path="/rectors-message" exact component={RectorsMessage} />
         <Route path="/" exact component={Home} />
         <Route path="/personal-info" component={Submissions} />
         <Route path="/admission" component={Profile} />
         <Route path="/university-admissions" component={Admissions} />
-        <Route path='/partner-universities/blog/:id' component={About} />
-        <Route path='/university-structure' component={UniversityStructure} />
-        <Route path='/programmes' component={Levels} />
+        <Route path="/partner-universities/blog/:id" component={About} />
+        <Route path="/university-structure" component={UniversityStructure} />
+        <Route path="/bachelor" component={Levels} />
+        <Route path="/Master" component={Levels} />
+        <Route path="/phd" component={Levels} />
+        <Route path="/about-university" component={ProgramsPage} />
         <Layout />
       </Switch>
       <Footer />

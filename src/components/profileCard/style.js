@@ -16,14 +16,27 @@ export const ContentCard = styled.div`
   width: 100%;
   height: 520px;
   align-items: center;
+  flex-wrap: wrap;
   background: rgba(255, 255, 255, 0.5);
   border: 1.03125px solid ${systemColors.white};
   box-shadow: 0px 9.59922px 24.0023px #dfd9ce;
   border-radius: 17.1875px;
   gap: 50px;
   padding: 0 96px;
+  img {
+    object-fit: contain;
+  }
+
+  @media (max-width: 960px) {
+    padding: 0 16px;
+    height: auto;
+  }
   & .left-img {
     display: flex;
+    @media (max-width: 960px) {
+      padding: 0 16px;
+      height: auto;
+    }
     & .cubick-rub {
       width: 48px;
       height: 80px;
@@ -32,10 +45,16 @@ export const ContentCard = styled.div`
     img {
       width: 255px;
       height: 306px;
+      object-fit: contain;
     }
   }
   & .card-container {
     position: relative;
+    width: 50%;
+    @media (max-width: 991px) {
+      width: 100%;
+      padding-bottom: 8px;
+    }
     & .card-img {
       position: absolute;
       object-fit: cover;

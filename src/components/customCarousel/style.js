@@ -43,20 +43,16 @@ export const LeftContent = styled.div`
   padding: 80px;
   text-align: left;
   h2 {
-    font-family: 'Inter', sans-serif !important;
     font-style: normal;
-    font-weight: bold;
+    font-weight: 700;
     color: #142e38;
     max-width: 622px;
-    font-size: 36px;
-    line-height: 50px;
+    font-size: 42px;
+    line-height: 60px;
   }
   font-weight: 700;
   font-size: 20px;
   line-height: 1.5;
-  p {
-    font-family: 'Inter', sans-serif;
-  }
   @media (max-width: 991px) {
     padding: 24px 30px;
     width: 80%;
@@ -72,7 +68,6 @@ export const LeftContent = styled.div`
     p {
       font-weight: 700;
       font-size: 18px;
-      font-family: 'Inter', sans-serif;
     }
   }
 `;
