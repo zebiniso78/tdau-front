@@ -115,7 +115,7 @@ export function Navigator() {
                 </li>
                 <li onClick={handleClick}>
                   <Link
-                    to="/vison"
+                    to="/vision"
                     style={{ textDecoration: 'none', color: '#142F38' }}
                   >
                     Vision,Mission, Core Values
