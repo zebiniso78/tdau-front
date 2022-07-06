@@ -25,7 +25,7 @@ export default function VisionPage() {
               <br />
               <Row gutter={[24, 16]} align="middle" justify="space-between">
                 <Col span={5} md={4} data-aos="fade-up">
-                  <h3>S</h3>
+                  <h3 style={{ color: 'rgb(14 44 28)' }}>S</h3>
                 </Col>
                 <Col span={19} md={20} data-aos="fade-up">
                   <p>
@@ -35,7 +35,7 @@ export default function VisionPage() {
                 </Col>
 
                 <Col span={5} md={4} data-aos="fade-up">
-                  <h3>M</h3>
+                  <h3 style={{ color: 'rgb(12 62 38)' }}>M</h3>
                 </Col>
                 <Col span={19} md={20} data-aos="fade-up">
                   <p>
@@ -45,7 +45,7 @@ export default function VisionPage() {
                 </Col>
 
                 <Col span={5} md={4} data-aos="fade-up">
-                  <h3>A</h3>
+                  <h3 style={{ color: 'rgb(10 80 48)' }}>A</h3>
                 </Col>
                 <Col span={19} md={20} data-aos="fade-up">
                   <p>
@@ -58,7 +58,7 @@ export default function VisionPage() {
                 </Col>
 
                 <Col span={5} md={4} data-aos="fade-up">
-                  <h3>R</h3>
+                  <h3 style={{ color: 'rgb(8 97 58)' }}>R</h3>
                 </Col>
                 <Col span={19} md={20} data-aos="fade-up">
                   <p>
@@ -71,7 +71,7 @@ export default function VisionPage() {
                 </Col>
 
                 <Col span={5} md={4} data-aos="fade-up">
-                  <h3>T</h3>
+                  <h3 style={{ color: 'rgb(6 115 68)' }}>T</h3>
                 </Col>
                 <Col span={19} md={20} data-aos="fade-up">
                   <p>
