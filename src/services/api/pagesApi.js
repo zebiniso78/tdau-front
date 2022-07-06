@@ -1,4 +1,5 @@
 import Auth from '../api/modules/auth';
+import AboutUniver from './modules/aboutUniver';
 import Admissions from './modules/admissions';
 import News from './modules/news';
 import Partners from './modules/partners';
@@ -11,6 +12,7 @@ const partnersApi = new Partners();
 const newsApi = new News();
 const messageApi = new RectorMessage();
 const structureApi = new StructureApi();
+const aboutUniver = new AboutUniver();
 
 export {
   authApi,
@@ -19,4 +21,5 @@ export {
   newsApi,
   messageApi,
   structureApi,
+  aboutUniver,
 };

@@ -10,7 +10,10 @@ export const Card = styled.div`
   min-height: 390px;
   margin: 0 15px;
   cursor: pointer;
-  height: ${(props) => (props.type === 'university' ? '450px' : 'auto')};
+  min-height: ${(props) => (props.type === 'university' ? '450px' : 'auto')};
+  @media (max-width: 1400px) {
+    min-height: ${(props) => (props.type === 'university' ? '470px' : 'auto')};
+  }
   @media (max-width: 768px) {
     margin-left: 0;
   }
@@ -25,7 +28,7 @@ export const CardHeader = styled.div`
   & img {
     width: 100%;
     max-height: 250px;
-    height: 250px;
+    height: 240px;
     object-fit: cover;
     border-radius: 4.88166px;
     border-bottom-left-radius: 0;
