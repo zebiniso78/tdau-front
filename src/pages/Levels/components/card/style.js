@@ -10,6 +10,7 @@ export const ItemCard = styled.div`
   backdrop-filter: blur(250px);
   min-height: 300px;
   border-radius: 4px;
+  cursor: pointer;
   @media (max-width: 576px) {
     min-height: auto;
   }

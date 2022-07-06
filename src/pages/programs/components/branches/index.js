@@ -25,7 +25,7 @@ export default function Branches({ branchesData }) {
           <Col key={item?.id} span={24} ms={12} xl={6}>
             <CardComponent
               type="university"
-              // onClick={() => blogInfo(item)}
+              onClick={() => history.push(`/branch/${item?.id}`)}
               image={`${process.env.REACT_APP_API_SECOND_ROOT}/${item?.photo1}`}
               cardLogo={`${process.env.REACT_APP_API_SECOND_ROOT}/${item?.logo}`}
               title={item?.name}

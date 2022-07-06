@@ -1,27 +1,28 @@
-import React from 'react'
-import { Container } from 'styles/globalStyle'
+import React from 'react';
+import { Container } from 'styles/globalStyle';
 import CarouselLevels from '../../Levels/components/carousel';
-import AgrarImage from 'assets/director/agrar.png'
-import moment from 'moment'
-import { ProfileCard } from 'components/profileCard';
+import moment from 'moment';
 import { Branch } from '../components/branch';
+import useDirector from '../hook';
+import { ProfileCard } from '../components/card';
 
 export default function DirectorPage() {
-   return (
-      <>
-         <CarouselLevels
-            id={'tdau'}
-            picture={AgrarImage}
-            title="Tashkent State Agrarian University Samarkand branch"
-            text={`Applications are now Open for the Academic year ${parseInt(
-               moment(new Date()).format('YYYY')
-            )}-${parseInt(moment(new Date()).format('YYYY')) + 1}
+  const { data } = useDirector();
+  return (
+    <>
+      <CarouselLevels
+        id={'tdau'}
+        picture={`${process.env.REACT_APP_API_SECOND_ROOT}/${data?.photo1}`}
+        title="Tashkent State Agrarian University Samarkand branch"
+        text={`Applications are now Open for the Academic year ${parseInt(
+          moment(new Date()).format('YYYY')
+        )}-${parseInt(moment(new Date()).format('YYYY')) + 1}
            for Undergraduate course!`}
-         />
-         <Container style={{ marginTop: '80px' }}>
-            <ProfileCard />
-            <Branch />
-         </Container>
-      </>
-   )
+      />
+      <Container style={{ marginTop: '80px' }}>
+        <ProfileCard item={data} />
+        <Branch data={data} />
+      </Container>
+    </>
+  );
 }

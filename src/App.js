@@ -17,6 +17,7 @@ import UniversityStructure from 'pages/university-structure/container';
 import Levels from 'pages/Levels/container';
 import ProgramsPage from 'pages/programs';
 import DirectorPage from 'pages/director/container';
+import LevelPage from 'pages/level';
 
 function App() {
   useEffect(() => {
@@ -35,10 +36,11 @@ function App() {
         <Route path="/partner-universities/blog/:id" component={About} />
         <Route path="/university-structure" component={UniversityStructure} />
         <Route path="/bachelor" component={Levels} />
-        <Route path="/Master" component={Levels} />
+        <Route path="/branch/:id" component={DirectorPage} />
+        <Route path="/level/:id" component={LevelPage} />
+        <Route path="/master" component={Levels} />
         <Route path="/phd" component={Levels} />
         <Route path="/about-university" component={ProgramsPage} />
-        <Route path='/director-page' component={DirectorPage} />
         <Layout />
       </Switch>
       <Footer />
