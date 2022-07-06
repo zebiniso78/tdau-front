@@ -18,6 +18,7 @@ import Levels from 'pages/Levels/container';
 import ProgramsPage from 'pages/programs';
 import DirectorPage from 'pages/director/container';
 import LevelPage from 'pages/level';
+import VisionPage from 'pages/visionMision';
 
 function App() {
   useEffect(() => {
@@ -41,6 +42,7 @@ function App() {
         <Route path="/master" component={Levels} />
         <Route path="/phd" component={Levels} />
         <Route path="/about-university" component={ProgramsPage} />
+        <Route path="/vision" component={VisionPage} />
         <Layout />
       </Switch>
       <Footer />

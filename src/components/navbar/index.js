@@ -113,7 +113,14 @@ export function Navigator() {
                     Rector's Message
                   </Link>
                 </li>
-                <li onClick={handleClick}>Vision,Mission, Core Values</li>
+                <li onClick={handleClick}>
+                  <Link
+                    to="/vison"
+                    style={{ textDecoration: 'none', color: '#142F38' }}
+                  >
+                    Vision,Mission, Core Values
+                  </Link>
+                </li>
                 <li onClick={handleClick}>Quality Policy and Objectives</li>
                 <li onClick={handleClick}>History of university</li>
                 <li onClick={handleClick}>

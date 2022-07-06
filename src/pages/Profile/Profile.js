@@ -89,7 +89,7 @@ function Profile() {
                   {' '}
                   {/* Rejected  */}
                   <div className="row align-items-center">
-                    <div className="col-6 col-md-8">
+                    <div className="col-12 col-md-8">
                       <Alert
                         message="Your admission rejected!"
                         description="You can write to our support center"
@@ -109,7 +109,7 @@ function Profile() {
                         }
                       />
                     </div>
-                    <div className="col-6 col-md-4">
+                    <div className="col-12 col-md-4">
                       <Alert
                         message={`Comment:`}
                         description={`${data?.comment}`}
