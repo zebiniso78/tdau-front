@@ -11,13 +11,10 @@ import {
   WrapperMedia,
 } from './style';
 import { Twirl as Hamburger } from 'hamburger-react';
-// import "antd/dist/antd.css";
 import logoTip from '../../assets/logo/logo.svg';
 import { useLocation } from 'react-router-dom';
-import { Container } from 'styles/globalStyle';
 import { Link } from 'react-router-dom';
 import { Col, Row } from 'antd';
-import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 
 export function Navigator() {
   const [click, setClick] = useState(false);

@@ -16,6 +16,7 @@ import RectorsMessage from 'pages/test-pages/rector-massage/container';
 import UniversityStructure from 'pages/university-structure/container';
 import Levels from 'pages/Levels/container';
 import ProgramsPage from 'pages/programs';
+import DirectorPage from 'pages/director/container';
 
 function App() {
   useEffect(() => {
@@ -37,6 +38,7 @@ function App() {
         <Route path="/Master" component={Levels} />
         <Route path="/phd" component={Levels} />
         <Route path="/about-university" component={ProgramsPage} />
+        <Route path='/director-page' component={DirectorPage} />
         <Layout />
       </Switch>
       <Footer />

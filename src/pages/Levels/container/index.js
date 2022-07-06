@@ -19,8 +19,8 @@ export default function Levels() {
           pathname == '/bachelor'
             ? Bachelour
             : pathname == '/Master'
-            ? Magistr
-            : PHD
+              ? Magistr
+              : PHD
         }
         title="Tashkent State Agrarian University"
         text={`Applications are now Open for the Academic year  ${parseInt(
