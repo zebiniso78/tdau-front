@@ -8,8 +8,8 @@ export const Container = styled.div`
   /* display: flex;
     text-decoration: column; */
 
-  @media (max-width: 768px) {
-    /* width: calc(100% - 20px); */
+  @media (max-width: 991px) {
+    width: calc(100% - 40px);
   }
 `;
 export const ContentCard = styled.div`
@@ -27,7 +27,7 @@ export const ContentCard = styled.div`
     object-fit: contain;
   }
   @media (max-width: 991px) {
-    padding: 0 16px;
+    padding: 16px 16px 0;
     flex-wrap: wrap;
     height: auto;
   }

@@ -1,6 +1,5 @@
 import React from 'react';
 import { AboutMain, Article, Discover, ImageComponent } from '../components';
-import WSBImage from 'assets/dynamicImage/1.png';
 import { AboutContainer } from './style';
 import { Video } from '../components/video';
 

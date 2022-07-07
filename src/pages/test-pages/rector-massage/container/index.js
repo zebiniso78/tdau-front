@@ -19,7 +19,7 @@ function RectorsMessage() {
   return (
     <>
       {myData !== undefined ? (
-        <Container>
+        <Container style={{ overflowY: 'hidden' }}>
           <TitleCard
             desc={myData?.description}
             rector_photo={myData?.rector_photo}
