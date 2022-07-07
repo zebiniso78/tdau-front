@@ -38,7 +38,7 @@ function Profile() {
         {/* <Navbar /> */}
         <ProfileBody>
           <Container className="profile-container">
-            <ProfilePaper>
+            <ProfilePaper data-aos="fade-up">
               {data?.sts === 1 ? (
                 <Alert
                   message="Your admission has been sent!"

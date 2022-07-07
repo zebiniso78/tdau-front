@@ -44,7 +44,7 @@ export function MainSection() {
     <>
       <MainLayoutProvider>
         <MainWrapper>
-          <MainLeft>
+          <MainLeft data-aos="fade-right">
             <MainInfo>
               <TopTour>360° VR tour</TopTour>
               <MainInfoTitle>Tashkent State Agrarian University</MainInfoTitle>
@@ -59,7 +59,7 @@ export function MainSection() {
               </MainBtn>
             </MainBtnWrap>
           </MainLeft>
-          <MainRight>
+          <MainRight data-aos="fade-left">
             <img src={RightImage} alt="right-image" />
           </MainRight>
           <MainFooter>

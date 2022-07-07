@@ -16,12 +16,12 @@ export function Article({ articles }) {
     <ArticleProvider>
       {articles?.map((article, index) =>
         index === 0 ? (
-          <ArticleLeft>
+          <ArticleLeft data-aos="fade-right">
             <ArticleLeftTitle>{article?.title}</ArticleLeftTitle>
             <ArticleDescription>{article?.text}</ArticleDescription>
           </ArticleLeft>
         ) : (
-          <ArticleRight>
+          <ArticleRight data-aos="fade-left">
             <RightContent>
               <ContentTitle>{article?.title}</ContentTitle>
               <ContentInfo>{article?.text}</ContentInfo>

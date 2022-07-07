@@ -10,6 +10,11 @@ export const Card = styled.div`
   min-height: 390px;
   margin: 0 15px;
   cursor: pointer;
+  &.card-calendar {
+    min-height: 428px;
+    margin-bottom: 16px;
+    box-shadow: 0px 2px 14px #dfd9ce;
+  }
   min-height: ${(props) => (props.type === 'university' ? '450px' : 'auto')};
   @media (max-width: 1400px) {
     min-height: ${(props) => (props.type === 'university' ? '470px' : 'auto')};
@@ -57,7 +62,7 @@ export const CardFooterTitle = styled.h5`
   line-height: 19px;
   text-align: center;
   color: #142e38;
-  padding: 25px 10px;
+  padding: 0 10px 6px 10px;
   & p {
     font-weight: 600;
     font-size: 13px;

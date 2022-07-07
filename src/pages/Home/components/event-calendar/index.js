@@ -29,6 +29,7 @@ export function EventCalendar() {
         >
           {calendarList.map((item, index) => (
             <CardComponent
+              className="card-calendar"
               key={item.id}
               type={item.type}
               status={item.status}

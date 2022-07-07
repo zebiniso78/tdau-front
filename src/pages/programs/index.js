@@ -11,9 +11,6 @@ export default function ProgramsPage() {
   const { aboutData, programsData, branchesData } = useAboutUniver({
     setLoading,
   });
-  console.log('====================================');
-  console.log(branchesData);
-  console.log('====================================');
   return (
     <div>
       <CarouselComponents

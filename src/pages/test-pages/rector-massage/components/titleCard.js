@@ -13,7 +13,7 @@ import RecAcc from 'assets/rector/account.png';
 function TitleCard({ desc, rector_photo, rector_name }) {
   return (
     <ContentCard>
-      <div className="left-img">
+      <div data-aos="fade-up" className="left-img">
         <div className="cubick-rub"> </div>
         <img
           src={
@@ -24,7 +24,7 @@ function TitleCard({ desc, rector_photo, rector_name }) {
           alt="Rector img"
         />
       </div>
-      <div className="card-container">
+      <div data-aos="fade-up" className="card-container">
         <div className="right-content">
           <H1>{rector_name}</H1>
           <Position>Rector</Position>

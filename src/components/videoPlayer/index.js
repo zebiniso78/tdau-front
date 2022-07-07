@@ -8,7 +8,7 @@ export function VideoPlayer({ url }) {
   //   const manzil = url;
   console.log(url);
   return (
-    <>
+    <div data-aos="fade-up">
       {url?.includes('yout') ? (
         <PlayerProvider>
           <ReactPlayer
@@ -27,6 +27,6 @@ export function VideoPlayer({ url }) {
           <BigPlayButton position="center" />
         </Player>
       )}
-    </>
+    </div>
   );
 }

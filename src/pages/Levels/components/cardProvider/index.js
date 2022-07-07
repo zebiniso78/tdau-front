@@ -9,7 +9,9 @@ export default function CardProviderComponent({ data, program, type }) {
             x?.programme_id ===
             program?.find((y) => y?.name?.toLowerCase() === 'bachelor')?.id
         )
-        ?.map((item) => <Items key={item?.id} item={item} />);
+        ?.map((item) => (
+          <Items data-aos="fade-up" key={item?.id} item={item} />
+        ));
     case '/master':
       return data
         ?.filter(
@@ -17,7 +19,9 @@ export default function CardProviderComponent({ data, program, type }) {
             x?.programme_id ===
             program?.find((y) => y?.name?.toLowerCase() === 'master')?.id
         )
-        ?.map((item) => <Items key={item?.id} item={item} />);
+        ?.map((item) => (
+          <Items data-aos="fade-up" key={item?.id} item={item} />
+        ));
 
     default:
       return data
@@ -26,6 +30,8 @@ export default function CardProviderComponent({ data, program, type }) {
             x?.programme_id ===
             program?.find((y) => y?.name?.toLowerCase() === 'phd')?.id
         )
-        ?.map((item) => <Items key={item?.id} item={item} />);
+        ?.map((item) => (
+          <Items data-aos="fade-up" key={item?.id} item={item} />
+        ));
   }
 }

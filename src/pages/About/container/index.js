@@ -9,11 +9,11 @@ export default function About() {
   return (
     <div style={{ msOverflowX: 'hidden' }}>
       <AboutMain />
-      <AboutContainer type="video">
+      <AboutContainer data-aos="fade-up" type="video">
         <Discover type="magnusUniversity" firstInfo={siteBlog?.description} />
       </AboutContainer>
       <Video url={siteBlog?.videos} />
-      <AboutContainer className="my-5">
+      <AboutContainer data-aos="fade-up" className="my-5">
         <ImageComponent
           title="Why WSB University?"
           image={

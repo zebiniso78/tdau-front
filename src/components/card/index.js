@@ -22,9 +22,11 @@ export function CardComponent({
   starting_date,
   onClick,
   description,
+  className,
 }) {
   return (
     <Card
+      className={className}
       data-aos="flip-left"
       data-aos-duration={aosCount}
       onClick={onClick}

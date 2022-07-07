@@ -8,10 +8,10 @@ import {
 function TextContnet({ add_info, work_activities, photo }) {
   return (
     <TextContainer>
-      <TextContainer1>
+      <TextContainer1 data-aos="fade-up">
         <div className="right-text">
           {add_info?.map((x, i) => (
-            <p key={i}>
+            <p data-aos="fade-up" key={i}>
               <b>{x?.key}:</b> <span>{x?.value}</span>
             </p>
           ))}
@@ -22,10 +22,10 @@ function TextContnet({ add_info, work_activities, photo }) {
         />
       </TextContainer1>
       <TextContainer2>
-        <h4>WORK ACTIVITIES</h4>
+        <h4 data-aos="fade-up">WORK ACTIVITIES</h4>
 
         {work_activities?.map((x, i) => (
-          <p key={i}>
+          <p data-aos="fade-up" key={i}>
             <b>{x?.key}:</b> {x?.value}
           </p>
         ))}

@@ -5,7 +5,7 @@ import { Paragraph } from 'styles/globalStyle';
 
 export function Branch({ data }) {
   return (
-    <BranchProvider>
+    <BranchProvider data-aos="fade-up">
       <BranchTitle>{data?.name}</BranchTitle>
       <Image
         style={{ width: '100%', maxHeight: '80vh', objectFit: 'cover' }}

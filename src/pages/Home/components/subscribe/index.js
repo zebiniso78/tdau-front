@@ -12,7 +12,7 @@ import Message from 'assets/subscribe/message.png';
 
 export function Subscribe() {
   return (
-    <SubscribeProvider>
+    <SubscribeProvider data-aos="fade-up">
       <SubscribeLeft>
         <img src={Message} alt="message" />
       </SubscribeLeft>

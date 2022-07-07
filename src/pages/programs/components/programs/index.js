@@ -10,11 +10,19 @@ export default function Programs({ data, programsData }) {
   return (
     <ProgramContainer className="my-5">
       <br />
-      <Title style={{ textAlign: 'right', fontWeight: 700, fontSize: '48px' }}>
+      <Title
+        data-aos="fade-right"
+        style={{ textAlign: 'right', fontWeight: 700, fontSize: '48px' }}
+      >
         {data?.title}
       </Title>
       <br />
-      <Row align="middle" justify="space-between" gutter={[24, 24]}>
+      <Row
+        data-aos="fade-up"
+        align="middle"
+        justify="space-between"
+        gutter={[24, 24]}
+      >
         <Col span={24} md={10}>
           <p style={{ textAlign: 'justify' }}>{data?.desc2}</p>
         </Col>
@@ -28,6 +36,7 @@ export default function Programs({ data, programsData }) {
       </Row>
       <br />
       <h2
+        data-aos="fade-up"
         style={{
           fontWeight: 700,
           fontSize: 48,
@@ -41,7 +50,7 @@ export default function Programs({ data, programsData }) {
 
       <Row gutter={[16, 16]} align="middle">
         {programsData?.map((x, i) => (
-          <Col key={i} span={24} md={8}>
+          <Col data-aos="fade-up" key={i} span={24} md={8}>
             <CardComponent
               onClick={() => history.push(`/${x?.name?.toLowerCase()}`)}
               status={x?.name}
@@ -53,30 +62,6 @@ export default function Programs({ data, programsData }) {
             />
           </Col>
         ))}
-        {/* <Col span={24} md={8}>
-          <CardComponent
-            onClick={() => history.push('/bachelour')}
-            status="Bachelor"
-            image="https://picsum.photos/400"
-            type="event_calendar"
-            training_date="12 - MAY"
-            title="Bachelor"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-            starting_date="15:00 PM"
-          />
-        </Col>
-        <Col span={24} md={8}>
-          <CardComponent
-            onClick={() => history.push('/bachelour')}
-            status="Bachelor"
-            image="https://picsum.photos/400"
-            type="event_calendar"
-            training_date="12 - MAY"
-            title="Bachelor"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-            starting_date="15:00 PM"
-          />
-        </Col> */}
       </Row>
     </ProgramContainer>
   );

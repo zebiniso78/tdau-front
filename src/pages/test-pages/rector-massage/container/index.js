@@ -1,3 +1,4 @@
+import { FirebaseLoader } from 'components/firebaseLoader';
 import { fetchData } from 'hooks/useFetch';
 import React, { useEffect, useState } from 'react';
 import { messageApi } from 'services/api/pagesApi';
@@ -15,7 +16,6 @@ function RectorsMessage() {
   }, []);
   let myData = data ? data[0] : undefined;
 
-  console.log(myData);
   return (
     <>
       {myData !== undefined ? (
@@ -32,7 +32,9 @@ function RectorsMessage() {
           />
         </Container>
       ) : (
-        <h3 style={{ textAlign: 'center' }}>Loading...</h3>
+        <h3 style={{ textAlign: 'center' }}>
+          <FirebaseLoader />
+        </h3>
       )}
     </>
   );

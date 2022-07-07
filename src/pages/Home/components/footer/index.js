@@ -15,7 +15,7 @@ export default function Footer() {
   return (
     <FooterProvider>
       <Container>
-        <Row style={{ padding: '58px 0' }}>
+        <Row style={{ padding: '58px 0' }} data-aos="fade-up">
           {footerList.map((list) => (
             <Col
               span={24}

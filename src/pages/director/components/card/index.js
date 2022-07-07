@@ -14,7 +14,7 @@ import Director from 'assets/director/director.png';
 export function ProfileCard({ item }) {
   const location = useLocation();
   return (
-    <ContentCard>
+    <ContentCard data-aos="fade-up">
       <div className="left-img">
         <div className="cubick-rub"> </div>
         <img
@@ -49,7 +49,12 @@ export function ProfileCard({ item }) {
           </CardInfo>
         </div>
         {location.pathname !== '/university-structure' && (
-          <img className="card-img" src={QuoteIcon} alt="quote img" />
+          <img
+            data-aos="fade-up"
+            className="card-img"
+            src={QuoteIcon}
+            alt="quote img"
+          />
         )}
       </div>
     </ContentCard>

@@ -4,10 +4,10 @@ import { DiscoverProvider, DiscoverLeft, DiscoverRight, Title } from './style';
 export function Discover({ type, firstInfo, secondInfo }) {
   return (
     <DiscoverProvider>
-      <DiscoverLeft>
-        <Title>About.</Title>
+      <DiscoverLeft data-aos="fade-right">
+        <Title data-aos="fade-right">About.</Title>
       </DiscoverLeft>
-      <DiscoverRight discoverType={type}>
+      <DiscoverRight data-aos="fade-up" discoverType={type}>
         <p>{firstInfo}</p>
         <p>{secondInfo}</p>
       </DiscoverRight>

@@ -10,7 +10,7 @@ export function Card({ data, program }) {
 
   return (
     <CardProvider>
-      <CardTitle>
+      <CardTitle data-aos="fade-right">
         {pathname === '/bachelor'
           ? 'Bachelor'
           : pathname === '/master'

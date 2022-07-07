@@ -8,9 +8,9 @@ function TextContnet({ data }) {
   return (
     <TextContainer>
       <TextContainer2>
-        <h4>Additional infos</h4>
+        <h4 data-aos="fade-right">Additional infos</h4>
         {data?.map((x, i) => (
-          <p key={i}>
+          <p data-aos="fade-up" key={i}>
             <b>{x?.key}</b> {x?.value}
           </p>
         ))}

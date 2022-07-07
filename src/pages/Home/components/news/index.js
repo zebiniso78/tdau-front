@@ -25,6 +25,7 @@ export function News() {
               xxs={12}
               key={item?.id}
               className="news-col"
+              data-aos="fade-up"
             >
               <ImageLayout
                 className={

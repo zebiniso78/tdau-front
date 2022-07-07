@@ -7,10 +7,19 @@ import { Title, ViceRectorProvider } from './style';
 export function ViceRector({ title, data }) {
   return (
     <ViceRectorProvider>
-      <Title>{title}</Title>
+      <Title data-aos="fade-right" data-aos="fade-right">
+        {title}
+      </Title>
       <Row gutter={[16, 16]}>
         {data?.map((item, index) => (
-          <Col key={index} span={24} md={12} lg={8}>
+          <Col
+            data-aos="fade-up"
+            data-aos="fade-up"
+            key={index}
+            span={24}
+            md={12}
+            lg={8}
+          >
             <UserCard item={item} />
           </Col>
         ))}

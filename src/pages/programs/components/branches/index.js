@@ -9,6 +9,7 @@ export default function Branches({ branchesData }) {
   return (
     <ProgramContainer className="my-5">
       <h2
+        data-aos="fade-up"
         style={{
           fontWeight: 700,
           fontSize: 48,
@@ -22,7 +23,7 @@ export default function Branches({ branchesData }) {
 
       <Row gutter={[16, 16]} align="middle">
         {branchesData?.map((item) => (
-          <Col key={item?.id} span={24} ms={12} xl={6}>
+          <Col data-aos="fade-up" key={item?.id} span={24} ms={12} xl={6}>
             <CardComponent
               type="university"
               onClick={() => history.push(`/branch/${item?.id}`)}
