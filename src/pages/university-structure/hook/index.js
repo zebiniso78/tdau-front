@@ -15,7 +15,7 @@ export default function useVice() {
       setRectorData(reactorInfo);
     } catch (error) {
       console.log(error);
-      toast.error(error.msg || error);
+      toast.error(error.msg || 'error');
     }
   }
 
