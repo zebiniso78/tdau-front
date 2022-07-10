@@ -25,11 +25,13 @@ export function Cards() {
     fetchData(partnersApi.readPartners(null), setPartners, setLoader);
     setData(partners?.all);
   }, []);
+  
   useEffect(() => {
     if (partners !== undefined) {
       setData(partners?.all);
     }
   }, [partners]);
+
   function blogInfo(item) {
     browserStorage.set('blog', JSON.stringify(item));
     history.push(`/partner-universities/blog/${item?.id}`);

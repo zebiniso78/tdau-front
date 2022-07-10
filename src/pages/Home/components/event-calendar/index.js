@@ -31,15 +31,15 @@ export function EventCalendar() {
             <CardComponent
               className="card-calendar"
               key={item.id}
-              type={item.type}
-              status={item.status}
-              image={item.image}
+              type="event_calendar"
+              status={item.title_bill}
+              image={`${process.env.REACT_APP_API_SECOND_ROOT}/uploads/images/${item.picture_bill}`}
               cardLogo={Academia}
               aosCount={index * 1000}
-              training_date={item.training_date}
-              title={item.title}
-              description={item.description}
-              starting_date={item.starting_date}
+              training_date={item.date_bill}
+              title={item.title_bill}
+              description={item.time_desc}
+              starting_date={item.time_bill}
             />
           ))}
         </Slider>
