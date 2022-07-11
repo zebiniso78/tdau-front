@@ -1,10 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { AboutMain, Article, Discover, ImageComponent } from '../components';
 import { AboutContainer } from './style';
 import { Video } from '../components/video';
+import { fetchData } from 'hooks/useFetch';
+import { partnersApi } from 'services/api/pagesApi';
+import toast from 'react-hot-toast';
+import { useParams } from 'react-router-dom';
 
 export default function About() {
-  let siteBlog = JSON.parse(localStorage.getItem('blog'));
+  const [loader, setLoader] = useState(true);
+  const [siteBlog, setSiteBlog] = useState(undefined);
+  const { id } = useParams();
+  // let siteBlog = JSON.parse(localStorage.getItem('blog'));
+
+  async function getData() {
+    setLoader(true);
+    try {
+      const res = await partnersApi.readPartners(null);
+      const el = res?.all?.find((item) => item?.id == id);
+      setSiteBlog(el);
+      setLoader(false);
+    } catch (error) {
+      console.log(error);
+      toast.error(error?.msg || 'error');
+      setLoader(false);
+    }
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <div style={{ msOverflowX: 'hidden' }}>
       <AboutMain />

@@ -25,7 +25,7 @@ export function Cards() {
     fetchData(partnersApi.readPartners(null), setPartners, setLoader);
     setData(partners?.all);
   }, []);
-  
+
   useEffect(() => {
     if (partners !== undefined) {
       setData(partners?.all);

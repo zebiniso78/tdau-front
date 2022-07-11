@@ -10,7 +10,7 @@ import CarouselFour from 'assets/carousel/carousel-four.png';
 export function AboutMain() {
   const { id } = useParams();
   return (
-    <MainProvider data-aos="zoom-in">
+    <MainProvider>
       <CarouselComponent
         id={id}
         first={CarouselFirst}
