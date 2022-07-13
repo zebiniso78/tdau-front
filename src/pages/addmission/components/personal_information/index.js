@@ -162,20 +162,20 @@ export default function PersonalInfo() {
     >
       {!isFetch ? (
         <div className="row align-items-end">
-          <h4>Персональные данные</h4>
+          <h4>{t('personal-info')}</h4>
           <div className="col-lg-3 col-md-6 col-sm-6 col-12">
             <InputComponent
               Controller={Controller}
               control={control}
               nameProps="name"
-              plProps="Введите Имя"
-              label="Имя*"
+              plProps={t('personal-name')}
+              label={t('personal-name') + '*'}
               className={
                 errors && errors?.hasOwnProperty('name') && 'input-error'
               }
             />
             {errors && errors?.hasOwnProperty('name') && (
-              <Error>Iltimos ma'lumotni kiriting!</Error>
+              <Error>{t('error-field')}</Error>
             )}
           </div>
           <div className="col-lg-3 col-md-6 col-sm-6 col-12">
@@ -183,14 +183,14 @@ export default function PersonalInfo() {
               Controller={Controller}
               control={control}
               nameProps="surname"
-              plProps="Введите Фамилия"
-              label="Фамилия*"
+              plProps={t('personal-surname')}
+              label={t('personal-surname') + '*'}
               className={
                 errors && errors?.hasOwnProperty('surname') && 'input-error'
               }
             />
             {errors && errors?.hasOwnProperty('surname') && (
-              <Error>Iltimos ma'lumotni kiriting!</Error>
+              <Error>{t('error-field')}</Error>
             )}
           </div>
           <div className="col-lg-3 col-md-6 col-sm-6 col-12">
@@ -198,14 +198,14 @@ export default function PersonalInfo() {
               Controller={Controller}
               control={control}
               nameProps="middle_name"
-              plProps="Введите oтчества"
-              label="Отчества*"
+              plProps={t('middle-surname')}
+              label={t('middle-surname') + '*'}
               className={
                 errors && errors?.hasOwnProperty('middle_name') && 'input-error'
               }
             />
             {errors && errors?.hasOwnProperty('middle_name') && (
-              <Error>Iltimos ma'lumotni kiriting!</Error>
+              <Error>{t('error-field')}</Error>
             )}
           </div>
           <div className="col-lg-3 col-md-6 col-sm-6 col-12">
@@ -213,7 +213,7 @@ export default function PersonalInfo() {
               Controller={Controller}
               control={control}
               nameProps="birthDate"
-              label="Дата рождения*"
+              label={t('birth-date') + '*'}
               plProps="dd/mm/yyyy"
               format="DD.MM.YYYY"
               required={true}
@@ -224,16 +224,14 @@ export default function PersonalInfo() {
               }
             />
             {errors && errors?.hasOwnProperty('birthDate') && (
-              <Error className="select-error-tooltip">
-                Please enter information!
-              </Error>
+              <Error className="select-error-tooltip">{t('error-field')}</Error>
             )}
           </div>
           <div className="col-lg-3 col-md-6 col-sm-6 col-12">
             <UserFormSelectComponent
               Controller={Controller}
               control={control}
-              title="Пол*"
+              title={t('gender')}
               name="genderID"
               required={false}
               placeholder="Мистер"
@@ -244,18 +242,16 @@ export default function PersonalInfo() {
               }
             />
             {errors && errors?.hasOwnProperty('genderID') && (
-              <Error className="select-error-tooltip">
-                Iltimos ma'lumotni kiriting!
-              </Error>
+              <Error className="select-error-tooltip">{t('error-field')}</Error>
             )}
           </div>
           <div className="col-lg-3 col-md-6 col-sm-6 col-12">
             <UserFormSelectComponent
               Controller={Controller}
               control={control}
-              title="Страна рождения*"
+              title={t('cauntry-birth')}
               name="countryBirth"
-              placeholder="Выберите"
+              placeholder={t('cauntry-birth')}
               options={countries}
               disabled={false}
               className={
@@ -265,18 +261,16 @@ export default function PersonalInfo() {
               }
             />
             {errors && errors?.hasOwnProperty('countryBirth') && (
-              <Error className="select-error-tooltip">
-                Iltimos ma'lumotni kiriting!
-              </Error>
+              <Error className="select-error-tooltip">{t('error-field')}</Error>
             )}
           </div>
           <div className="col-lg-3 col-md-6 col-sm-6 col-12">
             <UserFormSelectComponent
               Controller={Controller}
               control={control}
-              title="Национальность*"
+              title={t('nationality') + ' *'}
               name="nationalSelect"
-              placeholder="Мистер"
+              placeholder={t('nationality') + ' *'}
               options={nationalities}
               disabled={false}
               className={
@@ -286,18 +280,16 @@ export default function PersonalInfo() {
               }
             />
             {errors && errors?.hasOwnProperty('nationalSelect') && (
-              <Error className="select-error-tooltip">
-                Iltimos ma'lumotni kiriting!
-              </Error>
+              <Error className="select-error-tooltip">{t('error-field')}</Error>
             )}
           </div>
           <div className="col-lg-3 col-md-6 col-sm-6 col-12">
             <UserFormSelectComponent
               Controller={Controller}
               control={control}
-              title="Страна постоянного проживания*"
+              title={t('Страна постоянного проживания') + '*'}
               name="countryPermanent"
-              placeholder="Выберите"
+              placeholder={t('Страна постоянного проживания') + '*'}
               options={countries}
               disabled={false}
               className={
@@ -307,18 +299,16 @@ export default function PersonalInfo() {
               }
             />
             {errors && errors?.hasOwnProperty('countryPermanent') && (
-              <Error className="select-error-tooltip">
-                Iltimos ma'lumotni kiriting!
-              </Error>
+              <Error className="select-error-tooltip">{t('error-field')}</Error>
             )}
           </div>
           <div className="col-lg-3 col-md-6 col-sm-6 col-12">
             <UserFormSelectComponent
               Controller={Controller}
               control={control}
-              title="Текущее место жительства*"
+              title={t('current-country') + '*'}
               name="currentCountry"
-              placeholder="Выберите"
+              placeholder={t('current-country')}
               options={countries}
               disabled={false}
               className={
@@ -328,9 +318,7 @@ export default function PersonalInfo() {
               }
             />
             {errors && errors?.hasOwnProperty('currentCountry') && (
-              <Error className="select-error-tooltip">
-                Iltimos ma'lumotni kiriting!
-              </Error>
+              <Error className="select-error-tooltip">{t('error-field')}</Error>
             )}
           </div>
           <div className="col-lg-9 col-md-6 col-sm-6 col-12">
