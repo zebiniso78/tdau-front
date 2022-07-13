@@ -14,20 +14,21 @@ import { useEffect } from 'react';
 import { admissionApi } from 'services/api/pagesApi';
 import moment from 'moment';
 import Calendar from 'components/calendar';
-import { Error } from "styles/globalStyle"
-import toast from "react-hot-toast"
+import { Error } from 'styles/globalStyle';
+import toast from 'react-hot-toast';
 import { fetchData } from 'hooks/useFetch';
 import { LoaderComponent } from 'components/loader';
-
+import { useTranslation } from 'react-i18next';
 
 export default function Education() {
+  const { t } = useTranslation();
   const history = useHistory();
   const [qualifications, setQualifications] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [transcript, setTranscript] = useState([]);
   const [upload, setUpload] = useState([]);
-  const [isFetch, setIsFetch] = useState(true)
-  const [defaultValues, setDefaultValues] = useState(undefined)
+  const [isFetch, setIsFetch] = useState(true);
+  const [defaultValues, setDefaultValues] = useState(undefined);
 
   const { getQualification } = useGetList({ setQualifications });
   const {
@@ -39,14 +40,20 @@ export default function Education() {
   } = useForm();
   useEffect(() => {
     getQualification();
-    fetchData(admissionApi.admissionGetForign(null), setDefaultValues, setIsFetch)
+    fetchData(
+      admissionApi.admissionGetForign(null),
+      setDefaultValues,
+      setIsFetch
+    );
   }, []);
   useMemo(() => {
-    if (defaultValues?.qualification === null &&
+    if (
+      defaultValues?.qualification === null &&
       defaultValues?.school === null &&
-      defaultValues?.qualification_start === "None"
-      && defaultValues?.qualification_end === "None") {
-      console.log('null')
+      defaultValues?.qualification_start === 'None' &&
+      defaultValues?.qualification_end === 'None'
+    ) {
+      console.log('null');
     } else {
       reset({
         school: defaultValues?.school,
@@ -55,13 +62,15 @@ export default function Education() {
         //   label: qualifications.find(item => item?.label === defaultValues?.qualification)?.label,
         //   value: qualifications.find(item => item?.label === defaultValues?.qualification)?.value,
         // },
-        qualification_start: moment(defaultValues?.qualification_start)?.toDate(),
+        qualification_start: moment(
+          defaultValues?.qualification_start
+        )?.toDate(),
         qualification_end: moment(defaultValues?.qualification_end)?.toDate(),
-      })
+      });
     }
-  }, [isFetch, qualifications])
+  }, [isFetch, qualifications]);
   const onSubmit = async (data) => {
-    localStorage.setItem('step', 5)
+    localStorage.setItem('step', 5);
     try {
       setIsLoading(true);
       let formData = new FormData();
@@ -79,12 +88,12 @@ export default function Education() {
       formData.append('qualification_diploma', upload[0]);
       formData.append('register_step', 5);
       await admissionApi.admissionPostForign(formData);
-      toast.success("Образовательные квалификации успешно созданы")
+      toast.success('Образовательные квалификации успешно созданы');
       history.push('/university-admissions/supporting-info');
       setIsLoading(false);
     } catch (e) {
       console.log(e);
-      setIsLoading(false)
+      setIsLoading(false);
     }
   };
   useEffect(() => {
@@ -94,133 +103,117 @@ export default function Education() {
   }, []);
   return (
     <EducationProvider>
-      <Title>Образование и квалификации</Title>
-      {
-        !isFetch ?
-          <EducationForm onSubmit={handleSubmit(onSubmit)}>
-            <Title className="form-title">Предыдущая школа или колледж</Title>
-            <div className="row align-items-end mt-2">
-              <div className="col-lg-4 col-md-6 col-sm-6 col-12">
-                <InputComponent
-                  Controller={Controller}
-                  control={control}
-                  nameProps="school"
-                  plProps="Школа/колледж"
-                  label="Школа/колледж*"
-                  // className="mb-0"
-                  className={
-                    errors && errors?.hasOwnProperty('school') && 'input-error'
-                  }
-                />
-                {errors && errors?.hasOwnProperty('school') && (
-                  <Error>Iltimos ma'lumotni kiriting!</Error>
-                )}
-              </div>
-              <div className="col-lg-4 col-md-6 col-sm-6 col-12">
-                {/* <UserFormSelectComponent
-                  Controller={Controller}
-                  control={control}
-                  required={true}
-                  title="Получена квалификация*"
-                  name="qualification"
-                  placeholder="Район"
-                  options={qualifications}
-                  disabled={false}
-                  className={
-                    errors && errors?.hasOwnProperty('qualification') && 'select-error'
-                  }
-                />
-                {errors && errors?.hasOwnProperty('qualification') && (
-                  <Error className="select-error-tooltip">
-                    Iltimos ma'lumotni kiriting!
-                  </Error>
-                )} */}
-                <InputComponent
-                  Controller={Controller}
-                  control={control}
-                  nameProps="qualification"
-                  plProps="Получена квалификация*"
-                  label="Получена квалификация*"
-                  // className="mb-0"
-                  className={
-                    errors && errors?.hasOwnProperty('qualification') && 'input-error'
-                  }
-                />
-                {errors && errors?.hasOwnProperty('qualification') && (
-                  <Error>Iltimos ma'lumotni kiriting!</Error>
-                )}
-              </div>
+      <Title>{t('education-title')}</Title>
+      {!isFetch ? (
+        <EducationForm onSubmit={handleSubmit(onSubmit)}>
+          <Title className="form-title">{t('education-school-title')}</Title>
+          <div className="row align-items-end mt-2">
+            <div className="col-lg-4 col-md-6 col-sm-6 col-12">
+              <InputComponent
+                Controller={Controller}
+                control={control}
+                nameProps="school"
+                plProps={t('school')}
+                label={t('school') + '*'}
+                // className="mb-0"
+                className={
+                  errors && errors?.hasOwnProperty('school') && 'input-error'
+                }
+              />
+              {errors && errors?.hasOwnProperty('school') && (
+                <Error> {t('error-field')}</Error>
+              )}
             </div>
-            <div className="row align-items-end mt-3">
-              <div className="col-lg-4 col-md-6 col-sm-6 col-12">
-                <Calendar
-                  Controller={Controller}
-                  control={control}
-                  label="Дата начала*"
-                  nameProps="qualification_start"
-                  plProps="дд/мм/гггг"
-                  format="DD.MM.YYYY"
-                  required={true}
-                  className={
-                    errors && errors?.hasOwnProperty('qualification_start')
-                      ? 'calendar-error'
-                      : 'calendar'
-                  }
-                />
-                {errors && errors?.hasOwnProperty('qualification_start') && (
-                  <Error className="select-error-tooltip">
-                    Iltimos ma'lumotni kiriting!
-                  </Error>
-                )}
-              </div>
-              <div className="col-lg-4 col-md-6 col-sm-6 col-12">
-                <Calendar
-                  Controller={Controller}
-                  control={control}
-                  label="Дата завершения*"
-                  nameProps="qualification_end"
-                  plProps="дд/мм/гггг"
-                  format="DD.MM.YYYY"
-                  required={true}
-                  className={
-                    errors && errors?.hasOwnProperty('qualification_end')
-                      ? 'calendar-error'
-                      : 'calendar'
-                  }
-                />
-                {errors && errors?.hasOwnProperty('qualification_end') && (
-                  <Error className="select-error-tooltip">
-                    Iltimos ma'lumotni kiriting!
-                  </Error>
-                )}
-              </div>
+            <div className="col-lg-4 col-md-6 col-sm-6 col-12">
+              <InputComponent
+                Controller={Controller}
+                control={control}
+                nameProps="qualification"
+                plProps={t('qualification') + '*'}
+                label={t('qualification') + '*'}
+                // className="mb-0"
+                className={
+                  errors &&
+                  errors?.hasOwnProperty('qualification') &&
+                  'input-error'
+                }
+              />
+              {errors && errors?.hasOwnProperty('qualification') && (
+                <Error> {t('error-field')}</Error>
+              )}
             </div>
-            <EducationFooter
-              attechments={defaultValues?.attachments}
-              transcript={transcript}
-              setTranscript={setTranscript}
-              upload={upload}
-              setUpload={setUpload}
+          </div>
+          <div className="row align-items-end mt-3">
+            <div className="col-lg-4 col-md-6 col-sm-6 col-12">
+              <Calendar
+                Controller={Controller}
+                control={control}
+                label={t('qualification-start') + '*'}
+                nameProps="qualification_start"
+                plProps="дд/мм/гггг"
+                format="DD.MM.YYYY"
+                required={true}
+                className={
+                  errors && errors?.hasOwnProperty('qualification_start')
+                    ? 'calendar-error'
+                    : 'calendar'
+                }
+              />
+              {errors && errors?.hasOwnProperty('qualification_start') && (
+                <Error className="select-error-tooltip">
+                  {t('error-field')}
+                </Error>
+              )}
+            </div>
+            <div className="col-lg-4 col-md-6 col-sm-6 col-12">
+              <Calendar
+                Controller={Controller}
+                control={control}
+                label={t('qualification-end') + '*'}
+                nameProps="qualification_end"
+                plProps="дд/мм/гггг"
+                format="DD.MM.YYYY"
+                required={true}
+                className={
+                  errors && errors?.hasOwnProperty('qualification_end')
+                    ? 'calendar-error'
+                    : 'calendar'
+                }
+              />
+              {errors && errors?.hasOwnProperty('qualification_end') && (
+                <Error className="select-error-tooltip">
+                  {t('error-field')}
+                </Error>
+              )}
+            </div>
+          </div>
+          <EducationFooter
+            attechments={defaultValues?.attachments}
+            transcript={transcript}
+            setTranscript={setTranscript}
+            upload={upload}
+            setUpload={setUpload}
+          />
+          <ButtonsProvider>
+            <CancelBtnComponent
+              name={t('back')}
+              className="prev-btn"
+              onClick={() => history.push('/address-info')}
+              type="button"
             />
-            <ButtonsProvider>
-              <CancelBtnComponent
-                name="Назад"
-                className="prev-btn"
-                onClick={() => history.push('/address-info')}
-                type="button"
-              />
-              {/* <CancelBtnComponent name="Сахранит" className="save-btn" /> */}
-              <NextBtnComponent
-                name="Продолжить"
-                className="next-btn"
-                // onClick={() => history.push('/supporting-info')}
-                disabled={isLoading}
-                type="submit"
-              />
-            </ButtonsProvider>
-          </EducationForm> : <LoaderComponent type='education' />
-      }
-
+            {/* <CancelBtnComponent name="Сахранит" className="save-btn" /> */}
+            <NextBtnComponent
+              name={t('submit')}
+              className="next-btn"
+              // onClick={() => history.push('/supporting-info')}
+              disabled={isLoading}
+              type="submit"
+            />
+          </ButtonsProvider>
+        </EducationForm>
+      ) : (
+        <LoaderComponent type="education" />
+      )}
     </EducationProvider>
   );
 }

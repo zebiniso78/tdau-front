@@ -22,6 +22,7 @@ import { useSend } from './ui-logic/useSend';
 import { CustomCheckbox } from 'components/checkbox/custom.style';
 import { fetchData } from 'hooks/useFetch';
 import { LoaderComponent } from 'components/loader';
+import { useTranslation } from 'react-i18next';
 
 export default function AddressInformation() {
   const history = useHistory();
@@ -32,35 +33,42 @@ export default function AddressInformation() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
+  const { t } = useTranslation();
   const [regions, setRegions] = useState([]);
   const [district, setDistrict] = useState([]);
   const [postDistrict, setPostDistrict] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const [defaultValues, setDefaultValues] = useState(undefined);
-  const [isFetch, setIsFetch] = useState(true)
+  const [isFetch, setIsFetch] = useState(true);
   const { getRegions } = useGetList({
     setRegions,
   });
-  const { onSubmit } = useSend({ setIsLoading, isChecked })
+  const { onSubmit } = useSend({ setIsLoading, isChecked });
   useEffect(() => {
     getRegions();
-    fetchData(admissionApi.admissionGetForign(null), setDefaultValues, setIsFetch)
+    fetchData(
+      admissionApi.admissionGetForign(null),
+      setDefaultValues,
+      setIsFetch
+    );
   }, []);
   useEffect(() => {
     if (watch('regionID')?.value !== undefined) getDistrict();
   }, [watch('regionID')?.value]);
   useEffect(() => {
-    if (watch('postRegion')?.value !== undefined) getPostDistrict()
-  }, [watch('postRegion')?.value])
+    if (watch('postRegion')?.value !== undefined) getPostDistrict();
+  }, [watch('postRegion')?.value]);
   useMemo(() => {
     // setIsFetch(true)
-    if (defaultValues === undefined || (defaultValues?.region == null
-      && defaultValues?.district == null
-      && defaultValues?.post_district == null
-      && defaultValues?.post_region == null)) {
-      console.log('null')
+    if (
+      defaultValues === undefined ||
+      (defaultValues?.region == null &&
+        defaultValues?.district == null &&
+        defaultValues?.post_district == null &&
+        defaultValues?.post_region == null)
+    ) {
+      console.log('null');
     } else {
       reset({
         address1: defaultValues?.adress1,
@@ -68,29 +76,43 @@ export default function AddressInformation() {
         post_address1: defaultValues?.post_adress1,
         post_address2: defaultValues?.post_adress2,
         regionID: {
-          label: regions?.find(item => item?.label === defaultValues?.region)?.label,
-          value: regions?.find(item => item?.label === defaultValues?.region)?.value,
+          label: regions?.find((item) => item?.label === defaultValues?.region)
+            ?.label,
+          value: regions?.find((item) => item?.label === defaultValues?.region)
+            ?.value,
         },
         districtID: {
-          label: district?.find(item => item?.label === defaultValues?.district)?.label,
-          value: district?.find(item => item?.label === defaultValues?.district)?.value,
+          label: district?.find(
+            (item) => item?.label === defaultValues?.district
+          )?.label,
+          value: district?.find(
+            (item) => item?.label === defaultValues?.district
+          )?.value,
         },
         postRegion: {
-          label: regions?.find(item => item?.label === defaultValues?.post_region)?.label,
-          value: regions?.find(item => item?.label === defaultValues?.post_region)?.value
+          label: regions?.find(
+            (item) => item?.label === defaultValues?.post_region
+          )?.label,
+          value: regions?.find(
+            (item) => item?.label === defaultValues?.post_region
+          )?.value,
         },
         postDistrict: {
-          label: postDistrict?.find(item => item?.label === defaultValues?.post_district)?.label,
-          value: postDistrict?.find(item => item?.label === defaultValues?.post_district)?.value
+          label: postDistrict?.find(
+            (item) => item?.label === defaultValues?.post_district
+          )?.label,
+          value: postDistrict?.find(
+            (item) => item?.label === defaultValues?.post_district
+          )?.value,
         },
         post_index: defaultValues?.post_index,
         post_index2: defaultValues?.post_index2,
         phone: defaultValues?.phone,
         email: defaultValues?.email,
-      })
+      });
     }
     // setIsFetch(false)
-  }, [isFetch, defaultValues, regions])
+  }, [isFetch, defaultValues, regions]);
   async function getDistrict() {
     try {
       let payload = {
@@ -120,81 +142,188 @@ export default function AddressInformation() {
     }
   }, []);
   useEffect(() => {
-    if (defaultValues?.post_address1 != null &&
+    if (
+      defaultValues?.post_address1 != null &&
       defaultValues?.post_address2 != null &&
       defaultValues?.post_index2 != null &&
       defaultValues?.post_region != null &&
       defaultValues?.post_district != null
     ) {
-      setIsChecked(true)
+      setIsChecked(true);
     }
-  }, [defaultValues])
-  console.log(isChecked)
+  }, [defaultValues]);
+  console.log(isChecked);
   function handleChecked() {
     setIsChecked(!isChecked);
   }
   return (
     <AddressInfoProvider>
-      <Title>Адресаная информация</Title>
-      <Paragraph>
-        Пожалуйста, укажите ваши контактные данные ниже. Если какая-либо
-        информация, которую вы введете ниже, изменится в процессе приема, вам
-        следует связаться с приемной комиссией, чтобы ваша запись была
-        обновлена.
-      </Paragraph>
-      {
-        !isFetch ?
-          <AddressForm onSubmit={handleSubmit(onSubmit)}>
-            <Title className="form-title">Адрес постоянного проживания</Title>
-            {/* <EntityForm  /> */}
+      <Title>{t('address-info-title')}</Title>
+      <Paragraph>{t('address-info-text')}</Paragraph>
+      {!isFetch ? (
+        <AddressForm onSubmit={handleSubmit(onSubmit)}>
+          <Title className="form-title">{t('address-info-title-form')}</Title>
+          {/* <EntityForm  /> */}
+          <div className="row align-items-end mt-3">
+            <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+              <InputComponent
+                Controller={Controller}
+                control={control}
+                nameProps="address1"
+                plProps="Адресная строка 1"
+                label={t('address-info-address1') + '*'}
+                className={
+                  errors && errors?.hasOwnProperty('address1') && 'input-error'
+                }
+              />
+              {errors && errors?.hasOwnProperty('address1') && (
+                <Error>{t('error-field')}</Error>
+              )}
+            </div>
+            <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+              <InputComponent
+                Controller={Controller}
+                control={control}
+                nameProps="address2"
+                plProps="Адресная строка 2"
+                label={t('address-info-address1') + 2 + ' *'}
+                className={
+                  errors && errors?.hasOwnProperty('address2') && 'input-error'
+                }
+              />
+              {errors && errors?.hasOwnProperty('address2') && (
+                <Error>{t('error-field')}</Error>
+              )}
+            </div>
+            <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+              <UserFormSelectComponent
+                Controller={Controller}
+                control={control}
+                required={true}
+                title={t('county') + '*'}
+                name="regionID"
+                placeholder={t('county')}
+                options={regions}
+                disabled={false}
+                className={
+                  errors && errors?.hasOwnProperty('regionID') && 'select-error'
+                }
+              />
+              {errors && errors?.hasOwnProperty('regionID') && (
+                <Error className="select-error-tooltip">
+                  {t('error-field')}
+                </Error>
+              )}
+            </div>
+            <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+              <UserFormSelectComponent
+                Controller={Controller}
+                control={control}
+                required={true}
+                title={t('region') + '*'}
+                name="districtID"
+                placeholder={t('region')}
+                options={district}
+                disabled={false}
+                className={
+                  errors &&
+                  errors?.hasOwnProperty('districtID') &&
+                  'select-error'
+                }
+              />
+              {errors && errors?.hasOwnProperty('districtID') && (
+                <Error className="select-error-tooltip">
+                  {t('error-field')}
+                </Error>
+              )}
+            </div>
+            <div className="col-lg-3 col-md-6 col-sm-6 col-12 mt-3">
+              <InputComponent
+                Controller={Controller}
+                control={control}
+                nameProps="post_index"
+                plProps={t('post-index')}
+                label={t('post-index')}
+                required={false}
+              />
+            </div>
+          </div>
+          <Paragraph className="mt-2">{t('address-info-p1')}</Paragraph>
+          <Title className="form-title mt-4">{t('address-info-p2')}</Title>
+          <Paragraph className="mt-3">{t('address-info-p3')}</Paragraph>
+          <CheckboxWrapper>
+            <CustomCheckbox
+              id="yes"
+              name="termsOfUse"
+              checked={!isChecked}
+              onChange={handleChecked}
+            />
+            <label style={{ marginRight: 16 }}>{t('yes')}</label>
+            <CustomCheckbox
+              id="no"
+              name="termsOfUse"
+              checked={isChecked}
+              onChange={handleChecked}
+            />
+            <label>No</label>
+          </CheckboxWrapper>
+          {isChecked && (
             <div className="row align-items-end mt-3">
               <div className="col-lg-3 col-md-6 col-sm-6 col-12">
                 <InputComponent
                   Controller={Controller}
                   control={control}
-                  nameProps="address1"
+                  nameProps="post_address1"
+                  required={isChecked ? true : false}
                   plProps="Адресная строка 1"
-                  label="Адресная строка 1*"
+                  label={t('address-info-address1') + ' 1 ' + ' *'}
                   className={
-                    errors && errors?.hasOwnProperty('address1') && 'input-error'
+                    errors &&
+                    errors?.hasOwnProperty('post_address1') &&
+                    'input-error'
                   }
                 />
-                {errors && errors?.hasOwnProperty('address1') && (
-                  <Error>Iltimos ma'lumotni kiriting!</Error>
+                {errors && errors?.hasOwnProperty('post_address1') && (
+                  <Error>{t('error-field')}</Error>
                 )}
               </div>
               <div className="col-lg-3 col-md-6 col-sm-6 col-12">
                 <InputComponent
                   Controller={Controller}
                   control={control}
-                  nameProps="address2"
-                  plProps="Адресная строка 2"
-                  label="Адресная строка 2*"
+                  nameProps="post_address2"
+                  plProps={t('address-info-address1') + ' 2 ' + ' *'}
+                  label={t('address-info-address1') + ' 2 ' + ' *'}
+                  required={isChecked ? true : false}
                   className={
-                    errors && errors?.hasOwnProperty('address2') && 'input-error'
+                    errors &&
+                    errors?.hasOwnProperty('post_address2') &&
+                    'input-error'
                   }
                 />
-                {errors && errors?.hasOwnProperty('address2') && (
-                  <Error>Iltimos ma'lumotni kiriting!</Error>
+                {errors && errors?.hasOwnProperty('post_address2') && (
+                  <Error>{t('error-field')}</Error>
                 )}
               </div>
               <div className="col-lg-3 col-md-6 col-sm-6 col-12">
                 <UserFormSelectComponent
                   Controller={Controller}
                   control={control}
-                  required={true}
-                  title="Город*"
-                  name="regionID"
-                  placeholder="Город"
+                  title={t()}
+                  name="postRegion"
+                  placeholder={t('region')}
+                  required={isChecked ? true : false}
                   options={regions}
                   disabled={false}
                   className={
-                    errors && errors?.hasOwnProperty('regionID') && 'select-error'
+                    errors &&
+                    errors?.hasOwnProperty('postRegion') &&
+                    'select-error'
                   }
                 />
-                {errors && errors?.hasOwnProperty('regionID') && (
+                {errors && errors?.hasOwnProperty('postRegion') && (
                   <Error className="select-error-tooltip">
-                    Iltimos ma'lumotni kiriting!
+                    {t('error-field')}
                   </Error>
                 )}
               </div>
@@ -202,19 +331,21 @@ export default function AddressInformation() {
                 <UserFormSelectComponent
                   Controller={Controller}
                   control={control}
-                  required={true}
-                  title="Район*"
-                  name="districtID"
-                  placeholder="Район"
-                  options={district}
+                  title={t('district ') + '*'}
+                  name="postDistrict"
+                  required={isChecked ? true : false}
+                  placeholder={t('district ') + '*'}
+                  options={postDistrict}
                   disabled={false}
                   className={
-                    errors && errors?.hasOwnProperty('districtID') && 'select-error'
+                    errors &&
+                    errors?.hasOwnProperty('postDistrict') &&
+                    'select-error'
                   }
                 />
-                {errors && errors?.hasOwnProperty('districtID') && (
+                {errors && errors?.hasOwnProperty('postDistrict') && (
                   <Error className="select-error-tooltip">
-                    Iltimos ma'lumotni kiriting!
+                    {t('error-field')}
                   </Error>
                 )}
               </div>
@@ -222,170 +353,37 @@ export default function AddressInformation() {
                 <InputComponent
                   Controller={Controller}
                   control={control}
-                  nameProps="post_index"
-                  plProps="Введите Номер паспорта"
-                  label="Почтовый индекс"
-                  required={false}
+                  nameProps="post_index2"
+                  plProps={t('post-index')}
+                  label={t('post-index')}
+                  required={isChecked ? true : false}
                 />
               </div>
             </div>
-            <Paragraph className="mt-2">
-              Укажите адрес, по которому вы постоянно проживаете. Если у вас есть
-              другой временный адрес (например, студенческое общежитие), укажите его
-              в разделе «Адрес для переписки» ниже.
-            </Paragraph>
-            <Title className="form-title mt-4">
-              Адрес для почтовых отправлений
-            </Title>
-            <Paragraph className="mt-3">
-              Ваш адрес для корреспонденции совпадает
-              <br /> с вашим постоянным адресом?*
-            </Paragraph>
-            <CheckboxWrapper>
-              <CustomCheckbox
-                id="yes"
-                name="termsOfUse"
-                checked={!isChecked}
-                onChange={handleChecked}
-              />
-              <label style={{ marginRight: 16 }}>
-                Yes
-              </label>
-              <CustomCheckbox
-                id="no"
-                name="termsOfUse"
-                checked={isChecked}
-                onChange={handleChecked}
-              />
-              <label>
-                No
-              </label>
+          )}
 
-            </CheckboxWrapper>
-            {
-              isChecked && (
-                <div className="row align-items-end mt-3">
-                  <div className="col-lg-3 col-md-6 col-sm-6 col-12">
-                    <InputComponent
-                      Controller={Controller}
-                      control={control}
-                      nameProps="post_address1"
-                      required={isChecked ? true : false}
-                      plProps="Адресная строка 1"
-                      label="Адресная строка 1*"
-                      className={
-                        errors && errors?.hasOwnProperty('post_address1') && 'input-error'
-                      }
-                    />
-                    {errors && errors?.hasOwnProperty('post_address1') && (
-                      <Error>Iltimos ma'lumotni kiriting!</Error>
-                    )}
-                  </div>
-                  <div className="col-lg-3 col-md-6 col-sm-6 col-12">
-                    <InputComponent
-                      Controller={Controller}
-                      control={control}
-                      nameProps="post_address2"
-                      plProps="Адресная строка 2"
-                      label="Адресная строка 2*"
-                      required={isChecked ? true : false}
-                      className={
-                        errors && errors?.hasOwnProperty('post_address2') && 'input-error'
-                      }
-                    />
-                    {errors && errors?.hasOwnProperty('post_address2') && (
-                      <Error>Iltimos ma'lumotni kiriting!</Error>
-                    )}
-                  </div>
-                  <div className="col-lg-3 col-md-6 col-sm-6 col-12">
-                    <UserFormSelectComponent
-                      Controller={Controller}
-                      control={control}
-                      title="Город*"
-                      name="postRegion"
-                      placeholder="Город"
-                      required={isChecked ? true : false}
-                      options={regions}
-                      disabled={false}
-                      className={
-                        errors && errors?.hasOwnProperty('postRegion') && 'select-error'
-                      }
-                    />
-                    {errors && errors?.hasOwnProperty('postRegion') && (
-                      <Error className="select-error-tooltip">
-                        Iltimos ma'lumotni kiriting!
-                      </Error>
-                    )}
-                  </div>
-                  <div className="col-lg-3 col-md-6 col-sm-6 col-12">
-                    <UserFormSelectComponent
-                      Controller={Controller}
-                      control={control}
-                      title="Район*"
-                      name="postDistrict"
-                      required={isChecked ? true : false}
-                      placeholder="Район"
-                      options={postDistrict}
-                      disabled={false}
-                      className={
-                        errors && errors?.hasOwnProperty('postDistrict') && 'select-error'
-                      }
-                    />
-                    {errors && errors?.hasOwnProperty('postDistrict') && (
-                      <Error className="select-error-tooltip">
-                        Iltimos ma'lumotni kiriting!
-                      </Error>
-                    )}
-                  </div>
-                  <div className="col-lg-3 col-md-6 col-sm-6 col-12 mt-3">
-                    <InputComponent
-                      Controller={Controller}
-                      control={control}
-                      nameProps="post_index2"
-                      plProps="Введите Номер паспорта"
-                      label="Почтовый индекс"
-                      required={isChecked ? true : false}
-                    />
-                  </div>
-                </div>
-              )
-            }
-
-            <Paragraph className="mt-2">
-              Большая часть нашей корреспонденции будет вестись по электронной
-              почте, но если мы отправим вам что-либо по почте, мы будем
-              использовать адрес, указанный вами в этом разделе. Если ваш адрес для
-              корреспонденции является временным, сообщите нам дату, когда вы
-              въехали и когда собираетесь уехать. Это поможет нам убедиться, что мы
-              всегда отправляем корреспонденцию по правильному адресу.
-            </Paragraph>
-            <Paragraph className="mt-2">
-              Большая часть нашей корреспонденции будет вестись по электронной
-              почте, но если мы отправим вам что-либо по почте, мы будем
-              использовать адрес, указанный вами в этом разделе. Если ваш адрес для
-              корреспонденции является временным, сообщите нам дату, когда вы
-              въехали и когда собираетесь уехать. Это поможет нам убедиться, что мы
-              всегда отправляем корреспонденцию по правильному адресу.
-            </Paragraph>
-            <ButtonsProvider>
-              <CancelBtnComponent
-                name="Назад"
-                className="prev-btn"
-                onClick={() => history.push('/passport-info')}
-                type="button"
-              />
-              {/* <CancelBtnComponent name="Сахранит" className="save-btn" /> */}
-              <NextBtnComponent
-                name="Продолжить"
-                className="next-btn"
-                disabled={isLoading}
-                // onClick={() => history.push('/education-qualifications')}
-                type="submit"
-              />
-            </ButtonsProvider>
-          </AddressForm> : <LoaderComponent />
-      }
-
+          <Paragraph className="mt-2">{t('address-info-p4')}</Paragraph>
+          <Paragraph className="mt-2">{t('address-info-p5')}</Paragraph>
+          <ButtonsProvider>
+            <CancelBtnComponent
+              name={t('back')}
+              className="prev-btn"
+              onClick={() => history.push('/passport-info')}
+              type="button"
+            />
+            {/* <CancelBtnComponent name="Сахранит" className="save-btn" /> */}
+            <NextBtnComponent
+              name={t('submit')}
+              className="next-btn"
+              disabled={isLoading}
+              // onClick={() => history.push('/education-qualifications')}
+              type="submit"
+            />
+          </ButtonsProvider>
+        </AddressForm>
+      ) : (
+        <LoaderComponent />
+      )}
     </AddressInfoProvider>
   );
 }

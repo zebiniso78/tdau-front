@@ -1,5 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import UserFormSelectComponent, { SelectItem } from '../../../../components/select';
+import UserFormSelectComponent, {
+  SelectItem,
+} from '../../../../components/select';
 import {
   AcademicInfoProvider,
   AcademicInfoTitle,
@@ -22,6 +24,7 @@ import { acceptDedline } from 'views';
 import { fetchData } from 'hooks/useFetch';
 import browserStorage from 'services/storage';
 import { LoaderComponent } from 'components/loader';
+import { useTranslation } from 'react-i18next';
 
 export default function AcademicInformation() {
   const {
@@ -34,70 +37,87 @@ export default function AcademicInformation() {
     formState: { errors },
   } = useForm();
   let universityID = browserStorage.set('university_id');
-  let steps = localStorage.getItem('step')
+  let steps = localStorage.getItem('step');
   const history = useHistory();
   const [isLoading, setIsLoading] = useState(false);
   const [educationFormList, setEducationFormList] = useState([]);
   const [educationTypeList, setEducationTypeList] = useState([]);
   const [facultyList, setFacultyList] = useState(undefined);
-  const [eduTypeForeign, setEduTypeForeign] = useState([])
-  const [facultyForeign, setFacultyForeign] = useState([])
-  const [isFetch, setIsFetch] = useState(true)
-  const [defaultValues, setDefaultValues] = useState(undefined)
-
-
+  const [eduTypeForeign, setEduTypeForeign] = useState([]);
+  const [facultyForeign, setFacultyForeign] = useState([]);
+  const [isFetch, setIsFetch] = useState(true);
+  const [defaultValues, setDefaultValues] = useState(undefined);
 
   const { facultyByID } = useGetList({
     setEducationFormList,
     setEducationTypeList,
     setFacultyList,
-    setEduTypeForeign
+    setEduTypeForeign,
   });
   useEffect(() => {
     if (steps) {
-      fetchData(admissionApi.admissionGetForign(null), setDefaultValues, setIsFetch)
+      fetchData(
+        admissionApi.admissionGetForign(null),
+        setDefaultValues,
+        setIsFetch
+      );
     }
-  }, [steps])
+  }, [steps]);
   useEffect(() => {
-    if (defaultValues?.accept_deadline == null && defaultValues?.education_type_id == null) {
-      console.log('null')
+    if (
+      defaultValues?.accept_deadline == null &&
+      defaultValues?.education_type_id == null
+    ) {
+      console.log('null');
     } else {
       reset({
         srok_priema: {
-          label: acceptDedline?.find(item => item?.label === defaultValues?.accept_deadline)?.label,
-          value: acceptDedline?.find(item => item?.label === defaultValues?.accept_deadline)?.value
+          label: acceptDedline?.find(
+            (item) => item?.label === defaultValues?.accept_deadline
+          )?.label,
+          value: acceptDedline?.find(
+            (item) => item?.label === defaultValues?.accept_deadline
+          )?.value,
         },
         tip_programma: {
-          label: eduTypeForeign?.find(item => item?.value === defaultValues?.education_type_id)?.label,
-          value: eduTypeForeign?.find(item => item?.value === defaultValues?.education_type_id)?.value
+          label: eduTypeForeign?.find(
+            (item) => item?.value === defaultValues?.education_type_id
+          )?.label,
+          value: eduTypeForeign?.find(
+            (item) => item?.value === defaultValues?.education_type_id
+          )?.value,
         },
         napravleniya: {
-          label: facultyForeign?.find(item => item?.value === defaultValues?.faculty_id)?.label,
-          value: facultyForeign?.find(item => item?.value === defaultValues?.faculty_id)?.value
-        }
-      })
+          label: facultyForeign?.find(
+            (item) => item?.value === defaultValues?.faculty_id
+          )?.label,
+          value: facultyForeign?.find(
+            (item) => item?.value === defaultValues?.faculty_id
+          )?.value,
+        },
+      });
     }
-  }, [defaultValues, acceptDedline, eduTypeForeign, facultyForeign])
+  }, [defaultValues, acceptDedline, eduTypeForeign, facultyForeign]);
   useEffect(() => {
-    facultyByID()
-  }, [universityID])
+    facultyByID();
+  }, [universityID]);
 
   async function getFaculty() {
     try {
-      let formData = new FormData()
-      formData.append('type', watch("tip_programma")?.label)
-      let res = await admissionApi.facultyList(formData)
-      SelectItem(res, setFacultyForeign)
-      console.log(res, 'res')
+      let formData = new FormData();
+      formData.append('type', watch('tip_programma')?.label);
+      let res = await admissionApi.facultyList(formData);
+      SelectItem(res, setFacultyForeign);
+      console.log(res, 'res');
     } catch (e) {
-      console.log(e)
+      console.log(e);
     }
   }
   useEffect(() => {
-    if (watch("tip_programma")?.label !== undefined) {
-      getFaculty()
+    if (watch('tip_programma')?.label !== undefined) {
+      getFaculty();
     }
-  }, [watch("tip_programma")?.label])
+  }, [watch('tip_programma')?.label]);
 
   const onSubmit = async (data) => {
     try {
@@ -105,19 +125,20 @@ export default function AcademicInformation() {
       let formData = new FormData();
       formData.append('faculty_id', data?.napravleniya?.value);
       formData.append('education_type_id', data?.tip_programma?.value);
-      formData.append('accept_deadline', data?.srok_priema?.label)
+      formData.append('accept_deadline', data?.srok_priema?.label);
       formData.append('register_step', 2);
       await admissionApi.admissionPostForign(formData);
-      toast.success("Академические данные успешно созданы")
+      toast.success(t('saved-successfully'));
       localStorage.setItem('step', 2);
       history.push('/university-admissions/passport-info');
       setIsLoading(false);
     } catch (e) {
       console.log(e);
-      toast.error(e?.msg);
+      toast.error(e?.msg || t('error-text'));
       setIsLoading(false);
     }
   };
+  const { t } = useTranslation();
   useEffect(() => {
     if (localStorage?.getItem('step') > 0) {
       // getEducationForm();
@@ -128,24 +149,15 @@ export default function AcademicInformation() {
   }, []);
   return (
     <AcademicInfoProvider>
-      <AcademicInfoTitle>Академическая информация</AcademicInfoTitle>
+      <AcademicInfoTitle>{t('academic-admission-info')}</AcademicInfoTitle>
       <AcademicInfo>
+        <p>{t('academic-admission-info-text1')}</p>
         <p>
-          Вы не можете подать заявку на онлайн-степени Международного
-          сельскохозяйственного университета, используя эту форму. Пожалуйста,
-          ознакомьтесь с информацией о наших онлайн-программах на получение
-          степени на http://www.iau.uz/study/online/
-        </p>
-        <p>
-          <strong>
-            Поля ниже должны быть заполнены в том порядке, в котором они
-            появляются, поскольку каждый предоставленный вами ответ будет
-            заполнять доступные варианты в следующем поле.
-          </strong>
+          <strong>{t('academic-admission-info-text2')}</strong>
         </p>
       </AcademicInfo>
-      {
-        !isFetch ? <AcademicForm
+      {!isFetch ? (
+        <AcademicForm
           onSubmit={handleSubmit(onSubmit)}
           className="row align-items-end"
         >
@@ -154,7 +166,7 @@ export default function AcademicInformation() {
               Controller={Controller}
               control={control}
               required={true}
-              title="Срок приема*"
+              title={t('academic-srok_priema') + '*'}
               name="srok_priema"
               placeholder="Выберите"
               options={acceptDedline}
@@ -166,9 +178,7 @@ export default function AcademicInformation() {
               }
             />
             {errors && errors?.hasOwnProperty('srok_priema') && (
-              <Error className="select-error-tooltip">
-                Iltimos malumotni kiriting!
-              </Error>
+              <Error className="select-error-tooltip">{t('error-field')}</Error>
             )}
           </div>
           <div className="col-lg-4 col-md-6 col-sm-6 col-12">
@@ -176,7 +186,7 @@ export default function AcademicInformation() {
               Controller={Controller}
               control={control}
               required={true}
-              title="тип программа*"
+              title={t('academic-tip-program') + '*'}
               name="tip_programma"
               placeholder="Выберите"
               // options={educationTypeList}
@@ -189,9 +199,7 @@ export default function AcademicInformation() {
               }
             />
             {errors && errors?.hasOwnProperty('tip_programma') && (
-              <Error className="select-error-tooltip">
-                Iltimos malumotni kiriting!
-              </Error>
+              <Error className="select-error-tooltip">{t('error-field')}</Error>
             )}
           </div>
           <div className="col-lg-4 col-md-6 col-sm-6 col-12">
@@ -199,40 +207,41 @@ export default function AcademicInformation() {
               Controller={Controller}
               control={control}
               required={true}
-              title="Направление*"
+              title={t('academic-napravleniya') + '*'}
               name="napravleniya"
               placeholder="Выберите"
               // options={educationFormList}
               options={facultyForeign}
               disabled={false}
               className={
-                errors && errors?.hasOwnProperty('napravleniya') && 'select-error'
+                errors &&
+                errors?.hasOwnProperty('napravleniya') &&
+                'select-error'
               }
             />
             {errors && errors?.hasOwnProperty('napravleniya') && (
-              <Error className="select-error-tooltip">
-                Iltimos malumotni kiriting!
-              </Error>
+              <Error className="select-error-tooltip">{t('error-field')}</Error>
             )}
           </div>
           <ButtonsProvider>
             <CancelBtnComponent
-              name="Отмена"
+              name={t('back')}
               className="prev-btn"
               onClick={() => history.push('/personal-info')}
             />
             {/* <CancelBtnComponent name="Сахранит" className="save-btn" /> */}
             <NextBtnComponent
-              name="Продолжить"
+              name={t('submit')}
               className="next-btn"
               type="submit"
               disabled={isLoading}
-            // onClick={() => history.push('/passport-info')}
+              // onClick={() => history.push('/passport-info')}
             />
           </ButtonsProvider>
-        </AcademicForm> : <LoaderComponent type='academic_info' />
-      }
-
+        </AcademicForm>
+      ) : (
+        <LoaderComponent type="academic_info" />
+      )}
     </AcademicInfoProvider>
   );
 }
