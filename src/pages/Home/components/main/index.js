@@ -22,8 +22,10 @@ import { Registration } from 'components/MainPage/Navbar/registration';
 import { Verify } from 'components/MainPage/Navbar/verify';
 import { useHistory } from 'react-router-dom';
 import Ellipse from 'assets/rectangles/ellipse_top.png';
+import { useTranslation } from 'react-i18next';
 
 export function MainSection() {
+  const { t } = useTranslation();
   const history = useHistory();
   const [modal, setModal] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -46,16 +48,16 @@ export function MainSection() {
         <MainWrapper>
           <MainLeft data-aos="fade-right">
             <MainInfo>
-              <TopTour>360° VR tour</TopTour>
-              <MainInfoTitle>Tashkent State Agrarian University</MainInfoTitle>
+              <TopTour>{t('vr-tour')}</TopTour>
+              <MainInfoTitle>{t('tdau')}</MainInfoTitle>
               <MainInfoDescription>
-                Applications are now Open for the Academic year 2022-2023 for
-                Undergraduate and Postgraduate courses!
+                {t('app-academic-year')} 2022-2023{' '}
+                {t('upgraduate-postgraduate')}
               </MainInfoDescription>
             </MainInfo>
             <MainBtnWrap>
               <MainBtn type="button" onClick={showModal}>
-                Apply
+                {t('apply')}
               </MainBtn>
             </MainBtnWrap>
           </MainLeft>
@@ -67,10 +69,7 @@ export function MainSection() {
               <img src={FooterImage} alt="mainFooter" />
             </MainFooterLeft>
             <MainFooterRight>
-              <p>
-                Our knowledge forms the foundation of a sustainable, thriving
-                and better world.{' '}
-              </p>
+              <p style={{ marginBottom: 0 }}>{t('home-desc')}</p>
             </MainFooterRight>
           </MainFooter>
         </MainWrapper>

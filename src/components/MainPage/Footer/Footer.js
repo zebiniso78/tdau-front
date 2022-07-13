@@ -6,27 +6,30 @@ import { RiYoutubeLine } from 'react-icons/ri';
 import { BsInstagram, BsTelegram } from 'react-icons/bs';
 import Collect from '../../../assets/collect.png';
 import DataCenter from '../../../assets/dataCenter.png';
+import { useTranslation } from 'react-i18next';
 
 function Footer() {
+  const { t } = useTranslation();
+
   const ContactData = [
     {
-      title: 'Адрес:',
+      title: t('address'),
       text: '100174, Тошкент шаҳри, Олмазор тумани Университет кўчаси, 7-уй',
     },
     {
-      title: 'Телефон:',
+      title: t('phone'),
       text: '0 (371) 207-1700',
     },
     {
-      title: 'Отправить факс:',
+      title: t('fax'),
       text: '0 (371) 207-1700',
     },
     {
-      title: 'Почта:',
+      title: t('email'),
       text: 'info@innofund.uz',
     },
     {
-      title: 'Наш соц.сети:',
+      title: t('our-social'),
       text: [
         <FiFacebook />,
         <BsInstagram />,
@@ -39,30 +42,30 @@ function Footer() {
     <>
       <MyFooter>
         <Container>
-          <h2>Контакт</h2>
+          <h2>{t('contact')}</h2>
 
           <ul>
             {ContactData.map((e) => (
               <li>
-                <h4>{e.title}</h4>
+                <h4>{e.title}: </h4>
                 <p>{e.text}</p>
               </li>
             ))}
           </ul>
           <div className="days">
             <div className="working-days">
-              <h4>Рабочие дни:</h4>
+              <h4>{t('working-day')}:</h4>
               <div>
                 <p>
                   <span>Душ-Жум:</span>9:00 — 18:00
                 </p>
                 <p>
-                  <span>Обед:</span>13:00 — 14:00
+                  <span>{t('Lunch')}:</span>13:00 — 14:00
                 </p>
               </div>
             </div>
             <div className="add-days">
-              <h4>Приемные дни</h4>
+              <h4>{t('reseption-day')} :</h4>
               <div>
                 <p>
                   <span>Пятница:</span>9:00 — 18:00
@@ -84,7 +87,7 @@ function Footer() {
           </div>
 
           <div className="additional">
-            <p>© 2021 Все права защищены</p>
+            <p>© 2022 {t('all-reserved')} | Smart Campus Team</p>
             <div>
               <img src={DataCenter} alt="Data Center" />
               <img src={Collect} alt="Collect" />

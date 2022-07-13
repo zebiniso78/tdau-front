@@ -8,6 +8,7 @@ import { InputComponent } from 'components/input/controllerInput';
 import { useHistory } from 'react-router-dom';
 import { Modal } from 'antd';
 import toast from 'react-hot-toast';
+import { useTranslation } from 'react-i18next';
 
 export function Login({
   setModal,
@@ -16,6 +17,7 @@ export function Login({
   isModalVisible,
   setIsModalVisible,
 }) {
+  const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const history = useHistory();
   const {
@@ -53,7 +55,7 @@ export function Login({
   return (
     <>
       <Modal
-        title="Login Form"
+        title={t('login-form')}
         visible={isModalVisible}
         footer={false}
         onCancel={handleCancel}
@@ -71,8 +73,8 @@ export function Login({
             Controller={Controller}
             control={control}
             nameProps="username"
-            plProps="Enter username"
-            label="Username*"
+            plProps={t('username')}
+            label={t('username') + '*'}
             required={true}
             className="registration-input"
             type="text"
@@ -81,17 +83,17 @@ export function Login({
             Controller={Controller}
             control={control}
             nameProps="password"
-            plProps="Enter password"
-            label="Password*"
+            plProps={t('password')}
+            label={t('password') + '*'}
             required={true}
             className="registration-input"
             type="password"
           />
           <div className="footer-button__wrapper">
-            <Button type="submit" title="Вход" disabled={isLoading} />
+            <Button type="submit" title={t('login')} disabled={isLoading} />
             <Button
               type="button"
-              title="Зарегистрироваться"
+              title={t('sign-up')}
               bgColor="transparent"
               color="#2e7df6"
               onClick={() => {

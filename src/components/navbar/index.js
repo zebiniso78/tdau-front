@@ -2,21 +2,25 @@ import { useState, useEffect } from 'react';
 import {
   Nav,
   NavLink,
-  AntdSelect,
   MobileIcon,
   NavMenu,
   NavContainer,
   NavDropMenuWrapper,
   NavDropMenu,
   WrapperMedia,
+  LanguageProvider,
 } from './style';
 import { Twirl as Hamburger } from 'hamburger-react';
 import logoTip from '../../assets/logo/logo.svg';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Col, Row } from 'antd';
+import LanguageComponent from 'components/languageDropdown';
+import { useTranslation } from 'react-i18next';
 
 export function Navigator() {
+  const { t } = useTranslation();
+
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -94,7 +98,7 @@ export function Navigator() {
                 onClick={() => setOpenDropdown(!openDropdown)}
                 className="nav-btn"
               >
-                University
+                {t('university')}
               </button>
               <NavDropMenu dropdowntype={openDropdown}>
                 <li onClick={handleClick}>
@@ -102,7 +106,7 @@ export function Navigator() {
                     to="/about-university"
                     style={{ textDecoration: 'none', color: '#142F38' }}
                   >
-                    About University
+                    {t('about-university')}
                   </Link>
                 </li>
                 <li onClick={handleClick}>
@@ -110,7 +114,7 @@ export function Navigator() {
                     to="/rectors-message"
                     style={{ textDecoration: 'none', color: '#142F38' }}
                   >
-                    Rector's Message
+                    {t('rector-message')}
                   </Link>
                 </li>
                 <li onClick={handleClick}>
@@ -118,38 +122,43 @@ export function Navigator() {
                     to="/vision"
                     style={{ textDecoration: 'none', color: '#142F38' }}
                   >
-                    Vision,Mission, Core Values
+                    {t('vision-mision')}
                   </Link>
                 </li>
-                <li onClick={handleClick}>Quality Policy and Objectives</li>
-                <li onClick={handleClick}>History of university</li>
+                <li onClick={handleClick}>{t('qualty-policy')}</li>
+                <li onClick={handleClick}>{t('history-uiversity')}</li>
                 <li onClick={handleClick}>
                   <Link
                     to="/university-structure"
                     style={{ textDecoration: 'none', color: '#142F38' }}
                   >
-                    University's structure
+                    {t('structure-uiversity')}
                   </Link>
                 </li>
 
-                <li onClick={handleClick}>Branches</li>
+                <li onClick={handleClick}>{t('branches')}</li>
               </NavDropMenu>
             </NavDropMenuWrapper>
             <NavLink to="/university-structure" onClick={handleClick}>
-              <button className="nav-btn">International Relationship</button>
+              <button className="nav-btn">
+                {t('international-relationship')}
+              </button>
             </NavLink>
             <NavLink to="/university-structure" onClick={handleClick}>
-              <button className="nav-btn">Double degree</button>
+              <button className="nav-btn">{t('double-degree')}</button>
             </NavLink>
             <NavLink to="/university-structure" onClick={handleClick}>
-              <button className="nav-btn">Campus Life</button>
+              <button className="nav-btn">{t('campus-life')}</button>
             </NavLink>
             <NavLink to="/university-structure" onClick={handleClick}>
-              <button className="nav-btn">Quick Links</button>
+              <button className="nav-btn">{t('quick-links')}</button>
             </NavLink>
-            <NavLink to="/university-structure" onClick={handleClick}>
+            <LanguageProvider>
+              <LanguageComponent />
+            </LanguageProvider>
+            {/* <NavLink to="/university-structure" onClick={handleClick}>
               <button className="nav-btn">Eng</button>
-            </NavLink>
+            </NavLink> */}
           </NavMenu>
         </NavContainer>
       </Nav>

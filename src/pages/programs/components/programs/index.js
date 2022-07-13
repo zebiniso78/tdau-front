@@ -2,11 +2,12 @@ import { Col, Row } from 'antd';
 import { CardComponent } from 'components/card';
 import { ProgramContainer } from 'pages/programs/style';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import { Title } from 'styles/globalStyle';
 export default function Programs({ data, programsData }) {
   const history = useHistory();
-
+  const { t } = useTranslation();
   return (
     <ProgramContainer className="my-5">
       <br />
@@ -44,7 +45,7 @@ export default function Programs({ data, programsData }) {
           textAlign: 'center',
         }}
       >
-        PROGRAMS
+        {t('programs')}
       </h2>
       <br />
 
@@ -56,7 +57,7 @@ export default function Programs({ data, programsData }) {
               status={x?.name}
               image={`${process.env.REACT_APP_API_SECOND_ROOT}/${x?.photo}`}
               type="event_calendar"
-              training_date={`${x?.count} FACULTY`}
+              training_date={`${x?.count} ${t('faculty')}`}
               title={x?.name}
               description={x?.desc}
             />

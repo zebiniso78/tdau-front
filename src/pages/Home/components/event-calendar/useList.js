@@ -2,9 +2,12 @@ import { useMemo } from 'react';
 import { useEffect, useState } from 'react';
 
 import toast from 'react-hot-toast';
+import { useTranslation } from 'react-i18next';
 import { newsApi } from 'services/api/pagesApi';
 
 export function useList() {
+  const { t } = useTranslation();
+
   const [calendarList, setCalendarList] = useState([]);
 
   //   const calendarList = useMemo(
@@ -76,7 +79,7 @@ export function useList() {
       setCalendarList(res ? res[2] : []);
     } catch (error) {
       console.log(error);
-      toast.error(error?.msg || 'Error');
+      toast.error(error?.msg || t('error-text'));
     }
   }
 

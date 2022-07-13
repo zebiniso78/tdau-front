@@ -9,9 +9,11 @@ import {
 } from './style';
 import { useList } from './useList';
 import Ellipse from 'assets/rectangles/ellipse.png';
+import { useTranslation } from 'react-i18next';
 
 export default function Footer() {
   const { footerList } = useList();
+  const { t } = useTranslation();
   return (
     <FooterProvider>
       <Container>
@@ -46,14 +48,8 @@ export default function Footer() {
         </Row>
         <HorizontalLine />
         <FooterBottom>
-          <p>
-            Copyright © Tashkent State Agrarian University 2022. All rights
-            reserved
-          </p>
-          <p>
-            Center of Digitalization of Agro Industry <br />
-            under The Ministry of Agriculture
-          </p>
+          <p>© {t('tdau')} 2022. All rights reserved</p>
+          <p style={{ maxWidth: 290 }}>{t('ourCenter')}</p>
         </FooterBottom>
       </Container>
       <FooterImage>

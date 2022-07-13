@@ -13,14 +13,15 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { settings } from './systemSettings';
 import { useArrowFunctions } from './useArrowFunctions';
+import { useTranslation } from 'react-i18next';
 
 export function EventCalendar() {
   const { calendarList } = useList();
   const { SamplePrevArrow, SampleNextArrow } = useArrowFunctions();
-
+  const { t } = useTranslation();
   return (
     <CardProvider>
-      <LandingTitle>UNIVERSITY EVENT CALENDAR</LandingTitle>
+      <LandingTitle>{t('event-calendar')}</LandingTitle>
       <CardWrap>
         <Slider
           nextArrow={<SampleNextArrow />}

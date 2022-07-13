@@ -19,12 +19,25 @@ import ProgramsPage from 'pages/programs';
 import DirectorPage from 'pages/director/container';
 import LevelPage from 'pages/level';
 import VisionPage from 'pages/visionMision';
+import { useTranslation } from 'react-i18next';
 
 function App() {
+  const { i18n } = useTranslation();
+  const language = localStorage.getItem('language');
+
   useEffect(() => {
     Aos.init({ duration: 1500, once: false });
     // setLoading(true);
   }, []);
+
+  useEffect(() => {
+    if (language !== null || language !== undefined) {
+      i18n.changeLanguage(language);
+    } else {
+      localStorage.setItem('language', 'uz');
+    }
+  }, [language, i18n]);
+
   return (
     <BrowserRouter>
       <Navigator />
@@ -32,8 +45,8 @@ function App() {
         <Route path="/rectors-message" exact component={RectorsMessage} />
         <Route path="/" exact component={Home} />
         <Route path="/personal-info" component={Submissions} />
-        <Route path="/admission" component={Profile} />
         <Route path="/university-admissions" component={Admissions} />
+        <Route path="/admission" component={Profile} />
         <Route path="/partner-universities/blog/:id" component={About} />
         <Route path="/university-structure" component={UniversityStructure} />
         <Route path="/bachelor" component={Levels} />

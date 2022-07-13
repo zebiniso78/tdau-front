@@ -9,8 +9,10 @@ import {
   Button,
 } from './style';
 import Message from 'assets/subscribe/message.png';
-
+import { useTranslation } from 'react-i18next';
+import { Col, Row } from 'antd';
 export function Subscribe() {
+  const { t } = useTranslation();
   return (
     <SubscribeProvider data-aos="fade-up">
       <SubscribeLeft>
@@ -18,11 +20,21 @@ export function Subscribe() {
       </SubscribeLeft>
       <SubscribeRight>
         <Form>
-          <h1>Straight from our desk, to your Inbox.</h1>
-          <h4>Subscribe to our newsletter</h4>
+          <h1>{t('subscribe-header1')}</h1>
+          <h4>{t('subscribe-header2')}</h4>
           <SubscribeInputWrap>
-            <Input type="email" placeholder="Your Email" />
-            <Button type="submit">Subscribe</Button>
+            <Row align="middle" justify="center">
+              <Col span={18}>
+                <Input
+                  style={{ width: '100%' }}
+                  type="email"
+                  placeholder={t('email')}
+                />
+              </Col>
+              <Col span={6}>
+                <Button type="submit">{t('subscribe')}</Button>
+              </Col>
+            </Row>
           </SubscribeInputWrap>
         </Form>
       </SubscribeRight>

@@ -10,9 +10,11 @@ import {
 import QuoteIcon from 'assets/rectors/QuoteIcon.png';
 import { useLocation } from 'react-router-dom';
 import Director from 'assets/director/director.png';
+import { useTranslation } from 'react-i18next';
 
 export function ProfileCard({ item }) {
   const location = useLocation();
+  const { t } = useTranslation();
   return (
     <ContentCard data-aos="fade-up">
       <div className="left-img">
@@ -29,22 +31,22 @@ export function ProfileCard({ item }) {
       <div className="card-container">
         <div className="right-content">
           <H1>{item?.rector_name}</H1>
-          <Position>Director</Position>
+          <Position>{t('direktor')}</Position>
           <CardInfo>
             <SocialParams>
-              Reception time: <span>{item?.rector_reception}</span>
+              {t('reseption-time')}: <span>{item?.rector_reception}</span>
             </SocialParams>
 
             <SocialParams>
-              Phone: <span> {item?.rector_phone}</span>
+              {t('phone')}: <span> {item?.rector_phone}</span>
             </SocialParams>
 
             <SocialParams>
-              E-mail: <span>{item?.rector_email}</span>
+              {t('email')}: <span>{item?.rector_email}</span>
             </SocialParams>
 
             <SocialParams>
-              Address: <span>{item?.rector_address}</span>
+              {t('address')}: <span>{item?.rector_address}</span>
             </SocialParams>
           </CardInfo>
         </div>

@@ -6,7 +6,9 @@ import Programs from './components/programs';
 import Branches from './components/branches';
 import useAboutUniver from './hooks';
 import moment from 'moment';
+import { useTranslation } from 'react-i18next';
 export default function ProgramsPage() {
+  const { t } = useTranslation();
   const [loading, setLoading] = React.useState(true);
   const { aboutData, programsData, branchesData } = useAboutUniver({
     setLoading,
@@ -16,11 +18,11 @@ export default function ProgramsPage() {
       <CarouselComponents
         id={'tdau'}
         picture={`${process.env.REACT_APP_API_SECOND_ROOT}/${aboutData?.photo1}`}
-        title="Tashkent State Agrarian University"
-        text={`Applications are now Open for the Academic year  ${parseInt(
+        title={'tdau'}
+        text={`${t('app-academic-year')}  ${parseInt(
           moment(new Date()).format('YYYY')
         )}-${parseInt(moment(new Date()).format('YYYY')) + 1}
-for Undergraduate and Postgraduate courses!`}
+        ${t('upgraduate-postgraduate')}`}
       />
       <AboutComponents data={aboutData} />
       <Video url={aboutData?.link} />

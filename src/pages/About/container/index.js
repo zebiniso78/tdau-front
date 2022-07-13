@@ -6,8 +6,10 @@ import { fetchData } from 'hooks/useFetch';
 import { partnersApi } from 'services/api/pagesApi';
 import toast from 'react-hot-toast';
 import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export default function About() {
+  const { t } = useTranslation();
   const [loader, setLoader] = useState(true);
   const [siteBlog, setSiteBlog] = useState(undefined);
   const { id } = useParams();
@@ -22,7 +24,7 @@ export default function About() {
       setLoader(false);
     } catch (error) {
       console.log(error);
-      toast.error(error?.msg || 'error');
+      toast.error(error?.msg || 'There was an error loading data!');
       setLoader(false);
     }
   }
@@ -40,7 +42,7 @@ export default function About() {
       <Video url={siteBlog?.videos} />
       <AboutContainer data-aos="fade-up" className="my-5">
         <ImageComponent
-          title="Why WSB University?"
+          title={`${t('why-univer')}?`}
           image={
             `${process.env.REACT_APP_API_SECOND_ROOT}/` + siteBlog?.picture_desc
           }

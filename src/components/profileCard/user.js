@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Card,
   CardLeft,
@@ -9,6 +10,7 @@ import {
 } from './style';
 
 export function UserCard({ item }) {
+  const { t } = useTranslation();
   return (
     <Card>
       <CardLeft>
@@ -18,12 +20,14 @@ export function UserCard({ item }) {
         <UserName>{item?.fullname}</UserName>
         <UserPosition>{item?.desc}</UserPosition>
         <UserLocation>
-          <li>Reception time: {item?.reception_time}</li>
           <li>
-            Phone: <span>{item?.phone}</span>
+            {t('reseption-time')}: {item?.reception_time}
           </li>
           <li>
-            E-mail: <span>{item?.email}</span>
+            {t('phone')}: <span>{item?.phone}</span>
+          </li>
+          <li>
+            {t('email')}: <span>{item?.email}</span>
           </li>
         </UserLocation>
       </CardRight>

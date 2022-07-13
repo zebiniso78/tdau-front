@@ -6,8 +6,10 @@ import { newsApi } from 'services/api/pagesApi';
 import moment from 'moment';
 import 'moment/locale/he';
 import { FirebaseLoader } from 'components/firebaseLoader';
+import { useTranslation } from 'react-i18next';
 
 export function News() {
+  const { t } = useTranslation();
   const [isFetch, setIsFetch] = useState(false);
   const [news, setNews] = useState(undefined);
   useEffect(() => {
@@ -15,7 +17,7 @@ export function News() {
   }, []);
   return (
     <LatestNewsProvider>
-      <NewsTitle>Latest news</NewsTitle>
+      <NewsTitle>{t('news')}</NewsTitle>
       <Row gutter={[16, 16]} style={{ marginBottom: '65px' }}>
         {news ? (
           news[0]?.map((item, index) => (

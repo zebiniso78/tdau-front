@@ -17,10 +17,13 @@ import { LoaderComponent } from 'components/loader';
 import DragDrop from 'components/dragDrop';
 import { Attachments } from 'hooks/useAttachment';
 import { FileUpload } from 'components/fileUpload';
+import { useTranslation } from 'react-i18next';
 
 export default function PersonalInfo() {
   let dateFormat = 'YYYY-MM-DD';
   const history = useHistory();
+  const { t } = useTranslation();
+
   const {
     handleSubmit,
     watch,
@@ -144,7 +147,7 @@ export default function PersonalInfo() {
       setIsLoading(false);
     } catch (e) {
       console.log(e);
-      toast.error(e?.msg || 'Error');
+      toast.error(e?.msg || t('error-text'));
       setIsLoading(false);
     }
   };

@@ -4,7 +4,9 @@ import { Container } from '../../common/grid';
 import { Alert, Button, Col, Row } from 'antd';
 import { admissionApi } from 'services/api/pagesApi';
 import { useHistory } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 function Profile() {
+  const { t } = useTranslation();
   const history = useHistory();
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [data, setData] = useState(undefined);
@@ -41,9 +43,8 @@ function Profile() {
             <ProfilePaper data-aos="fade-up">
               {data?.sts === 1 ? (
                 <Alert
-                  message="Your admission has been sent!"
-                  description="Your admissions will be reviewed and replied soon!   If your request is left unanswered for a long time, please
-                 contact our support center."
+                  message={t('admission-sent-message')}
+                  description={t('admission-sent-message-text')}
                   type="info"
                   showIcon
                   banner
@@ -55,7 +56,7 @@ function Profile() {
                       size="small"
                       type="warning"
                     >
-                      Support center
+                      {t('support-center')}
                     </Button>
                   }
                 />
@@ -65,8 +66,8 @@ function Profile() {
                   <div className="row align-items-center">
                     <div className="col-12">
                       <Alert
-                        message="Your admission accepted!"
-                        description="You have been successfully admitted to the student body! you have been provided with a login and password to log in!"
+                        message={t('admission-accepted-message')}
+                        description={t('admission-accepted-message-text')}
                         type="success"
                         showIcon
                         banner
@@ -91,8 +92,8 @@ function Profile() {
                   <div className="row align-items-center">
                     <div className="col-12 col-md-8">
                       <Alert
-                        message="Your admission rejected!"
-                        description="You can write to our support center"
+                        message={t('admission-rejected-message')}
+                        description={t('admission-rejected-message-text')}
                         type="error"
                         showIcon
                         banner
@@ -104,7 +105,7 @@ function Profile() {
                             size="small"
                             danger
                           >
-                            Support center
+                            {t('support-center')}
                           </Button>
                         }
                       />
@@ -123,15 +124,16 @@ function Profile() {
               ) : (
                 <>
                   <h4 style={{ textAlign: 'center' }}>
-                    Your data is in standby mode.
+                    {t('admission-error')}
                   </h4>
                   <Row align="middle" justify="space-between" gutter={[16, 16]}>
                     <Col span={24} md={16}>
-                      If you want, you can select the desired direction and fill
-                      out the application again.
+                      {t('resent-admission')}
                     </Col>
                     <Col span={24} md={7}>
-                      <Button onClick={() => restartFunc()}>Restart</Button>
+                      <Button onClick={() => restartFunc()}>
+                        {t('restart')}
+                      </Button>
                     </Col>
                   </Row>
                 </>

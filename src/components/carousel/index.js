@@ -19,6 +19,8 @@ import { Verify } from 'components/MainPage/Navbar/verify';
 import { fetchData } from 'hooks/useFetch';
 import { admissionApi } from 'services/api/pagesApi';
 import Cookies from 'js-cookie';
+import { useTranslation } from 'react-i18next';
+import moment from 'moment';
 const contentStyle = {
   width: '100vw',
 
@@ -30,6 +32,7 @@ const contentStyle = {
 };
 
 export function CarouselComponent({ first, second, third, four, id }) {
+  const { t } = useTranslation();
   let token = localStorage.getItem('token');
   let siteBlog = JSON.parse(localStorage.getItem('blog'));
   const [modal, setModal] = useState(false);
@@ -72,12 +75,14 @@ export function CarouselComponent({ first, second, third, four, id }) {
             <LeftContent>
               <h2>{siteBlog?.title}</h2>
               <p>
-                Applications are now Open for the Academic year 2022-2023 for
-                Undergraduate and Postgraduate courses!
+                {`${t('app-academic-year')}  ${parseInt(
+                  moment(new Date()).format('YYYY')
+                )}-${parseInt(moment(new Date()).format('YYYY')) + 1}
+        ${t('upgraduate-postgraduate')}`}
               </p>
               <MainBtnWrap style={{ marginTop: '16px' }}>
                 <MainBtn type="button" onClick={() => apply(id)}>
-                  Apply
+                  {t('apply')}
                 </MainBtn>
               </MainBtnWrap>
             </LeftContent>
@@ -107,12 +112,14 @@ export function CarouselComponent({ first, second, third, four, id }) {
             <LeftContent>
               <h2>{siteBlog?.title}</h2>
               <p>
-                Applications are now Open for the Academic year 2022-2023 for
-                Undergraduate and Postgraduate courses!
+                {`${t('app-academic-year')}  ${parseInt(
+                  moment(new Date()).format('YYYY')
+                )}-${parseInt(moment(new Date()).format('YYYY')) + 1}
+        ${t('upgraduate-postgraduate')}`}
               </p>
               <MainBtnWrap style={{ marginTop: '16px' }}>
                 <MainBtn type="button" onClick={() => apply(id)}>
-                  Apply
+                  {t('apply')}
                 </MainBtn>
               </MainBtnWrap>
             </LeftContent>
@@ -142,12 +149,14 @@ export function CarouselComponent({ first, second, third, four, id }) {
             <LeftContent>
               <h2>{siteBlog?.title}</h2>
               <p>
-                Applications are now Open for the Academic year 2022-2023 for
-                Undergraduate and Postgraduate courses!
+                {`${t('app-academic-year')}  ${parseInt(
+                  moment(new Date()).format('YYYY')
+                )}-${parseInt(moment(new Date()).format('YYYY')) + 1}
+        ${t('upgraduate-postgraduate')}`}
               </p>
               <MainBtnWrap style={{ marginTop: '16px' }}>
                 <MainBtn type="button" onClick={() => apply(id)}>
-                  Apply
+                  {t('apply')}
                 </MainBtn>
               </MainBtnWrap>
             </LeftContent>
@@ -177,12 +186,14 @@ export function CarouselComponent({ first, second, third, four, id }) {
             <LeftContent>
               <h2>{siteBlog?.title}</h2>
               <p>
-                Applications are now Open for the Academic year 2022-2023 for
-                Undergraduate and Postgraduate courses!
+                {`${t('app-academic-year')}  ${parseInt(
+                  moment(new Date()).format('YYYY')
+                )}-${parseInt(moment(new Date()).format('YYYY')) + 1}
+        ${t('upgraduate-postgraduate')}`}
               </p>
               <MainBtnWrap style={{ marginTop: '16px' }}>
                 <MainBtn type="button" onClick={() => apply(id)}>
-                  Apply
+                  {t('apply')}
                 </MainBtn>
               </MainBtnWrap>
             </LeftContent>
@@ -208,8 +219,10 @@ export function CarouselComponent({ first, second, third, four, id }) {
             <LeftContent>
               <h2>Vytautas Magnus University</h2>
               <p>
-                Applications are now Open for the Academic year 2022-2023 for
-                Undergraduate and Postgraduate courses!
+                  {`${t('app-academic-year')}  ${parseInt(
+          moment(new Date()).format('YYYY')
+        )}-${parseInt(moment(new Date()).format('YYYY')) + 1}
+        ${t('upgraduate-postgraduate')}`}
               </p>
               <MainBtnWrap style={{ marginTop: '16px' }}>
                 <MainBtn type="button" onClick={() => apply(id)}>Apply</MainBtn>
@@ -238,8 +251,10 @@ export function CarouselComponent({ first, second, third, four, id }) {
             <LeftContent>
               <h2>Volgograd State Agricultural University</h2>
               <p>
-                Applications are now Open for the Academic year 2022-2023 for
-                Undergraduate and Postgraduate courses!
+                  {`${t('app-academic-year')}  ${parseInt(
+          moment(new Date()).format('YYYY')
+        )}-${parseInt(moment(new Date()).format('YYYY')) + 1}
+        ${t('upgraduate-postgraduate')}`}
               </p>
               <MainBtnWrap style={{ marginTop: '16px' }}>
                 <MainBtn type="button" onClick={() => apply(id)}>Apply</MainBtn>
@@ -268,8 +283,10 @@ export function CarouselComponent({ first, second, third, four, id }) {
             <LeftContent>
               <h2>Moscow Timiryazev Agricultural Academy</h2>
               <p>
-                Applications are now Open for the Academic year 2022-2023 for
-                Undergraduate and Postgraduate courses!
+                  {`${t('app-academic-year')}  ${parseInt(
+          moment(new Date()).format('YYYY')
+        )}-${parseInt(moment(new Date()).format('YYYY')) + 1}
+        ${t('upgraduate-postgraduate')}`}
               </p>
               <MainBtnWrap style={{ marginTop: '16px' }}>
                 <MainBtn type="button" onClick={() => apply(id)}>Apply</MainBtn>

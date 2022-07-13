@@ -11,9 +11,11 @@ import rectorImg from 'assets/rectors/rectorPhoto.png';
 import QuoteIcon from 'assets/rectors/QuoteIcon.png';
 import { useLocation } from 'react-router-dom';
 import Director from 'assets/director/director.png';
+import { useTranslation } from 'react-i18next';
 
 export function ProfileCard({ item }) {
   const location = useLocation();
+  const { t } = useTranslation();
   return (
     <ContentCard>
       <div data-aos="fade-up" className="left-img">
@@ -39,18 +41,16 @@ export function ProfileCard({ item }) {
           </Position>
           <CardInfo>
             <SocialParams>
-              Reception time:{' '}
+              {t('reseption-time')}:{' '}
               <span>
                 {location.pathname !== '/director-page'
                   ? item?.reception_time
                   : 'Tuesday - Saturday, 14:00 - 17:00'}
               </span>
             </SocialParams>
+            <SocialParams>{t('reseption-Tdau')}:</SocialParams>
             <SocialParams>
-              Reception of the Tashkent State Agrarian University
-            </SocialParams>
-            <SocialParams>
-              Phone:{' '}
+              {t('phone')}:{' '}
               <span>
                 {location.pathname !== '/director-page'
                   ? item?.phone
@@ -59,11 +59,11 @@ export function ProfileCard({ item }) {
             </SocialParams>
             {location.pathname !== '/director-page' && (
               <SocialParams>
-                Fax: <span>{item?.phone}</span>
+                {t('fax')}: <span>{item?.phone}</span>
               </SocialParams>
             )}
             <SocialParams>
-              E-mail:{' '}
+              {t('email')}:{' '}
               <span>
                 {location.pathname !== '/director-page'
                   ? item?.email

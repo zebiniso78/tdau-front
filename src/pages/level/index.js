@@ -7,19 +7,21 @@ import AboutComponents from './about';
 import { Video } from 'pages/About/components/video';
 import TextContnet from './textContnet';
 import useLevel from './hook';
+import { useTranslation } from 'react-i18next';
 
 export default function LevelPage() {
   const { data } = useLevel();
+  const { t } = useTranslation();
   return (
     <>
       <CarouselLevels
         id={'tdau'}
         picture={`${process.env.REACT_APP_API_SECOND_ROOT}/${data?.photo}`}
-        title="Tashkent State Agrarian University"
-        text={`Applications are now Open for the Academic year  ${parseInt(
+        title={data?.name}
+        text={`${t('app-academic-year')}  ${parseInt(
           moment(new Date()).format('YYYY')
         )}-${parseInt(moment(new Date()).format('YYYY')) + 1}
-for Undergraduate and Postgraduate courses!`}
+${t('upgraduate-postgraduate')}`}
       />
       <Container>
         <AboutComponents data={data} />

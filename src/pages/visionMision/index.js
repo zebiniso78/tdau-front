@@ -1,10 +1,12 @@
 import { Col, Row } from 'antd';
 import { Image } from 'components/Image/style';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Container } from 'styles/globalStyle';
 import { TextContent } from './style';
 
 export default function VisionPage() {
+  const { t } = useTranslation();
   return (
     <>
       <Image
@@ -21,65 +23,42 @@ export default function VisionPage() {
         >
           <Col span={24} md={15}>
             <TextContent>
-              <h2 data-aos="fade-right">University values</h2>
+              <h2 data-aos="fade-right">{t('univer-values')}</h2>
               <br />
               <Row gutter={[24, 16]} align="middle" justify="space-between">
                 <Col span={5} md={4} data-aos="fade-up">
-                  <h3 style={{ color: 'rgb(14 44 28)' }}>S</h3>
+                  <h3 style={{ color: 'rgb(14 44 28)' }}>{t('s')}</h3>
                 </Col>
                 <Col span={19} md={20} data-aos="fade-up">
-                  <p>
-                    Strategy of strategies - search for additional funding for
-                    the implementation of strategic objectives
-                  </p>
+                  <p>{t('s-text')}</p>
                 </Col>
 
                 <Col span={5} md={4} data-aos="fade-up">
-                  <h3 style={{ color: 'rgb(12 62 38)' }}>M</h3>
+                  <h3 style={{ color: 'rgb(12 62 38)' }}>{t('m')}</h3>
                 </Col>
                 <Col span={19} md={20} data-aos="fade-up">
-                  <p>
-                    Maximum innovation Implementation of new technologies and
-                    development of infrastructure
-                  </p>
+                  <p>{t('m-text')}</p>
                 </Col>
 
                 <Col span={5} md={4} data-aos="fade-up">
-                  <h3 style={{ color: 'rgb(10 80 48)' }}>A</h3>
+                  <h3 style={{ color: 'rgb(10 80 48)' }}>{t('a')}</h3>
                 </Col>
                 <Col span={19} md={20} data-aos="fade-up">
-                  <p>
-                    an Open to all personality development - Preparation and
-                    delivery of Long Life Learning, implementation of group
-                    projects, as well as e-learning (online learning) curricula,
-                    modernization of scientific and didactic laboratories, and
-                    the application of research in practice.
-                  </p>
+                  <p>{t('a-text')}</p>
                 </Col>
 
                 <Col span={5} md={4} data-aos="fade-up">
-                  <h3 style={{ color: 'rgb(8 97 58)' }}>R</h3>
+                  <h3 style={{ color: 'rgb(8 97 58)' }}>{t('r')}</h3>
                 </Col>
                 <Col span={19} md={20} data-aos="fade-up">
-                  <p>
-                    Creative approach - All the necessary conditions have been
-                    created for the comprehensive development of students,
-                    graduate students, and employees. The most active and
-                    diligent people are recognized for their academic and
-                    professional achievements.
-                  </p>
+                  <p>{t('r-text')}</p>
                 </Col>
 
                 <Col span={5} md={4} data-aos="fade-up">
-                  <h3 style={{ color: 'rgb(6 115 68)' }}>T</h3>
+                  <h3 style={{ color: 'rgb(6 115 68)' }}>{t('t')}</h3>
                 </Col>
                 <Col span={19} md={20} data-aos="fade-up">
-                  <p>
-                    Improvement of learning skills - Eliminate obstacles and
-                    administrative difficulties with proven effective methods,
-                    adhere to work culture, and creatively create a creative
-                    process of working with innovative technologies.
-                  </p>
+                  <p>{t('t-text')}</p>
                 </Col>
               </Row>
             </TextContent>
@@ -90,30 +69,16 @@ export default function VisionPage() {
               className="content"
               data-aos="fade-up"
             >
-              <h2>Vision</h2>
-              <p>
-                Our selection in "Development after formal education: the
-                continuous development of the knowledge and skills that people
-                acquire after formal education and throughout life.
-              </p>
+              <h2>{t('vision')}</h2>
+              <p>{t('vision-text')}</p>
             </TextContent>
             <TextContent className="content" data-aos="fade-up">
-              <h2>Mission</h2>
-              <p>
-                The introduction of new strategies for the most innovative
-                development of the personality opens up a creative approach for
-                everyone, including a complete transformation of university
-                policy and the improvement of academic qualities of "Smart
-                University"
-              </p>
+              <h2>{t('mission')}</h2>
+              <p>{t('mission-text')}</p>
             </TextContent>
             <TextContent className="content" data-aos="fade-up">
-              <h2>The University Tradition</h2>
-              <p>
-                A university with a personalized approach to student learning in
-                creative and hands-on environments and recognized criteria for
-                global demand
-              </p>
+              <h2>{t('tradition')}</h2>
+              <p>{t('tradition-text')}</p>
             </TextContent>
           </Col>
         </Row>

@@ -2,10 +2,11 @@ import { Col, Row } from 'antd';
 import { CardComponent } from 'components/card';
 import { ProgramContainer } from 'pages/programs/style';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 export default function Branches({ branchesData }) {
   const history = useHistory();
-
+  const { t } = useTranslation();
   return (
     <ProgramContainer className="my-5">
       <h2
@@ -17,7 +18,7 @@ export default function Branches({ branchesData }) {
           textAlign: 'center',
         }}
       >
-        Branches
+        {t('branches')}
       </h2>
       <br />
 

@@ -8,14 +8,15 @@ import Button from '../../../button';
 import { Modal } from 'antd';
 import { fetchData } from 'hooks/useFetch';
 import toast from 'react-hot-toast';
-
+import { useTranslation } from 'react-i18next';
 
 export function Verify({
   setConfirmModel,
   setRegisterModel,
   confirmModel,
-  phoneNumber
+  phoneNumber,
 }) {
+  const { t } = useTranslation();
   const {
     handleSubmit,
     watch,
@@ -25,11 +26,11 @@ export function Verify({
   let token = localStorage.getItem('token');
   const history = useHistory();
   const [isLoading, setIsLoading] = useState(false);
-  const [entityID, setEntityID] = useState([])
+  const [entityID, setEntityID] = useState([]);
   const [loader, setLoader] = useState(false);
   useEffect(() => {
-    fetchData(admissionApi.allUniversityID(null), setEntityID, setLoader)
-  }, [])
+    fetchData(admissionApi.allUniversityID(null), setEntityID, setLoader);
+  }, []);
   async function onSubmit(data) {
     try {
       setIsLoading(true);
@@ -39,7 +40,10 @@ export function Verify({
       let res = await authApi.verify(formData);
       localStorage.setItem('token', res?.token);
       if (res?.token) {
-        localStorage.setItem('university_id', JSON.stringify(entityID ? entityID[0]?.id : 22));
+        localStorage.setItem(
+          'university_id',
+          JSON.stringify(entityID ? entityID[0]?.id : 22)
+        );
       }
       setIsLoading(false);
       setConfirmModel(false);
@@ -50,38 +54,39 @@ export function Verify({
       }
     } catch (e) {
       console.log(e);
-      toast.error(e?.msg)
+      toast.error(e?.msg);
       setIsLoading(false);
     }
   }
   const handleCancel = () => {
     setConfirmModel(false);
-  }
+  };
 
-  console.log(entityID)
+  console.log(entityID);
   return (
-    <Modal title="Login Form" visible={confirmModel} footer={false} onCancel={handleCancel}>
+    <Modal
+      title={t('verify-form')}
+      visible={confirmModel}
+      footer={false}
+      onCancel={handleCancel}
+    >
       <form onSubmit={handleSubmit(onSubmit)}>
         <CustomMask
           Controller={Controller}
           control={control}
           nameProps="code"
           mask="1111"
-          title="СМС-код"
+          title={t('sms-code')}
           placeholder="----"
         />
-        <p>
-          <span>00:56</span>Отправить код ещё раз
-        </p>
+        {/* <p>
+          <span style={{ color: 'blue' }}>00:56 </span> Отправить код ещё раз
+        </p> */}
         <div className="footer-button__wrapper">
+          <Button type="submit" title={t('submit')} disabled={isLoading} />
           <Button
             type="submit"
-            title="Зарегистрироваться"
-            disabled={isLoading}
-          />
-          <Button
-            type="submit"
-            title="Выход"
+            title={t('back')}
             bgColor="transparent"
             color="#2e7df6"
             onClick={() => {

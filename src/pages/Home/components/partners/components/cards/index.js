@@ -15,8 +15,10 @@ import { fetchData } from 'hooks/useFetch';
 import { partnersApi } from 'services/api/pagesApi';
 import YouTube, { UniversitySkeleton } from 'components/skeleton';
 import browserStorage from 'services/storage';
+import { useTranslation } from 'react-i18next';
 
 export function Cards() {
+  const { t } = useTranslation();
   const history = useHistory();
   const [loader, setLoader] = useState(true);
   const [partners, setPartners] = useState(undefined);
@@ -39,7 +41,7 @@ export function Cards() {
   console.log(data);
   return (
     <CardProvider>
-      <LandingTitle>PARTNER UNIVERSITIES</LandingTitle>
+      <LandingTitle>{t('partner-university')}</LandingTitle>
       <CardWrap style={{ justifyContent: 'center' }}>
         {!loader ? (
           <Row gutter={[16, 16]}>

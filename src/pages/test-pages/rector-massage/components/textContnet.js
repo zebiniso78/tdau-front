@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   TextContainer,
   TextContainer1,
@@ -6,6 +7,7 @@ import {
 } from '../container/style';
 
 function TextContnet({ add_info, work_activities, photo }) {
+  const { t } = useTranslation();
   return (
     <TextContainer>
       <TextContainer1 data-aos="fade-up">
@@ -22,7 +24,7 @@ function TextContnet({ add_info, work_activities, photo }) {
         />
       </TextContainer1>
       <TextContainer2>
-        <h4 data-aos="fade-up">WORK ACTIVITIES</h4>
+        <h4 data-aos="fade-up">{t('work-activities')}</h4>
 
         {work_activities?.map((x, i) => (
           <p data-aos="fade-up" key={i}>

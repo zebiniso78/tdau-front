@@ -112,6 +112,74 @@ export const NavLink = styled(Link)`
     }
   }
 `;
+export const LanguageProvider = styled.div`
+  color: #142f38 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  transition: 0.4s ease-in-out;
+  padding: 0 1rem;
+  height: 10%;
+  cursor: pointer;
+  &.antd-select {
+    font-weight: 500 !important;
+    color: ${systemColors.mainBlue} !important;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0px;
+    height: 5px;
+    left: 50%;
+    bottom: 0;
+    background-color: ${systemColors.mainBlue};
+    transition: all ease-in-out 0.2s;
+  }
+  &:after:hover {
+    width: 100%;
+    left: 0;
+  }
+  &:hover {
+    text-decoration: none !important;
+  }
+  .logo-image {
+    width: 176.64px;
+  }
+  .nav-btn {
+    margin-top: 13px;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.5s;
+    background-color: transparent;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    color: #142f38;
+    font-size: 16px;
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
+  }
+  .language-select {
+    &:focus {
+      border: none !important;
+      box-shadow: none !important;
+    }
+  }
+  @media (max-width: 960px) {
+    color: black;
+    .nav-btn {
+      margin-top: 0;
+    }
+  }
+  @media (max-width: 576px) {
+    img {
+      width: 130px !important;
+    }
+  }
+`;
 export const PhoneLink = styled.a`
   color: #000;
   display: none;

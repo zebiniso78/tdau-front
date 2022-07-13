@@ -2,8 +2,10 @@ import React from 'react';
 import { IndicatorProvider } from './style';
 import CountUp from 'react-countup';
 import { Col, Row } from 'antd';
+import { useTranslation } from 'react-i18next';
 
 export function Indicator() {
+  const { t } = useTranslation();
   return (
     <IndicatorProvider>
       <Row data-aos="zoom-in" gutter={[16, 16]}>
@@ -23,7 +25,7 @@ export function Indicator() {
             />
             <span>+</span>
           </div>
-          <h5>Students</h5>
+          <h5>{t('students')}</h5>
         </Col>
         <Col
           span={24}
@@ -42,8 +44,8 @@ export function Indicator() {
             <span>%</span>
           </div>
           <h5>
-            Graduate
-            <br /> Employability
+            {t('graduate')}
+            <br /> {t('employability')}
           </h5>
         </Col>
         <Col
@@ -63,8 +65,8 @@ export function Indicator() {
             <span>+</span>
           </div>
           <h5>
-            Master's
-            <br /> Programmes
+            {t('masters')}
+            <br /> {t('programs')}
           </h5>
         </Col>
         <Col
@@ -84,8 +86,8 @@ export function Indicator() {
             <span>+</span>
           </div>
           <h5>
-            Undergraduate
-            <br /> Programmes
+            {t('upgraduete')}
+            <br /> {t('programmes')}
           </h5>
         </Col>
       </Row>
