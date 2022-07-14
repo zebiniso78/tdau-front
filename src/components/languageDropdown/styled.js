@@ -43,7 +43,7 @@ export const DropdownElement = styled.div`
 `;
 export const Lang = styled.div`
   margin-left: 4px;
-  width: 84px;
+  width: 90px;
   display: flex;
   align-items: center;
   justify-content: space-between;
