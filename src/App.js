@@ -20,6 +20,7 @@ import DirectorPage from 'pages/director/container';
 import LevelPage from 'pages/level';
 import VisionPage from 'pages/visionMision';
 import { useTranslation } from 'react-i18next';
+import NavigationScroll from 'components/NavigationScroll';
 
 function App() {
   const { i18n } = useTranslation();
@@ -41,23 +42,26 @@ function App() {
   return (
     <BrowserRouter>
       <Navigator />
-      <Switch>
-        <Route path="/rectors-message" exact component={RectorsMessage} />
-        <Route path="/" exact component={Home} />
-        <Route path="/personal-info" component={Submissions} />
-        <Route path="/university-admissions" component={Admissions} />
-        <Route path="/admission" component={Profile} />
-        <Route path="/partner-universities/blog/:id" component={About} />
-        <Route path="/university-structure" component={UniversityStructure} />
-        <Route path="/bachelor" component={Levels} />
-        <Route path="/branch/:id" component={DirectorPage} />
-        <Route path="/level/:id" component={LevelPage} />
-        <Route path="/master" component={Levels} />
-        <Route path="/phd" component={Levels} />
-        <Route path="/about-university" component={ProgramsPage} />
-        <Route path="/vision" component={VisionPage} />
-        <Layout />
-      </Switch>
+      <NavigationScroll>
+        <Switch>
+          <Route path="/rectors-message" exact component={RectorsMessage} />
+          <Route path="/" exact component={Home} />
+          <Route path="/personal-info" component={Submissions} />
+          <Route path="/university-admissions" component={Admissions} />
+          <Route path="/admission" component={Profile} />
+          <Route path="/partner-universities/blog/:id" component={About} />
+          <Route path="/university-structure" component={UniversityStructure} />
+          <Route path="/bachelor" component={Levels} />
+          <Route path="/branch/:id" component={DirectorPage} />
+          <Route path="/level/:id" component={LevelPage} />
+          <Route path="/master" component={Levels} />
+          <Route path="/phd" component={Levels} />
+          <Route path="/about-university" component={ProgramsPage} />
+          <Route path="/vision" component={VisionPage} />
+          <Layout />
+        </Switch>
+      </NavigationScroll>
+
       <Footer />
       <Toaster position="top-right" reverseOrder={false} />
     </BrowserRouter>

@@ -23,6 +23,7 @@ import { Verify } from 'components/MainPage/Navbar/verify';
 import { useHistory } from 'react-router-dom';
 import Ellipse from 'assets/rectangles/ellipse_top.png';
 import { useTranslation } from 'react-i18next';
+import { Modal } from 'antd';
 
 export function MainSection() {
   const { t } = useTranslation();
@@ -33,11 +34,22 @@ export function MainSection() {
   const [confirmModel, setConfirmModel] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState(null);
   const showModal = () => {
-    if (localStorage.getItem('token')) {
-      history.push('/personal-info');
-    } else {
-      setIsModalVisible(true);
-    }
+    Modal.info({
+      title: t('alert-no-working-apply-title'),
+      content: (
+        <div>
+          <p>{t('alert-no-working-apply')}</p>
+        </div>
+      ),
+
+      onOk() {},
+    });
+
+    // if (localStorage.getItem('token')) {
+    //   history.push('/personal-info');
+    // } else {
+    //   setIsModalVisible(true);
+    // }
   };
   const handleCancel = () => {
     setIsModalVisible(false);

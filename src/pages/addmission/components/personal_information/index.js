@@ -234,7 +234,7 @@ export default function PersonalInfo() {
               title={t('gender')}
               name="genderID"
               required={false}
-              placeholder="Мистер"
+              placeholder={t('gender')}
               options={genders}
               disabled={false}
               className={
@@ -321,7 +321,7 @@ export default function PersonalInfo() {
               <Error className="select-error-tooltip">{t('error-field')}</Error>
             )}
           </div>
-          <div className="col-lg-9 col-md-6 col-sm-6 col-12">
+          <div className="col-lg-6 col-md-6 col-sm-6 ">
             {Attachments(defaultValues?.attachments, 'personal image') !==
               false && attachImage ? (
               <div style={{ maxWidth: '60%' }}>

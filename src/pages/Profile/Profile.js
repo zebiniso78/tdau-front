@@ -71,17 +71,17 @@ function Profile() {
                         type="success"
                         showIcon
                         banner
+                        action={
+                          <Button
+                            size="small"
+                            type="warning"
+                            onClick={() => restartFunc()}
+                          >
+                            {t('restart')}
+                          </Button>
+                        }
                       />
                     </div>
-                    {/* <div className="col-6 col-md-4 col-lg-3 ">
-                      <Alert
-                        message={`Login : ${data?.username} `}
-                        description={`Password : ${data?.password}`}
-                        type="info"
-                        banner
-                        showIcon={false}
-                      />
-                    </div> */}
                   </div>
                   {/* Accepted end */}
                 </>
@@ -117,7 +117,15 @@ function Profile() {
                         type="error"
                         banner
                         showIcon={false}
+                        action={
+                          <Button size="small" onClick={() => restartFunc()}>
+                            {t('restart')}
+                          </Button>
+                        }
                       />
+                      <Button onClick={() => restartFunc()}>
+                        {t('restart')}
+                      </Button>
                     </div>
                   </div>
                 </>
@@ -126,14 +134,27 @@ function Profile() {
                   <h4 style={{ textAlign: 'center' }}>
                     {t('admission-error')}
                   </h4>
-                  <Row align="middle" justify="space-between" gutter={[16, 16]}>
-                    <Col span={24} md={16}>
-                      {t('resent-admission')}
-                    </Col>
-                    <Col span={24} md={7}>
-                      <Button onClick={() => restartFunc()}>
-                        {t('restart')}
-                      </Button>
+                  <br />
+                  <Row align="middle" justify="center" gutter={[16, 16]}>
+                    <Col span={24} md={20}>
+                      {/* <Alert
+                        description={t('resent-admission')}
+                        type="info"
+                        banner
+                        showIcon={true}
+                      />
+                      <br /> */}
+                      <Alert
+                        description={t('resent-admission')}
+                        type="error"
+                        banner
+                        showIcon={false}
+                        action={
+                          <Button size="small" onClick={() => restartFunc()}>
+                            {t('restart')}
+                          </Button>
+                        }
+                      />
                     </Col>
                   </Row>
                 </>

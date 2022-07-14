@@ -52,9 +52,9 @@ export default function Footer() {
           <p style={{ maxWidth: 290 }}>{t('ourCenter')}</p>
         </FooterBottom>
       </Container>
-      <FooterImage>
+      {/* <FooterImage>
         <img src={Ellipse} alt="ellipse" />
-      </FooterImage>
+      </FooterImage> */}
     </FooterProvider>
   );
 }
