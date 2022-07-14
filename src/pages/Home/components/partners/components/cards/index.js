@@ -48,6 +48,7 @@ export function Cards() {
             {data?.map((item) => (
               <Col key={item?.id} span={24} xl={6} sm={12}>
                 <CardComponent
+                  className="smart-campus-card"
                   type="university"
                   onClick={() => blogInfo(item)}
                   image={`${process.env.REACT_APP_API_SECOND_ROOT}/${item?.picture}`}

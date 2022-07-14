@@ -1,16 +1,19 @@
 import styled from 'styled-components';
 
 export const ArticleProvider = styled.div`
-  display: flex;
-  justify-content: space-between;
+  width: 100%;
+  /* display: flex;
+  justify-content: space-between; */
   margin: 50px 0;
+
+  /* flex-wrap: wrap;
   @media (max-width: 676px) {
     display: flex;
     flex-direction: column;
-  }
+  } */
 `;
 export const ArticleLeft = styled.div`
-  width: 35%;
+  width: 50%;
   height: auto;
   font-family: 'Inter', sans-serif;
   @media (max-width: 676px) {
@@ -32,7 +35,7 @@ export const ArticleRight = styled.div`
   display: flex;
   align-items: flex-end;
   flex-direction: column;
-  width: 65%;
+  width: 50%;
   height: auto;
   @media (max-width: 676px) {
     width: 100%;

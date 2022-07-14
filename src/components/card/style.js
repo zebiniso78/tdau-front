@@ -15,6 +15,21 @@ export const Card = styled.div`
     margin-bottom: 16px;
     box-shadow: 0px 2px 14px #dfd9ce;
   }
+  &.smart-campus-card {
+    min-height: 360px;
+    padding-bottom: 16px;
+    .logo {
+      width: 100%;
+      max-height: 80px;
+      object-fit: contain;
+    }
+    @media (max-width: 1400px) {
+      min-height: 430px;
+    }
+    @media (max-width: 991px) {
+      min-height: auto;
+    }
+  }
   min-height: ${(props) => (props.type === 'university' ? '450px' : 'auto')};
   @media (max-width: 1400px) {
     min-height: ${(props) => (props.type === 'university' ? '470px' : 'auto')};
@@ -32,7 +47,6 @@ export const CardHeader = styled.div`
   border-bottom-right-radius: 0;
   & img {
     width: 100%;
-    max-height: 250px;
     height: 240px;
     object-fit: cover;
     border-radius: 4.88166px;
@@ -54,9 +68,16 @@ export const CardBody = styled.div`
     width: 70%;
   }
 `;
-export const CardFooter = styled.div``;
+export const CardFooter = styled.div`
+  width: 100%;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 export const CardFooterTitle = styled.h5`
   font-family: 'Inter';
+  width: 100%;
   font-weight: 600;
   font-size: 14px;
   line-height: 19px;

@@ -20,7 +20,7 @@ export function News() {
       <NewsTitle>{t('news')}</NewsTitle>
       <Row gutter={[16, 16]} style={{ marginBottom: '65px' }}>
         {news ? (
-          news[0]?.map((item, index) => (
+          news[0]?.slice(news[0]?.length - 5).map((item, index) => (
             <Col
               span={24}
               md={index === 2 || index === 3 ? 6 : 12}

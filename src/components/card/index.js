@@ -49,7 +49,7 @@ export function CardComponent({
             </p>
           </CardInfo>
         ) : (
-          <img src={cardLogo} alt={logo} />
+          <img className="logo" src={cardLogo} alt={logo} />
         )}
       </CardBody>
       <CardFooter>

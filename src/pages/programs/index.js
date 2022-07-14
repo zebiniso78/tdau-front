@@ -18,7 +18,7 @@ export default function ProgramsPage() {
       <CarouselComponents
         id={'tdau'}
         picture={`${process.env.REACT_APP_API_SECOND_ROOT}/${aboutData?.photo1}`}
-        title={'tdau'}
+        title={t('tdau')}
         text={`${t('app-academic-year')}  ${parseInt(
           moment(new Date()).format('YYYY')
         )}-${parseInt(moment(new Date()).format('YYYY')) + 1}
