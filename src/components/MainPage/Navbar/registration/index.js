@@ -79,7 +79,7 @@ export function Registration({
         <PhoneMask
           Controller={Controller}
           control={control}
-          nameProps={t('phone')}
+          nameProps="phone"
           title={t('phone') + '*'}
           required={true}
           validators={['required', 'isNumber']}
