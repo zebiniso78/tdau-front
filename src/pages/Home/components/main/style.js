@@ -26,7 +26,7 @@ export const TopTour = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100px;
+  max-width: 140px;
   height: 35px;
   background: #d5eec6;
   border-radius: 15px;

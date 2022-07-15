@@ -31,7 +31,7 @@ const contentStyle = {
   justifyContent: 'center',
 };
 
-export function CarouselComponent({ first, second, third, four, id }) {
+export function CarouselComponent({ first, second, third, four, id, pic }) {
   const { t } = useTranslation();
   let token = localStorage.getItem('token');
   let siteBlog = JSON.parse(localStorage.getItem('blog'));
@@ -67,8 +67,8 @@ export function CarouselComponent({ first, second, third, four, id }) {
       <Carousel autoplay effect="fade">
         <CarouselLayout style={contentStyle}>
           <Image
-            // src={`${process.env.REACT_APP_API_SECOND_ROOT}/${siteBlog?.picture}`}
-            src={first}
+            src={`${process.env.REACT_APP_API_SECOND_ROOT}/${pic}`}
+            // src={first}
             alt="first"
           />
           <TextContent className="tdau-item">
@@ -102,212 +102,6 @@ export function CarouselComponent({ first, second, third, four, id }) {
             </RightContent>
           </TextContent>
         </CarouselLayout>
-        <CarouselLayout style={contentStyle}>
-          <Image
-            // src={`${process.env.REACT_APP_API_SECOND_ROOT}/${siteBlog?.picture}`}
-            src={second}
-            alt="first"
-          />
-          <TextContent className="tdau-item">
-            <LeftContent>
-              <h2>{siteBlog?.title}</h2>
-              <p>
-                {`${t('app-academic-year')}  ${parseInt(
-                  moment(new Date()).format('YYYY')
-                )}-${parseInt(moment(new Date()).format('YYYY')) + 1}
-        ${t('upgraduate-postgraduate')}`}
-              </p>
-              <MainBtnWrap style={{ marginTop: '16px' }}>
-                <MainBtn type="button" onClick={() => apply(id)}>
-                  {t('apply')}
-                </MainBtn>
-              </MainBtnWrap>
-            </LeftContent>
-            <RightContent className="tdau-item-two">
-              <div className="item">
-                <a href="https://www.facebook.com/asadbek.azamov.399">
-                  <Facebook />
-                </a>
-                <a href="https://www.instagram.com/azamov_9909/">
-                  <Instagram />
-                </a>
-                <a href="https://t.me/AsadbekAzamov01">
-                  <Telegram />
-                </a>
-                <div className="line"></div>
-              </div>
-            </RightContent>
-          </TextContent>
-        </CarouselLayout>
-        <CarouselLayout style={contentStyle}>
-          <Image
-            // src={`${process.env.REACT_APP_API_SECOND_ROOT}/${siteBlog?.picture}`}
-            src={third}
-            alt="first"
-          />
-          <TextContent className="tdau-item">
-            <LeftContent>
-              <h2>{siteBlog?.title}</h2>
-              <p>
-                {`${t('app-academic-year')}  ${parseInt(
-                  moment(new Date()).format('YYYY')
-                )}-${parseInt(moment(new Date()).format('YYYY')) + 1}
-        ${t('upgraduate-postgraduate')}`}
-              </p>
-              <MainBtnWrap style={{ marginTop: '16px' }}>
-                <MainBtn type="button" onClick={() => apply(id)}>
-                  {t('apply')}
-                </MainBtn>
-              </MainBtnWrap>
-            </LeftContent>
-            <RightContent className="tdau-item-two">
-              <div className="item">
-                <a href="https://www.facebook.com/asadbek.azamov.399">
-                  <Facebook />
-                </a>
-                <a href="https://www.instagram.com/azamov_9909/">
-                  <Instagram />
-                </a>
-                <a href="https://t.me/AsadbekAzamov01">
-                  <Telegram />
-                </a>
-                <div className="line"></div>
-              </div>
-            </RightContent>
-          </TextContent>
-        </CarouselLayout>{' '}
-        <CarouselLayout style={contentStyle}>
-          <Image
-            // src={`${process.env.REACT_APP_API_SECOND_ROOT}/${siteBlog?.picture}`}
-            src={four}
-            alt="first"
-          />
-          <TextContent className="tdau-item">
-            <LeftContent>
-              <h2>{siteBlog?.title}</h2>
-              <p>
-                {`${t('app-academic-year')}  ${parseInt(
-                  moment(new Date()).format('YYYY')
-                )}-${parseInt(moment(new Date()).format('YYYY')) + 1}
-        ${t('upgraduate-postgraduate')}`}
-              </p>
-              <MainBtnWrap style={{ marginTop: '16px' }}>
-                <MainBtn type="button" onClick={() => apply(id)}>
-                  {t('apply')}
-                </MainBtn>
-              </MainBtnWrap>
-            </LeftContent>
-            <RightContent className="tdau-item-two">
-              <div className="item">
-                <a href="https://www.facebook.com/asadbek.azamov.399">
-                  <Facebook />
-                </a>
-                <a href="https://www.instagram.com/azamov_9909/">
-                  <Instagram />
-                </a>
-                <a href="https://t.me/AsadbekAzamov01">
-                  <Telegram />
-                </a>
-                <div className="line"></div>
-              </div>
-            </RightContent>
-          </TextContent>
-        </CarouselLayout>
-        {/* <CarouselLayout style={contentStyle}>
-          <Image src={second} alt="second" />
-          <TextContent className="tdau-item">
-            <LeftContent>
-              <h2>Vytautas Magnus University</h2>
-              <p>
-                  {`${t('app-academic-year')}  ${parseInt(
-          moment(new Date()).format('YYYY')
-        )}-${parseInt(moment(new Date()).format('YYYY')) + 1}
-        ${t('upgraduate-postgraduate')}`}
-              </p>
-              <MainBtnWrap style={{ marginTop: '16px' }}>
-                <MainBtn type="button" onClick={() => apply(id)}>Apply</MainBtn>
-              </MainBtnWrap>
-            </LeftContent>
-            <RightContent className="tdau-item-two">
-              <div className="item">
-                <a href="https://www.facebook.com/asadbek.azamov.399">
-                  <Facebook />
-                </a>
-                <a href="https://www.instagram.com/azamov_9909/">
-                  <Instagram />
-                </a>
-                <a href="https://t.me/AsadbekAzamov01">
-                  <Telegram />
-                </a>
-                <div className="line"></div>
-              </div>
-            </RightContent>
-          </TextContent>
-        </CarouselLayout>
-
-        <CarouselLayout style={contentStyle}>
-          <Image src={third} alt="third" />
-          <TextContent className="tdau-item">
-            <LeftContent>
-              <h2>Volgograd State Agricultural University</h2>
-              <p>
-                  {`${t('app-academic-year')}  ${parseInt(
-          moment(new Date()).format('YYYY')
-        )}-${parseInt(moment(new Date()).format('YYYY')) + 1}
-        ${t('upgraduate-postgraduate')}`}
-              </p>
-              <MainBtnWrap style={{ marginTop: '16px' }}>
-                <MainBtn type="button" onClick={() => apply(id)}>Apply</MainBtn>
-              </MainBtnWrap>
-            </LeftContent>
-            <RightContent className="tdau-item-two">
-              <div className="item">
-                <a href="https://www.facebook.com/asadbek.azamov.399">
-                  <Facebook />
-                </a>
-                <a href="https://www.instagram.com/azamov_9909/">
-                  <Instagram />
-                </a>
-                <a href="https://t.me/AsadbekAzamov01">
-                  <Telegram />
-                </a>
-                <div className="line"></div>
-              </div>
-            </RightContent>
-          </TextContent>
-        </CarouselLayout>
-
-        <CarouselLayout style={contentStyle}>
-          <Image src={four} alt="four" />
-          <TextContent className="tdau-item">
-            <LeftContent>
-              <h2>Moscow Timiryazev Agricultural Academy</h2>
-              <p>
-                  {`${t('app-academic-year')}  ${parseInt(
-          moment(new Date()).format('YYYY')
-        )}-${parseInt(moment(new Date()).format('YYYY')) + 1}
-        ${t('upgraduate-postgraduate')}`}
-              </p>
-              <MainBtnWrap style={{ marginTop: '16px' }}>
-                <MainBtn type="button" onClick={() => apply(id)}>Apply</MainBtn>
-              </MainBtnWrap>
-            </LeftContent>
-            <RightContent className="tdau-item-two">
-              <div className="item">
-                <a href="https://www.facebook.com/asadbek.azamov.399">
-                  <Facebook />
-                </a>
-                <a href="https://www.instagram.com/azamov_9909/">
-                  <Instagram />
-                </a>
-                <a href="https://t.me/AsadbekAzamov01">
-                  <Telegram />
-                </a>
-                <div className="line"></div>
-              </div>
-            </RightContent>
-          </TextContent>
-        </CarouselLayout> */}
       </Carousel>
       <Login
         setModal={setModal}

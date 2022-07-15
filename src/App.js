@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Profile from './pages/Profile/Profile';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Submissions from './pages/Submissions/container';
@@ -21,10 +21,14 @@ import LevelPage from 'pages/level';
 import VisionPage from 'pages/visionMision';
 import { useTranslation } from 'react-i18next';
 import NavigationScroll from 'components/NavigationScroll';
+import { fetchData } from 'hooks/useFetch';
+import { partnersApi } from 'services/api/pagesApi';
 
 function App() {
   const { i18n } = useTranslation();
   const language = localStorage.getItem('language');
+  const [loader, setLoader] = useState(true);
+  const [data, setData] = useState(undefined);
 
   useEffect(() => {
     Aos.init({ duration: 1500, once: false });
@@ -39,9 +43,13 @@ function App() {
     }
   }, [language, i18n]);
 
+  useEffect(() => {
+    fetchData(partnersApi.readPartners(null), setData, setLoader);
+  }, []);
+
   return (
     <BrowserRouter>
-      <Navigator />
+      <Navigator data={data?.all} />
       <NavigationScroll>
         <Switch>
           <Route path="/rectors-message" exact component={RectorsMessage} />

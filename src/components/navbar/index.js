@@ -12,19 +12,20 @@ import {
 } from './style';
 import { Twirl as Hamburger } from 'hamburger-react';
 import logoTip from '../../assets/logo/logo.svg';
-import { useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { Col, Row } from 'antd';
+import { Col, Row, Typography } from 'antd';
 import LanguageComponent from 'components/languageDropdown';
 import { useTranslation } from 'react-i18next';
-
-export function Navigator() {
+const { Paragraph } = Typography;
+export function Navigator({ data }) {
   const { t } = useTranslation();
-
+  const history = useHistory();
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
   const [openDropdown, setOpenDropdown] = useState(false);
+  const [clickDB, setClickDB] = useState(false);
 
   const location = useLocation();
   let blogID = JSON.parse(localStorage.getItem('blog'));
@@ -35,12 +36,17 @@ export function Navigator() {
       setButton(true);
     }
   };
+
   useEffect(() => {
     showButton();
   }, []);
+
   window.addEventListener('resize', showButton);
 
   const handleClick = () => {
+    // if (id) {
+    //   history.push(`/partner-universities/blog/${id}`);
+    // }
     setClick(!click);
   };
 
@@ -136,7 +142,14 @@ export function Navigator() {
                   </Link>
                 </li>
 
-                <li onClick={handleClick}>{t('branches')}</li>
+                <li onClick={handleClick}>
+                  <Link
+                    to="/about-university"
+                    style={{ textDecoration: 'none', color: '#142F38' }}
+                  >
+                    {t('branches')}
+                  </Link>{' '}
+                </li>
               </NavDropMenu>
             </NavDropMenuWrapper>
             <NavLink to="/university-structure" onClick={handleClick}>
@@ -144,9 +157,35 @@ export function Navigator() {
                 {t('international-relationship')}
               </button>
             </NavLink>
-            <NavLink to="/university-structure" onClick={handleClick}>
-              <button className="nav-btn">{t('double-degree')}</button>
-            </NavLink>
+
+            {data && (
+              <NavDropMenuWrapper>
+                <button
+                  onClick={() => setClickDB(!clickDB)}
+                  className="nav-btn"
+                >
+                  {t('double-degree')}
+                </button>
+                <NavDropMenu dropdowntype={clickDB}>
+                  {data?.map((item, index) => (
+                    <li key={index} onClick={handleClick}>
+                      <Link
+                        to={`/partner-universities/blog/${item?.id}`}
+                        style={{ textDecoration: 'none', color: '#142F38' }}
+                      >
+                        <Paragraph
+                          style={{ maxWidth: '340px', marginBottom: 0 }}
+                          ellipsis={true}
+                        >
+                          {item?.title}
+                        </Paragraph>
+                      </Link>
+                    </li>
+                  ))}
+                </NavDropMenu>
+              </NavDropMenuWrapper>
+            )}
+
             <NavLink to="/university-structure" onClick={handleClick}>
               <button className="nav-btn">{t('campus-life')}</button>
             </NavLink>

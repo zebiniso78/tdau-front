@@ -28,14 +28,13 @@ export default function About() {
       setLoader(false);
     }
   }
-
   useEffect(() => {
     getData();
-  }, []);
+  }, [id]);
 
   return (
     <div style={{ msOverflowX: 'hidden' }}>
-      <AboutMain />
+      <AboutMain pic={siteBlog?.picture} />
       <AboutContainer data-aos="fade-up" type="video">
         <Discover type="magnusUniversity" firstInfo={siteBlog?.description} />
       </AboutContainer>
