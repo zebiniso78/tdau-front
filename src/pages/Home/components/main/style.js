@@ -88,8 +88,11 @@ export const MainBtnWrap = styled.div`
   }
 `;
 export const MainBtn = styled.button`
-  width: 162px;
-  height: 50px;
+  min-width: 162px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
   background: #318161;
   border: 3.6px solid #318161;
   border-radius: 16.8px;
@@ -98,6 +101,15 @@ export const MainBtn = styled.button`
   font-weight: 500;
   font-size: 22px;
   color: white;
+  transition: all 0.3s ease;
+  &:hover {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+  &:active {
+  }
+  @media (max-width: 1400px) {
+    font-size: 18px;
+  }
   @media (max-width: 576px) {
     width: 100px;
     height: 35px;

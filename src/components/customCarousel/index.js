@@ -18,6 +18,7 @@ import { Registration } from 'components/MainPage/Navbar/registration';
 import { Verify } from 'components/MainPage/Navbar/verify';
 import { fetchData } from 'hooks/useFetch';
 import { admissionApi } from 'services/api/pagesApi';
+import { useTranslation } from 'react-i18next';
 const contentStyle = {
   width: '100vw',
   lineHeight: '160px',
@@ -28,6 +29,7 @@ const contentStyle = {
 };
 
 export function CustomCarouselComponent({ first, title, text, id }) {
+  const { t } = useTranslation();
   let token = localStorage.getItem('token');
   let siteBlog = JSON.parse(localStorage.getItem('blog'));
   const [modal, setModal] = useState(false);
@@ -73,7 +75,7 @@ export function CustomCarouselComponent({ first, title, text, id }) {
               <p>{text}</p>
               <MainBtnWrap style={{ marginTop: '16px' }}>
                 <MainBtn type="button" onClick={() => apply(id)}>
-                  Apply
+                  {t('apply')}
                 </MainBtn>
               </MainBtnWrap>
             </LeftContent>
