@@ -42,24 +42,28 @@ function Profile() {
           <Container className="profile-container">
             <ProfilePaper data-aos="fade-up">
               {data?.sts === 1 ? (
-                <Alert
-                  message={t('admission-sent-message')}
-                  description={t('admission-sent-message-text')}
-                  type="info"
-                  showIcon
-                  banner
-                  action={
-                    <Button
-                      onClick={() => {
-                        setIsModalVisible(true);
-                      }}
-                      size="small"
-                      type="warning"
-                    >
-                      {t('support-center')}
-                    </Button>
-                  }
-                />
+                <div className="row align-items-center">
+                  <div className="col-12">
+                    <Alert
+                      message={t('admission-sent-message')}
+                      description={t('admission-sent-message-text')}
+                      type="info"
+                      showIcon
+                    />
+                    <div style={{ textAlign: 'right' }}>
+                      <Button
+                        style={{ marginTop: '10px' }}
+                        onClick={() => {
+                          setIsModalVisible(true);
+                        }}
+                        // size="small"
+                        type="primary"
+                      >
+                        {t('support-center')}
+                      </Button>
+                    </div>
+                  </div>
+                </div>
               ) : data?.sts === 2 ? (
                 <>
                   {/* Accepted  */}
@@ -70,16 +74,16 @@ function Profile() {
                         description={t('admission-accepted-message-text')}
                         type="success"
                         showIcon
-                        banner
-                        action={
-                          <Button
-                            size="small"
-                            type="warning"
-                            onClick={() => restartFunc()}
-                          >
-                            {t('restart')}
-                          </Button>
-                        }
+                        // banner
+                        // action={
+                        //   <Button
+                        //     size="small"
+                        //     type="warning"
+                        //     onClick={() => restartFunc()}
+                        //   >
+                        //     {t('restart')}
+                        //   </Button>
+                        // }
                       />
                     </div>
                   </div>
@@ -90,42 +94,28 @@ function Profile() {
                   {' '}
                   {/* Rejected  */}
                   <div className="row align-items-center">
-                    <div className="col-12 col-md-8">
+                    <div className="col-12 col-md-8 p-1">
                       <Alert
                         message={t('admission-rejected-message')}
                         description={t('admission-rejected-message-text')}
                         type="error"
                         showIcon
-                        banner
-                        action={
-                          <Button
-                            onClick={() => {
-                              setIsModalVisible(true);
-                            }}
-                            size="small"
-                            danger
-                          >
-                            {t('support-center')}
-                          </Button>
-                        }
                       />
                     </div>
-                    <div className="col-12 col-md-4">
+                    <div className="col-12 col-md-4 p-1">
                       <Alert
                         message={`Comment:`}
                         description={`${data?.comment}`}
                         type="error"
-                        banner
                         showIcon={false}
                         action={
-                          <Button size="small" onClick={() => restartFunc()}>
-                            {t('restart')}
-                          </Button>
+                          <>
+                            <Button size="small" onClick={() => restartFunc()}>
+                              {t('restart')}
+                            </Button>
+                          </>
                         }
                       />
-                      <Button onClick={() => restartFunc()}>
-                        {t('restart')}
-                      </Button>
                     </div>
                   </div>
                 </>
@@ -137,17 +127,9 @@ function Profile() {
                   <br />
                   <Row align="middle" justify="center" gutter={[16, 16]}>
                     <Col span={24} md={20}>
-                      {/* <Alert
-                        description={t('resent-admission')}
-                        type="info"
-                        banner
-                        showIcon={true}
-                      />
-                      <br /> */}
                       <Alert
                         description={t('resent-admission')}
-                        type="error"
-                        banner
+                        type="info"
                         showIcon={false}
                         action={
                           <Button size="small" onClick={() => restartFunc()}>
