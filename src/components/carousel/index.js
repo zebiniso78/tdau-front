@@ -31,7 +31,15 @@ const contentStyle = {
   justifyContent: 'center',
 };
 
-export function CarouselComponent({ first, second, third, four, id, pic }) {
+export function CarouselComponent({
+  title,
+  first,
+  second,
+  third,
+  four,
+  id,
+  pic,
+}) {
   const { t } = useTranslation();
   let token = localStorage.getItem('token');
   let siteBlog = JSON.parse(localStorage.getItem('blog'));
@@ -73,7 +81,7 @@ export function CarouselComponent({ first, second, third, four, id, pic }) {
           />
           <TextContent className="tdau-item">
             <LeftContent>
-              <h2>{siteBlog?.title}</h2>
+              <h2>{title}</h2>
               <p>
                 {`${t('app-academic-year')}  ${parseInt(
                   moment(new Date()).format('YYYY')

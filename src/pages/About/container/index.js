@@ -34,7 +34,7 @@ export default function About() {
 
   return (
     <div style={{ msOverflowX: 'hidden' }}>
-      <AboutMain pic={siteBlog?.picture} />
+      <AboutMain data={siteBlog} />
       <AboutContainer data-aos="fade-up" type="video">
         <Discover type="magnusUniversity" firstInfo={siteBlog?.description} />
       </AboutContainer>

@@ -7,14 +7,15 @@ import CarouselFirst from 'assets/carousel/carousel-one.png';
 import CarouselThird from 'assets/carousel/carousel-third.png';
 import CarouselFour from 'assets/carousel/carousel-four.png';
 
-export function AboutMain({ pic }) {
+export function AboutMain({ data }) {
   const { id } = useParams();
-
+  console.log(data, 'data');
   return (
     <MainProvider>
       <CarouselComponent
         id={id}
-        pic={pic}
+        pic={data?.picture}
+        title={data?.title}
         first={CarouselFirst}
         second={MainImage}
         third={CarouselThird}
