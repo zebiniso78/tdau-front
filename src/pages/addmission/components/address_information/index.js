@@ -170,8 +170,8 @@ export default function AddressInformation() {
                 Controller={Controller}
                 control={control}
                 nameProps="address1"
-                plProps="Адресная строка 1"
-                label={t('address-info-address1') + '*'}
+                plProps={t('address-info-address1') + ' 1'}
+                label={t('address-info-address1') + ' *'}
                 className={
                   errors && errors?.hasOwnProperty('address1') && 'input-error'
                 }
@@ -185,8 +185,8 @@ export default function AddressInformation() {
                 Controller={Controller}
                 control={control}
                 nameProps="address2"
-                plProps="Адресная строка 2"
-                label={t('address-info-address1') + 2 + ' *'}
+                plProps={t('address-info-address1') + ' 2'}
+                label={t('address-info-address1') + ' 2' + ' *'}
                 className={
                   errors && errors?.hasOwnProperty('address2') && 'input-error'
                 }
@@ -200,9 +200,9 @@ export default function AddressInformation() {
                 Controller={Controller}
                 control={control}
                 required={true}
-                title={t('county') + '*'}
+                title={t('region') + ' *'}
                 name="regionID"
-                placeholder={t('county')}
+                placeholder={t('region')}
                 options={regions}
                 disabled={false}
                 className={
@@ -220,9 +220,9 @@ export default function AddressInformation() {
                 Controller={Controller}
                 control={control}
                 required={true}
-                title={t('region') + '*'}
+                title={t('district') + '*'}
                 name="districtID"
-                placeholder={t('region')}
+                placeholder={t('district')}
                 options={district}
                 disabled={false}
                 className={
@@ -275,7 +275,7 @@ export default function AddressInformation() {
                   control={control}
                   nameProps="post_address1"
                   required={isChecked ? true : false}
-                  plProps="Адресная строка 1"
+                  plProps={t('address-info-address1')}
                   label={t('address-info-address1') + ' 1 ' + ' *'}
                   className={
                     errors &&
@@ -309,7 +309,7 @@ export default function AddressInformation() {
                 <UserFormSelectComponent
                   Controller={Controller}
                   control={control}
-                  title={t()}
+                  title={t('region')}
                   name="postRegion"
                   placeholder={t('region')}
                   required={isChecked ? true : false}
@@ -331,10 +331,10 @@ export default function AddressInformation() {
                 <UserFormSelectComponent
                   Controller={Controller}
                   control={control}
-                  title={t('district ') + '*'}
+                  title={t('district') + ' *'}
                   name="postDistrict"
                   required={isChecked ? true : false}
-                  placeholder={t('district ') + '*'}
+                  placeholder={t('district') + ' *'}
                   options={postDistrict}
                   disabled={false}
                   className={

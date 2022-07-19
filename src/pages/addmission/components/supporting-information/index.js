@@ -59,7 +59,7 @@ export default function SupportingInformation() {
         onSubmit={handleSubmit}
         className="container"
       >
-        <h4>{t('Вспомогательная информация')}</h4>
+        <h4>{t('support-title')}</h4>
         <div className="row mb-5">
           <div className="title-wrapper">
             <h5>{t('support-title-text1')}</h5>

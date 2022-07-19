@@ -127,7 +127,7 @@ export default function References() {
             onClick={() => history.push('/supporting-info')}
             type="button"
           />
-          <CancelBtnComponent name="Сахранит" className="save-btn" />
+          {/* <CancelBtnComponent name="Сахранит" className="save-btn" /> */}
           <NextBtnComponent
             name={t('submit')}
             className="next-btn"

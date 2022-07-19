@@ -287,9 +287,9 @@ export default function PersonalInfo() {
             <UserFormSelectComponent
               Controller={Controller}
               control={control}
-              title={t('Страна постоянного проживания') + '*'}
+              title={t('parment-country') + '*'}
               name="countryPermanent"
-              placeholder={t('Страна постоянного проживания') + '*'}
+              placeholder={t('parment-country') + '*'}
               options={countries}
               disabled={false}
               className={
@@ -355,7 +355,7 @@ export default function PersonalInfo() {
       )}
 
       <ButtonsProvider>
-        <CancelBtnComponent name="Отмена" className="prev-btn" />
+        <CancelBtnComponent name={t('back')} className="prev-btn" />
         {/* <CancelBtnComponent
           name="Сахранит"
           className="save-btn"
@@ -363,7 +363,7 @@ export default function PersonalInfo() {
           // type="submit"
         /> */}
         <NextBtnComponent
-          name="Продолжить"
+          name={t('submit')}
           className="next-btn"
           type="submit"
           disabled={isLoading}

@@ -80,11 +80,11 @@ export default function CheckApplication() {
             <Items title={t('phone')} info={allAdmission?.phone_a} />
             <Items title="Pnfl" info={allAdmission?.pnfl} />
             <Items
-              title={t('post-address' + ' 1')}
+              title={t('post-address') + ' 1'}
               info={allAdmission?.post_adress1}
             />
             <Items
-              title={t('post-address' + ' 2')}
+              title={t('post-address') + ' 2'}
               info={allAdmission?.post_adress2}
             />
             <Items
@@ -93,7 +93,7 @@ export default function CheckApplication() {
             />
             <Items title={t('post-index')} info={allAdmission?.post_index} />
             <Items
-              title={t('post-index') + '2'}
+              title={t('post-index') + ' 2'}
               info={allAdmission?.post_index_2}
             />
             <Items title={t('post-region')} info={allAdmission?.post_region} />

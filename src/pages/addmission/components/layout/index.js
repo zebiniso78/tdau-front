@@ -5,6 +5,7 @@ import TimeLine from './timeline';
 import { Route, useHistory } from 'react-router-dom';
 import { CancelBtnComponent } from 'components/buttons/prev-btn';
 import { Modal } from 'antd';
+import { useTranslation } from 'react-i18next';
 
 const PersonalInfo = lazy(() => import('../personal_information'));
 const AcademicInformation = lazy(() => import('../academic_information'));
@@ -18,6 +19,7 @@ const CheckApplication = lazy(() => import('../check-application'));
 const { confirm } = Modal;
 
 export function Layout() {
+  const { t } = useTranslation();
   const history = useHistory();
   const showDeleteConfirm = () => {
     confirm({
@@ -63,7 +65,7 @@ export function Layout() {
           <div className="col-lg-9 col-md-12 col-sm-12 col-12">
             <div style={{ textAlign: 'end' }}>
               <CancelBtnComponent
-                name="Log out"
+                name={t('logout')}
                 className="logout"
                 onClick={() => showDeleteConfirm()}
               />
