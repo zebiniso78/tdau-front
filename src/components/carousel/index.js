@@ -82,12 +82,12 @@ export function CarouselComponent({
           <TextContent className="tdau-item">
             <LeftContent>
               <h2>{title}</h2>
-              <p>
+              {/* <p>
                 {`${t('app-academic-year')}  ${parseInt(
                   moment(new Date()).format('YYYY')
                 )}-${parseInt(moment(new Date()).format('YYYY')) + 1}
         ${t('upgraduate-postgraduate')}`}
-              </p>
+              </p> */}
               <MainBtnWrap style={{ marginTop: '16px' }}>
                 <MainBtn type="button" onClick={() => apply(id)}>
                   {t('apply')}
