@@ -5,13 +5,15 @@ width: 100%;
 height: 38px;
 background: #FFFFFF;
 border: 1px solid #BCC6D4;
+font-size: 14px;
 box-sizing: border-box;
 border-radius: 4px;
 outline: none;
 margin: 8px 0px;
 text-indent: 12px;
 &::placeholder {
-   font-size: 14px;
+   font-size: 12px;
+   color: #A8A8A8;
 }
 `
 export const FormGroupProvider = styled.div`

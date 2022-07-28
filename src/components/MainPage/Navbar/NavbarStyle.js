@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Container } from '../../../common/grid';
+import { Link } from 'react-router-dom'
 
 export const MyHeader = styled.header`
   /* background-color: rgba(0, 0, 0, 0.4); */
@@ -95,11 +96,13 @@ export const MyContainer = styled(Container)`
   justify-content: space-between;
 `;
 
-export const LogoWrapper = styled.div`
+export const LogoWrapper = styled(Link)`
   width: 25%;
   display: flex;
   justify-content: flex-center;
   align-items: center;
+  text-decoration: none;
+  cursor: pointer;
   .logo {
     width: 52px;
     height: 60px;
@@ -133,8 +136,8 @@ export const InputWrapper = styled.div`
     position: relative;
     svg {
       position: absolute;
-      right: 8px;
-      top: 3px;
+      right: 9px;
+      top: 5px;
       color: #57b952;
     }
   }
@@ -147,7 +150,7 @@ export const InputWrapper = styled.div`
     font-size: 12px;
     border: 1px solid #728fbb;
     border-radius: 50px;
-    padding: 4px 8px;
+    padding: 4px 24px 4px 12px;
   }
 
   .select-lang {
@@ -173,7 +176,7 @@ export const InputWrapper = styled.div`
     padding: 4px 8px;
     transition: 0.5s;
 
-    :hover {
+    &:hover {
       color: #57b952;
     }
 

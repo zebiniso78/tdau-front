@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
-import styled from 'styled-components';
 import { FiFolder } from 'react-icons/fi';
+import Button from '@mui/material/Button';
 import { VscFolderActive } from 'react-icons/vsc';
 import {
    // AiOutlineCloseCircle,
@@ -61,19 +61,18 @@ function DragDrop(props) {
             style={inpErr === true ? { borderColor: 'red' } : null}
          >
             <Info>
-               <Icon>
-                  <FiFolder />
-               </Icon>
                <p>
-                  Выберите изображение или перетащите его сюда JPG, PNG, PDF, DOC... <br />
-                  <span>(max: 50mb)</span>
+                  Выберите изображение или перетащите его сюда JPG, PNG, PDF, DOC...
                </p>
+               <Button variant="outlined" className='file-upload-btn'>Выберите файл</Button>
+               {/* <FiFolder /> */}
             </Info>
             <input
                name={props.name}
                id={props.inputId}
                type="file"
                value=""
+               accept={props.accept || ''}
                onChange={onFileDrop}
             // required={props.required ? true : false}
             />

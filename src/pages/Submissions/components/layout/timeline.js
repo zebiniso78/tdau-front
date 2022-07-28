@@ -1,24 +1,48 @@
-import React from 'react'
-import { DocumentCard, TimeLineHeader } from './style'
-import { Timeline } from 'antd';
-import { Link, NavLink } from "react-router-dom"
+import React, { useState } from 'react';
+import { DocumentCard, TimeLineHeader, TimeLineProvider } from './style';
+import { NavLink } from 'react-router-dom';
+import { useList } from './useList';
+
 
 
 export default function TimeLine() {
-   return (
-      <DocumentCard>
-         <TimeLineHeader>Последовательность подачи документов</TimeLineHeader>
-         <Timeline>
-            <Timeline.Item><NavLink to='/personal-info' className='timeline-link' activeClassName='timeline-nav-link'>Персональные данные</NavLink></Timeline.Item>
-            <Timeline.Item><NavLink to='/academic-info' className='timeline-link' activeClassName='timeline-nav-link'>Академическая информация</NavLink></Timeline.Item>
-            <Timeline.Item><NavLink to='/passport-info' className='timeline-link' activeClassName='timeline-nav-link'>Паспортная информация</NavLink></Timeline.Item>
-            <Timeline.Item><NavLink to='/address-info' className='timeline-link' activeClassName='timeline-nav-link'>Адресаная информация</NavLink></Timeline.Item>
-            <Timeline.Item>Образование и квалификации</Timeline.Item>
-            <Timeline.Item>Английский язык</Timeline.Item>
-            <Timeline.Item>Вспомогательная информация</Timeline.Item>
-            <Timeline.Item>Использованная литература</Timeline.Item>
-            <Timeline.Item>Дополнительная информация</Timeline.Item>
-         </Timeline>
-      </DocumentCard>
-   )
+  const [click, setClick] = useState(0)
+  const { timelineList } = useList()
+  function handleClick(index) {
+    setClick(index)
+    document.querySelectorAll(".ant-timeline-item-head").forEach((el) => {
+      document.addEventListener('click', () => {
+        el.style.backgroundColor = '#169622'
+      })
+    })
+    document.querySelectorAll(".ant-timeline-item-tail").forEach((element) => {
+      document.addEventListener('click', () => {
+        element.style.borderLeft = '2px solid #169622'
+      })
+    })
+  }
+  return (
+    <DocumentCard>
+      <TimeLineHeader>Последовательность подачи документов</TimeLineHeader>
+      <TimeLineProvider className='timeline-provider' click={click} >
+        {
+          timelineList?.map((timeline, index) => (
+            <TimeLineProvider.Item
+              color={click >= index ? "#169622" : "#C6C5C2"}
+              key={timeline.id}
+              onClick={() => handleClick(index)}>
+              <NavLink
+                to={timeline.pathName}
+                className="timeline-link"
+                activeClassName="timeline-nav-link"
+              >
+                {timeline.name}
+              </NavLink>
+            </TimeLineProvider.Item>
+          ))
+        }
+
+      </TimeLineProvider>
+    </DocumentCard>
+  );
 }

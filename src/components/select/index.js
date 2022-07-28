@@ -12,18 +12,25 @@ const UserFormSelectComponent = ({
   disabled,
   name,
   placeholder,
-  required
+  required,
+  className,
 }) => {
   return (
     <StyleSelectAll>
-      <label className="select-label" style={{fontSize: '14px'}}>{title}</label>
+      <label className="select-label" style={{ fontSize: '14px' }}>
+        {title}
+      </label>
       <Controller
         control={control}
         name={name}
         rules={{ required: required }}
-        render={({ field: { onChange, value } }) => (
+        render={({
+          field: { onChange, value, ref },
+          formState: { errors },
+        }) => (
           <Select
-            className="select-element"
+            ref={ref}
+            className={className}
             options={options}
             onChange={onChange}
             value={value}
@@ -31,6 +38,7 @@ const UserFormSelectComponent = ({
             // isDisabled={disabled ? disabled : false}
             styles={customStyles}
             placeholder={placeholder}
+            error={!!errors?.title}
           />
         )}
       />

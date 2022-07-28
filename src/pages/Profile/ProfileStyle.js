@@ -1,5 +1,11 @@
 import styled from 'styled-components';
-
+export const ProfilePaper = styled.div`
+  width: 100%;
+  background-color: #fff;
+  padding: 24px;
+  padding-bottom: 120px;
+  border-radius: 12px;
+`;
 export const ProfileSection = styled.section`
   header {
     background-color: #1a3426;
@@ -30,6 +36,6 @@ export const ProfileBody = styled.main`
   }
 
   .inputs-card {
-    width: 67%;
+    width: 69%;
   }
 `;

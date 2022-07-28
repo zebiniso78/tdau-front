@@ -1,8 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 export const StyleSelectAll = styled.div`
-  margin-top: 4px;
+  margin-top: 8px;
+  margin-bottom: 8px;
   border-radius: 4px;
-   
+
   & > div > div {
     width: 100%;
     /* border-color: transparent !important; */
@@ -69,4 +70,119 @@ export const StyleSelectAll = styled.div`
       background-color: #f1f1f1;
     }
   }
+`;
+
+export const Title = styled.h4`
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #010e31;
+  &.form-title {
+    font-weight: 600;
+    font-size: 18px;
+  }
+`;
+export const Paragraph = styled.p`
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+  color: #313131;
+  &.footer-paragraph {
+    color: #777674;
+    margin-top: 10px;
+  }
+`;
+export const Error = styled.div`
+  color: #d2504d;
+  font-size: 12px;
+  margin-top: -2px;
+  border-radius: 4px;
+  padding: 2px 8px;
+  &.select-error-tooltip {
+    margin-top: 6px;
+  }
+  &.calendar-error-tooltip {
+    margin-top: -2px;
+  }
+`;
+
+export const MainLayoutProvider = styled.div`
+  position: relative;
+  width: 100%;
+  height: 110vh;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0px 11.17px 27.93px #dfd9ce;
+  /* -filter: blur(250px); */
+  @media (max-width: 768px) {
+    height: auto;
+  }
+`;
+
+export const Container = styled.div`
+  margin: 0 auto;
+  width: calc(100% - 100px);
+  @media (max-width: 768px) {
+    width: calc(100% - 20px);
+  }
+`;
+export const LandingTitle = styled.h3`
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 34px;
+  line-height: 58px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #142e38;
+  @media (max-width: 576px) {
+    font-size: 24px;
+  }
+`;
+export const CardProvider = styled.div`
+  position: relative;
+  height: auto;
+  margin: 70px 0;
+  box-shadow: none !important;
+  @media (max-width: 768px) {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 30px;
+  }
+  .button {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    z-index: 9;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #142e38;
+    font-size: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0px 5px 12.5px #dfd9ce;
+    cursor: pointer;
+    bottom: 50%;
+    &:hover {
+      background-color: #318161;
+      color: white;
+    }
+  }
+  .next__btn {
+    right: -40px;
+  }
+  .prev__btn {
+    left: -40px;
+  }
+`;
+export const CardWrap = styled.div`
+  width: 100%;
+  /* display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 60px; */
+  margin-top: 60px;
 `;

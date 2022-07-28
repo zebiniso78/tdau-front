@@ -121,9 +121,10 @@ export const Station = styled.div`
   flex-wrap: wrap;
   flex-direction: column;
   padding: 8px 16px;
-  border-radius: 8px;
+  border-radius: 4px;
   /* border: 0.516667px dashed #87898e; */
-  border: 1px dashed #87898e;
+  /* border: 2px dashed #87898e; */
+  border: 2px dashed #D0DAE8;
   transition: all 0.3s ease;
 
   input {
@@ -144,12 +145,28 @@ export const Station = styled.div`
 export const Info = styled.div`
   /* width: 88px;
   height: 56px; */
-  width: 150px;
-  min-height: 72px;
+  width: 60%  !important;
+  min-height: 100px;
   /* font-size: 6px; */
   font-size: 10px;
   text-align: center;
   color: var(--grey);
+  & .file-upload-btn {
+    min-height: 38px !important;
+    margin: 15px;
+    text-transform: capitalize !important;
+    font-family: 'Inter', sans-serif !important;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    color: #2E7DF6 !important; }
+  & p {
+  font-family:'Inter', sans-serif;
+  font-weight: 500;
+  margin-top: 15px !important;
+  color: #A9A9A9;
+}
   @media (min-width: 991px) {
     font-size: 12px;
     width: 180px;
