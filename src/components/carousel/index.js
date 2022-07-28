@@ -60,12 +60,18 @@ export function CarouselComponent({
 
   function apply(id) {
     localStorage.setItem('university_id', id);
-    if (token && localStorage.getItem('university_id')) {
+    if (token) {
       history.push('/university-admissions/personal-info');
     } else {
       showModal();
       // localStorage.setItem('university_id', JSON.stringify(id));
     }
+    // if (token && localStorage.getItem('university_id')) {
+    //   history.push('/university-admissions/personal-info');
+    // } else {
+    //   showModal();
+    //   // localStorage.setItem('university_id', JSON.stringify(id));
+    // }
   }
   useEffect(() => {
     fetchData(admissionApi.allUniversityID(null), setEntityID, setLoader);
