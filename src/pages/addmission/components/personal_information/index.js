@@ -161,7 +161,7 @@ export default function PersonalInfo() {
       onSubmit={handleSubmit(onSubmit)}
     >
       {!isFetch ? (
-        <div className="row align-items-end">
+        <div className="row">
           <h4>{t('personal-info')}</h4>
           <div className="col-lg-3 col-md-6 col-sm-6 col-12">
             <InputComponent
@@ -322,6 +322,8 @@ export default function PersonalInfo() {
             )}
           </div>
           <div className="col-lg-6 col-md-6 col-sm-6 ">
+            <p style={{ margin: '10px', fontSize: '14px' }}>{t('pic3x4')}</p>
+
             {Attachments(defaultValues?.attachments, 'personal image') !==
               false && attachImage ? (
               <div style={{ maxWidth: '60%' }}>
