@@ -97,7 +97,7 @@ export default function PassportInformation() {
           <Row className="row align-items-start">
             <Col
               className="col-lg-4 col-md-6 col-sm-6 col-12"
-              style={{ marginTop: '9px' }}
+              style={{ marginTop: '5px' }}
             >
               <CustomMask
                 Controller={Controller}

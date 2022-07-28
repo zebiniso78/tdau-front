@@ -151,7 +151,7 @@ export default function AcademicInformation() {
     <AcademicInfoProvider>
       <AcademicInfoTitle>{t('academic-admission-info')}</AcademicInfoTitle>
       <AcademicInfo>
-        <p>{t('academic-admission-info-text1')}</p>
+        {/* <p>{t('academic-admission-info-text1')}</p> */}
         <p>
           <strong>{t('academic-admission-info-text2')}</strong>
         </p>

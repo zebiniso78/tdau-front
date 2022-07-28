@@ -30,16 +30,16 @@ export function useList() {
         pathName: '/university-admissions/education-qualifications',
         name: t('education-title'),
       },
-      {
-        id: 6,
-        pathName: '/university-admissions/supporting-info',
-        name: t('support-title'),
-      },
-      {
-        id: 7,
-        pathName: '/university-admissions/references',
-        name: t('reference-titl'),
-      },
+      // {
+      //   id: 6,
+      //   pathName: '/university-admissions/supporting-info',
+      //   name: t('support-title'),
+      // },
+      // {
+      //   id: 7,
+      //   pathName: '/university-admissions/references',
+      //   name: t('reference-titl'),
+      // },
       {
         id: 8,
         pathName: '/university-admissions/check-your-application',

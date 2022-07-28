@@ -1,7 +1,7 @@
-import { Col, Row } from 'antd';
+import { Col, Row, Typography } from 'antd';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-
+const { Paragraph } = Typography;
 export function Items({ title, info }) {
   const { t } = useTranslation();
   return (
@@ -10,11 +10,13 @@ export function Items({ title, info }) {
         <Col span={24}>{title}:</Col>
         <Col span={24}>
           <div className="info">
-            {info && !info?.includes('undefined') ? (
-              info
-            ) : (
-              <span> {t('error-field')}</span>
-            )}
+            <Paragraph style={{ marginBottom: 0 }} ellipsis={true}>
+              {info && !info?.includes('undefined') ? (
+                info
+              ) : (
+                <span> {t('error-field')}</span>
+              )}
+            </Paragraph>
           </div>
         </Col>
       </Row>

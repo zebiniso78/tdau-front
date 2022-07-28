@@ -74,6 +74,7 @@ export function EducationBody() {
           />
         </CheckboxWrapper>
       </div> */}
+      {/* //{' '} */}
     </div>
   );
 }

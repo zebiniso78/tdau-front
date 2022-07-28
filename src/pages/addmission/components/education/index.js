@@ -89,7 +89,8 @@ export default function Education() {
       formData.append('register_step', 5);
       await admissionApi.admissionPostForign(formData);
       toast.success('Образовательные квалификации успешно созданы');
-      history.push('/university-admissions/supporting-info');
+      // history.push('/university-admissions/supporting-info');
+      history.push('/university-admissions/check-your-application');
       setIsLoading(false);
     } catch (e) {
       console.log(e);
@@ -113,8 +114,18 @@ export default function Education() {
                 Controller={Controller}
                 control={control}
                 nameProps="school"
-                plProps={t('school')}
-                label={t('school') + '*'}
+                plProps={t(
+                  defaultValues?.education_type_name !== 'Master'
+                    ? 'school'
+                    : 'univer'
+                )}
+                label={
+                  t(
+                    defaultValues?.education_type_name !== 'Master'
+                      ? 'school'
+                      : 'univer'
+                  ) + '*'
+                }
                 // className="mb-0"
                 className={
                   errors && errors?.hasOwnProperty('school') && 'input-error'

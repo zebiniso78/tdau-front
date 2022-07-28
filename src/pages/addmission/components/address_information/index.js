@@ -165,7 +165,7 @@ export default function AddressInformation() {
           <Title className="form-title">{t('address-info-title-form')}</Title>
           {/* <EntityForm  /> */}
           <div className="row align-items-end mt-3">
-            <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+            <div className="col-lg-4 col-md-6 col-sm-6 col-12">
               <InputComponent
                 Controller={Controller}
                 control={control}
@@ -180,7 +180,7 @@ export default function AddressInformation() {
                 <Error>{t('error-field')}</Error>
               )}
             </div>
-            <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+            <div className="col-lg-4 col-md-6 col-sm-6 col-12">
               <InputComponent
                 Controller={Controller}
                 control={control}
@@ -195,7 +195,7 @@ export default function AddressInformation() {
                 <Error>{t('error-field')}</Error>
               )}
             </div>
-            <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+            <div className="col-lg-4 col-md-6 col-sm-6 col-12">
               <UserFormSelectComponent
                 Controller={Controller}
                 control={control}
@@ -215,7 +215,7 @@ export default function AddressInformation() {
                 </Error>
               )}
             </div>
-            <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+            <div className="col-lg-4 col-md-6 col-sm-6 col-12">
               <UserFormSelectComponent
                 Controller={Controller}
                 control={control}
@@ -237,7 +237,7 @@ export default function AddressInformation() {
                 </Error>
               )}
             </div>
-            <div className="col-lg-3 col-md-6 col-sm-6 col-12 mt-3">
+            <div className="col-lg-4 col-md-6 col-sm-6 col-12 mt-3">
               <InputComponent
                 Controller={Controller}
                 control={control}
@@ -269,7 +269,7 @@ export default function AddressInformation() {
           </CheckboxWrapper>
           {isChecked && (
             <div className="row align-items-end mt-3">
-              <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+              <div className="col-lg-4 col-md-6 col-sm-6 col-12">
                 <InputComponent
                   Controller={Controller}
                   control={control}
@@ -287,7 +287,7 @@ export default function AddressInformation() {
                   <Error>{t('error-field')}</Error>
                 )}
               </div>
-              <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+              <div className="col-lg-4 col-md-6 col-sm-6 col-12">
                 <InputComponent
                   Controller={Controller}
                   control={control}
@@ -305,7 +305,7 @@ export default function AddressInformation() {
                   <Error>{t('error-field')}</Error>
                 )}
               </div>
-              <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+              <div className="col-lg-4 col-md-6 col-sm-6 col-12">
                 <UserFormSelectComponent
                   Controller={Controller}
                   control={control}
@@ -327,7 +327,7 @@ export default function AddressInformation() {
                   </Error>
                 )}
               </div>
-              <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+              <div className="col-lg-4 col-md-6 col-sm-6 col-12">
                 <UserFormSelectComponent
                   Controller={Controller}
                   control={control}
@@ -349,7 +349,7 @@ export default function AddressInformation() {
                   </Error>
                 )}
               </div>
-              <div className="col-lg-3 col-md-6 col-sm-6 col-12 mt-3">
+              <div className="col-lg-4 col-md-6 col-sm-6 col-12 mt-3">
                 <InputComponent
                   Controller={Controller}
                   control={control}
