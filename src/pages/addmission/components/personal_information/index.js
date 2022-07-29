@@ -163,7 +163,7 @@ export default function PersonalInfo() {
       {!isFetch ? (
         <div className="row">
           <h4>{t('personal-info')}</h4>
-          <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+          <div className="col-lg-4 col-md-6 col-sm-6 col-12">
             <InputComponent
               Controller={Controller}
               control={control}
@@ -178,7 +178,7 @@ export default function PersonalInfo() {
               <Error>{t('error-field')}</Error>
             )}
           </div>
-          <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+          <div className="col-lg-4 col-md-6 col-sm-6 col-12">
             <InputComponent
               Controller={Controller}
               control={control}
@@ -193,7 +193,7 @@ export default function PersonalInfo() {
               <Error>{t('error-field')}</Error>
             )}
           </div>
-          <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+          <div className="col-lg-4 col-md-6 col-sm-6 col-12">
             <InputComponent
               Controller={Controller}
               control={control}
@@ -208,7 +208,7 @@ export default function PersonalInfo() {
               <Error>{t('error-field')}</Error>
             )}
           </div>
-          <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+          <div className="col-lg-4 col-md-6 col-sm-6 col-12">
             <Calendar
               Controller={Controller}
               control={control}
@@ -227,7 +227,7 @@ export default function PersonalInfo() {
               <Error className="select-error-tooltip">{t('error-field')}</Error>
             )}
           </div>
-          <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+          <div className="col-lg-4 col-md-6 col-sm-6 col-12">
             <UserFormSelectComponent
               Controller={Controller}
               control={control}
@@ -245,7 +245,7 @@ export default function PersonalInfo() {
               <Error className="select-error-tooltip">{t('error-field')}</Error>
             )}
           </div>
-          <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+          <div className="col-lg-4 col-md-6 col-sm-6 col-12">
             <UserFormSelectComponent
               Controller={Controller}
               control={control}
@@ -264,7 +264,7 @@ export default function PersonalInfo() {
               <Error className="select-error-tooltip">{t('error-field')}</Error>
             )}
           </div>
-          <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+          <div className="col-lg-4 col-md-6 col-sm-6 col-12">
             <UserFormSelectComponent
               Controller={Controller}
               control={control}
@@ -283,13 +283,13 @@ export default function PersonalInfo() {
               <Error className="select-error-tooltip">{t('error-field')}</Error>
             )}
           </div>
-          <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+          <div className="col-lg-4 col-md-6 col-sm-6 col-12">
             <UserFormSelectComponent
               Controller={Controller}
               control={control}
               title={t('parment-country') + '*'}
               name="countryPermanent"
-              placeholder={t('parment-country') + '*'}
+              placeholder={t('parment-country')}
               options={countries}
               disabled={false}
               className={
@@ -302,7 +302,7 @@ export default function PersonalInfo() {
               <Error className="select-error-tooltip">{t('error-field')}</Error>
             )}
           </div>
-          <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+          <div className="col-lg-4 col-md-6 col-sm-6 col-12">
             <UserFormSelectComponent
               Controller={Controller}
               control={control}
@@ -321,8 +321,10 @@ export default function PersonalInfo() {
               <Error className="select-error-tooltip">{t('error-field')}</Error>
             )}
           </div>
-          <div className="col-lg-6 col-md-6 col-sm-6 ">
-            <p style={{ margin: '10px', fontSize: '14px' }}>{t('pic3x4')}</p>
+          <div className="col-xl-8 col-md-6  ">
+            <p style={{ margin: '10px 0 0 0', fontSize: '14px' }}>
+              {t('pic3x4')}
+            </p>
 
             {Attachments(defaultValues?.attachments, 'personal image') !==
               false && attachImage ? (

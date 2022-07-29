@@ -25,18 +25,24 @@ export const MainLeft = styled.div`
 export const TopTour = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
-  max-width: 300px;
-  height: 35px;
-  background: #d5eec6;
-  border-radius: 15px;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  text-transform: capitalize;
-  color: #244030;
-  margin-bottom: 20px;
+  /* justify-content: center; */
+  /* max-width: 300px; */
+  /* height: 35px; */
+  margin-bottom: 16px;
+  p {
+    display: inline-block;
+    background: #d5eec6;
+    border-radius: 15px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    text-transform: capitalize;
+    color: #244030;
+    margin-bottom: 20px;
+    margin-bottom: 0;
+    padding: 8px 16px;
+  }
 `;
 export const MainRight = styled.div`
   width: 50%;

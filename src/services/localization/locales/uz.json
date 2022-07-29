@@ -100,7 +100,7 @@
   "saved-successfully": "Muvaffaqiyatli saqlandi",
   "academic-srok_priema": "Qabul muddati",
   "academic-tip-program": "Dastur turi",
-  "error-field": "Iltimos, ma’lumotlarni kiriting!",
+  "error-field": "Iltimos, ma’lumotlarni kiriting(lotin harflarida)!",
   "academic-napravleniya": "Mutaxassislik",
   "additional-info-title": "Foydalanish shartlari",
   "additional-info-text1": "Shunga ko’ra, Apply boshqa saytda mavjud har qanday foydalanuvchi yoki boshqa kontent, tovarlar, kurslar yoki xizmatlardan foydalanish yoki ishonosh natijasida yoki ular bilan bog’liq holda yetkazilgan yoki etkazilgan bo’lishi mumkin bo’lgan zarar yoki ziyon uchun bevosita yoki bilvosita javobgar emas. “Apply Yourself” ta’lim va boshqa muassasalar uchun onlayn ariza berish xizmatlarini taqdim etadi. Sizning ushbu xizmatdan yoki “Apply Yourself”ning boshqa har qanday xizmatlaridan foydalanishingiz ushbu hujjatdagi nizomlar va shartlarga bo’ysunadi. Ushbu onlayn ilovaga kirish yoki undan foydalanish orqali siz ushbu shartlarga rozilik bildirasiz. “Apply Yourself” ushbu shartlarni istalgan vaqtda qayta ko’rib chiqishi mumkin va har qanday o’zgartirishlar siz va kelajakda onlayn arizaga kirish huquqi uchun majburiy bo’ladi. Shuning uchun, siz onlayn ilovaga kirganingizda yoki undan foydalanganingizda vaqti-vaqti bilan shartlar va shartlarni ko’rib chiqish uchun ushbu sahifaga kirishingiz kerak. Agar PIN-kod va/yoki parolingiz buzilgan yoki hisobingizga ruxsatsiz kirilgan deb hisoblasangiz, imkon qadar tezroq (qo‘llab-quvvatlash havolasi) bizga xabar berishingiz kerak.",
@@ -157,7 +157,7 @@
   "middle-surname": "Sharifi",
   "birth-date": "Tug'ilgan sana",
   "gender": "Jinsi",
-  "parment-country": "Doimiy istiqomat qiladigan mamlakatingiz",
+  "parment-country": "Yashash mamlakatingiz",
   "current-country": "Hozirgi yashash manzilingiz",
   "reference-title": "Tavsiyanoma",
   "reference-text1": "Qabul qilish mezonlarining bir qismi sifatida bizga ikkita tavsiya kerak. Agar siz oxirgi uch yil ichida istalgan vaqtda kunduzi oʻqigan boʻlsangiz, u akademik tavsiya boʻlishi shart. Havolalar imzolangan va tegishli harf belgisiga ega boʻlishi kerak.",
@@ -172,5 +172,7 @@
   "support-title-text3": "Iltimos, arizangizga qo’shimcha ravishda rezyumeingiz nusxasini yuklang. E’tibor bering, MBA dasturiga kirish uchun talabgorlarga rezyume kerak.",
   "order": "Hujjatlarni topshirish tartibi",
   "logout": "Tizimdan chiqish",
-  "pic3x4": "Oxirgi uch oy ichida olingan aniq elektron fotosurat (3,5 sm x 4,5 sm)"
+  "pic3x4": "Oxirgi uch oy ichida olingan aniq elektron fotosurat (3,5 sm x 4,5 sm)",
+  "univer": "Universitet",
+  "no-attach": "Biriktirilgan fayllar mavjud emas."
 }

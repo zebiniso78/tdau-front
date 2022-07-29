@@ -59,7 +59,7 @@ export const TimeLineHeader = styled.h5`
   line-height: 27px;
   color: #11711a;
   padding-top: 15px;
-  margin: 0px 0px 25px 15px;
+  padding: 16px;
   /* margin-bottom: 25px; */
   /* margin-left: 15px; */
 `;

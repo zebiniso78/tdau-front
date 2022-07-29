@@ -24,7 +24,7 @@ export function EducationFooter({
   return (
     <div className="row mt-5">
       <Title>{t('qualification-footer-title')}</Title>
-      <div className="col-lg-6 col-sm-6 col-12">
+      <div className="col-lg-6 col-xl-8 col-sm-6 col-12 mt-2">
         <Paragraph>{t('qualification-footer-p1')}</Paragraph>
         {Attachments(attechments, 'qualification info') !== false &&
         qualInfo ? (
@@ -44,7 +44,7 @@ export function EducationFooter({
           />
         )}
       </div>
-      <div className="col-lg-6 col-sm-6 col-12">
+      {/* <div className="col-lg-6 col-sm-6 col-12">
         <Paragraph>{t('qualification-footer-p2')}</Paragraph>
         {Attachments(attechments, 'qualification diploma') !== false &&
         qualDiplom ? (
@@ -63,7 +63,7 @@ export function EducationFooter({
             className="p-0"
           />
         )}
-      </div>
+      </div> */}
     </div>
   );
 }

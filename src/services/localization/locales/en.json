@@ -98,7 +98,7 @@
   "saved-successfully": "Saved successfully",
   "academic-srok_priema": "Admission period",
   "academic-tip-program": "Program type",
-  "error-field": "Please enter information!",
+  "error-field": "Please enter information (only in Latin letters)!",
   "academic-napravleniya": "Speciality",
   "additional-info-title": "Terms of use",
   "additional-info-text1": "Accordingly, Apply itself shall not be liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with the use of or reliance on any user or other content, goods, courses or services available on or through any other site. Apply Yourself provides online application services for educational and other institutions. Your use of this service or any other \"Apply Yourself\" services is subject to the terms and conditions contained herein. By accessing or using this online application, you agree to be bound by these terms. Apply Yourself may revise these terms at any time and any changes will be binding on you and your future access to the online application. Therefore, you should visit this publication to review the terms and conditions from time to time when you access or use the online application. If you believe that your PIN and/or password has been compromised or unauthorized access has been made to your account, you must notify us as soon as possible at (support link)",
@@ -170,5 +170,7 @@
   "support-title-text3": "Please upload a copy of your resume in support of your application. Please note that applicants need a resume for the MBA program.",
   "order": "Sequence of submission of documents",
   "logout": "Log out",
-  "pic3x4": "A clear electronic photo (3.5 cm x 4.5 cm) taken within the last three months"
+  "pic3x4": "A clear electronic photo (3.5 cm x 4.5 cm) taken within the last three months",
+  "univer": "University",
+  "no-attach": "There are no attached files"
 }
