@@ -110,7 +110,7 @@ export function MainSection() {
           // handleCancel={handleCancel}
         />
         <MainFooterImage>
-          <img src={Ellipse} alt="ellipse" />
+          {/* <img src={Ellipse} alt="ellipse" /> */}
         </MainFooterImage>
       </MainLayoutProvider>
     </>
