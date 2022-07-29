@@ -53,7 +53,7 @@ export default function AdditionalInformation() {
     }
   }
   useEffect(() => {
-    if (localStorage?.getItem('step') < 7) {
+    if (localStorage?.getItem('step') < 5) {
       history.push('/university-admissions/personal-info');
     }
   }, []);
