@@ -60,7 +60,9 @@ export function MainSection() {
         <MainWrapper>
           <MainLeft data-aos="fade-right">
             <MainInfo>
-              <TopTour>{t('vr-tour')}</TopTour>
+              <TopTour>
+                <p>{t('vr-tour')}</p>
+              </TopTour>
               <MainInfoTitle>{t('tdau')}</MainInfoTitle>
               <MainInfoDescription>
                 {t('app-academic-year')} 2022-2023{' '}
