@@ -170,3 +170,23 @@ export const MainFooterImage = styled.div`
     width: 60%;
   }
 `;
+
+//  Carusel style
+
+export const CaruselWrapper = styled.div`
+  width: 100%;
+  & ul{
+    margin: 0 !important;
+  }
+`
+
+export const CaruselH3 = styled.h3`
+  width: calc(100% - 100px);
+  height: calc(100% - 160px);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
+
+
