@@ -70,9 +70,9 @@ export function MainSection() {
               </MainInfoDescription>
             </MainInfo>
             <MainBtnWrap>
-              <MainBtn type="button" onClick={showModal}>
+              {/* <MainBtn type="button" onClick={showModal}>
                 {t('apply')}
-              </MainBtn>
+              </MainBtn> */}
             </MainBtnWrap>
           </MainLeft>
           <MainRight data-aos="fade-left">
