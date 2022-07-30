@@ -302,7 +302,7 @@ export default function PersonalInfo() {
               <Error className="select-error-tooltip">{t('error-field')}</Error>
             )}
           </div>
-          <div className="col-lg-4 col-md-6 col-sm-6 col-12">
+          {/* <div className="col-lg-4 col-md-6 col-sm-6 col-12">
             <UserFormSelectComponent
               Controller={Controller}
               control={control}
@@ -320,7 +320,7 @@ export default function PersonalInfo() {
             {errors && errors?.hasOwnProperty('currentCountry') && (
               <Error className="select-error-tooltip">{t('error-field')}</Error>
             )}
-          </div>
+          </div> */}
           <div className="col-xl-8 col-md-6  ">
             <p style={{ margin: '10px 0 0 0', fontSize: '14px' }}>
               {t('pic3x4')}
