@@ -30,6 +30,9 @@ export default function About() {
   }
   useEffect(() => {
     getData();
+    // Hozircha tursin
+    localStorage.removeItem('token');
+    // Hozircha tursin
   }, [id]);
 
   return (
