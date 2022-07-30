@@ -15,8 +15,9 @@ export const MyModal = styled.div`
     justify-content: center;
     align-items: center;
 
+    
     .pure-modal {
-      width: 30%;
+         width: 30%;
       max-width: 100%;
       box-sizing: border-box;
       background-color: #ffffff;
@@ -26,6 +27,10 @@ export const MyModal = styled.div`
       transform: translate(0px, 0px);
       transition: none 0s ease 0s;
       max-height: 95%;
+      @media (max-width: 768px) {
+        width: 80%;
+  
+}
 
       .pure-modal-backdrop .additional-row,
       .pure-modal-backdrop:not(.scrollable) .additional-row {
