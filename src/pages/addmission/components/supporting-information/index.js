@@ -123,7 +123,9 @@ export default function SupportingInformation() {
             name={t('back')}
             className="prev-btn"
             type="button"
-            onClick={() => history.push('/english-language')}
+            onClick={() =>
+              history.push('/university-admissions/english-language')
+            }
           />
           {/* <CancelBtnComponent name="Сахранит" className="save-btn" /> */}
           <NextBtnComponent

@@ -227,7 +227,9 @@ export default function AcademicInformation() {
             <CancelBtnComponent
               name={t('back')}
               className="prev-btn"
-              onClick={() => history.push('/personal-info')}
+              onClick={() =>
+                history.push('/university-admissions/personal-info')
+              }
             />
             {/* <CancelBtnComponent name="Сахранит" className="save-btn" /> */}
             <NextBtnComponent

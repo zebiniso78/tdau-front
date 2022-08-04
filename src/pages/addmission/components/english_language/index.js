@@ -24,7 +24,9 @@ export function EnglishLanguage() {
           <CancelBtnComponent
             name={t('back')}
             className="prev-btn"
-            onClick={() => history.push('/education-qualifications')}
+            onClick={() =>
+              history.push('/university-admissions/education-qualifications')
+            }
             type="button"
           />
           <NextBtnComponent

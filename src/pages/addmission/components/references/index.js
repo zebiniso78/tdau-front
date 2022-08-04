@@ -124,7 +124,9 @@ export default function References() {
           <CancelBtnComponent
             name={t('back')}
             className="prev-btn"
-            onClick={() => history.push('/supporting-info')}
+            onClick={() =>
+              history.push('/university-admissions/supporting-info')
+            }
             type="button"
           />
           {/* <CancelBtnComponent name="Сахранит" className="save-btn" /> */}

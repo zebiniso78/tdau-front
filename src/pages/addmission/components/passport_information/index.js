@@ -183,7 +183,7 @@ export default function PassportInformation() {
         <CancelBtnComponent
           name={t('back')}
           className="prev-btn"
-          onClick={() => history.push('/academic-info')}
+          onClick={() => history.push('/university-admissions/academic-info')}
         />
         {/* <CancelBtnComponent name="Сахранит" className="save-btn" /> */}
         <NextBtnComponent

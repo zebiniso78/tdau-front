@@ -368,7 +368,9 @@ export default function AddressInformation() {
             <CancelBtnComponent
               name={t('back')}
               className="prev-btn"
-              onClick={() => history.push('/passport-info')}
+              onClick={() =>
+                history.push('/university-admissions/passport-info')
+              }
               type="button"
             />
             {/* <CancelBtnComponent name="Сахранит" className="save-btn" /> */}
