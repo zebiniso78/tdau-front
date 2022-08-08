@@ -117,7 +117,7 @@ export default function CheckApplication() {
                 />
               )}
 
-            <Items title={t('post-index')} info={allAdmission?.post_index} />
+            {/* <Items title={t('post-index')} info={allAdmission?.post_index} /> */}
 
             {allAdmission?.post_index_2 &&
               allAdmission?.post_index_2 != 'null' && (
