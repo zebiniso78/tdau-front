@@ -74,7 +74,7 @@ export default function CheckApplication() {
               info={allAdmission?.country_birth}
             />
 
-            <Items title={t('cauntry')} info={allAdmission?.current_country} />
+            {/* <Items title={t('cauntry')} info={allAdmission?.current_country} /> */}
             <Items title={t('district')} info={allAdmission?.district} />
             {allAdmission?.dtm && (
               <Items title="Dtm" info={allAdmission?.dtm} />

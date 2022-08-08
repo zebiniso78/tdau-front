@@ -141,9 +141,14 @@ export default function PersonalInfo() {
       formData.append('personal_image', userPicture[0]);
       formData.append('register_step', 1);
       formData.append('university_id', localStorage.getItem('university_id'));
-      await admissionApi.admissionPostForign(formData);
-      toast.success('Личная информация успешно создана');
-      history.push('/university-admissions/academic-info');
+
+      if (moment(data?.birthDate).format(dateFormat)?.length < 11) {
+        await admissionApi.admissionPostForign(formData);
+        toast.success('Личная информация успешно создана');
+        history.push('/university-admissions/academic-info');
+      } else {
+        toast.error('Неверный формат даты');
+      }
       setIsLoading(false);
     } catch (e) {
       console.log(e);
@@ -302,25 +307,7 @@ export default function PersonalInfo() {
               <Error className="select-error-tooltip">{t('error-field')}</Error>
             )}
           </div>
-          {/* <div className="col-lg-4 col-md-6 col-sm-6 col-12">
-            <UserFormSelectComponent
-              Controller={Controller}
-              control={control}
-              title={t('current-country') + '*'}
-              name="currentCountry"
-              placeholder={t('current-country')}
-              options={countries}
-              disabled={false}
-              className={
-                errors &&
-                errors?.hasOwnProperty('currentCountry') &&
-                'select-error'
-              }
-            />
-            {errors && errors?.hasOwnProperty('currentCountry') && (
-              <Error className="select-error-tooltip">{t('error-field')}</Error>
-            )}
-          </div> */}
+
           <div className="col-xl-8 col-md-6  ">
             <p style={{ margin: '10px 0 0 0', fontSize: '14px' }}>
               {t('pic3x4')}
@@ -360,18 +347,12 @@ export default function PersonalInfo() {
 
       <ButtonsProvider>
         <CancelBtnComponent name={t('back')} className="prev-btn" />
-        {/* <CancelBtnComponent
-          name="Сахранит"
-          className="save-btn"
-          disabled={isLoading}
-          // type="submit"
-        /> */}
+
         <NextBtnComponent
           name={t('submit')}
           className="next-btn"
           type="submit"
           disabled={isLoading}
-          // onClick={() => history.push('/academic-info')}
         />
       </ButtonsProvider>
     </PersonalInfoProvider>

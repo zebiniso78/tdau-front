@@ -28,17 +28,6 @@ export default function Calendar({
           fieldState: { invalid, isTouched, isDirty, error },
           formState: { errors },
         }) => (
-          // <CustomCalendar
-          //    // style={{ marginTop: '10px' }}
-          //    onChange={onChange}
-          //    className={className}
-          //    format={format}
-          //    value={value}
-          //    picker={picker ? picker : undefined}
-          //    placeholder={plProps}
-          //    error={!!errors?.title}
-          //    ref={ref}
-          // />
           <CustomCalendar
             selected={value}
             onChange={onChange}
@@ -48,6 +37,8 @@ export default function Calendar({
             error={!!errors?.title}
             ref={ref}
             dateFormat="dd/MM/yyyy"
+            minDate={new Date('02-01-1950')}
+            maxDate={new Date('31-12-9999')}
           />
         )}
       />
