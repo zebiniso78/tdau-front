@@ -57,10 +57,10 @@ export default function CheckApplication() {
               title={t('address-info-address1') + ' 1'}
               info={allAdmission?.adress1}
             />
-            <Items
+            {/* <Items
               title={t('address-info-address1') + ' 2'}
               info={allAdmission?.adress2}
-            />
+            /> */}
             <Items
               title={t('academic-tip-program')}
               info={allAdmission?.education_type_name}

@@ -180,7 +180,7 @@ export default function AddressInformation() {
                 <Error>{t('error-field')}</Error>
               )}
             </div>
-            <div className="col-lg-4 col-md-6 col-sm-6 col-12">
+            {/* <div className="col-lg-4 col-md-6 col-sm-6 col-12">
               <InputComponent
                 Controller={Controller}
                 control={control}
@@ -194,7 +194,7 @@ export default function AddressInformation() {
               {errors && errors?.hasOwnProperty('address2') && (
                 <Error>{t('error-field')}</Error>
               )}
-            </div>
+            </div> */}
             <div className="col-lg-4 col-md-6 col-sm-6 col-12">
               <UserFormSelectComponent
                 Controller={Controller}
@@ -237,7 +237,7 @@ export default function AddressInformation() {
                 </Error>
               )}
             </div>
-            <div className="col-lg-4 col-md-6 col-sm-6 col-12 mt-3">
+            {/* <div className="col-lg-4 col-md-6 col-sm-6 col-12 mt-3">
               <InputComponent
                 Controller={Controller}
                 control={control}
@@ -246,7 +246,7 @@ export default function AddressInformation() {
                 label={t('post-index')}
                 required={false}
               />
-            </div>
+            </div> */}
           </div>
           <Paragraph className="mt-2">{t('address-info-p1')}</Paragraph>
           <Title className="form-title mt-4">{t('address-info-p2')}</Title>

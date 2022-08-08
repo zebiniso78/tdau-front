@@ -87,10 +87,15 @@ export default function Education() {
       formData.append('qualification_info', transcript[0]);
       formData.append('qualification_diploma', upload[0]);
       formData.append('register_step', 5);
-      await admissionApi.admissionPostForign(formData);
-      toast.success('Образовательные квалификации успешно созданы');
-      // history.push('/university-admissions/supporting-info');
-      history.push('/university-admissions/check-your-application');
+
+      if (transcript?.length > 0) {
+        await admissionApi.admissionPostForign(formData);
+        toast.success('Образовательные квалификации успешно созданы');
+        // history.push('/university-admissions/supporting-info');
+        history.push('/university-admissions/check-your-application');
+      } else {
+        toast.error('Вы не загрузили документы');
+      }
       setIsLoading(false);
     } catch (e) {
       console.log(e);
@@ -154,7 +159,7 @@ export default function Education() {
               )}
             </div>
           </div>
-          <div className="row align-items-end mt-3">
+          {/* <div className="row align-items-end mt-3">
             <div className="col-lg-4 col-md-6 col-sm-6 col-12">
               <Calendar
                 Controller={Controller}
@@ -197,7 +202,7 @@ export default function Education() {
                 </Error>
               )}
             </div>
-          </div>
+          </div> */}
           <EducationFooter
             attechments={defaultValues?.attachments}
             transcript={transcript}

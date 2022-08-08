@@ -72,9 +72,13 @@ export default function PassportInformation() {
         'passport_expiry',
         moment(data?.enteredYear).format(dateFormat)
       );
-      await admissionApi.admissionPostForign(formData);
-      toast.success('Паспортные данные успешно созданы');
-      history.push('/university-admissions/address-info');
+      if (transcript?.length > 0) {
+        await admissionApi.admissionPostForign(formData);
+        toast.success('Паспортные данные успешно созданы');
+        history.push('/university-admissions/address-info');
+      } else {
+        toast.error('Выберите файл');
+      }
       setIsLoading(false);
     } catch (e) {
       console.log(e);

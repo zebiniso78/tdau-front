@@ -142,12 +142,15 @@ export default function PersonalInfo() {
       formData.append('register_step', 1);
       formData.append('university_id', localStorage.getItem('university_id'));
 
-      if (moment(data?.birthDate).format(dateFormat)?.length < 11) {
+      if (
+        moment(data?.birthDate).format(dateFormat)?.length < 11 &&
+        userPicture.length > 0
+      ) {
         await admissionApi.admissionPostForign(formData);
         toast.success('Личная информация успешно создана');
         history.push('/university-admissions/academic-info');
       } else {
-        toast.error('Неверный формат даты');
+        toast.error('Required fields are empty');
       }
       setIsLoading(false);
     } catch (e) {
