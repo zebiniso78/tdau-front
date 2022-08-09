@@ -139,7 +139,10 @@
   "qualification-start": "Boshlanish sana",
   "qualification-end": "Tugash sana",
   "qualification-footer-title": "Hujjatlaringizni yuklang",
-  "qualification-footer-p1": "Iltimos, yuqorida sanab oʻtilgan malakalarni tasdiqlash uchun akademik ma’lumotnomangizning nusxasini yuklang. Esda tutingki, bu yerda faqat BITTA faylni yuklash mumkin.",
+
+  "qualification-footer-pb": "Diplom yoki attestat nusxasini yuklang",
+  "qualification-footer-pm": "Diplom va ilovasini yuklang",
+
   "qualification-footer-p2": "Agar allaqachon bitirgan boʻlsangiz, iltimos, diplom nusxasini yuklang. Esda tutingki, bu yerda faqat BITTA faylni yuklash mumkin.",
   "english-test": "Ingliz tili",
   "qualification-p1": "Barcha talabalar ingliz tilini yaxshi bilishlari kerak. Quyidagi boʻlim sizning millatingiz, istiqomat qilayotgan mamlakatingiz va akademik tarixingiz haqidagi ma’lumotlarga qoʻshimcha ravishda universitetga Buyuk Britaniyada oʻqish uchun ingliz tilini bilishingiz shart yoki yoʻqligini aniqlash imkonini beradi.",

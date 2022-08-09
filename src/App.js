@@ -23,6 +23,7 @@ import { useTranslation } from 'react-i18next';
 import NavigationScroll from 'components/NavigationScroll';
 import { fetchData } from 'hooks/useFetch';
 import { partnersApi } from 'services/api/pagesApi';
+import Header from 'components/header';
 
 function App() {
   const { i18n } = useTranslation();
@@ -50,6 +51,7 @@ function App() {
   return (
     <BrowserRouter>
       <Navigator data={data?.all} />
+      {/* <Header /> */}
       <NavigationScroll>
         <Switch>
           <Route path="/rectors-message" exact component={RectorsMessage} />

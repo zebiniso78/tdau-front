@@ -204,6 +204,7 @@ export default function Education() {
             </div>
           </div> */}
           <EducationFooter
+            defaultValues={defaultValues}
             attechments={defaultValues?.attachments}
             transcript={transcript}
             setTranscript={setTranscript}

@@ -137,7 +137,10 @@
   "qualification-start": "Starting date",
   "qualification-end": "Ending date",
   "qualification-footer-title": "Upload supporting documents",
-  "qualification-footer-p1": "Please upload a copy of your academic transcript to verify the qualifications listed above. Please note that you can only upload ONE file here.",
+
+  "qualification-footer-pb": "Upload a copy of your diploma or certificate",
+  "qualification-footer-pm": "Download diploma and application",
+
   "qualification-footer-p2": "If you have already graduated, please upload a copy of your diploma. Please note that you can only upload ONE file here.",
   "english-test": "English language",
   "qualification-p1": "All students must be proficient in English. The section below, in addition to information about your nationality, country of residence and academic history, will allow the university to determine if you require an English language qualification to study in the UK.",

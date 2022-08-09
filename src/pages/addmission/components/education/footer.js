@@ -12,6 +12,7 @@ export function EducationFooter({
   upload,
   setUpload,
   attechments,
+  defaultValues,
 }) {
   const {
     control,
@@ -25,7 +26,11 @@ export function EducationFooter({
     <div className="row mt-5">
       <Title>{t('qualification-footer-title')}</Title>
       <div className="col-lg-6 col-xl-8 col-sm-6 col-12 mt-2">
-        <Paragraph>{t('qualification-footer-p1')}</Paragraph>
+        <Paragraph>
+          {defaultValues?.education_type_name !== 'Master'
+            ? t('qualification-footer-pm')
+            : t('qualification-footer-pb')}
+        </Paragraph>
         {Attachments(attechments, 'qualification info') !== false &&
         qualInfo ? (
           <FileUpload
