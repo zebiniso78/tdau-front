@@ -1,5 +1,5 @@
 {
-  "language": "O'zbek tili",
+  "language": "O'zbek",
   "international-relationship": "Xalqaro munosabatlar",
   "quick-links": "Tezkor havolalar",
   "campus-life": "Kampusdagi hayot",
@@ -177,5 +177,10 @@
   "logout": "Tizimdan chiqish",
   "pic3x4": "Oxirgi uch oy ichida olingan aniq elektron fotosurat (3,5 sm x 4,5 sm)",
   "univer": "Universitet",
-  "no-attach": "Biriktirilgan fayllar mavjud emas."
+  "no-attach": "Biriktirilgan fayllar mavjud emas.",
+
+  "internship": "Amaliyot dasturi",
+  "foreign students": "Chet ellik talabalar",
+  "education and training abroad": "Chet elda ta'lim va malaka oshirish",
+  "international grant": "Xalqaro grantlar"
 }

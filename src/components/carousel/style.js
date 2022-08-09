@@ -1,5 +1,39 @@
 import styled from 'styled-components';
 
+export const WrapperCarousel = styled.div`
+  .ant-carousel .slick-dots li {
+    width: 18px !important;
+    height: 18px !important;
+  }
+  .ant-carousel .slick-dots li button {
+    width: 18px !important;
+    height: 18px !important;
+    border-radius: 50% !important;
+    background: linear-gradient(85.38deg, #edede4 -23.38%, #f8f2eb 97.65%);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  }
+
+  .slick-slide:nth-of-type(odd) .tdau-item {
+    flex-direction: row-reverse;
+  }
+  .slick-slide:nth-of-type(odd) .tdau-item-two {
+    justify-content: flex-start;
+  }
+  .slick-dots li button::before {
+    font-family: 'slick';
+    font-size: 6px;
+    line-height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    content: '' !important;
+    text-align: center;
+    opacity: 0.25;
+    color: black;
+  }
+`;
 export const CarouselLayout = styled.div`
   position: relative;
   min-height: 100vh;

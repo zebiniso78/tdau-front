@@ -175,5 +175,10 @@
   "logout": "Log out",
   "pic3x4": "A clear electronic photo (3.5 cm x 4.5 cm) taken within the last three months",
   "univer": "University",
-  "no-attach": "There are no attached files"
+  "no-attach": "There are no attached files",
+  "internship": "Internship program",
+  "foreign students": "Foreign students",
+  "education and training abroad": "Education and training abroad",
+  "international grant": "International grant",
+  "education": "Education"
 }

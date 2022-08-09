@@ -16,9 +16,7 @@ export default function LanguageComponent() {
 
   return (
     <DropdownElement>
-      <Lang>
-        {t('language')} <CaretDownOutlined />
-      </Lang>
+      <Lang>{t('language')}</Lang>
       <ul>
         <li onClick={() => onchange('uz')}>O'zbekcha</li>
         <li onClick={() => onchange('ru')}>Русский</li>

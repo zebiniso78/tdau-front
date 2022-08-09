@@ -6,6 +6,7 @@ import {
   TextContent,
   LeftContent,
   RightContent,
+  WrapperCarousel,
 } from './style';
 import 'antd/dist/antd.css';
 import { MainBtn, MainBtnWrap } from 'pages/Home/components/main/style';
@@ -77,7 +78,7 @@ export function CarouselComponent({
     fetchData(admissionApi.allUniversityID(null), setEntityID, setLoader);
   }, []);
   return (
-    <>
+    <WrapperCarousel>
       <Carousel autoplay effect="fade">
         <CarouselLayout style={contentStyle}>
           <Image
@@ -139,6 +140,6 @@ export function CarouselComponent({
         confirmModel={confirmModel}
         phoneNumber={phoneNumber}
       />
-    </>
+    </WrapperCarousel>
   );
 }
