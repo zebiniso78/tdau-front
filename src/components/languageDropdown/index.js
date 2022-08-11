@@ -5,6 +5,10 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { DropdownElement, Lang } from './styled';
 
+import UZ from 'assets/language_flags/uzb.svg';
+import RU from 'assets/language_flags/ru.svg';
+import EN from 'assets/language_flags/usa.svg';
+
 export default function LanguageComponent() {
   const { t } = useTranslation();
 
@@ -16,11 +20,25 @@ export default function LanguageComponent() {
 
   return (
     <DropdownElement>
-      <Lang>{t('language')}</Lang>
+      <Lang>
+        {t('language') == 'uz' ? (
+          <img src={UZ} alt="uz" />
+        ) : t('language') == 'ru' ? (
+          <img src={RU} alt="ru" />
+        ) : (
+          <img src={EN} alt="en" />
+        )}
+      </Lang>
       <ul>
-        <li onClick={() => onchange('uz')}>O'zbekcha</li>
-        <li onClick={() => onchange('ru')}>Русский</li>
-        <li onClick={() => onchange('en')}>English</li>
+        <li onClick={() => onchange('uz')}>
+          <img src={UZ} alt="uz" /> UZ
+        </li>
+        <li onClick={() => onchange('ru')}>
+          <img src={RU} alt="ru" /> RU
+        </li>
+        <li onClick={() => onchange('en')}>
+          <img src={EN} alt="en" /> ENG
+        </li>
       </ul>
     </DropdownElement>
   );

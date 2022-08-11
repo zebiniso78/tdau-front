@@ -1,5 +1,5 @@
 {
-  "language": "English",
+  "language": "eng",
   "university": " University",
   "error-text": "There was an error loading data!",
   "about-university": "About University",
@@ -180,5 +180,14 @@
   "foreign students": "Foreign students",
   "education and training abroad": "Education and training abroad",
   "international grant": "International grant",
-  "education": "Education"
+  "education": "Education",
+  "abitur": "Abiturient",
+  "bachelor": "Bachelor",
+  "correspondence": "Correspondence education",
+  "distance learn": "Distance learning",
+  "science and innovation": "Science and innovation",
+
+  "press center": "Press-center",
+  "hit statistics": "Hit statistics",
+  "press service contact": "Press service contact"
 }

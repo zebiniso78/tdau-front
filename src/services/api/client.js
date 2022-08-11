@@ -13,6 +13,7 @@ class Api {
     this.token = Cookies.get(Token);
     this.setInterceptors();
   }
+
   setInterceptors() {
     this.api2client.interceptors.response.use(
       (resp) => {
@@ -33,6 +34,7 @@ class Api {
       }
     );
   }
+
   async execute(method, url, data, onUploadProgress, id) {
     const accessToken = Cookies.get(Token);
     let headers = {};
@@ -77,13 +79,13 @@ class Api {
       } else throw err.response.data;
     }
   }
+
   setQuery(key, value) {
     if (!this.query) {
       this.query = {};
     }
     this.query[key] = value;
-    this.queryString = null;
-    // eslint-disable-next-line
+    this.queryString = null; // eslint-disable-next-line
     for (const i in this.query) {
       if (this.queryString == null) {
         this.queryString = '?';

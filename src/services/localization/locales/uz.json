@@ -1,5 +1,5 @@
 {
-  "language": "O'zbek",
+  "language": "uz",
   "international-relationship": "Xalqaro munosabatlar",
   "quick-links": "Tezkor havolalar",
   "campus-life": "Kampusdagi hayot",
@@ -182,5 +182,18 @@
   "internship": "Amaliyot dasturi",
   "foreign students": "Chet ellik talabalar",
   "education and training abroad": "Chet elda ta'lim va malaka oshirish",
-  "international grant": "Xalqaro grantlar"
+  "international grant": "Xalqaro grantlar",
+  "education": "Ta'lim",
+  "abitur": "Abiturient",
+  "bachelor": "Bakalavr",
+  "correspondence": "Sirtqi ta'lim",
+  "distance learn": "Masofaviy ta'lim",
+  "science and innovation": "Fan va innovatsiyalar",
+
+  "conferences and seminars": "Konferentsiyalar va seminarlar",
+  "scientific articles": "Ilmiy maqolalar",
+  "scientist advice": "Ilmiy kengashlar",
+  "scientific work of students": "Talabalarning ilmiy ishlari",
+  "innovative projects": "Innovatsion loyihalar",
+  "catalog of scientific developments": "Ilmiy ishlanmalar katalogi"
 }

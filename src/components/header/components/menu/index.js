@@ -31,11 +31,23 @@ export default function MenuComponent({ data, toggleNavbar, setToggleNavbar }) {
             <NavbarItemMini>
               {t('education')}
               <ul>
-                <li>
-                  <Link to={`/`}>Abiturient</Link>
+                <li onClick={() => setToggleNavbar(false)}>
+                  <Link to={`/`}>{t('abitur')}</Link>
                 </li>
-                <li>
-                  <Link to={`/`}>Abiturient</Link>
+                <li onClick={() => setToggleNavbar(false)}>
+                  <Link to={`/bachelor`}>{t('bachelor')}</Link>
+                </li>
+                <li onClick={() => setToggleNavbar(false)}>
+                  <Link to={`/master`}>{t('masters')}</Link>
+                </li>
+                <li onClick={() => setToggleNavbar(false)}>
+                  <Link to={`/phd`}>PhD</Link>
+                </li>
+                <li onClick={() => setToggleNavbar(false)}>
+                  <Link to={`/`}>{t('correspondence')}</Link>
+                </li>
+                <li onClick={() => setToggleNavbar(false)}>
+                  <Link to={`/`}>{t('distance learn')}</Link>
                 </li>
               </ul>
             </NavbarItemMini>
@@ -72,7 +84,7 @@ export default function MenuComponent({ data, toggleNavbar, setToggleNavbar }) {
               {data && (
                 <ul>
                   {data?.map((item, index) => (
-                    <li key={index}>
+                    <li onClick={() => setToggleNavbar(false)} key={index}>
                       <Link to={`/partner-universities/blog/${item?.id}`}>
                         {item?.title}
                       </Link>
@@ -82,8 +94,9 @@ export default function MenuComponent({ data, toggleNavbar, setToggleNavbar }) {
               )}
             </NavbarItemMini>
           </li>
+
           <li onClick={() => setToggleNavbar(false)}>
-            <a href="#">{t('internship')}</a>
+            <a href="https://internship.agro.uz/">{t('internship')}</a>
           </li>
           <li onClick={() => setToggleNavbar(false)}>
             <Link to="/">{t('foreign students')}</Link>
@@ -95,22 +108,52 @@ export default function MenuComponent({ data, toggleNavbar, setToggleNavbar }) {
       </NavbarItem>
 
       <NavbarItem>
-        {t('campus-life')}
+        {t('science and innovation')}
 
-        {/* <NavbarItemList>
+        <NavbarItemList>
           <li onClick={() => setToggleNavbar(false)}>
-            <a href="#"></a>
+            <Link to={`/`}>{t('conferences and seminars')}</Link>
           </li>
-        </NavbarItemList> */}
+          <li onClick={() => setToggleNavbar(false)}>
+            <Link to={`/`}>{t('scientific articles')}</Link>
+          </li>
+          <li onClick={() => setToggleNavbar(false)}>
+            <Link to={`/`}>{t('scientist advice')}</Link>
+          </li>
+          <li onClick={() => setToggleNavbar(false)}>
+            <Link to={`/`}>{t('scientific work of students')}</Link>
+          </li>
+          <li onClick={() => setToggleNavbar(false)}>
+            <Link to={`/`}>{t('innovative projects')}</Link>
+          </li>
+          <li onClick={() => setToggleNavbar(false)}>
+            <Link to={`/`}>{t('catalog of scientific developments')}</Link>
+          </li>
+        </NavbarItemList>
       </NavbarItem>
+
+      <NavbarItem>
+        {t('press center')}
+
+        <NavbarItemList>
+          <li onClick={() => setToggleNavbar(false)}>
+            <Link to={`/`}>{t('news')}</Link>
+          </li>
+          <li onClick={() => setToggleNavbar(false)}>
+            <Link to={`/`}>{t('hit statistics')}</Link>
+          </li>
+          <li onClick={() => setToggleNavbar(false)}>
+            <Link to={`/`}>{t('press service contact')}</Link>
+          </li>
+        </NavbarItemList>
+      </NavbarItem>
+
+      <NavbarItem>{t('campus-life')}</NavbarItem>
 
       <NavbarItem>
         {t('quick-links')}
 
         <NavbarItemList>
-          <li onClick={() => setToggleNavbar(false)}>
-            <a href="http://student.agro.uz/">Smart Campus | Student</a>
-          </li>
           <li onClick={() => setToggleNavbar(false)}>
             <a href="http://student.agro.uz/">Smart Campus | Student</a>
           </li>

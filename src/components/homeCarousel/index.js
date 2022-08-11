@@ -8,15 +8,17 @@ import {
 } from './style';
 import { useTranslation } from 'react-i18next';
 import { Container } from 'styles/globalStyle';
+import Img1 from 'assets/main/carousel1.png';
+import Img2 from 'assets/main/2carousel.jpg';
 export default function HomeCarousel() {
   const { t } = useTranslation();
   return (
     <Wrapper>
-      <Carousel autoplay>
-        <CarouselItem img={'https://picsum.photos/900'}>
+      <Carousel autoplay={true}>
+        <CarouselItem img={Img1}>
           <CarouselTextContent>
             <Container>
-              <div className="content">
+              <div data-aos="fade-up" className="content">
                 <button className="vt-tour">{t('vr-tour')}</button>
                 <MainInfoTitle>{t('tdau')}</MainInfoTitle>
               </div>
@@ -24,30 +26,32 @@ export default function HomeCarousel() {
           </CarouselTextContent>
         </CarouselItem>
 
-        <CarouselItem img={'https://picsum.photos/900'}>
+        <CarouselItem img={Img2}>
           <CarouselTextContent>
             <Container>
-              <div className="content">
+              <div data-aos="fade-up" className="content">
                 <button className="vt-tour">{t('vr-tour')}</button>
                 <MainInfoTitle>{t('tdau')}</MainInfoTitle>
               </div>
             </Container>
           </CarouselTextContent>
         </CarouselItem>
-        <CarouselItem img={'https://picsum.photos/900'}>
+
+        <CarouselItem img={Img1}>
           <CarouselTextContent>
             <Container>
-              <div className="content">
+              <div data-aos="fade-up" className="content">
                 <button className="vt-tour">{t('vr-tour')}</button>
                 <MainInfoTitle>{t('tdau')}</MainInfoTitle>
               </div>
             </Container>
           </CarouselTextContent>
         </CarouselItem>
-        <CarouselItem img={'https://picsum.photos/900'}>
+
+        <CarouselItem img={Img2}>
           <CarouselTextContent>
             <Container>
-              <div className="content">
+              <div data-aos="fade-up" className="content">
                 <button className="vt-tour">{t('vr-tour')}</button>
                 <MainInfoTitle>{t('tdau')}</MainInfoTitle>
               </div>

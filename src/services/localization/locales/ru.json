@@ -1,5 +1,5 @@
 {
-  "language": "Русский",
+  "language": "ru",
   "international-relationship": "Международное отношение",
   "quick-links": "Быстрые ссылки",
   "campus-life": "Жизнь в кампусе",
@@ -182,5 +182,18 @@
   "internship": "Программа стажировка ",
   "foreign students": "Иностранные студенты",
   "education and training abroad": "Образование и обучение за рубежом",
-  "international grant": "Международный грант"
+  "international grant": "Международный грант",
+  "education": "Образование",
+  "abitur": "Абитуриентам",
+  "bachelor": "Бакалавриат",
+  "correspondence": "Заочное образование",
+  "distance learn": "Дистанционное обучение",
+  "science and innovation": "Наука  и инновации ",
+
+  "conferences and seminars": "Конференции и семинары",
+  "scientific articles": "Научные статьи",
+  "scientist advice": "Ученые советы",
+  "scientific work of students": "Научная работа студентов",
+  "innovative projects": "Инновационные проекты",
+  "catalog of scientific developments": "Каталог научных разработок"
 }

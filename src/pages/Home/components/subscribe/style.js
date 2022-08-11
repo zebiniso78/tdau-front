@@ -79,6 +79,9 @@ export const Form = styled.form`
 `;
 export const SubscribeInputWrap = styled.div`
   margin-top: 23px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   @media (max-width: 600px) {
     display: flex;
     align-items: center;

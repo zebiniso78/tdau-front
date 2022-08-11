@@ -109,7 +109,7 @@ export const Error = styled.div`
 export const MainLayoutProvider = styled.div`
   position: relative;
   width: 100%;
-  height: 110vh;
+  min-height: 80vh;
 
   @media (max-width: 768px) {
     height: auto;

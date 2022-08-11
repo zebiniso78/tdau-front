@@ -4,12 +4,13 @@ export const DropdownElement = styled.div`
   transition: all 0.3s ease-in-out;
 
   ul {
-    min-width: 160px;
+    min-width: 120px;
     transform: scale(0);
     position: absolute;
     background: #fff;
     border-radius: 6px;
-    box-shadow: 0px 10px 25px #dfd9ce;
+    box-shadow: 0px 0px 10px rgb(0 0 0 / 10%);
+    font-size: 14px;
     padding: 8px;
     text-align: left;
     margin: 0;
@@ -29,6 +30,9 @@ export const DropdownElement = styled.div`
       transition: all 0.3s ease-in-out;
       font-size: 14px;
       font-weight: normal;
+      img {
+        margin-right: 8px;
+      }
       &:hover {
         background-color: rgba(213, 238, 198, 1);
       }
@@ -42,7 +46,7 @@ export const DropdownElement = styled.div`
 `;
 export const Lang = styled.div`
   margin-left: 4px;
-  width: 80px;
+  width: 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;

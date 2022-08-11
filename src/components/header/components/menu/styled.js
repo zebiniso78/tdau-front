@@ -37,7 +37,7 @@ export const WrapperMenu = styled.div`
 export const NavbarItemList = styled.ul`
   min-width: 300px;
   position: absolute;
-  top: 28px;
+  top: 24px;
   right: -50%;
   background-color: #fff;
   padding: 8px 8px;
@@ -53,6 +53,8 @@ export const NavbarItemList = styled.ul`
   a {
     text-decoration: none;
     color: #142e38;
+
+    width: 100%;
   }
   li {
     margin: 0;
@@ -65,6 +67,7 @@ export const NavbarItemList = styled.ul`
     justify-content: space-between;
     width: 100%;
     cursor: pointer;
+
     &:hover {
       background-color: rgba(213, 238, 198, 1);
     }
@@ -97,7 +100,7 @@ export const NavbarItem = styled.div`
 `;
 export const NavbarItemMini = styled.div`
   position: relative;
-
+  width: 100%;
   ul {
     margin: 0;
     padding: 0;
@@ -113,7 +116,9 @@ export const NavbarItemMini = styled.div`
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     padding: 8px;
     font-weight: normal;
-
+    li {
+      width: 100%;
+    }
     @media (max-width: 991px) {
       top: 48px;
       right: auto;
