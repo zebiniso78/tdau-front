@@ -77,3 +77,21 @@ export const FooterImage = styled.div`
     }
   }
 `;
+
+export const Socials = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+
+  a {
+    color: #142e38;
+    font-size: 20px;
+    margin: 0 4px;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+`;

@@ -4,34 +4,37 @@ export const DropdownElement = styled.div`
   transition: all 0.3s ease-in-out;
 
   ul {
+    min-width: 120px;
     transform: scale(0);
     position: absolute;
-    background: rgba(255, 255, 255, 0.3);
-    -webkit-backdrop-filter: blur(250px);
-    backdrop-filter: blur(250px);
-    border-radius: 12px;
-    box-shadow: 0px 10px 25px #dfd9ce;
-    padding: 0 4px;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0px 0px 10px rgb(0 0 0 / 10%);
+    font-size: 14px;
+    padding: 8px;
     text-align: left;
     margin: 0;
     list-style-type: none;
     z-index: 999;
     transition: all 0.3s ease-in-out;
     overflow: hidden;
-    @media (max-width: 768px) {
-      top: 36px;
-      left: -16px;
+    @media (max-width: 991px) {
+      top: 32px;
+      left: 28%;
     }
     li {
       background-color: transparent;
       width: 100%;
-      padding: 4px 16px;
-      margin: 4px 0;
-      border-radius: 6px;
+      padding: 4px 8px;
+      border-radius: 4px;
       transition: all 0.3s ease-in-out;
-
+      font-size: 14px;
+      font-weight: normal;
+      img {
+        margin-right: 8px;
+      }
       &:hover {
-        background-color: #fff;
+        background-color: rgba(213, 238, 198, 1);
       }
     }
   }
@@ -43,22 +46,20 @@ export const DropdownElement = styled.div`
 `;
 export const Lang = styled.div`
   margin-left: 4px;
-  width: 90px;
+  width: 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   color: black;
-  padding-top: 13px;
   svg {
     width: 8px;
   }
   @media (max-width: 991px) {
-    /* margin-top: 16px !important; */
-    padding-top: 0;
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    color: #142f38;
-    font-size: 16px;
-    cursor: pointer;
+    margin-left: 0;
+    width: 100%;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    justify-content: center;
   }
 `;

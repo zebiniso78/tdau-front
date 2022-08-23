@@ -6,6 +6,32 @@ export const NavbarSite = styled.div`
   padding: 20px 0;
 `;
 
+export const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .toggleButton {
+    display: none;
+    margin: 0;
+    border: none;
+    outline: none;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    border: 4px;
+    background-color: transparent;
+    &:active {
+      transform: translateY(2px);
+    }
+    @media (max-width: 991px) {
+      display: flex;
+    }
+  }
+`;
+
 export const Brand = styled(Link)`
   display: flex;
   align-items: center;
@@ -17,16 +43,7 @@ export const Brand = styled(Link)`
     vertical-align: middle;
     margin-right: 8px;
   }
-  /* h1 {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: bold;
-    font-size: 22px;
-    line-height: 108%;
-    letter-spacing: -0.04em;
-    color: #142e38;
-    max-width: 240px;
-    margin: 0;
-    text-transform: uppercase;
-  } */
+  @media (max-width: 991px) {
+    z-index: 9999;
+  }
 `;

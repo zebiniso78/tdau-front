@@ -1,21 +1,6 @@
 import React, { useState } from 'react';
-import {
-  MainWrapper,
-  MainLeft,
-  MainRight,
-  MainInfo,
-  MainInfoTitle,
-  MainInfoDescription,
-  MainBtnWrap,
-  MainBtn,
-  MainFooter,
-  MainFooterLeft,
-  MainFooterRight,
-  TopTour,
-  MainFooterImage,
-} from './style';
-import RightImage from 'assets/main/right.png';
-import FooterImage from 'assets/main/footer_image.png';
+import { MainFooterImage } from './style';
+
 import { MainLayoutProvider } from 'styles/globalStyle';
 import { Login } from 'components/MainPage/Navbar/login';
 import { Registration } from 'components/MainPage/Navbar/registration';
@@ -24,6 +9,7 @@ import { useHistory } from 'react-router-dom';
 import Ellipse from 'assets/rectangles/ellipse_top.png';
 import { useTranslation } from 'react-i18next';
 import { Modal } from 'antd';
+import HomeCarousel from 'components/homeCarousel';
 
 export function MainSection() {
   const { t } = useTranslation();
@@ -57,7 +43,8 @@ export function MainSection() {
   return (
     <>
       <MainLayoutProvider>
-        <MainWrapper>
+        <HomeCarousel />
+        {/* <MainWrapper>
           <MainLeft data-aos="fade-right">
             <MainInfo>
               <TopTour>
@@ -70,9 +57,9 @@ export function MainSection() {
               </MainInfoDescription>
             </MainInfo>
             <MainBtnWrap>
-              {/* <MainBtn type="button" onClick={showModal}>
+              <MainBtn type="button" onClick={showModal}>
                 {t('apply')}
-              </MainBtn> */}
+              </MainBtn>
             </MainBtnWrap>
           </MainLeft>
           <MainRight data-aos="fade-left">
@@ -86,7 +73,7 @@ export function MainSection() {
               <p style={{ marginBottom: 0 }}>{t('home-desc')}</p>
             </MainFooterRight>
           </MainFooter>
-        </MainWrapper>
+        </MainWrapper> */}
         <Login
           setModal={setModal}
           isModalVisible={isModalVisible}

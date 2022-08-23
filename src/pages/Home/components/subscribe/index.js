@@ -23,18 +23,15 @@ export function Subscribe() {
           <h1>{t('subscribe-header1')}</h1>
           <h4>{t('subscribe-header2')}</h4>
           <SubscribeInputWrap>
-            <Row align="middle" justify="center">
-              <Col span={18}>
-                <Input
-                  style={{ width: '100%' }}
-                  type="email"
-                  placeholder={t('email')}
-                />
-              </Col>
-              <Col span={6}>
-                <Button type="submit">{t('subscribe')}</Button>
-              </Col>
-            </Row>
+            <Input
+              style={{ width: '100%' }}
+              type="email"
+              placeholder={t('email')}
+            />
+
+            <Button style={{ minWidth: '180px' }} type="submit">
+              {t('subscribe')}
+            </Button>
           </SubscribeInputWrap>
         </Form>
       </SubscribeRight>

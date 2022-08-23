@@ -1,5 +1,5 @@
 {
-  "language": "English",
+  "language": "eng",
   "university": " University",
   "error-text": "There was an error loading data!",
   "about-university": "About University",
@@ -175,5 +175,19 @@
   "logout": "Log out",
   "pic3x4": "A clear electronic photo (3.5 cm x 4.5 cm) taken within the last three months",
   "univer": "University",
-  "no-attach": "There are no attached files"
+  "no-attach": "There are no attached files",
+  "internship": "Internship program",
+  "foreign students": "Foreign students",
+  "education and training abroad": "Education and training abroad",
+  "international grant": "International grant",
+  "education": "Education",
+  "abitur": "Abiturient",
+  "bachelor": "Bachelor",
+  "correspondence": "Correspondence education",
+  "distance learn": "Distance learning",
+  "science and innovation": "Science and innovation",
+
+  "press center": "Press-center",
+  "hit statistics": "Hit statistics",
+  "press service contact": "Press service contact"
 }

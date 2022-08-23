@@ -6,10 +6,17 @@ import {
   HorizontalLine,
   FooterBottom,
   FooterImage,
+  Socials,
 } from './style';
 import { useList } from './useList';
 import Ellipse from 'assets/rectangles/ellipse.png';
 import { useTranslation } from 'react-i18next';
+import {
+  FacebookOutlined,
+  InstagramOutlined,
+  TwitterOutlined,
+  WhatsAppOutlined,
+} from '@ant-design/icons';
 
 export default function Footer() {
   const { footerList } = useList();
@@ -17,7 +24,7 @@ export default function Footer() {
   return (
     <FooterProvider>
       <Container>
-        <Row style={{ padding: '58px 0' }} data-aos="fade-up">
+        <Row style={{ padding: '58px 0 0' }} data-aos="fade-up">
           {footerList.map((list) => (
             <Col
               span={24}
@@ -46,7 +53,24 @@ export default function Footer() {
             </Col>
           ))}
         </Row>
+
+        <Socials>
+          <a href="https://instagram.com" className="item">
+            <InstagramOutlined />
+          </a>
+          <a href="https://instagram.com" className="item">
+            <TwitterOutlined />
+          </a>
+          <a href="https://instagram.com" className="item">
+            <FacebookOutlined />
+          </a>
+          <a href="https://instagram.com" className="item">
+            <WhatsAppOutlined />
+          </a>
+        </Socials>
+
         <HorizontalLine />
+
         <FooterBottom>
           <p>© {t('tdau')} 2022. All rights reserved</p>
           <p style={{ maxWidth: 290 }}>{t('ourCenter')}</p>

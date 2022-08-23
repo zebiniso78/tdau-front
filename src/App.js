@@ -50,8 +50,8 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navigator data={data?.all} />
-      {/* <Header /> */}
+      {/* <Navigator data={data?.all} /> */}
+      <Header data={data?.all} />
       <NavigationScroll>
         <Switch>
           <Route path="/rectors-message" exact component={RectorsMessage} />
