@@ -23,7 +23,7 @@ export function Verify({
     control,
     formState: { errors },
   } = useForm();
-  let token = localStorage.getItem('token');
+  // let token = localStorage.getItem('token');
   const history = useHistory();
   const [isLoading, setIsLoading] = useState(false);
   const [entityID, setEntityID] = useState([]);
@@ -39,12 +39,12 @@ export function Verify({
       formData.append('code', data?.code);
       let res = await authApi.verify(formData);
       localStorage.setItem('token', res?.token);
-      if (res?.token) {
-        localStorage.setItem(
-          'university_id',
-          JSON.stringify(entityID ? entityID[0]?.id : 22)
-        );
-      }
+      // if (res?.token) {
+      //   localStorage.setItem(
+      //     'university_id',
+      //     JSON.stringify(entityID ? entityID[0]?.id : 22)
+      //   );
+      // }
       setIsLoading(false);
       setConfirmModel(false);
       if (localStorage.getItem('university_id') !== undefined) {

@@ -37,7 +37,7 @@ export default function About() {
 
   return (
     <div style={{ msOverflowX: 'hidden' }}>
-      <AboutMain data={siteBlog} />
+      <AboutMain data={siteBlog} univerId={id} />
       <AboutContainer data-aos="fade-up" type="video">
         <Discover type="magnusUniversity" firstInfo={siteBlog?.description} />
       </AboutContainer>

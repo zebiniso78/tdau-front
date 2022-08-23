@@ -33,16 +33,13 @@ const contentStyle = {
 
 export function CarouselComponent({
   title,
-  first,
-  second,
-  third,
-  four,
+
   id,
   pic,
 }) {
   const { t } = useTranslation();
   let token = localStorage.getItem('token');
-  let siteBlog = JSON.parse(localStorage.getItem('blog'));
+  // let siteBlog = JSON.parse(localStorage.getItem('blog'));
   const [modal, setModal] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [registerModel, setRegisterModel] = useState(false);
@@ -58,8 +55,7 @@ export function CarouselComponent({
     setIsModalVisible(false);
   };
 
-  function apply(id) {
-    localStorage.setItem('university_id', id);
+  function apply() {
     if (token) {
       history.push('/university-admissions/personal-info');
     } else {
@@ -95,7 +91,11 @@ export function CarouselComponent({
         ${t('upgraduate-postgraduate')}`}
               </p> */}
               <MainBtnWrap style={{ marginTop: '16px' }}>
-                <MainBtn type="button" onClick={() => apply(id)}>
+    
+                <MainBtn type="button" onClick={() => {
+                  localStorage.setItem('university_id', id);
+                 apply()}
+                 }>
                   {t('apply')}
                 </MainBtn>
               </MainBtnWrap>
