@@ -25,7 +25,7 @@ export function EducationFooter({
   return (
     <div className="row mt-5">
       <Title>{t('qualification-footer-title')}</Title>
-      <div className="col-lg-6 col-xl-8 col-sm-6 col-12 mt-2">
+      <div className="col-lg-6 col-xl-8  col-12 mt-2">
         <Paragraph>
           {defaultValues?.education_type_name !== 'Master'
             ? t('qualification-footer-pm')
@@ -48,6 +48,20 @@ export function EducationFooter({
             className="p-0"
           />
         )}
+      </div>
+      <br />
+      <br />
+      <div className="col-lg-6 col-xl-8 col-12 mt-2">
+        <Paragraph>{t('ielts')}</Paragraph>
+
+        <DragDrop
+          name="ielts"
+          inputId="ielts"
+          files={upload}
+          setFile={setUpload}
+          required
+          className="p-0"
+        />
       </div>
       {/* <div className="col-lg-6 col-sm-6 col-12">
         <Paragraph>{t('qualification-footer-p2')}</Paragraph>

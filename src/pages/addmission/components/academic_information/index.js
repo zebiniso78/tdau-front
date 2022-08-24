@@ -161,7 +161,7 @@ export default function AcademicInformation() {
           onSubmit={handleSubmit(onSubmit)}
           className="row align-items-end"
         >
-          <div className="col-lg-4 col-md-6 col-sm-6 col-12">
+          {/* <div className="col-lg-4 col-md-6 col-sm-6 col-12">
             <UserFormSelectComponent
               Controller={Controller}
               control={control}
@@ -180,8 +180,8 @@ export default function AcademicInformation() {
             {errors && errors?.hasOwnProperty('srok_priema') && (
               <Error className="select-error-tooltip">{t('error-field')}</Error>
             )}
-          </div>
-          <div className="col-lg-4 col-md-6 col-sm-6 col-12">
+          </div> */}
+          <div className=" col-md-6 col-sm-6 col-12">
             <UserFormSelectComponent
               Controller={Controller}
               control={control}
@@ -202,7 +202,7 @@ export default function AcademicInformation() {
               <Error className="select-error-tooltip">{t('error-field')}</Error>
             )}
           </div>
-          <div className="col-lg-4 col-md-6 col-sm-6 col-12">
+          <div className="col-md-6 col-sm-6 col-12">
             <UserFormSelectComponent
               Controller={Controller}
               control={control}

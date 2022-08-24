@@ -109,7 +109,8 @@
   "address-info-title": "Address information",
   "address-info-text": "Please provide your contact details below. If any of the information you enter below changes during the admissions process, you should contact the admissions office to have your entry updated.",
   "address-info-title-form": "Residential address",
-  "address-info-address1": "Address bar",
+  "address-info-address1": "Address (street and house number)",
+  "address-info-address2": "Address",
   "region": "City",
   "district": "Area",
   "address-info-p1": "Enter the address where you permanently reside. If you have a different temporary address (such as a student residence), please include it in the Correspondence section below.",
@@ -189,5 +190,6 @@
 
   "press center": "Press-center",
   "hit statistics": "Hit statistics",
-  "press service contact": "Press service contact"
+  "press service contact": "Press service contact",
+  "ielts": "Copy of foreign language certificate (upload if available)"
 }

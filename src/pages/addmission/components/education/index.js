@@ -75,17 +75,17 @@ export default function Education() {
       setIsLoading(true);
       let formData = new FormData();
       formData.append('school', data?.school);
-      formData.append('qualification', data?.qualification);
-      formData.append(
-        'qualification_start',
-        moment(data?.qualification_start).format('YYYY-MM-DD')
-      );
-      formData.append(
-        'qualification_end',
-        moment(data?.qualification_end).format('YYYY-MM-DD')
-      );
+      // formData.append('qualification', data?.qualification);
+      // formData.append(
+      //   'qualification_start',
+      //   moment(data?.qualification_start).format('YYYY-MM-DD')
+      // );
+      // formData.append(
+      //   'qualification_end',
+      //   moment(data?.qualification_end).format('YYYY-MM-DD')
+      // );
       formData.append('qualification_info', transcript[0]);
-      formData.append('qualification_diploma', upload[0]);
+      formData.append('language_certificate', upload[0]);
       formData.append('register_step', 5);
 
       if (transcript?.length > 0) {
@@ -114,7 +114,7 @@ export default function Education() {
         <EducationForm onSubmit={handleSubmit(onSubmit)}>
           <Title className="form-title">{t('education-school-title')}</Title>
           <div className="row align-items-end mt-2">
-            <div className="col-lg-4 col-md-6 col-sm-6 col-12">
+            <div className="col-md-6 col-sm-6 col-12">
               <InputComponent
                 Controller={Controller}
                 control={control}
@@ -140,7 +140,7 @@ export default function Education() {
                 <Error> {t('error-field')}</Error>
               )}
             </div>
-            <div className="col-lg-4 col-md-6 col-sm-6 col-12">
+            {/* <div className="col-lg-4 col-md-6 col-sm-6 col-12">
               <InputComponent
                 Controller={Controller}
                 control={control}
@@ -157,7 +157,7 @@ export default function Education() {
               {errors && errors?.hasOwnProperty('qualification') && (
                 <Error> {t('error-field')}</Error>
               )}
-            </div>
+            </div> */}
           </div>
           {/* <div className="row align-items-end mt-3">
             <div className="col-lg-4 col-md-6 col-sm-6 col-12">

@@ -38,6 +38,7 @@ export default function PassportInformation() {
   const [isFetch, setIsFetch] = useState(true);
   const [attachPassword, setAttachPassword] = useState(true);
 
+  const [fileno, setFileno] = useState(false);
   useEffect(() => {
     if (steps) {
       setIsFetch(true);
@@ -67,16 +68,18 @@ export default function PassportInformation() {
       let formData = new FormData();
       formData.append('register_step', 3);
       formData.append('passport', transcript[0]);
-      formData.append('passport_number', data?.name);
+      // formData.append('passport_number', data?.name);
       formData.append(
         'passport_expiry',
         moment(data?.enteredYear).format(dateFormat)
       );
       if (transcript?.length > 0) {
+        setFileno(false);
         await admissionApi.admissionPostForign(formData);
         toast.success('Паспортные данные успешно созданы');
         history.push('/university-admissions/address-info');
       } else {
+        setFileno(true);
         toast.error('Выберите файл');
       }
       setIsLoading(false);
@@ -98,7 +101,7 @@ export default function PassportInformation() {
       <Title>{t('passport-info')}</Title>
       {!isFetch ? (
         <>
-          <Row className="row align-items-start">
+          {/* <Row className="row align-items-start">
             <Col
               className="col-lg-4 col-md-6 col-sm-6 col-12"
               style={{ marginTop: '5px' }}
@@ -140,9 +143,9 @@ export default function PassportInformation() {
                 </Error>
               )}
             </Col>
-          </Row>
+          </Row> */}
           <Row className="row">
-            <Col className="col-lg-8 col-md-6 col-sm-6 col-12 mt-3">
+            <Col className="col-md-6 col-12   ">
               <p style={{ padding: '0' }}>{t('passport-info-p1')}</p>
 
               {Attachments(
@@ -167,14 +170,22 @@ export default function PassportInformation() {
                   />
                 </div>
               ) : (
-                <DragDrop
-                  name="transcript"
-                  inputId="transcript"
-                  files={transcript}
-                  setFile={setTranscript}
-                  required
-                  className="p-0"
-                />
+                <>
+                  <DragDrop
+                    name="transcript"
+                    inputId="transcript"
+                    files={transcript}
+                    setFile={setTranscript}
+                    required
+                    className="p-0"
+                  />
+
+                  {fileno && !transcript?.length > 0 && (
+                    <Error className="select-error-tooltip">
+                      {t('error-field')}
+                    </Error>
+                  )}
+                </>
               )}
             </Col>
           </Row>

@@ -21,24 +21,17 @@ export default function LanguageComponent() {
   return (
     <DropdownElement>
       <Lang>
-        {t('language') == 'uz' ? (
-          <img src={UZ} alt="uz" />
-        ) : t('language') == 'ru' ? (
-          <img src={RU} alt="ru" />
-        ) : (
-          <img src={EN} alt="en" />
-        )}
+        {t('language') == 'eng'
+          ? 'English'
+          : t('language') == 'ru'
+          ? 'Русский'
+          : "O'zbekcha"}{' '}
+        <CaretDownOutlined />
       </Lang>
       <ul>
-        <li onClick={() => onchange('uz')}>
-          <img src={UZ} alt="uz" /> UZ
-        </li>
-        <li onClick={() => onchange('ru')}>
-          <img src={RU} alt="ru" /> RU
-        </li>
-        <li onClick={() => onchange('en')}>
-          <img src={EN} alt="en" /> ENG
-        </li>
+        <li onClick={() => onchange('uz')}>O'zbekcha</li>
+        <li onClick={() => onchange('ru')}>Русский</li>
+        <li onClick={() => onchange('en')}>English</li>
       </ul>
     </DropdownElement>
   );

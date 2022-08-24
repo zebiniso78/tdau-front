@@ -40,6 +40,7 @@ export default function PersonalInfo() {
   const [defaultValues, setDefaultValues] = useState(undefined);
   const [userPicture, setUserPicture] = useState([]);
   const [attachImage, setAttachImage] = useState(true);
+  const [errorField, setErrorField] = useState(false);
   const { getNationality, getCountries, getGenders } = useGetList({
     setNationalities,
     setCountries,
@@ -146,11 +147,14 @@ export default function PersonalInfo() {
         moment(data?.birthDate).format(dateFormat)?.length < 11 &&
         userPicture.length > 0
       ) {
+        setErrorField(false);
+
         await admissionApi.admissionPostForign(formData);
         toast.success('Личная информация успешно создана');
         history.push('/university-admissions/academic-info');
       } else {
         toast.error('Required fields are empty');
+        setErrorField(true);
       }
       setIsLoading(false);
     } catch (e) {
@@ -253,7 +257,7 @@ export default function PersonalInfo() {
               <Error className="select-error-tooltip">{t('error-field')}</Error>
             )}
           </div>
-          <div className="col-lg-4 col-md-6 col-sm-6 col-12">
+          {/* <div className="col-lg-4 col-md-6 col-sm-6 col-12">
             <UserFormSelectComponent
               Controller={Controller}
               control={control}
@@ -309,7 +313,7 @@ export default function PersonalInfo() {
             {errors && errors?.hasOwnProperty('countryPermanent') && (
               <Error className="select-error-tooltip">{t('error-field')}</Error>
             )}
-          </div>
+          </div> */}
 
           <div className="col-xl-8 col-md-6  ">
             <p style={{ margin: '10px 0 0 0', fontSize: '14px' }}>
@@ -332,15 +336,22 @@ export default function PersonalInfo() {
                 />
               </div>
             ) : (
-              <DragDrop
-                name="transcript"
-                inputId="transcript"
-                files={userPicture}
-                setFile={setUserPicture}
-                required
-                accept="image/*"
-                className="p-0"
-              />
+              <>
+                <DragDrop
+                  name="transcript"
+                  inputId="transcript"
+                  files={userPicture}
+                  setFile={setUserPicture}
+                  required
+                  accept="image/*"
+                  className="p-0"
+                />
+                {errorField && !userPicture?.length > 0 && (
+                  <Error className="select-error-tooltip">
+                    {t('error-field')}
+                  </Error>
+                )}
+              </>
             )}
           </div>
         </div>

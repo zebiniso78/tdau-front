@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import DatePicker from 'react-datepicker';
 // import { DatePicker } from 'antd';
-const { RangePicker } = DatePicker;
+// const { RangePicker } = DatePicker;
 
 export const CustomCalendar = styled(DatePicker)`
   width: 100%;

@@ -170,7 +170,7 @@ export default function AddressInformation() {
                 Controller={Controller}
                 control={control}
                 nameProps="address1"
-                plProps={t('address-info-address1') + ' 1'}
+                plProps={t('address-info-address1')}
                 label={t('address-info-address1') + ' *'}
                 className={
                   errors && errors?.hasOwnProperty('address1') && 'input-error'
@@ -275,8 +275,8 @@ export default function AddressInformation() {
                   control={control}
                   nameProps="post_address1"
                   required={isChecked ? true : false}
-                  plProps={t('address-info-address1')}
-                  label={t('address-info-address1') + ' 1 ' + ' *'}
+                  plProps={t('address-info-address2')}
+                  label={t('address-info-address2') + ' 1 ' + ' *'}
                   className={
                     errors &&
                     errors?.hasOwnProperty('post_address1') &&
@@ -292,8 +292,8 @@ export default function AddressInformation() {
                   Controller={Controller}
                   control={control}
                   nameProps="post_address2"
-                  plProps={t('address-info-address1') + ' 2 ' + ' *'}
-                  label={t('address-info-address1') + ' 2 ' + ' *'}
+                  plProps={t('address-info-address2') + ' 2 ' + ' *'}
+                  label={t('address-info-address2') + ' 2 ' + ' *'}
                   required={isChecked ? true : false}
                   className={
                     errors &&

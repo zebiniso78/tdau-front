@@ -1,16 +1,28 @@
 import React, { useState } from 'react';
-import { MainFooterImage } from './style';
-
+import {
+  MainWrapper,
+  MainLeft,
+  MainRight,
+  MainInfo,
+  MainInfoTitle,
+  MainInfoDescription,
+  MainBtnWrap,
+  MainBtn,
+  MainFooter,
+  MainFooterLeft,
+  MainFooterRight,
+  TopTour,
+  MainFooterImage,
+} from './style';
+import RightImage from 'assets/main/right.png';
+import FooterImage from 'assets/main/footer_image.png';
 import { MainLayoutProvider } from 'styles/globalStyle';
 import { Login } from 'components/MainPage/Navbar/login';
 import { Registration } from 'components/MainPage/Navbar/registration';
 import { Verify } from 'components/MainPage/Navbar/verify';
 import { useHistory } from 'react-router-dom';
-import Ellipse from 'assets/rectangles/ellipse_top.png';
 import { useTranslation } from 'react-i18next';
 import { Modal } from 'antd';
-import HomeCarousel from 'components/homeCarousel';
-
 export function MainSection() {
   const { t } = useTranslation();
   const history = useHistory();
@@ -43,8 +55,7 @@ export function MainSection() {
   return (
     <>
       <MainLayoutProvider>
-        <HomeCarousel />
-        {/* <MainWrapper>
+        <MainWrapper>
           <MainLeft data-aos="fade-right">
             <MainInfo>
               <TopTour>
@@ -57,23 +68,23 @@ export function MainSection() {
               </MainInfoDescription>
             </MainInfo>
             <MainBtnWrap>
-              <MainBtn type="button" onClick={showModal}>
-                {t('apply')}
-              </MainBtn>
+              {/* <MainBtn type="button" onClick={showModal}>
+              {t('apply')}
+            </MainBtn> */}
             </MainBtnWrap>
           </MainLeft>
           <MainRight data-aos="fade-left">
             <img src={RightImage} alt="right-image" />
           </MainRight>
-          <MainFooter>
+          {/* <MainFooter>
             <MainFooterLeft>
               <img src={FooterImage} alt="mainFooter" />
             </MainFooterLeft>
             <MainFooterRight>
               <p style={{ marginBottom: 0 }}>{t('home-desc')}</p>
             </MainFooterRight>
-          </MainFooter>
-        </MainWrapper> */}
+          </MainFooter> */}
+        </MainWrapper>
         <Login
           setModal={setModal}
           isModalVisible={isModalVisible}

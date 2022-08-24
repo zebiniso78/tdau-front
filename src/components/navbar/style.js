@@ -8,7 +8,6 @@ export const Nav = styled.nav`
   width: 100%;
   margin: 0 auto;
   background-color: rgba(255, 255, 255, 0.1);
-
   font-family: 'DM Sans', sans-serif;
   height: 96px;
   display: flex;
@@ -88,7 +87,7 @@ export const NavLink = styled(Link)`
     font-family: 'Inter', sans-serif;
     font-weight: 700;
     color: #142f38;
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
     &:focus {
       outline: none;
@@ -367,7 +366,7 @@ export const NavDropMenu = styled.ul`
   box-shadow: 0px 10px 25px #dfd9ce;
   li {
     font-weight: 700;
-    font-size: 16px;
+    font-size: 14px;
     margin-top: 8px;
     width: 100%;
   }
@@ -430,9 +429,9 @@ export const NavDropMenuWrapper = styled.div`
     background-color: transparent;
     border: none;
     font-family: 'Inter', sans-serif;
-    font-weight: 700;
+    font-weight: bold;
     color: #142f38;
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
     &:focus {
       outline: none;

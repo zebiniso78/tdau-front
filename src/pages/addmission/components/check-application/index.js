@@ -33,7 +33,7 @@ export default function CheckApplication() {
       {!loader ? (
         <>
           <Row gutter={[16, 16]} align="top">
-            <Items title={t('nationality')} info={allAdmission?.nationality} />
+            {/* <Items title={t('nationality')} info={allAdmission?.nationality} /> */}
             <Items
               title={t('full-name')}
               info={
@@ -45,16 +45,17 @@ export default function CheckApplication() {
               }
             />
             <Items title={t('school')} info={allAdmission?.school} />
+
             {allAdmission?.GPA && (
               <Items title="GPA" info={allAdmission?.GPA} />
             )}
 
-            <Items
+            {/* <Items
               title={t('accept-deadline')}
               info={allAdmission?.accept_deadline}
-            />
+            /> */}
             <Items
-              title={t('address-info-address1') + ' 1'}
+              title={t('address-info-address1')}
               info={allAdmission?.adress1}
             />
             {/* <Items
@@ -69,10 +70,10 @@ export default function CheckApplication() {
               title={t('academic-napravleniya')}
               info={allAdmission?.faculty_name}
             />
-            <Items
+            {/* <Items
               title={t('cauntry-birth')}
               info={allAdmission?.country_birth}
-            />
+            /> */}
 
             {/* <Items title={t('cauntry')} info={allAdmission?.current_country} /> */}
             <Items title={t('district')} info={allAdmission?.district} />
@@ -80,14 +81,14 @@ export default function CheckApplication() {
               <Items title="Dtm" info={allAdmission?.dtm} />
             )}
             <Items title={t('email')} info={allAdmission?.email} />
-            <Items
+            {/* <Items
               title={t('passport-expiry')}
               info={allAdmission?.passport_expiry}
             />
             <Items
               title={t('passport-number')}
               info={allAdmission?.passport_number}
-            />
+            /> */}
             {allAdmission?.phone_a && allAdmission?.phone_a != 'null' && (
               <Items title={t('phone')} info={allAdmission?.phone_a} />
             )}
@@ -134,10 +135,10 @@ export default function CheckApplication() {
                   info={allAdmission?.post_region}
                 />
               )}
-            <Items
+            {/* <Items
               title={t('qualification')}
               info={allAdmission?.qualification}
-            />
+            /> */}
 
             {allAdmission?.qualification2 &&
               allAdmission?.qualification2 != 'null' && (

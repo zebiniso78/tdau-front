@@ -111,7 +111,8 @@
   "address-info-title": "Manzil ma’lumotlari",
   "address-info-text": "Iltimos, quyida bogʻlanish uchun maʼlumotlaringizni kiriting. Agar qabul jarayonida quyida kiritgan maʼlumotlaringiz oʻzgarsa, arizangizni yangilash uchun qabul komissiyasiga murojaat qilishingiz kerak.",
   "address-info-title-form": "Yashash manzili",
-  "address-info-address1": "Manzil",
+  "address-info-address1": "Manzil (ko'cha va uy raqami)",
+  "address-info-address2": "Manzil",
   "region": "Shahar",
   "district": "Hudud",
   "address-info-p1": "Doimiy yashash manzilingizni kiriting. Agar sizda boshqa vaqtinchalik manzilingiz boʻlsa (masalan, talabalar turar joyi), uni quyidagi mos boʻlimga kiriting.",
@@ -195,5 +196,6 @@
   "scientist advice": "Ilmiy kengashlar",
   "scientific work of students": "Talabalarning ilmiy ishlari",
   "innovative projects": "Innovatsion loyihalar",
-  "catalog of scientific developments": "Ilmiy ishlanmalar katalogi"
+  "catalog of scientific developments": "Ilmiy ishlanmalar katalogi",
+  "ielts": "Chet tili sertifikati nusxasi (mavjud bo'lsa yuklang)"
 }
