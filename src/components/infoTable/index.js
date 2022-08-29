@@ -116,7 +116,7 @@ export default function TableInfo() {
           columns={columns}
           scroll={{ x: 400 }}
         />
-        <h4>{t('master')}</h4>
+        <h4>{t('masters')}</h4>
         <Table
           dataSource={dataSourceMaster}
           scroll={{ x: 400 }}
