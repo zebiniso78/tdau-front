@@ -199,5 +199,10 @@
   "catalog of scientific developments": "Ilmiy ishlanmalar katalogi",
   "ielts": "Chet tili sertifikati nusxasi (mavjud bo'lsa yuklang)",
   "titledd": "2022/2023-o'quv yilida Toshkent davlat agrar universitetida xorijiy hamkor oliy ta'lim muassasalari bilan hamkorlikda tashkil etilgan Qo'shma ta'lim dasturlari bo'yicha qabul parametrlari.",
-  "zabili parol": "Parolingizni unutdingizmi?"
+  "zabili parol": "Parolingizni unutdingizmi?",
+
+  "successfully changed": "Parolingiz muvaffaqqiyatli o'zgartirildi!",
+  "required field change": "Maydonlar to'g'ri to'ldirilmagan!",
+  "change pass": "Parolni o'zgartirish",
+  "next": "Davom etish"
 }

@@ -1,11 +1,12 @@
 import { Container } from 'common/grid';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
+import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { authApi } from 'services/api/pagesApi';
 import MainContent from './components/main';
 import Stepper from './components/stepper';
-import { WrapperChangePAss } from './style';
+import { Paper, WrapperChangePAss } from './style';
 
 export default function ForgotPassworPage() {
   const [myState, setMyState] = useState({
@@ -17,7 +18,7 @@ export default function ForgotPassworPage() {
   });
 
   const history = useHistory();
-
+  const { t } = useTranslation();
   async function HandleOk(info, type) {
     try {
       const formData = new FormData();
@@ -29,7 +30,7 @@ export default function ForgotPassworPage() {
             setMyState({ ...myState, step: 1 });
           } else {
             setMyState({ ...myState, step: 0 });
-            toast.error('required filds');
+            toast.error(t('required field change'));
           }
           break;
         case 'code':
@@ -41,7 +42,7 @@ export default function ForgotPassworPage() {
             localStorage.setItem('token', res?.token);
           } else {
             setMyState({ ...myState, step: 1 });
-            toast.error('required filds');
+            toast.error(t('required field change'));
           }
           break;
         case 'password':
@@ -49,11 +50,11 @@ export default function ForgotPassworPage() {
             formData.append('password', info);
             await authApi?.editPassword(formData);
             setMyState({ ...myState, step: 3 });
-            toast.success('Success');
+            toast.success(t('successfully changed'));
             history.push('/');
           } else {
             setMyState({ ...myState, step: 2 });
-            toast.error('required filds or min: 6');
+            toast.error(t('required field change') + ' min: 6');
           }
           break;
 
@@ -71,16 +72,18 @@ export default function ForgotPassworPage() {
   return (
     <WrapperChangePAss>
       <Container>
-        <br />
-        <Stepper myState={myState} />
-        <br />
-        <br />
+        <Paper>
+          <br />
+          <Stepper myState={myState} />
+          <br />
+          <br />
 
-        <MainContent
-          myState={myState}
-          handleOk={HandleOk}
-          setMyState={setMyState}
-        />
+          <MainContent
+            myState={myState}
+            handleOk={HandleOk}
+            setMyState={setMyState}
+          />
+        </Paper>
       </Container>
     </WrapperChangePAss>
   );

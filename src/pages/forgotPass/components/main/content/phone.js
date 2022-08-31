@@ -1,8 +1,11 @@
 import { Button, Col, Row } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import MaskedInput from 'react-maskedinput';
 
 export default function PhoneComponent({ myState, setMyState, handleOk }) {
+  const { t } = useTranslation();
+
   return (
     <Row
       align="middle"
@@ -25,7 +28,7 @@ export default function PhoneComponent({ myState, setMyState, handleOk }) {
           onClick={() => handleOk(myState?.phone, 'phone')}
           type="primary"
         >
-          Next
+          {t('next')}
         </Button>
       </Col>
     </Row>

@@ -26,7 +26,7 @@ export default function VerifyComponent({ myState, setMyState, handleOk }) {
       </Col>
       <Col style={{ textAlign: 'right' }} span={24} lg={14}>
         <Button onClick={() => handleOk(myState?.code, 'code')} type="primary">
-          Next
+          {t('next')}
         </Button>
       </Col>
     </Row>

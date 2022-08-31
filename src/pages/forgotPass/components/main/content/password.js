@@ -27,7 +27,7 @@ export default function PasswordComponent({ myState, setMyState, handleOk }) {
           onClick={() => handleOk(myState?.password, 'password')}
           type="primary"
         >
-          Change Password
+          {t('change pass')}
         </Button>
       </Col>
     </Row>

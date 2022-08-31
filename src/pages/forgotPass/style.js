@@ -19,3 +19,14 @@ export const WrapperChangePAss = styled.div`
     font-size: 14px;
   }
 `;
+
+export const Paper = styled.div`
+  width: 100%;
+  padding: 0 40px 20px;
+  background-color: #fff;
+  border-radius: 8px;
+
+  @media (max-width: 991px) {
+    padding: 0 20px 20px;
+  }
+`;

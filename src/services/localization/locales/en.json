@@ -193,5 +193,9 @@
   "press service contact": "Press service contact",
   "ielts": "Copy of foreign language certificate (upload if available)",
   "titledd": "Admission parameters for joint educational programs organized in cooperation with foreign partner higher education institutions at Tashkent State Agrarian University in the 2022/2023 academic year.",
-  "zabili parol": "Forgot your password?"
+  "zabili parol": "Forgot your password?",
+  "successfully changed": "Your password has been successfully changed!",
+  "required field change": "The fields are filled incorrectly!",
+  "change pass": "Change password",
+  "next": "Continue"
 }
