@@ -5,7 +5,7 @@ import Button from '../../../button';
 import { useForm, Controller } from 'react-hook-form';
 import { authApi } from 'services/api/pagesApi';
 import { InputComponent } from 'components/input/controllerInput';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Modal } from 'antd';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
@@ -89,7 +89,18 @@ export function Login({
             className="registration-input"
             type="password"
           />
+
           <div className="footer-button__wrapper">
+            <Link
+              style={{
+                textDecoration: 'none',
+                margin: '8px 0',
+                display: 'block',
+              }}
+              to={'/forgot-password'}
+            >
+              {t('zabili parol')}
+            </Link>
             <Button type="submit" title={t('login')} disabled={isLoading} />
             <Button
               type="button"

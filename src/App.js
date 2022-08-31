@@ -24,6 +24,7 @@ import NavigationScroll from 'components/NavigationScroll';
 import { fetchData } from 'hooks/useFetch';
 import { partnersApi } from 'services/api/pagesApi';
 import Header from 'components/header';
+import ForgotPassworPage from 'pages/forgotPass';
 
 function App() {
   const { i18n } = useTranslation();
@@ -68,6 +69,7 @@ function App() {
           <Route path="/phd" component={Levels} />
           <Route path="/about-university" component={ProgramsPage} />
           <Route path="/vision" component={VisionPage} />
+          <Route path="/forgot-password" component={ForgotPassworPage} />
           <Layout />
         </Switch>
       </NavigationScroll>
