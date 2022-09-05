@@ -107,12 +107,23 @@ export default function AcademicInformation() {
       let formData = new FormData();
       formData.append('type', watch('tip_programma')?.label);
       let res = await admissionApi.facultyList(formData);
-      SelectItem(res, setFacultyForeign);
-      console.log(res, 'res');
+      // SelectItem(res, setFacultyForeign);
+      // console.log(res, 'res');
+
+      setFacultyForeign([]);
+      let sortArr = res?.map((e) => {
+        return {
+          value: e.id,
+          label: e.name,
+          univerId: e?.university_id,
+        };
+      });
+      setFacultyForeign(sortArr);
     } catch (e) {
       console.log(e);
     }
   }
+
   useEffect(() => {
     if (watch('tip_programma')?.label !== undefined) {
       getFaculty();
@@ -211,7 +222,9 @@ export default function AcademicInformation() {
               name="napravleniya"
               placeholder="Выберите"
               // options={educationFormList}
-              options={facultyForeign}
+              options={facultyForeign?.filter(
+                (x) => x?.univerId == localStorage.getItem('university_id')
+              )}
               disabled={false}
               className={
                 errors &&
