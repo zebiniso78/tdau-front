@@ -81,13 +81,13 @@ export function CustomCarouselComponent({ first, title, text, id }) {
             </LeftContent>
             <RightContent className="tdau-item-two">
               <div className="item">
-                <a href="https://www.facebook.com/asadbek.azamov.399">
+                <a href="http://tdau.agro.uz/">
                   <Facebook />
                 </a>
-                <a href="https://www.instagram.com/azamov_9909/">
+                <a href="http://tdau.agro.uz/">
                   <Instagram />
                 </a>
-                <a href="https://t.me/AsadbekAzamov01">
+                <a href="http://tdau.agro.uz/">
                   <Telegram />
                 </a>
                 <div className="line"></div>
