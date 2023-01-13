@@ -1,8 +1,8 @@
-import Api from '../index';
+import Api from "../index";
 
 class News extends Api {
   readNews() {
-    return this.execute('get', '/main');
+    return this.execute("get", "/main");
   }
 }
 

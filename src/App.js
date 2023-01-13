@@ -1,34 +1,34 @@
-import React, { useEffect, useState } from 'react';
-import Profile from './pages/Profile/Profile';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Submissions from './pages/Submissions/container';
+import React, { useEffect, useState } from "react";
+import Profile from "./pages/Profile/Profile";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Submissions from "./pages/Submissions/container";
 // import Navbar from './components/MainPage/Navbar/Navbar';
-import { Layout } from './pages/Submissions/components/layout';
-import { Toaster } from 'react-hot-toast';
-import { Navigator } from './components/navbar/index';
-import Home from 'pages/Home/container';
-import Footer from 'pages/Home/components/footer';
-import Aos from 'aos';
-import 'aos/dist/aos.css';
-import About from 'pages/About/container';
-import Admissions from 'pages/addmission/container';
-import RectorsMessage from 'pages/test-pages/rector-massage/container';
-import UniversityStructure from 'pages/university-structure/container';
-import Levels from 'pages/Levels/container';
-import ProgramsPage from 'pages/programs';
-import DirectorPage from 'pages/director/container';
-import LevelPage from 'pages/level';
-import VisionPage from 'pages/visionMision';
-import { useTranslation } from 'react-i18next';
-import NavigationScroll from 'components/NavigationScroll';
-import { fetchData } from 'hooks/useFetch';
-import { partnersApi } from 'services/api/pagesApi';
-import Header from 'components/header';
-import ForgotPassworPage from 'pages/forgotPass';
+import { Layout } from "./pages/Submissions/components/layout";
+import { Toaster } from "react-hot-toast";
+import { Navigator } from "./components/navbar/index";
+import Home from "pages/Home/container";
+import Footer from "pages/Home/components/footer";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import About from "pages/About/container";
+import Admissions from "pages/addmission/container";
+import RectorsMessage from "pages/test-pages/rector-massage/container";
+import UniversityStructure from "pages/university-structure/container";
+import Levels from "pages/Levels/container";
+import ProgramsPage from "pages/programs";
+import DirectorPage from "pages/director/container";
+import LevelPage from "pages/level";
+import VisionPage from "pages/visionMision";
+import { useTranslation } from "react-i18next";
+import NavigationScroll from "components/NavigationScroll";
+import { fetchData } from "hooks/useFetch";
+import { partnersApi } from "services/api/pagesApi";
+import Header from "components/header";
+import ForgotPassworPage from "pages/forgotPass";
 
 function App() {
   const { i18n } = useTranslation();
-  const language = localStorage.getItem('language');
+  const language = localStorage.getItem("language");
   const [loader, setLoader] = useState(true);
   const [data, setData] = useState(undefined);
 
@@ -41,7 +41,7 @@ function App() {
     if (language !== null || language !== undefined) {
       i18n.changeLanguage(language);
     } else {
-      localStorage.setItem('language', 'uz');
+      localStorage.setItem("language", "uz");
     }
   }, [language, i18n]);
 
@@ -51,7 +51,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navigator data={data?.all} />
+      <Navigator data={data} />
       {/* <Header data={data?.all} /> */}
       <NavigationScroll>
         <Switch>

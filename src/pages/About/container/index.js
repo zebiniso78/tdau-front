@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { AboutMain, Article, Discover, ImageComponent } from '../components';
-import { AboutContainer } from './style';
-import { Video } from '../components/video';
-import { fetchData } from 'hooks/useFetch';
-import { partnersApi } from 'services/api/pagesApi';
-import toast from 'react-hot-toast';
-import { useParams } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import React, { useEffect, useState } from "react";
+import { AboutMain, Article, Discover, ImageComponent } from "../components";
+import { AboutContainer } from "./style";
+import { Video } from "../components/video";
+import { fetchData } from "hooks/useFetch";
+import { partnersApi } from "services/api/pagesApi";
+import toast from "react-hot-toast";
+import { useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function About() {
   const { t } = useTranslation();
@@ -19,24 +19,24 @@ export default function About() {
     setLoader(true);
     try {
       const res = await partnersApi.readPartners(null);
-      const el = res?.all?.find((item) => item?.id == id);
+      const el = res?.find((item) => item?.id == id);
       setSiteBlog(el);
       setLoader(false);
     } catch (error) {
       console.log(error);
-      toast.error(error?.msg || 'There was an error loading data!');
+      toast.error(error?.msg || "There was an error loading data!");
       setLoader(false);
     }
   }
   useEffect(() => {
     getData();
     // Hozircha tursin
-    localStorage.removeItem('token');
+    localStorage.removeItem("token");
     // Hozircha tursin
   }, [id]);
 
   return (
-    <div style={{ msOverflowX: 'hidden' }}>
+    <div style={{ msOverflowX: "hidden" }}>
       <AboutMain data={siteBlog} univerId={id} />
       <AboutContainer data-aos="fade-up" type="video">
         <Discover type="magnusUniversity" firstInfo={siteBlog?.description} />
@@ -44,7 +44,7 @@ export default function About() {
       <Video url={siteBlog?.videos} />
       <AboutContainer data-aos="fade-up" className="my-5">
         <ImageComponent
-          title={`${t('why-univer')}?`}
+          title={`${t("why-univer")}?`}
           image={
             `${process.env.REACT_APP_API_SECOND_ROOT}/` + siteBlog?.picture_desc
           }

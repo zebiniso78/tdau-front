@@ -1,12 +1,12 @@
-import { Col, Row } from 'antd';
-import React, { useEffect, useState } from 'react';
-import { LatestNewsProvider, NewsTitle, ImageLayout, Wrap } from './style';
-import { fetchData } from 'hooks/useFetch';
-import { newsApi } from 'services/api/pagesApi';
-import moment from 'moment';
-import 'moment/locale/he';
-import { FirebaseLoader } from 'components/firebaseLoader';
-import { useTranslation } from 'react-i18next';
+import { Col, Row } from "antd";
+import React, { useEffect, useState } from "react";
+import { LatestNewsProvider, NewsTitle, ImageLayout, Wrap } from "./style";
+import { fetchData } from "hooks/useFetch";
+import { newsApi } from "services/api/pagesApi";
+import moment from "moment";
+import "moment/locale/he";
+import { FirebaseLoader } from "components/firebaseLoader";
+import { useTranslation } from "react-i18next";
 
 export function News() {
   const { t } = useTranslation();
@@ -17,8 +17,8 @@ export function News() {
   }, []);
   return (
     <LatestNewsProvider>
-      <NewsTitle>{t('news')}</NewsTitle>
-      <Row gutter={[16, 16]} style={{ marginBottom: '65px' }}>
+      <NewsTitle>{t("news")}</NewsTitle>
+      <Row gutter={[16, 16]} style={{ marginBottom: "65px" }}>
         {news ? (
           news[0]?.slice(news[0]?.length - 5).map((item, index) => (
             <Col
@@ -31,7 +31,7 @@ export function News() {
             >
               <ImageLayout
                 className={
-                  (index === 2 || index === 3 || index === 4) && 'image-layout'
+                  (index === 2 || index === 3 || index === 4) && "image-layout"
                 }
               >
                 <Wrap></Wrap>
@@ -42,12 +42,12 @@ export function News() {
                 {index === 2 || index === 3 ? (
                   <>
                     <h3>{item?.title_news}</h3>
-                    <h5>{moment(item?.date_posted)?.format('DD.MM.YYYY')}</h5>
+                    <h5>{moment(item?.date_posted)?.format("DD.MM.YYYY")}</h5>
                   </>
                 ) : (
                   <>
                     <h1>{item?.title_news}</h1>
-                    <h4>{moment(item?.date_posted)?.format('DD.MM.YYYY')}</h4>
+                    <h4>{moment(item?.date_posted)?.format("DD.MM.YYYY")}</h4>
                   </>
                 )}
               </ImageLayout>

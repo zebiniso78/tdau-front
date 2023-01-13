@@ -1,13 +1,13 @@
-import React from 'react';
-import { Container } from 'styles/globalStyle';
+import React from "react";
+import { Container } from "styles/globalStyle";
 import {
   EventCalendar,
   Indicator,
   News,
   Partners,
   Subscribe,
-} from '../components';
-import { MainSection } from '../components/main';
+} from "../components";
+import { MainSection } from "../components/main";
 
 export default function Home() {
   return (
@@ -15,9 +15,9 @@ export default function Home() {
       <MainSection />
       <Container>
         <Partners />
-        <News />
+        {/* <News />
         <Indicator />
-        <EventCalendar />
+        <EventCalendar /> */}
         <Subscribe />
       </Container>
     </>

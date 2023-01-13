@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import {
   Nav,
   NavLink,
@@ -9,14 +9,14 @@ import {
   NavDropMenu,
   WrapperMedia,
   LanguageProvider,
-} from './style';
-import { Twirl as Hamburger } from 'hamburger-react';
-import logoTip from '../../assets/logo/logo.svg';
-import { useHistory, useLocation } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import { Col, Row, Typography } from 'antd';
-import LanguageComponent from 'components/languageDropdown';
-import { useTranslation } from 'react-i18next';
+} from "./style";
+import { Twirl as Hamburger } from "hamburger-react";
+import logoTip from "../../assets/logo/logo.svg";
+import { useHistory, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { Col, Row, Typography } from "antd";
+import LanguageComponent from "components/languageDropdown";
+import { useTranslation } from "react-i18next";
 const { Paragraph } = Typography;
 export function Navigator({ data }) {
   const { t } = useTranslation();
@@ -28,7 +28,7 @@ export function Navigator({ data }) {
   const [clickDB, setClickDB] = useState(false);
 
   const location = useLocation();
-  let blogID = JSON.parse(localStorage.getItem('blog'));
+  let blogID = JSON.parse(localStorage.getItem("blog"));
   const showButton = () => {
     if (window.innerWidth <= 960) {
       setButton(false);
@@ -41,7 +41,7 @@ export function Navigator({ data }) {
     showButton();
   }, []);
 
-  window.addEventListener('resize', showButton);
+  window.addEventListener("resize", showButton);
 
   const handleClick = () => {
     // if (id) {
@@ -84,7 +84,7 @@ export function Navigator({ data }) {
                   </Link>
                 </Col>
                 <Col>
-                  <div style={{ paddingRight: '32px' }}>
+                  <div style={{ paddingRight: "32px" }}>
                     {/* <MenuUnfoldOutlined onClick={() => setClick(false)} />
                      */}
                     <Hamburger
@@ -104,57 +104,57 @@ export function Navigator({ data }) {
                 onClick={() => setOpenDropdown(!openDropdown)}
                 className="nav-btn"
               >
-                {t('university')}
+                {t("university")}
               </button>
               <NavDropMenu dropdowntype={openDropdown}>
                 <li onClick={handleClick}>
                   <Link
                     to="/about-university"
-                    style={{ textDecoration: 'none', color: '#142F38' }}
+                    style={{ textDecoration: "none", color: "#142F38" }}
                   >
-                    {t('about-university')}
+                    {t("about-university")}
                   </Link>
                 </li>
                 <li onClick={handleClick}>
                   <Link
                     to="/rectors-message"
-                    style={{ textDecoration: 'none', color: '#142F38' }}
+                    style={{ textDecoration: "none", color: "#142F38" }}
                   >
-                    {t('rector-message')}
+                    {t("rector-message")}
                   </Link>
                 </li>
                 <li onClick={handleClick}>
                   <Link
                     to="/vision"
-                    style={{ textDecoration: 'none', color: '#142F38' }}
+                    style={{ textDecoration: "none", color: "#142F38" }}
                   >
-                    {t('vision-mision')}
+                    {t("vision-mision")}
                   </Link>
                 </li>
-                <li onClick={handleClick}>{t('qualty-policy')}</li>
-                <li onClick={handleClick}>{t('history-uiversity')}</li>
+                <li onClick={handleClick}>{t("qualty-policy")}</li>
+                <li onClick={handleClick}>{t("history-uiversity")}</li>
                 <li onClick={handleClick}>
                   <Link
                     to="/university-structure"
-                    style={{ textDecoration: 'none', color: '#142F38' }}
+                    style={{ textDecoration: "none", color: "#142F38" }}
                   >
-                    {t('structure-uiversity')}
+                    {t("structure-uiversity")}
                   </Link>
                 </li>
 
                 <li onClick={handleClick}>
                   <Link
                     to="/about-university"
-                    style={{ textDecoration: 'none', color: '#142F38' }}
+                    style={{ textDecoration: "none", color: "#142F38" }}
                   >
-                    {t('branches')}
-                  </Link>{' '}
+                    {t("branches")}
+                  </Link>{" "}
                 </li>
               </NavDropMenu>
             </NavDropMenuWrapper>
             <NavLink to="/university-structure" onClick={handleClick}>
               <button className="nav-btn">
-                {t('international-relationship')}
+                {t("international-relationship")}
               </button>
             </NavLink>
 
@@ -164,20 +164,20 @@ export function Navigator({ data }) {
                   onClick={() => setClickDB(!clickDB)}
                   className="nav-btn"
                 >
-                  {t('double-degree')}
+                  {t("double-degree")}
                 </button>
                 <NavDropMenu dropdowntype={clickDB}>
                   {data?.map((item, index) => (
                     <li key={index} onClick={handleClick}>
                       <Link
                         to={`/partner-universities/blog/${item?.id}`}
-                        style={{ textDecoration: 'none', color: '#142F38' }}
+                        style={{ textDecoration: "none", color: "#142F38" }}
                       >
                         <Paragraph
-                          style={{ maxWidth: '340px', marginBottom: 0 }}
+                          style={{ maxWidth: "340px", marginBottom: 0 }}
                           ellipsis={true}
                         >
-                          {item?.title}
+                          {item?.title_uz}
                         </Paragraph>
                       </Link>
                     </li>
@@ -187,10 +187,10 @@ export function Navigator({ data }) {
             )}
 
             <NavLink to="/university-structure" onClick={handleClick}>
-              <button className="nav-btn">{t('campus-life')}</button>
+              <button className="nav-btn">{t("campus-life")}</button>
             </NavLink>
             <NavLink to="/university-structure" onClick={handleClick}>
-              <button className="nav-btn">{t('quick-links')}</button>
+              <button className="nav-btn">{t("quick-links")}</button>
             </NavLink>
             <LanguageProvider>
               <LanguageComponent />
