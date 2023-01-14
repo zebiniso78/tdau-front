@@ -42,7 +42,7 @@ export function Registration({
     } catch (e) {
       console.log(e);
       setIsLoading(false);
-      toast.error(e?.msg);
+      toast.error(e?.msg || e?.error);
     }
   }
 
